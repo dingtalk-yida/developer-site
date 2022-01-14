@@ -1,0 +1,53 @@
+{
+  "name": "developer",
+  "version": "0.1.0",
+  "description": "宜搭开发者中心",
+  "dependencies": {
+    "@ali/deep": "^3.1.33",
+    "@ali/yc-ui-utils": "^0.0.1",
+    "@alife/theme-dingui-yida": "^0.12.4",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "@ali/build-plugin-ice-def": "^0.1.0",
+    "@iceworks/spec": "^1.4.2",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "build-plugin-fusion": "^0.1.18",
+    "build-plugin-moment-locales": "^0.1.0",
+    "eslint": "^7.32.0",
+    "husky": "^4.3.8",
+    "ice.js": "^1.0.0",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "stylelint": "^13.13.1"
+  },
+  "scripts": {
+    "start": "icejs start",
+    "build": "icejs build",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
+    "eslint:fix": "npm run eslint -- --fix",
+    "stylelint": "stylelint \"**/*.{css,scss,less}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alibaba-fusion/materials/tree/master/scaffolds/scaffold-lite"
+  },
+  "private": true,
+  "originTemplate": "./public/index.html",
+  "husky": {
+    "hooks": {
+      "commit-msg": "node .commitlint.js",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*{.ts,.js,.tsx,.jsx}": "eslint",
+    "*.css": "stylelint",
+    "*.scss": "stylelint --syntax=scss",
+    "*.less": "stylelint --syntax=less"
+  }
+}
