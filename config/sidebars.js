@@ -9,6 +9,22 @@ const getDocsFromDir = require('../scripts/getDocsFromDir');
 module.exports = {
   docs: [
     'guide/about',
+    'guide/start',
+    'guide/designer',
+    'guide/api',
+    'guide/openAPI',
+    {
+      type: 'category',
+      label: '核心概念',
+      collapsed: false,
+      items: getDocsFromDir('guide/concept')
+    },
+    {
+      type: 'category',
+      label: 'FAQ',
+      collapsed: false,
+      items: getDocsFromDir('guide/FAQ')
+    },
   ],
   tutorial: [
     'tutorial/todoList'

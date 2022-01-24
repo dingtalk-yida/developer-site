@@ -1,5 +1,5 @@
 module.exports = {
-  title: '宜搭开发者中心',
+  title: '首页',
   logo: {
     alt: '宜搭',
     src: 'https://img.alicdn.com/imgextra/i2/O1CN01H3ajqP1bxF9chDQmu_!!6000000003531-55-tps-131-32.svg',

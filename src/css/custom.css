@@ -15,6 +15,7 @@
   --ifm-color-primary-lightest: #4dacff;
   --ifm-code-font-size: 95%;
 
+  --ifm-container-width-xl: 2000px;
   --aa-search-input-height: 32px;
 }
 
@@ -31,8 +32,4 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .navbar__logo {
   margin-right: 2rem;
-}
-
-.dsla-search-wrapper {
-  width: 240px;
 }

@@ -12,7 +12,7 @@ module.exports = function getDocsFromDir(dir) {
     return (matter(fs.readFileSync(filepath, 'utf-8')).data || {}).order || 100;
   }
 
-  const docs = glob.sync('*.md', {
+  const docs = glob.sync('*.md?(x)', {
     cwd: docsDir,
     // ignore: 'README.md',
   });
@@ -29,7 +29,7 @@ module.exports = function getDocsFromDir(dir) {
     })
     .map((filepath) => {
       // /Users/xxx/site/docs/guide/basic/router.md => guide/basic/router
-      const id = path.relative(baseDir, filepath).replace(/\.md/, '');
+      const id = path.relative(baseDir, filepath).replace(/\.mdx?/, '');
       return id;
     });
 
