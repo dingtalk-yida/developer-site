@@ -1,5 +1,5 @@
 module.exports = {
-  title: '首页',
+  title: '开发者中心',
   logo: {
     alt: '宜搭',
     src: 'https://img.alicdn.com/imgextra/i2/O1CN01H3ajqP1bxF9chDQmu_!!6000000003531-55-tps-131-32.svg',
@@ -8,27 +8,27 @@ module.exports = {
   items: [
     {
       to: '/docs/guide/about',
-      position: 'left',
+      position: 'right',
       label: '指南',
     },
     {
       to: '/docs/tutorial/todoList',
-      position: 'left',
+      position: 'right',
       label: '教程',
     },
     {
       to: '/docs/components/layout/tab',
-      position: 'left',
+      position: 'right',
       label: '组件',
     },
     {
       to: '/docs/examples/form',
-      position: 'left',
+      position: 'right',
       label: '示例',
     },
     {
       type: 'search',
-      position: 'left',
+      position: 'right',
     },
   ],
 };

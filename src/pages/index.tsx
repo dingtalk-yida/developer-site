@@ -17,7 +17,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/guide/start">
-            5分钟 快速搭建一个宜搭自定义页面
+            快速开始
           </Link>
         </div>
       </div>

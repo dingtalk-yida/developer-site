@@ -10,6 +10,7 @@ module.exports = {
   docs: [
     'guide/about',
     'guide/start',
+    'guide/keywords',
     'guide/designer',
     'guide/api',
     'guide/openAPI',
