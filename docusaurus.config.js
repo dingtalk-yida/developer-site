@@ -5,6 +5,7 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const navbar = require('./config/navbar');
 const footer = require('./config/footer');
+const plugin = require('./config/plugin');
 
 
 /** @type {import('@docusaurus/types').Config} */
@@ -67,13 +68,16 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-  plugins: [
+  plugins: 
+  [
     'docusaurus-plugin-sass',
     [
       require.resolve('@easyops-cn/docusaurus-search-local'), {
       language: ['zh', 'en'],
-    }]
-  ]
+    }],
+    plugin,
+  ],
+  deploymentBranch: 'docs'
 };
 
 module.exports = config;

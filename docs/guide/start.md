@@ -36,7 +36,7 @@
 * a. 给按钮绑定点击事件，如下所示，绑定后我们会在动作面板自动生成一个JS函数（用户也可以自定义函数名）；
 ![](https://img.alicdn.com/imgextra/i4/O1CN01Ze2WLF1JzO0tSirUP_!!6000000001099-2-tps-3582-2018.png)
 
-* b. 使用getValue API获取输入框的内容，宜搭提供了非常丰富的[前端API](guide/api)，如下所示，我们根据输入框组件的唯一标识获取姓名内容：
+* b. 使用getValue API获取输入框的内容，宜搭提供了非常丰富的[前端API](guide/api.md)，如下所示，我们根据输入框组件的唯一标识获取姓名内容：
 ![](https://img.alicdn.com/imgextra/i1/O1CN01m69xD21CjAgJM5Tup_!!6000000000116-2-tps-3582-2018.png)
 
 * c. 构造问候语，并使用setState API更新全局变量的内容触发页面重新渲染，onClick的代码如下所示：

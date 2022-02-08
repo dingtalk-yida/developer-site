@@ -2,8 +2,8 @@ module.exports = {
   title: '开发者中心',
   logo: {
     alt: '宜搭',
-    src: 'https://img.alicdn.com/imgextra/i2/O1CN01H3ajqP1bxF9chDQmu_!!6000000003531-55-tps-131-32.svg',
-    srcDark: 'https://img.alicdn.com/imgextra/i1/O1CN01tnRQfR27JuwAZRoRT_!!6000000007777-55-tps-297-85.svg'
+    src: 'https://img.alicdn.com/imgextra/i4/O1CN01REB6m71rjzdfnxRzF_!!6000000005668-55-tps-298-86.svg',
+    srcDark: 'https://img.alicdn.com/imgextra/i4/O1CN01Xcsimv1KYeVd2eKND_!!6000000001176-55-tps-298-86.svg'
   },
   items: [
     {
