@@ -9,35 +9,35 @@
 ### 步骤1：创建宜搭应用
 首先我们需要在宜搭工作台中创建一个应用(详见[使用手册](https://www.yuque.com/yida/support/oncnoy))，如果已有应用则可以跳过本步，如下所示，我们创建一个名为```demo示例```的空白应用：
 
-![](https://img.alicdn.com/imgextra/i3/O1CN016C26Ri1Nq0Mj6ivdu_!!6000000001620-2-tps-3582-2016.png)
+![](https://img.alicdn.com/imgextra/i3/O1CN016C26Ri1Nq0Mj6ivdu_!!6000000001620-2-tps-3582-2016.png_.webp)
 
 ### 步骤2：创建自定义页面
 接下来我们需要创建一个自定义页面来实现demo的功能，如下所示，当前我们还不需要用到页面模板的能力，因此在选择模板环节可以点击```跳过```按钮直接进入自定义页面设计器：
-![](https://img.alicdn.com/imgextra/i1/O1CN0153CNML21k7ufobwfb_!!6000000007022-2-tps-3582-1374.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN0153CNML21k7ufobwfb_!!6000000007022-2-tps-3582-1374.png_.webp)
 
 宜搭的自定义页面设计器如下所示，具体功能介绍详见[设计器文档](guide/designer.md)，开发者可以在进入设计器后修改当前页面的名称：
-![](https://img.alicdn.com/imgextra/i1/O1CN0157eG1X1h6TIqepd9J_!!6000000004228-2-tps-3582-2018.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN0157eG1X1h6TIqepd9J_!!6000000004228-2-tps-3582-2018.png_.webp)
 
 ### 步骤3：拖入组件并配置属性
 我们的demo示例非常简单，只包含三个组件，开发者可以从组件库面板中将组件先拖入画布，用户也可以前往[组件文档](components/layout/tab.mdx)查看更多组件配置：
 * 输入框 - 用于输入姓名，我们将组件的```标题```属性设置为"姓名"；
 * 按钮 - 用于提交用户输入姓名并在下面的问候语中展示输入姓名，我们将按钮组件的```标题```属性设置为"生成"；
 * 文本 - 用于显示问候语，为了美观我们在样式面板中设置上边距：20px，字号：20px，如下所示；
-![](https://img.alicdn.com/imgextra/i2/O1CN01vvvb9k1MoLJGeHACc_!!6000000001481-2-tps-3582-2018.png)
+![](https://img.alicdn.com/imgextra/i2/O1CN01vvvb9k1MoLJGeHACc_!!6000000001481-2-tps-3582-2018.png_.webp)
 
 
 ### 步骤4：创建全局变量
 从这一步我们要开始实现逻辑部分了，首先，我们需要创建一个全局变量用于存储问候语（更多全局变量相关详见[全局变量文档](guide/concept/state.md)），如下所示，我们创建一个名为```helloWord```的全局变量：
 
-![](https://img.alicdn.com/imgextra/i4/O1CN01TJtxqW1FchwARVEwE_!!6000000000508-2-tps-3582-2018.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN01TJtxqW1FchwARVEwE_!!6000000000508-2-tps-3582-2018.png_.webp)
 
 ### 步骤5：绑定按钮点击事件
 按照上面的功能展示，我们需要当用户点击按钮时获取输入框的内容，并生成问候语打印在下方，接下了我们将讲解如何绑定事件并生成问候语：
 * a. 给按钮绑定点击事件，如下所示，绑定后我们会在动作面板自动生成一个JS函数（用户也可以自定义函数名）；
-![](https://img.alicdn.com/imgextra/i4/O1CN01Ze2WLF1JzO0tSirUP_!!6000000001099-2-tps-3582-2018.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN01Ze2WLF1JzO0tSirUP_!!6000000001099-2-tps-3582-2018.png_.webp)
 
 * b. 使用getValue API获取输入框的内容，宜搭提供了非常丰富的[前端API](guide/api.md)，如下所示，我们根据输入框组件的唯一标识获取姓名内容：
-![](https://img.alicdn.com/imgextra/i1/O1CN01m69xD21CjAgJM5Tup_!!6000000000116-2-tps-3582-2018.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN01m69xD21CjAgJM5Tup_!!6000000000116-2-tps-3582-2018.png_.webp)
 
 * c. 构造问候语，并使用setState API更新全局变量的内容触发页面重新渲染，onClick的代码如下所示：
 ```js
@@ -54,14 +54,14 @@ export function onClick() {
 
 ### 步骤6：文案绑定数据源变量
 最后一步，我们需要将全局变量绑定到文本组件的```内容```属性上进行展示，如下所示：
-![](https://img.alicdn.com/imgextra/i4/O1CN01doImZM1lZYvJOZfvD_!!6000000004833-2-tps-3582-2016.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN01doImZM1lZYvJOZfvD_!!6000000004833-2-tps-3582-2016.png_.webp)
 
 ### 步骤7：预览&发布
 到目前为止，我们的demo示例就已经完成了，用户可以点击设计器右上角的```预览```按钮进行保存并预览：
-![](https://img.alicdn.com/imgextra/i3/O1CN01IJpCx81mwkaqmcHCI_!!6000000005019-2-tps-3582-856.png)
+![](https://img.alicdn.com/imgextra/i3/O1CN01IJpCx81mwkaqmcHCI_!!6000000005019-2-tps-3582-856.png_.webp)
 
 完成预览后点击```保存```按钮进行保存，接下来便可以通过点击应用右上角的访问按钮，访问我们搭建的页面了：
-![](https://img.alicdn.com/imgextra/i3/O1CN01wd0auW1rQl0HXLjZ3_!!6000000005626-2-tps-3582-792.png)
+![](https://img.alicdn.com/imgextra/i3/O1CN01wd0auW1rQl0HXLjZ3_!!6000000005626-2-tps-3582-792.png_.webp)
 
 ## 最后
 到此我们已经完成了快速开始Demo示例的制作，用户可以通过访问[Hello示例](https://www.aliwork.com/APP_D7KLBO4V9PKB3BZHJKH1/custom/FORM-TP866D911EFX9FL1ZUZCUW4INJAQ1P85QWDZKI)查看效果，通过本示例用户可以了解宜搭自定义页面最基本的使用功能，如果开发者想了解更加复杂的示例教程，可以移步到[TodoMVC教程](tutorial/todoMVC.md)进行查看。

@@ -10,32 +10,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: '简单',
     image: '/img/undraw_docusaurus_mountain.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        提供所见即所的拖拽式开发模式，实现大量常用组件及系统API，让您轻松上手低代码开发。
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: '高效',
     image: '/img/undraw_docusaurus_tree.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        提供全栈式解决方案，打通后端数据模型&存储，屏蔽前端工程化细节，让您快速搭建精美页面。
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: '灵活',
     image: '/img/undraw_docusaurus_react.svg',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        提供灵活的低代码开发模式，通过可视化搭建快速实现UI效果，通过代码编辑轻松搞定业务逻辑。
       </>
     ),
   },
@@ -58,7 +55,7 @@ function Feature({title, image, description}: FeatureItem) {
 export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
-      <div className="container">
+      <div className="container" style={{maxWidth: 1400, margin: 'auto'}}>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
