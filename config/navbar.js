@@ -12,7 +12,7 @@ module.exports = {
       label: '指南',
     },
     {
-      to: '/docs/tutorial/todoList',
+      to: '/docs/tutorial/todoMVC',
       position: 'right',
       label: '教程',
     },

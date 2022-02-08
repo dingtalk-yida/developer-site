@@ -28,7 +28,7 @@ module.exports = {
     },
   ],
   tutorial: [
-    'tutorial/todoList'
+    'tutorial/todoMVC'
   ],
   components: [
     {
