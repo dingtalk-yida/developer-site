@@ -11,7 +11,7 @@ const plugin = require('./config/plugin');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '宜搭开发者中心',
-  tagline: '人人都是应用开发工程师',
+  tagline: '人人都是低代码应用开发工程师',
   url: 'https://www.aliwork.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',

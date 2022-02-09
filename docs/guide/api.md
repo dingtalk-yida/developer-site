@@ -1,5 +1,5 @@
 # 常用前端API
-本文档主要讲解宜搭平台在JS面板中可以直接调用的API及其使用方法，每一个API都会配备一个示例用于展示API的具体使用方式，在示例中，我们都会通过以下结构来进行包裹，用于模拟动作面板的真实使用场景（包裹的函数名称用户可以自由定义）。
+本文档主要介绍宜搭平台在JS面板或变量绑定弹框中可以直接调用的API及其使用方法，每一个API都会配备一个示例用于展示API的具体使用方式，在示例中，我们都会通过以下函数结构来进行包裹用于模拟动作面板的真实使用场景（包裹的函数名称在真实环境下用户可以自由定义）。
 ```js
 export function xxx() {
   ... ]
@@ -22,7 +22,7 @@ export function getState() {
 ```
 
 ### this.setState()
-设置全局变量的值（和React的API一致）。
+设置全局变量的值并触发页面重新渲染（和React的API一致）。
 
 示例：
 ```js
@@ -34,7 +34,7 @@ export function setStateValue() {
 }
 ```
 
-## 异步数据API
+## 远程数据API
 宜搭支持配置远程数据源，并提供通过js触发远程数据源调用的API（具体使用参考[远程API文档](guide/concept/datasource.md)）。
 
 ### this.dataSourceMap.xxx.load()

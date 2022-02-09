@@ -18,16 +18,16 @@ module.exports = {
       title: '社区',
       items: [
         {
-          label: '语雀讨论区',
+          label: '语雀文档讨论区',
           href: 'https://www.yuque.com/yida/topics',
         },
         {
-          label: '阿里云开发这论坛',
+          label: '阿里云开发者论坛',
           href: 'https://developer.aliyun.com/group/yida',
         },
         {
           label: 'GitHub Issue',
-          href: 'https://github.com/alibaba/ice/issues'
+          href: 'https://github.com/alibaba/yida-developer/issues'
         }
       ],
     },

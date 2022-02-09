@@ -14,7 +14,7 @@ const FeatureList: FeatureItem[] = [
     image: '/img/undraw_docusaurus_mountain.svg',
     description: (
       <>
-        提供所见即所的拖拽式开发模式，实现大量常用组件及系统API，让您轻松上手低代码开发。
+        提供所见即所得的拖拽式开发模式，官方实现大量常用组件及系统API，让您轻松上手低代码开发。
       </>
     ),
   },
@@ -23,7 +23,7 @@ const FeatureList: FeatureItem[] = [
     image: '/img/undraw_docusaurus_tree.svg',
     description: (
       <>
-        提供全栈式解决方案，打通后端数据模型&存储，屏蔽前端工程化细节，让您快速搭建精美页面。
+        提供全栈式解决方案，打通后端数据模型及存储，屏蔽前端工程化细节，让您快速搭建精美页面。
       </>
     ),
   },
@@ -32,7 +32,7 @@ const FeatureList: FeatureItem[] = [
     image: '/img/undraw_docusaurus_react.svg',
     description: (
       <>
-        提供灵活的低代码开发模式，通过可视化搭建快速实现UI效果，通过代码编辑轻松搞定业务逻辑。
+        提供灵活的低代码研发模式，通过可视化搭建快速实现UI效果，通过JS代码编写轻松搞定业务逻辑。
       </>
     ),
   },
