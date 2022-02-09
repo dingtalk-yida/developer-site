@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Recevier from '@ali/b3-iframe/lib/recevier';
-import './index.scss';
+import './index.module.scss';
 
 const getOffset = item => {
   let total = 0;

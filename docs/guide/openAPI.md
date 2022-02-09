@@ -52,6 +52,54 @@ interface IResponse{
   "success":true
 }
 ```
+ ### 更新表单中指定组件值
+ * 接口： ```/v1/form/updateFormData.json```
+ * 请求类型：```POST```
+ * 参数：
+
+| 参数名 | 描述 |	是否必填 |	示例 | 备注 |
+|:--- |:--- |:--- |:--- |:--- |
+|formInstId |	要更新的表单数据ID |	是   |	FINST-NJYJZELVVYZRVGJHR7M6FJW3ESJN1P1TCNPCJ9	||
+|updateFormDataJson |	要更新的表单组件值，必填 |	是 |	{"employeeField_jcpm5gy2": ["xxxxx","yyyyy"]}	|参考：附录1保存/更新 表单数、据格式说明。 参数有的组件更新，没有的组件保持不变。 明细的值只能统一更新，无法只更新子表单下某个组件的值
+|useLatestVersion |	使用最新的表单版本进行更新 |	否 | y	| 参考：附录1保存/更新 表单数据格式说明【特别注意】 |
+* 返回值示例：
+```json
+{
+  "success":true
+}
+```
+ ### 删除表单实例
+ * 接口： ```/v1/form/deleteFormData.json```
+ * 请求类型：```POST```
+ * 参数：
+
+| 参数名 | 描述 |	是否必填 |	示例 | 备注 |
+|:--- |:--- |:--- |:--- |:--- |
+|formInstId |	要删除的表单数据ID |	是   |	FINST-NJYJZELVVYZRVGJHR7M6FJW3ESJN1P1TCNPCJ9	||
+* 返回值示例：
+```json
+{
+  "success":true
+}
+```
+ ### 根据表单实例 ID 查询表单实例详情
+ * 接口： ```/v1/form/getFormDataById.json```
+ * 请求类型：```GET```
+ * 参数：
+
+| 参数名 | 描述 |	是否必填 |	示例 | 备注 |
+|:--- |:--- |:--- |:--- |:--- |
+|formInstId |	要删除的表单数据ID |	是   |	FINST-NJYJZELVVYZRVGJHR7M6FJW3ESJN1P1TCNPCJ9	||
+* 返回值示例：
+```json
+{
+  "success":"请求是否成功",
+  "errorMsg": "错误信息",
+  "errorCode" : "错误码",
+  "result":"表单实例详情。参见附录5. 表单实例详情对象格式说明"
+}
+```
+
 
 
 ## 流程相关API
