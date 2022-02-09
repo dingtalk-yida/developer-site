@@ -10,21 +10,25 @@ module.exports = {
       to: '/docs/guide/about',
       position: 'right',
       label: '指南',
+      activeBasePath: '/docs/guide/'
     },
     {
       to: '/docs/tutorial/todoMVC',
       position: 'right',
       label: '教程',
+      activeBasePath: '/docs/tutorial/'
     },
     {
       to: '/docs/components/layout/tab',
       position: 'right',
       label: '组件',
+      activeBasePath: '/docs/components/'
     },
     {
       to: '/docs/examples/form',
       position: 'right',
       label: '示例',
+      activeBasePath: '/docs/examples/'
     },
     {
       type: 'search',

@@ -348,8 +348,8 @@ function didFetch(content) {
 ![](https://img.alicdn.com/imgextra/i2/O1CN01xQEuxH1Gt1fF8yxwO_!!6000000000679-2-tps-3582-2018.png_.webp)
 * 按照OpenAPI文档中的格式配置请求链接及请求方法；
 * 配置请求参数
-  * formUuid - 同上；
-  * appType - 当前应用的应用ID；
+  * **formUuid** - 同上；
+  * **appType** - 当前应用的应用ID （以APP_开头，可以从当前页面URL地址上获取）；
 * 配置willFetch处理函数，我们需要按照OpenAPI中的参数格式将任务信息转换成可以被宜搭识别的格式，具体实现如下：
 ```js
 function willFetch(vars, config) {
@@ -417,14 +417,15 @@ function didFetch(content) {
 }
 ```
 
-需要注意的是我们在增加远程API配置的同时删除了几个之前设置的全局变量：
-* todoList - 因为现在列表都是通过远程API获取，因此state中不用再存储totoList信息；
-* newId - 因为每次创建待办任务，宜搭都会自动生成一个唯一的formInstId，因此不需在进行任务Id生成；
-
+:::caution
+我们在增加远程API配置的同时删除了几个之前设置的全局变量：
+* **todoList** - 因为现在列表都是通过远程API获取，因此state中不用再存储totoList信息；
+* **newId** - 因为每次创建待办任务，宜搭都会自动生成一个唯一的formInstId，因此不需在进行任务Id生成；
+:::
 
 ### 步骤3：采用远程API调用替换原有数据管理逻辑
 完成了上一步的远程API设置，我们仅需要修改之前部分的逻辑实现部分，将操作全局变量的逻辑替换为远程API调用，具体改动点如下：
-* 修改 onRowAdd 实现，调用add远程API进行任务创建，具体实现如下：
+* 修改 **onRowAdd** 实现，调用add远程API进行任务创建，具体实现如下：
 ```js
 export function onRowAdd(e) {
   // 只处理回车键
@@ -435,7 +436,7 @@ export function onRowAdd(e) {
 }
 ```
 
-* 修改 onDelete 实现，调用del远程API进行任务删除，具体实现如下：
+* 修改 **onDelete** 实现，调用del远程API进行任务删除，具体实现如下：
 ```js
 export function onDelete(){
   this.dataSourceMap.del.load({ // 调用远程API
@@ -449,7 +450,7 @@ export function onDelete(){
 }
 ```
 
-* 修改 onRuleEdit 实现，调用update远程API更新任务内容，具体实现如下：
+* 修改 **onRuleEdit** 实现，调用update远程API更新任务内容，具体实现如下：
 ```js
 export function onRowEdit(e) {
   // 只处理回车键
@@ -465,7 +466,7 @@ export function onRowEdit(e) {
 }
 ```
 
-* 修改 onTodoCheck 实现，调用update远程API更新任务状态，具体实现如下：
+* 修改 **onTodoCheck** 实现，调用update远程API更新任务状态，具体实现如下：
 ```js
 export function onTodoCheck({value}){
   this.dataSourceMap.update.load({
@@ -478,7 +479,7 @@ export function onTodoCheck({value}){
 }
 ```
 
-* 修改 onClearCompleted 实现，批量调用del远程API清除已完成任务，具体实现如下：
+* 修改 **onClearCompleted** 实现，批量调用del远程API清除已完成任务，具体实现如下：
 ```js
 export function onClearCompleted(){
   const deleteItems = this.state.todoList.filter(item => item.done); // 筛选需要被删除的任务列表
@@ -495,4 +496,4 @@ export function onClearCompleted(){
 
 
 ## 结束语
-本篇教程从0开始一步一步引导开发者完成一个TodoMVC自定义页面的搭建，搭建过程中几乎涉及到宜搭自定义页面的所有常用使用知识，希望能够通过这个例子让您开始入门宜搭自定义页面搭建，实现更加复杂的业务支撑场景，有任何问题欢迎及时沟通。
+本篇教程从0开始一步一步引导开发者完成一个TodoMVC自定义页面的搭建，搭建过程中几乎涉及到宜搭自定义页面的所有常用知识，希望能够通过这个例子让您的宜搭使用技能提升一个等级能够实现更加复杂的业务支撑场景，有任何问题欢迎及时反馈。
