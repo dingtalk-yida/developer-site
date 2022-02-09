@@ -12,11 +12,11 @@ ${宜搭域名}/dingtalk/web/${应用编码}/${接口路径}
 ```
 
 :::tip
-在自定义页面的数据源配置面板可以不用使用全路径的URL，使用相对路径即可，如下所示：
+在自定义页面的数据源配置面板使用宜搭的远程OpenAPI可以直接使用相对路径，如下所示：
 ```bash
 /dingtalk/web/APP_X1X2X3X4/v1/form/searchFormDatas.json
 ```
-![](https://img.alicdn.com/imgextra/i2/O1CN01UOw5fH2AKK8cTHZDY_!!6000000008184-2-tps-3582-1230.png)
+![](https://img.alicdn.com/imgextra/i2/O1CN01UOw5fH2AKK8cTHZDY_!!6000000008184-2-tps-3582-1230.png_.webp)
 :::
 
 ### 接口返回结构

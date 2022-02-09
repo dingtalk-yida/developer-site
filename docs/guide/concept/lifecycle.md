@@ -12,7 +12,8 @@ order: 3
 * 当页面挂载完成后监听document的resize事件；
 * 通过onResize方法实时输出当前页面的宽度；
 * 当页面卸载前取消document的reisze事件监听；
-![](https://img.alicdn.com/imgextra/i1/O1CN0193Qe721caAuWkm9NA_!!6000000003616-2-tps-3582-2018.png)
+
+![](https://img.alicdn.com/imgextra/i1/O1CN0193Qe721caAuWkm9NA_!!6000000003616-2-tps-3582-2018.png_.webp)
 
 相关代码如下所示：
 ```js

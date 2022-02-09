@@ -9,8 +9,8 @@ order: 8
 在自定义页面中有以下两种样式设置方式：
 ### 基础样式配置
 宜搭提供通用的样式配置面板用于可视化配置基础的样式，例如：布局、文字、背景、阴影、边框等，用户改变样式面板的配置后可以实时在可视编辑区域查看效果，如下所示我们做一个简单的配置改变文案组件的展示效果：
-![](https://img.alicdn.com/imgextra/i2/O1CN01hZIt6F1yWtck9KaSA_!!6000000006587-2-tps-3582-2020.png)
+![](https://img.alicdn.com/imgextra/i2/O1CN01hZIt6F1yWtck9KaSA_!!6000000006587-2-tps-3582-2020.png_.webp)
 
 ### 手工编码模式
 对于有些Hover、Active状态设置或者一些诸如before、first-child等伪类设置无法直接通过样式面板进行配置，宜搭提供手动编码模式修改组件样式，如下所示：
-![](https://img.alicdn.com/imgextra/i4/O1CN01LA2quR1rneo5HO8SQ_!!6000000005676-2-tps-3582-2016.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN01LA2quR1rneo5HO8SQ_!!6000000005676-2-tps-3582-2016.png_.webp)

@@ -1,4 +1,4 @@
-# 常用前端API
+# 前端API
 本文档主要介绍宜搭平台在JS面板或变量绑定弹框中可以直接调用的API及其使用方法，每一个API都会配备一个示例用于展示API的具体使用方式，在示例中，我们都会通过以下函数结构来进行包裹用于模拟动作面板的真实使用场景（包裹的函数名称在真实环境下用户可以自由定义）。
 ```js
 export function xxx() {
@@ -103,9 +103,12 @@ export function onClickInvoke(){
 宜搭提供了很多内置的工具类函数，帮助用户更好地实现一些常用功能。
 
 ### this.utils.toast()
-信息提醒，会比Dialog更加轻量，弹出后过一段时间会自动消失，效果如下图所示：
-![](https://img.alicdn.com/imgextra/i4/O1CN01eU0Tni23AykRPbQ45_!!6000000007216-2-tps-1410-231.png)
+信息提醒，会比Dialog对话框更加轻量，弹出后过一段时间会自动消失，效果如下图所示：
+
+![](https://img.alicdn.com/imgextra/i4/O1CN01eU0Tni23AykRPbQ45_!!6000000007216-2-tps-1410-231.png_.webp)
+
 参数配置：
+
 | 参数 | 属性 | 默认值 | 说明 |
 | :--- | :--- | :--- | :--- |
 | type |'success', 'warning', 'error', 'notice', 'help', 'loading' | 'notice'| - |
@@ -126,10 +129,12 @@ export function poptoast(){
 
 ### this.utils.dialog()
 弹出对话框，效果如下图所示，用户需要手动关闭：
-![](https://img.alicdn.com/imgextra/i1/O1CN01gPpC9627v11DxaImu_!!6000000007858-2-tps-1194-314.png)
 
-宜搭底层采用 fusion 组件进行实现，你可以配置所有 dialog 的属性
-[文档地址](https://fusion.design/pc/component/dialog?themeid=2#demo-api)以下列出了常用属性：
+![](https://img.alicdn.com/imgextra/i1/O1CN01gPpC9627v11DxaImu_!!6000000007858-2-tps-1194-314.png_.webp)
+
+宜搭底层采用 fusion 组件进行实现，你可以配置所有 Dialog 组件的属性
+[文档地址](https://fusion.design/pc/component/dialog?themeid=2#demo-api)，以下列出了常用属性：
+
 | 参数 | 属性 | 默认值 | 说明 |
 | :--- | :--- | :--- | :--- |
 | type |'alert', 'confirm', 'show' | 'alert'| - |
@@ -212,27 +217,28 @@ export function getUserInfo() {
 
 ### this.utils.previewImage()
 图片预览，通过这个API我们可以实现一个简洁的图片预览效果，如下所示：
-![](https://img.alicdn.com/imgextra/i2/O1CN01YksnrI21hNXGdPAov_!!6000000007016-2-tps-1423-863.png)
+![](https://img.alicdn.com/imgextra/i2/O1CN01YksnrI21hNXGdPAov_!!6000000007016-2-tps-1423-863.png_.webp)
 
 示例：
 ```js
 export function previewImg() {
-  this.utils.previewImage({ current: 'https://img.alicdn.com/tfs/TB1JUnZ2GL7gK0jSZFBXXXZZpXa-260-192.png' });
+  this.utils.previewImage({ current: 'https://img.alicdn.com/tfs/TB1JUnZ2GL7gK0jSZFBXXXZZpXa-260-192.png_.webp' });
 }
 ```
 
 ## 路由相关API
-宜搭提供获取路由信息及页面跳转等API，底层实现主要使用react-router，因此跳转API与react-routerAPI基本一致，另外提供了一些路由相关的扩展API。
+宜搭提供获取路由信息及页面跳转相关API，底层实现主要使用[react-router](https://reactrouter.com/)，因此跳转API与react-routerAPI基本一致，另外宜搭还提供了一些路由相关的扩展API。
 
 ### this.utils.router.push()
 页面跳转并且会将跳转记录push到路由堆栈中，可以通过浏览器的回退按钮进行回退，push的参数描述如下所示：
+
 ```typescript
 function push(path: string, params?: object, blank?: boolean, isUrl?: boolean, type?: string) => void;
 ```
 
 | 参数名 | 类型 | 必填 | 说明 |
 | :--- | :--- | :--- | :--- |
-| path | string | 是 | 跳转的地址，可以是完整的 url，url 片段，也可以是 pageID 构成的字符串,如果有 slug，优先使用 [slug](https://lark.alipay.com/legao/help/faq#%E9%A1%B5%E9%9D%A2-slug) 跳转。当 `isUrl` 参数为 `true` 的时候会按照 url 的方式解析，否则会以 `pageId` 的形式解析实现内部页面之间的跳转。 |
+| path | string | 是 | 跳转的地址，可以是完整的 url，url 片段，也可以是 pageID 构成的字符串,如果有 slug，优先使用 [slug](https://lark.alipay.com/legao/help/faq#%E9%A1%B5%E9%9D%A2-slug) 跳转。<br/> 当 `isUrl` 参数为 `true` 的时候会按照 url 的方式解析，否则会以 `pageId` 的形式解析实现内部页面之间的跳转。 |
 | params | object | 否 | 跳转地址所带的查询参数 `{q: 'a', r: 'b'}` 等效于 `?q=a&r=b` |
 | blank | boolean | 否 | 是否新打开页面，默认值为 `false` |
 | isUrl | boolean | 否 | 是否是 url 地址，默认值为 `false` |
@@ -247,7 +253,7 @@ export function pushUrl() {
 ```
 
 ### this.utils.router.replace()
-页面替换，router.push 的区别是：该 API 会替换当前页面而不是进入下一个页面，因此无法通过浏览器的会对按钮进行退回，等价于：
+页面替换，与router.push的区别是该 API 会替换当前页面而不是进入下一个页面，因此无法通过浏览器的会对按钮进行退回，等价于：
 ```js
 this.utils.router.push(path, params, false, false, 'replace');
 ```
@@ -301,7 +307,8 @@ export function stringifyQuery() {
 在讲解组件相关的API之前需要提前介绍几个概念：
 * 组件唯一标识（fieldId）- 宜搭会为每个组件设置一个唯一标识，用于识别组件实例，组件唯一标识可以通过组件属性面板进行查看；
 * 组件属性（prop）- 在宜搭中每个组件都可以通过设置组件属性来实现不同功能（类似React的props），我们可以通过hover组件属性面板查看配置项对应的属性名称；
-![](https://img.alicdn.com/imgextra/i3/O1CN01YAyE9h1lWM9N1lqdo_!!6000000004826-2-tps-3582-2018.png)
+
+![](https://img.alicdn.com/imgextra/i3/O1CN01YAyE9h1lWM9N1lqdo_!!6000000004826-2-tps-3582-2018.png_.webp)
 
 组件通用API对于宜搭提供的所有组件都可以使用，主要用于读取或者设置组件的属性。
 ### this.$(fieldId).get(prop)
@@ -328,10 +335,10 @@ export function setAttribute(){
 ```
 
 ## 表单组件API
-表单组件是宜搭平台中最重要的一类组件，我们通常通过表单组件来收集数据，本部分将主要介绍表单组件相关的API：
+表单组件是宜搭平台中最重要的一类组件，我们通常通过表单组件来收集数据，例如：输入框、单选、多选、下拉选择等，本部分将主要介绍表单组件相关的API：
 
 ### this.$(fieldId)
-获取组件实例，fieldId为组件唯一标识，在调用组件API之前，通常我们需要通过this.$(fieldId)先获取组件实例再进行API调用。
+获取组件实例，fieldId为组件唯一标识，在调用组件API之前，通常我们需要通过 ```this.$(fieldId)``` 先获取组件实例再进行API调用。
 
 ### this.$(fieldId).getValue()
 获取指定表单组件的输入值。
@@ -389,10 +396,10 @@ export function reset() {
 
 ### this.$(fieldId).getBehavior()
 获取指定表单组件的当前状态，表单组件的状态有以下可选值：
-* NORMAL - 正常态，即输入态；
-* READONLY - 只读态；
-* DISABLED - 禁用态；
-* HIDDEN - 隐藏态；
+* **NORMAL** - 正常态，即输入态；
+* **READONLY** - 只读态；
+* **DISABLED** - 禁用态；
+* **HIDDEN** - 隐藏态；
 
 示例：
 ```js
@@ -573,8 +580,6 @@ export function resetValiation() {
   this.$('textField_kyz78exp').resetValidation(true);
 }
 ```
-
-## 表单容器组件API
 
 ## Dialog组件API
 宜搭提供了一个对话框组件用于展示对话框形式的内容展示，同时提供了一些API来操作对话框的行为。
