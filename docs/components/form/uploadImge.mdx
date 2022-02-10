@@ -1,0 +1,54 @@
+---
+title: 上传图片
+order: 8
+---
+
+# 上传图片
+
+## 何时使用
+
+## 组件示例
+
+  
+## 组件属性
+
+| 属性名 | 属性code | 类型 | 数据示例 | 动态属性 | 备注 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 标题 | label | String | '标题' | 是 |  |
+| 值 | fieldData | Object | {value: [{ url: 'xxx', name: 'xx'}]} | 是 |  |
+| 标题位置 | labelAlign | String | “left” | 否 | 可选值：“left”,”top” |
+| 标题宽度 | labelColSpan | Number | 4 | 否 |  |
+| 标题偏移 | labelColOffset | Number  | 0 | 否 |  |
+| 内容宽度 | wrapperColSpan | Number  | 0 | 否 |  |
+| 内容偏移 | wrapperColOffset | Number  | 0 | 否 |  |
+| 标题对齐 | labelTextAlign | String | “left” | 否 | 可选值：“left”,”right' |
+| 描述信息 | tips | String | '这是一段描述信息' | 否 |  |
+| 尺寸 | size | String | “small” | 否 | 可选值：“small”,”medium”,'large' |
+| 状态 | behavior | String | {fieldBehavior: 'NORMAL'} | 是 | fieldBehavior 可选值：'NORMAL','DISABLED','READONLY','HIDDEN' |
+| 校验 | validation | Array | [{type:'required'}] | 是 | 可选值：{type:'required'}, {type: 'customValidate', message: '请选择今日之前的日期', param: 'function validateRule(value) { return value <= new Date().getTime(); }'} |
+| 上传类型 | type | String | 'normal' |否|可选值 'normal', 'card', 'drag'|
+|上传列表样式|listType|String| 'normal' |否|可选值 'normal', 'card', 'drag'|
+|按钮内容|buttonText|String|'上传图片'|否||
+|按钮尺寸|buttonSize|String|'medium'|否|可选值 'small','medium','large'|
+|按钮类型|buttonType|String|'primary'|否|可选值 'primary','secondary','normal'|
+|多选|multiple|Boolean|false|否||
+|上传超时|timeout|Number|''|否||
+|接口地址|url|String|''|否|可在 VM 中通过 globalProps 统一配置|
+|name|name|String|''|否|上传时发送给服务端的 name|
+|额外参数|data|Object|{}|否|上传可附带的额外参数|
+|上传前处理函数 | beforeUpload | Function | function(file, options){ return true } | 否 |  |
+|数据处理|formatter|Function||否|数据处理函数|
+|最大上传图片个数|limit|Number||否||
+|是否允许请求携带 cookie|withCredentials|Boolean|false|否||
+|自动上传|autoUpload|Boolean|true|否|关闭后，需要手动调用 this.fieldId.getInstance().startUpload() 开始上传|
+|上传图片类型|accept|String|'image/png, image/jpg, image/jpeg, image/gif, image/bmp'|否||
+| 值发生改变事件 | onChange | Function | function(value){ console.log(value); } | 否 |  |
+| 上传中 | onProgress | Function | function(){ console.log('onProgress'); } | 否 |  |
+| 上传成功回调函数 | onSuccess | Function | function(file, value){ console.log(file, value); } | 否 |  |
+| 上传失败 | onError | Function | function onError(file, value) { console.log('onError', file, value);} | 否 |  |
+| 选择文件 | onSelect | Function | function onSelect() {console.log('onSelect');} | 否 |  |
+| 点击移除 | onRemove | Function | function onRemove(file) {  console.log('onRemove', file);} | 否 |  |
+| 取消上传 | onCancel | Function | function onCancel() { console.log('onCancel');} | 否 |  |
+| 拖拽经过 | onDragOver | Function | function onDragOver() { console.log('onDragOver');} | 否 |  |
+| 拖拽离开 | onDragLeave | Function | function onDragLeave() {console.log('onDragLeave');} | 否 |  |
+| 拖拽完成 | onDrop | Function | function onDrop() { console.log('onDrop');} | 否 |  |

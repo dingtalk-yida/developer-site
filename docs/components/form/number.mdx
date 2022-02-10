@@ -1,0 +1,34 @@
+---
+title: 数字输入框
+order: 1
+---
+
+# 数字输入框
+
+## 何时使用
+
+## 组件示例
+
+  
+## 组件属性
+
+| 属性名 | 属性code | 类型 | 数据示例 | 动态属性 | 备注 |
+| --- | --- | --- | --- | --- | --- |
+| 标题 | label | String | "标题" | 是 |  |
+| 值 | fieldData | Object | {value: 1505894659813} | 是 |  |
+| 标题位置 | labelAlign | String | “left” | 否 | 可选值：“left”,”top” |
+| 标题宽度 | labelColSpan | Number | 4 | 否 |  |
+| 标题偏移 | labelColOffset | Number  | 0 | 否 |  |
+| 内容宽度 | wrapperColSpan | Number  | 0 | 否 |  |
+| 内容偏移 | wrapperColOffset | Number  | 0 | 否 |  |
+| 标题对齐 | labelTextAlign | String | “left” | 否 | 可选值：“left”,”right" |
+| 提示文字 | placeholder | String | “请选择日期” | 是 |  |
+| 描述信息 | extra | String | "这是一段描述信息" | 否 |  |
+| 尺寸 | size | String | “small” | 否 | 可选值：“small”,”medium”,"large" |
+| 默认状态 | behavior | String | {fieldBehavior: "NORMAL"} | 是 | fieldBehavior 可选值："NORMAL","DISABLED","READONLY","HIDDEN" |
+| 类型 | extra | String | "normal" | 否 | 可选值：“normal”,”inline" |
+| 步数 | step | number | 1 | 否 |  |
+| 小数位数 | precision | Number | 0 | 否 |  |
+| 可以输入 | editable | Bool | true | 否 |  |
+| 校验 | validation | Array | [{type:"required"}] | 是 | 可选值：{type:"required"}, {type: "customValidate", message: "请选择今日之前的日期", param: "function validateRule(value) { return value <= new Date().getTime(); }"} |
+| 值发生改变事件 | onChange | Function | function(value){ console.log(value); } | 否 |  |

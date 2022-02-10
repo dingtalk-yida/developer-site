@@ -1,0 +1,36 @@
+---
+title: 日期区间
+order: 7
+---
+
+# 日期区间
+
+## 何时使用
+
+## 组件示例
+
+  
+## 组件属性
+
+| 属性名 | 属性code | 类型 | 数据示例 | 动态属性 | 备注 |
+| --- | --- | --- | --- | --- | --- |
+| 标题 | label | String | "标题" | 是 |  |
+| 值 | fieldData | Object | {value: {start:1505894659813, end: 1505894659813}} | 是 |  |
+| 标题位置 | labelAlign | String | “left” | 否 | 可选值：“left”,”top”,”inset" |
+| 标题宽度 | labelColSpan | Number | 4 | 否 |  |
+| 标题偏移 | labelColOffset | Number  | 0 | 否 |  |
+| 内容宽度 | wrapperColSpan | Number  | 0 | 否 |  |
+| 内容偏移 | wrapperColOffset | Number  | 0 | 否 |  |
+| 标题对齐 | labelTextAlign | String | “left” | 否 | 可选值：“left”,”right" |
+| 提示文字 | placeholder | String | “请选择日期” | 是 |  |
+| 描述信息 | tips | String | "这是一段描述信息" | 否 |  |
+| 尺寸 | size | String | “small” | 否 | 可选值：“small”,”medium”,"large" |
+| 状态 | behavior | String | {fieldBehavior: "NORMAL"} | 是 | fieldBehavior 可选值："NORMAL","DISABLED","READONLY","HIDDEN" |
+| 格式 | format | String | "YYYY-MM-DD" | 否 | 可选值："YYYY","YYYY-MM","YYYY-MM-DD","YYYY-MM-DD HH:mm","YYYY-MM-DD HH:mm:ss" |
+| 清除按钮 | hasClear | Bool | true | 否 |  |
+| 每次选择日期时是否重置时间 | resetTime | Bool | false | 否 |  |
+| 禁用日期函数 | disabledDate | Function | (value) => {return false;} | 否 |  |
+| 校验 | validation | Array | [{type:"required"}] | 是 | 可选值：{type:"required"}, {type: "customValidate", message: "请选择今日之前的日期", param: "function validateRule(value) { return value <= new Date().getTime(); }"} |
+| 值发生改变事件 | onChange | Function | ({value}) => {} | 否 |  |
+| 点击确认按钮 | onOk | Function |  ({value}) => {} | 否 |  |
+| 弹层展示状态变化 | onVisibleChange | Function | (visible, reason) => {} | 否 |  |
