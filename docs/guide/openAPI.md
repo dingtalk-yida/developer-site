@@ -268,8 +268,7 @@ interface IResponse{
 | formUuid |	表单ID |	是 | FORM-EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ3 ||
 | searchFieldJson |	根据表单内组件值查询 |	否 || 格式见附录2：根据组件值进行条件搜索，组件值格式说明 |
 | taskId |	任务ID |	否 | 2199132092 | 一般用不到 |
-| instanceStatus |	实例状态 |	否 | RUNNING | 可选值为：RUNNING,TERMINATED,COMPLETED,ERROR。
-分别代表：运行中，已终止，已完成，异常。|
+| instanceStatus |	实例状态 |	否 | RUNNING | 可选值为：RUNNING,TERMINATED,COMPLETED,ERROR。分别代表：运行中，已终止，已完成，异常。|
 | approvedResult |	流程审批结果 |	否 | agree | 可选值为：agree, disagree。分别表示：同意， 拒绝。 |
 | currentPage |	当前页 |	否   |	1	| 必须大于0，默认1 |
 | pageSize |	每页记录数 |	否   |	10	| 必须大于0默认10不能大于100 |
