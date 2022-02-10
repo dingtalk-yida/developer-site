@@ -49,6 +49,7 @@ const config = {
     }),
   plugins: 
   [
+    'plugin-image-zoom',
     'docusaurus-plugin-sass',
     [
       require.resolve('@easyops-cn/docusaurus-search-local'), {
