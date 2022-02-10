@@ -1038,7 +1038,7 @@ y -> 不执行校验规则&关联操作 n -> 执行校验规则&关联操作不�
 | gmtModified |	最后修改时间 | 2018-01-24 11:22:01 | | 
 | formUuid |	表单ID | FORM-EF6Y93URN24F1SCX15VA2P918LPEIJ2H3UFORCJ1 | | 
 | originator |	发起人详情 | [{"name":{"zh_CN": "user_zh_name","type": "i18n"}, "userId": "workno"}] |  | 
-| formData|	表单数据详情 | TPROC--EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ4 | 表单数据详情 | 
+| formData|	表单数据详情 | TPROC--EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ4 | 参考附录4- 作为返回值的表单数据的格式说明 | 
 
  * 完整的数据格式 demo
 ```json
