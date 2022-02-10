@@ -7,7 +7,20 @@
 const getDocsFromDir = require('../scripts/getDocsFromDir');
 
 module.exports = {
-  docs: [
+  usage: [
+    'usage/about',
+    {
+      type: 'category',
+      label: '操作指引',
+      collapsed: false,
+      items: getDocsFromDir('usage/guide'),
+      link: {
+        type: 'doc',
+        id: 'usage/guide/index',
+      },
+    },
+  ],
+  guide: [
     'guide/about',
     'guide/start',
     'guide/keywords',
@@ -22,13 +35,16 @@ module.exports = {
     },
     {
       type: 'category',
+      label: '教程',
+      collapsed: false,
+      items: getDocsFromDir('guide/tutorial')
+    },
+    {
+      type: 'category',
       label: 'FAQ',
       collapsed: false,
       items: getDocsFromDir('guide/FAQ')
     },
-  ],
-  tutorial: [
-    'tutorial/todoMVC'
   ],
   components: [
     {

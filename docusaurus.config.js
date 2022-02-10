@@ -46,10 +46,14 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      hotjar: {
+        applicationId: 2824842,
+      }
     }),
   plugins: 
   [
     'plugin-image-zoom',
+    'docusaurus-plugin-hotjar',
     'docusaurus-plugin-sass',
     [
       require.resolve('@easyops-cn/docusaurus-search-local'), {

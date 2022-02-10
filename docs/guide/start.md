@@ -71,7 +71,7 @@ export function onClick() {
 ![](https://img.alicdn.com/imgextra/i3/O1CN01wd0auW1rQl0HXLjZ3_!!6000000005626-2-tps-3582-792.png_.webp)
 
 ## 最后
-到此我们已经完成了快速开始Demo示例的制作，用户可以通过访问[Hello示例](https://www.aliwork.com/APP_D7KLBO4V9PKB3BZHJKH1/custom/FORM-TP866D911EFX9FL1ZUZCUW4INJAQ1P85QWDZKI)查看效果，通过本示例用户可以初步了解宜搭自定义页面的基本使用流程，如果想了解更加复杂的示例教程，可以移步到[TodoMVC教程](tutorial/todoMVC.md)进行查看。
+到此我们已经完成了快速开始Demo示例的制作，用户可以通过访问[Hello示例](https://www.aliwork.com/APP_D7KLBO4V9PKB3BZHJKH1/custom/FORM-TP866D911EFX9FL1ZUZCUW4INJAQ1P85QWDZKI)查看效果，通过本示例用户可以初步了解宜搭自定义页面的基本使用流程，如果想了解更加复杂的示例教程，可以移步到[TodoMVC教程](guide/tutorial/todoMVC.md)进行查看。
 
 
 

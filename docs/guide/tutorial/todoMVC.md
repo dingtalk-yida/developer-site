@@ -7,7 +7,7 @@ title: TodoMVC
 ## 概述
 本篇教程属于宜搭的高级使用教程，我们会参考[TodoMVC](https://todomvc.com/)的功能，从0开始搭建一个简易的TodoMVC页面，最终的效果如下所示（用户也可以通过访问[开放页面](https://www.aliwork.com/APP_MX4GEM8SANEQ2MNY33AQ/custom/FORM-QQ866JB1CD8X3LHI4JB75509CRKR2PH0ZPMYK0)进行试用）：
 
-![](../../static/img/todoMVC.gif)
+![](../../../static/img/todoMVC.gif)
 
 通过本篇教程你将掌握以下宜搭技能：
 * 宜搭基本组件使用；
@@ -62,7 +62,7 @@ title: TodoMVC
 
 基本功能已经梳理完成，我们现在就一步一步来实现TodoMVC的基础功能，最终得到的效果如下所示：
 
-![](../../static/img/todoMVC1.0.gif)
+![](../../../static/img/todoMVC1.0.gif)
 
 ### 步骤1：创建页面全局变量
 宜搭的设计理念和React类似都是MVVM模式，因此我们在进行功能开发前需要先定义页面中需要使用的数据模型，即全局状态（具体使用详见[页面状态文档](guide/concept/state.md)），我们定义以下全局变量：
@@ -295,7 +295,7 @@ export function onClearCompleted(){
 ## 样式完善——赋予TodoMVC好看的皮囊
 上一步我们完成的TodoMVC的基础功能实现，但是给人的第一感觉就是丑，对于一个产品好看的皮囊不是最重要的，但是如果没有一副好的皮囊，它一定不是一个好的产品，宜搭提供了自定义样式能力，详见[样式定制文档](guide/concept/style.md)，通过定制样式，我们将得到下效果，（用户也可以通过访问[开放页面](https://www.aliwork.com/APP_MX4GEM8SANEQ2MNY33AQ/custom/FORM-YE866VA1TB8XSARRZ52H92HCOZ033KZXZNMYK2)进行试用）：
 
-![](../../static/img/todoMVC2.0.gif)
+![](../../../static/img/todoMVC2.0.gif)
 
 本文不详细讲解每一个样式定制的细节点，只会列举一些有代表性的样式定制case：
 * 通过样式面板定制组件样式 - 例如TodoList的大logo，我们可以通过在样式面板中配置字体样式来实现，如下所示：

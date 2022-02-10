@@ -17,7 +17,7 @@ module.exports = function getDocsFromDir(dir) {
     // ignore: 'README.md',
   });
 
-  const result = docs
+  const result = docs.filter(doc => !/^index.md(x)?$/.test(doc))
     .map((doc) => {
       return path.join(docsDir, doc);
     })

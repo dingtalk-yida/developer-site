@@ -7,16 +7,16 @@ module.exports = {
   },
   items: [
     {
-      to: '/docs/guide/about',
+      to: '/docs/usage/about',
       position: 'right',
-      label: '指南',
-      activeBasePath: '/docs/guide/'
+      label: '使用指南',
+      activeBasePath: '/docs/usage/'
     },
     {
-      to: '/docs/tutorial/todoMVC',
+      to: '/docs/guide/about',
       position: 'right',
-      label: '教程',
-      activeBasePath: '/docs/tutorial/'
+      label: '开发者文档',
+      activeBasePath: '/docs/guide/'
     },
     {
       to: '/docs/components/layout/tab',
