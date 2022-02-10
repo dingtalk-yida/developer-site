@@ -1,0 +1,34 @@
+---
+title: 评分
+order: 13
+---
+
+# 评分
+
+## 何时使用
+
+## 组件示例
+
+  
+## 组件属性
+
+| 属性名 | 属性code | 类型 | 数据示例 | 动态属性 | 备注 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 标题 | label | String | "评分" | 是 |  |
+| 默认值 | fieldData | Object | {value: 3} | 是 |  |
+| 标题位置 | labelAlign | String | “left” | 否 | 可选值：“left”,”top”,”inset" |
+| 标题宽度 | labelColSpan | Number | 4 | 否 |  |
+| 标题偏移 | labelColOffset | Number  | 0 | 否 |  |
+| 内容宽度 | wrapperColSpan | Number  | 0 | 否 |  |
+| 内容偏移 | wrapperColOffset | Number  | 0 | 否 |  |
+| 标题对齐 | labelTextAlign | String | “left” | 否 | 可选值：“left”,”right" |
+| 提示文字 | placeholder | String | “请选择评分” | 是 |  |
+| 描述信息 | tips | String | "这是一段描述信息" | 否 |  |
+| 尺寸 | size | String | “small” | 否 | 可选值：“small”,”medium”,"large" |
+| 评分总数 | count | Number | 5 | 是 |  |
+| 半星评分 | allowHalf | Boolean | false | 否 | 可选值true/false |
+| 显示grade | showGrade | Boolean | false | 否 | 可选值true/false |
+| 状态 | behavior | String | {fieldBehavior: "NORMAL"} | 是 | fieldBehavior 可选值："NORMAL","DISABLED","READONLY","HIDDEN" |
+| 校验 | validation | Array | [{type:"required"}] | 是 | 可选值：{type:"required"}, {type: "customValidate", message: "评分在5到10分之间", param: "function validateRule(value) { return value >= 5; }"} |
+| 用户点击评分时触发的回调 | onChange | Function | function onChange({ value }) { console.log(value); } } | 否 |  |
+| 用户hover评分时触发的回调 | onHoverChange | Function | function onHoverChange(value) { console.log(value); } | 否 |  |

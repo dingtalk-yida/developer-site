@@ -43,6 +43,18 @@ module.exports = {
       collapsed: false,
       items: getDocsFromDir('components/basic')
     },
+    {
+      type: 'category',
+      label: '表单组件',
+      collapsed: false,
+      items: getDocsFromDir('components/form')
+    },
+    {
+      type: 'category',
+      label: '高级组件',
+      collapsed: false,
+      items: getDocsFromDir('components/advanced')
+    },
   ],
   examples: [
     'examples/form'

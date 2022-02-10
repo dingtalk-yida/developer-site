@@ -1,0 +1,31 @@
+---
+title: 搜索
+order: 12
+---
+
+# 搜索
+
+
+## 何时使用
+
+## 组件示例
+
+  
+## 组件属性
+
+| 参数               | 说明                                                         | 类型      | 默认值    |
+| :----------------- | :----------------------------------------------------------- | :-------- | :-------- |
+| size               | 大小  **可选值**: 'large'('大') 'medium'('小')               | Enum      | 'medium'  |
+| type               | 类型 shape=normal: primary/secondary; shape=simple: normal/dark;  **可选值**: 'primary', 'secondary', 'normal', 'dark' | Enum      | 'normal'  |
+| shape              | 形状  **可选值**: 'normal', 'simple'                         | Enum      | 'normal'  |
+| onChange           | 输入关键字时的回掉  **签名**: Function(value: Object) => void **参数**: *value*: {Object} 输入值 | Function  | func.noop |
+| onSearch           | 点击搜索按钮触发的回调  **签名**: Function(value: Object) => void **参数**: *value*: {Object} 输入值 | Function  | func.noop |
+| defaultFilterValue | 选择器默认值                                                 | String    | -         |
+| filter             | 选择器                                                       | Array     | []        |
+| filterValue        | 选择器值                                                     | String    | -         |
+| onFilterChange     | 选择器发生变化时回调  **签名**: Function(filter: Object) => void **参数**: *filter*: {Object} value | Function  | func.noop |
+| dataSource         | 搜索框下拉联想列表                                           | Array     | -         |
+| placeholder        | 默认提示                                                     | String    | -         |
+| searchText         | button 的内容                                                | ReactNode | -         |
+| hasClear           | 是否显示清除按钮                                             | Boolean   | false     |
+| disabled           | 是否禁用                                                     | Boolean   | false     |

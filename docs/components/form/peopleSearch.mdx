@@ -1,0 +1,38 @@
+---
+title: 人员搜索框
+order: 12
+---
+
+# 人员搜索框
+
+## 何时使用
+
+## 组件示例
+
+  
+## 组件属性
+
+| 参数名 | 说明 | 必填 | 类型 | 默认值 | 备注 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| behavior | 表单状态 | 否 | String | NORMAL |      |
+| emplIdInLabel | 是否强制在 label 中显示工号 | 否 | Boolean | false |      |
+| defaultValue | 初始值 | 否 | Employee/Employee[] | - | |
+| value | 当前值 | 否 | Employee/Employee[] | - | |
+| fetchDataOnMount | 是否在挂载后立即获取数据 | 否 | Boolean | false | |
+| hiddenSelected | 选择后是否立即隐藏菜单 | 否 | Boolean | true | |
+| multiple | 是否是多选模式 | 否 | Boolean | true | |
+| onChange | 值发生改变时的回调<br/>**签名**<br/>:Function(item: Employee|Employee[]) => void<br/>**参数**:<br/>_item_: {Employee} 根据单项或多选状态返回单个对象或数组，结构为接口返回的格式 | 否 | Function | - | |
+| onSearch | 搜索时的回调<br/>**签名**:<br/>Function(value: String) => void<br/>**参数**:<br/>_value_: {String} 用户输入的关键词 | 否 | Function | - | 如提供则需自行处理搜索过滤和数据源变化（重新通过 props 传入组件） |
+| orderNum | 选人或选岗模式 | 否 | String | 0 | 为 0 时为选人模式（仅展示主岗信息），非 0 为选岗模式（透出多个兼岗信息） |
+| popupClassName | 弹层的 className | 否 | String | - | |
+| renderOption | 自定义渲染下拉选项<br/>**签名**:<br/>Function(item: Employee) => ReactNode<br/>**参数**:<br/>_item_: {Employee} 当前员工信息项<br/>**返回值**:<br/>{ReactNode} 渲染后的节点 | 否 | Function| - | |
+| renderSelection | 自定义渲染选择结果<br/>**签名**:<br/>Function(item: Employee) => String<br/>**参数**:<br/>_item_: {Employee} 选中的员工信息项<br/>**返回值**:<br/>{String} 要在结果中展示的 label | 否 | Function | - | |
+| searchDelay | 搜索延迟 | 否 | Number | 300 | 单位为毫秒 |
+| showSub | 是否显示直接下属选项 | 否 | Boolean | true | 仅在多选时有效 |
+| showAllSub | 是否显示全员选项 | 否 | Boolean | true | 仅在多选时有效 |
+| showAvater | 是否显示人员头像 | 否 | Boolean | true | |
+| showDeptDesc | 是否显示部门信息 |  否 | Boolean | true | |
+| showEmplId | 是否显示工号 | 否 | Boolean | true | |
+| showJobDesc | 是否显示职位信息 | 否 | Boolean | true | |
+| showSearch | 展开后是否能搜索 | 否 | Boolean | true | |
+| dataSource | 传入的数据源 | 否 | Employee[] | - | |

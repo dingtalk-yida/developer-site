@@ -1,0 +1,35 @@
+---
+title: 明细
+order: 16
+---
+
+# 明细
+
+## 何时使用
+
+## 组件示例
+
+  
+## 组件属性
+
+| 属性名 |  属性code  | 类型 | 数据示例  | 动态属性 | 备注 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 标题   | label | string | “标题” | 是 |
+| 显示标题 | showLabel  | bool  | true  | 否 |
+| 默认值 | value  | Array  | [{"fieldId1": "123", "fieldId2": "456"}, {"fieldId1": "abc", "fieldId2": "def"}]  | 否 |
+| 排列方式 | representation  | string  | “TILED”  | 否 | 可选值："TILED", "TABLE" |
+| 展现方式 | layout  | string  | "VERTICAL"  | 否 | 可选值："VERTICAL", "HORIZONTAL" |
+| 主题 | theme | string  | "split"  | 否 | 只在 PC 表格模式下有效，可选值："zebra", "split", "border" | |
+| 显示序号 | showIndex | bool  | true  | 否 | 只在 PC 表格模式下有效 |
+| 显示表头 | showTableHead | bool  | true | 否 | 只在 PC 表格模式下有效 |
+| 按钮名称 | buttonName | string  | "新增一条"  | 否 |
+| 删除按钮 | deleteButtonName | string  | "删除"  | 否 |
+| 状态 | behavior | string  | {fieldBehavior: "NORMAL"}  | 是 | fieldBehavior 可选值："NORMAL","DISABLED","READONLY","HIDDEN" |
+| 最大宽度 | style | object  | { maxWidth:"100%" }  | 否  | 仅 PC 端支持 |
+| 最大条数 | listNum  | number  | 10 | 否 | 
+| 最小条数 | listMinNum  | number  | 1 | 否 |
+| 额外按钮 | importButton  | string  | "其他按钮" | 否 |
+| 点击添加事件 | onAddClick | function | function(ctx) {} | 否 |
+| 点击删除事件 | onDelClick | function | function(ctx) {} | 否 |
+| 点击自定义按钮事件 | onClick | function | function(ctx) {} | 否 |
+| 值改变事件 | onChange | function | function({ values, extra }) {} | 否 |  extra 结构：{ from: '动作来源，如 add_item / del_item', formGroupId: '表单分组 ID', changes: { name: '字段名称', value: '字段值' } } |
