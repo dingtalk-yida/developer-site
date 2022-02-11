@@ -19,7 +19,7 @@ module.exports = {
       activeBasePath: '/docs/guide/'
     },
     {
-      to: '/docs/components/layout/tab',
+      to: '/docs/components/layout/tabsLayout',
       position: 'right',
       label: '组件',
       activeBasePath: '/docs/components/'
