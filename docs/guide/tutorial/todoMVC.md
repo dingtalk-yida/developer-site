@@ -30,7 +30,7 @@ title: TodoMVC
 
 ![](https://img.alicdn.com/imgextra/i3/O1CN01oxiQKe1opzyzIGCVN_!!6000000005275-2-tps-2084-1050.png_.webp)
 
-根据TodoMVC的UI展示，我们可以找到宜搭中对应可以使用的组件（各组件的详细使用可以查看[组件文档](/docs/components/layout/tab)），如下所示：
+根据TodoMVC的UI展示，我们可以找到宜搭中对应可以使用的组件（各组件的详细使用可以查看[组件文档](/docs/components/layout/tabsLayout)），如下所示：
 
 * **大Logo** - 一个静态文案，可以使用 ```文本``` 组件；
 * **任务输入框** - 用于输入新增任务的内容，可以使用 ```输入框``` 组件；

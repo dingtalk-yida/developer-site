@@ -7,7 +7,7 @@ module.exports = {
   },
   items: [
     {
-      to: '/docs/usage/about',
+      to: '/docs/usage/changeLog',
       position: 'right',
       label: '使用指南',
       activeBasePath: '/docs/usage/'
