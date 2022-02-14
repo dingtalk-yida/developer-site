@@ -358,7 +358,7 @@ export function getValue(){
 interface IOptions {
   doNotValidate: boolean; // 是否阻止自动校验，默认为 false
   formatted: boolean; // 是否已经格式化 默认为 false
-  triggerChange: boolean; // 是否触发组件值变化事件，false
+  triggerChange: boolean; // 是否触发组件值变化事件，默认为 true
 };
 
 /**
