@@ -47,7 +47,9 @@ export default function Home(): JSX.Element {
       description="宜搭开发者中心，让开发者更好使用宜搭。">
       <HomepageHeader />
       <main>
+        <h1 className={styles.title}>产品特性</h1>
         <HomepageFeatures />
+        <h1 className={styles.title}>学习路径</h1>
         <LearningPath />
       </main>
     </Layout>

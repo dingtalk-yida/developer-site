@@ -1,5 +1,6 @@
 import React from 'react';
 import {Table, TableProps} from 'antd';
+import 'antd/lib/table/style/index.css'
 
 const COLUMNS = [{
   title: '属性名',

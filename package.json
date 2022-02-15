@@ -7,6 +7,7 @@
     "@ali/b3-iframe": "^0.0.5",
     "@ali/b3-one": "^0.0.20",
     "@ali/iceluna-alibg": "^1.0.8",
+    "@ali/yida-ui": "^0.0.1-beta.0",
     "@ant-design/icons": "^4.7.0",
     "@cmfcmf/docusaurus-search-local": "^0.9.3",
     "@docusaurus/core": "2.0.0-beta.14",
