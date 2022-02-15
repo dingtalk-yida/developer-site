@@ -89,11 +89,11 @@ export default [
         children: [
           {
             title: '选项卡',
-            path: '/docs/components/tabLayout',
+            path: '/docs/components/layout/tabsLayout',
           },
           {
             title: '布局容器',
-            path: '/docs/components/regionalContainer',
+            path: '/docs/components/layout/regionalContainer',
           },
         ],
       },
