@@ -5,6 +5,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 import HomepageFeatures from '../components/HomepageFeatures';
+import LearningPath from '../components/LearningPath';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -15,8 +16,21 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
-            to="/docs/guide/start">
+            className="button button--secondary"
+            style={{
+              margin: '0 10px'
+            }}
+            to="/docs/guide/about"
+          >
+            介绍
+          </Link>
+          <Link
+            className="button button--secondary"
+            style={{
+              margin: '0 10px'
+            }}
+            to="/docs/guide/start"
+          >
             快速开始
           </Link>
         </div>
@@ -34,6 +48,7 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <LearningPath />
       </main>
     </Layout>
   );

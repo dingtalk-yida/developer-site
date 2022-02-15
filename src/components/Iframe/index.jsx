@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Recevier from '@ali/b3-iframe/lib/recevier';
-// import './index.module.scss';
+import './index.scss';
 
 const getOffset = item => {
   let total = 0;
@@ -19,7 +19,6 @@ export default class BGIframe extends PureComponent {
     disableHeightSync: PropTypes.bool,
     id: PropTypes.string,
     onUpdateHeight: PropTypes.func,
-    onUpdateUrl: PropTypes.func,
     style: PropTypes.object,
     url: PropTypes.string.isRequired
   };
@@ -28,7 +27,6 @@ export default class BGIframe extends PureComponent {
     disableHeightSync: false,
     id: '',
     onUpdateHeight: () => {},
-    onUpdateUrl: () => {},
     style: {},
     syncParam: true,
     url: ''
@@ -38,49 +36,27 @@ export default class BGIframe extends PureComponent {
     super(props);
     this.container = null;
     this.iframe = null;
-    this.state = {
-      loading: true
-    };
   }
 
   componentDidMount() {
-    if (this.iframe) {
-      this.iframe.onload = () => {
-        this.setState({
-          loading: false
-        });
-      };
-    }
     if (!this.props.disableHeightSync) {
       this.createRecevier();
     }
   }
 
-  componentWillReceiveProps({ url, disableHeightSync, style }) {
+
+  componentDidUpdate({ url, disableHeightSync, style }) {
     if (url.replace(/#.*$/, '') !== this.props.url.replace(/#.*$/, '')) {
       if (this.container) {
-        this.container.style.height = (style && style.height) || '800px';
+        this.container.style.height = (this.props.style && this.props.style.height) || '800px';
       }
-      this.setState({
-        loading: true
-      });
     }
     if (disableHeightSync !== this.props.disableHeightSync) {
-      if (disableHeightSync) {
+      if (this.props.disableHeightSync) {
         this.destroyRecevier();
       } else {
         this.createRecevier();
       }
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (!prevProps.url && this.iframe) {
-      this.iframe.onload = () => {
-        this.setState({
-          loading: false
-        });
-      };
     }
   }
 
@@ -91,30 +67,6 @@ export default class BGIframe extends PureComponent {
   createRecevier = () => {
     this.destroyRecevier();
     this.recevier = new Recevier();
-
-    this.recevier.on('popup', (data, origin, source) => {
-      if (this.iframe) {
-        if (source === this.iframe.contentWindow) {
-          const scrollY = window.scrollY;
-          const offset = getOffset(this.iframe);
-          const vpHeight = window.innerHeight;
-          const iframeHeight = this.iframe.clientHeight;
-          this.iframe.contentWindow.postMessage(
-            {
-              type: 'updatePopup',
-              value: {
-                scrollY,
-                offset,
-                iframeHeight,
-                type: data.value,
-                vpHeight
-              }
-            },
-            '*'
-          );
-        }
-      }
-    });
     this.recevier.on('updateHeight', (data, origin, source) => {
       if (this.iframe) {
         if (source === this.iframe.contentWindow) {

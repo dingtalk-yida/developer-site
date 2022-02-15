@@ -1,0 +1,49 @@
+.learning-path {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  .ant-steps-item-title {
+    display: flex;
+    .step-title {
+      display: inline-block;
+      width: 160px;
+      line-height: 36px;
+      font-size: 18px;
+      color: var(--ifm-heading-color);
+      font-family: var(--ifm-heading-font-family);
+      font-weight: var(--ifm-heading-font-weight);
+    }
+    .ant-steps-item-subtitle {
+      flex: 1;
+      color: var(--ifm-heading-color);
+      .step-sub-title {
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .path-block {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        .path-item {
+          width: 33%;
+          font-weight: 400;
+          font-size: 14px;
+        }
+      }
+      
+    }
+  }
+}
+
+@media screen and (max-width: 966px) {
+  .learning-path {
+    .ant-steps-item-title {
+      flex-direction: column;
+      .ant-steps-item-subtitle {
+        .path-block .path-item {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
