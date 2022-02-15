@@ -1,7 +1,13 @@
 .learning-path {
-  max-width: 1200px;
-  margin: 40px auto;
+  max-width: 1400px;
+  margin: 0 auto 100px;
   padding: 20px;
+  font-family: var(--ifm-heading-font-family);
+  font-weight: var(--ifm-heading-font-weight);
+  color: var(--ifm-heading-color);
+  .ant-steps {
+    padding: 20px 100px;
+  }
   .ant-steps-item-title {
     display: flex;
     .step-title {
@@ -9,23 +15,22 @@
       width: 160px;
       line-height: 36px;
       font-size: 18px;
-      color: var(--ifm-heading-color);
-      font-family: var(--ifm-heading-font-family);
-      font-weight: var(--ifm-heading-font-weight);
+      color: var(--ifm-font-color-base);
     }
     .ant-steps-item-subtitle {
       flex: 1;
-      color: var(--ifm-heading-color);
       .step-sub-title {
         font-size: 16px;
         font-weight: 500;
+        line-height: 36px;
+        color: var(--ifm-font-color-base);
       }
       .path-block {
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 20px;
         .path-item {
-          width: 33%;
+          width: 20%;
           font-weight: 400;
           font-size: 14px;
         }
@@ -37,6 +42,9 @@
 
 @media screen and (max-width: 966px) {
   .learning-path {
+    .ant-steps {
+      padding: 0px;
+    }
     .ant-steps-item-title {
       flex-direction: column;
       .ant-steps-item-subtitle {
