@@ -15,7 +15,7 @@ import Iframe from '../../../src/components/Iframe'
 
 ## 组件属性
 
-| 属性名   |  属性code  | 类型 | 数据示例  | 动态属性 | 备注 |
+<!-- | 属性名   |  属性code  | 类型 | 数据示例  | 动态属性 | 备注 |
 | :------ | :------ | :------ | :------ | :----- | :----- |
 | 数据  | dataSource | Array | [{"key":"0-0","label":"0-0","children":[{"key":"0-0-0","label":"0-0-0","children":[{"key":"0-0-0-0","label":"0-0-0-0","children":[{"key":"0-0-0-0-0","label":"0-0-0-0-0"}]},{"key":"0-0-0-1","label":"0-0-0-1"}]},{"key":"0-0-1","label":"0-0-1","children":[{"key":"0-0-1-0","label":"0-0-1-0"},{"key":"0-0-1-1","label":"0-0-1-1"}]}]}] | 是 | JSON 数组 |
 | 显示线 | showLine | Bool | false | 否 |  |
@@ -23,25 +23,223 @@ import Iframe from '../../../src/components/Iframe'
 | 支持编辑 | editable | Bool | false | 否 |  |
 | 支持拖拽 | draggable | Bool | false | 否 |  |
 | 默认展开 | defaultExpandAll | Bool | true | 否 |  |
-| 默认展开节点数组 | defaultExpandedKeys | Array | [] | 是 |  |
-| 支持选中 | selectable | Bool | true | 否 |  |
+| 默认展开节点数组 | defaultExpandedKeys | Array | [] | 是 |  | -->
+<!-- | 支持选中 | selectable | Bool | true | 否 |  |
 | 默认选中节点 | selectedKeys | Array | [] | 是 |  |
 | 复选框 | checkable | Bool | false | 否 |  |
-| 默认勾选节点 | checkedKeys | Array | [] | 否 |  |
-| 复选框完全受控 | checkStrictly | Bool | false | 否 |  |
-| 定义选中时回填的方式 | checkedStrategy | String | 'parent' | 否 |  |
-| 开启异步加载 | isLoadData | Bool | false | 否 |  |
+| 默认勾选节点 | checkedKeys | Array | [] | 否 |  | -->
+<!-- | 复选框完全受控 | checkStrictly | Bool | false | 否 |  |
+| 定义选中时回填的方式 | checkedStrategy | String | 'parent' | 否 |  | -->
+<!-- | 开启异步加载 | isLoadData | Bool | false | 否 |  |
 | loadData 函数 | loadData | String | function loadData(data){ return new Promise((resolve) => { resolve(); })} | 否 |  |
 | 节点是否占满剩余空间 | isLabelBlock | Bool | false | 否 |  |
-| 节点是否占满一行 | isNodeBlock | Bool | false | 否 |  |
-| 选中或取消选中节点时 | onSelect | Func | function(ctx, selectedKeys, extra) { console.log('选中或取消选中节点时'); } | 否 |  |
-| 勾选或取消勾选复选框时 | onCheck | Func | function(ctx, checkedKeys, extra) { console.log('勾选或取消勾选复选框时'); } | 否 |  |
-| 展开收起节点时 | onExpand | Func | function(ctx, expandedKeys, extra) { console.log('展开收起节点时'); } | 否 |  |
-| 编辑节点内容完成时 | onEditFinish | Func | function(ctx, key, label, node) { console.log('编辑节点内容完成时'); } | 否 |  |
-| 开始拖拽节点时 | onDragStart | Func | function(ctx, info) { console.log('开始拖拽节点时'); } | 否 |  |
-| 拖拽节点进入目标时 | onDragEnter | Func | function(ctx, info) { console.log('拖拽节点进入目标时'); } | 否 |  |
-| 拖拽节点在目标节点上移动时 | onDragOver | Func | function(ctx, info) { console.log('拖拽节点在目标节点上移动时'); } | 否 |  |
-| 拖拽节点离开目标节点时 | onDragLeave | Func | function(ctx, info) { console.log('拖拽节点离开目标节点时'); } | 否 |  |
-| 拖拽结束时 | onDragEnd | Func | function(ctx, info) { console.log('拖拽结束时'); } | 否 |  |
-| 拖拽节点放入目标节点内或前后时 | onDrop | Func | function(ctx, info) { console.log('拖拽节点放入目标节点内或前后时'); } | 否 |  |
-| 节点是否可被作为目标节点 | canDrop | Func | function(ctx, info) { console.log('节点是否可被作为目标节点'); } | 否 |  |
+| 节点是否占满一行 | isNodeBlock | Bool | false | 否 |  | -->
+<!-- 
+ -->
+import AttrTable from 'components/AttrTable'
+
+<AttrTable dataSource={[{
+  attr: '数据',
+  code: 'dataSource',
+  type: 'Array',
+  demo: '[{"key":"0-0","label":"0-0","children":[{"key":"0-0-0","label":"0-0-0","children":[{"key":"0-0-0-0","label":"0-0-0-0","children":[{"key":"0-0-0-0-0","label":"0-0-0-0-0"}]},{"key":"0-0-0-1","label":"0-0-0-1"}]},{"key":"0-0-1","label":"0-0-1","children":[{"key":"0-0-1-0","label":"0-0-1-0"},{"key":"0-0-1-1","label":"0-0-1-1"}]}]}]',
+  dafault:'',
+  desc: 'JSON 数组'
+}, {
+  attr: '显示线',
+  code: 'showLine',
+  type: 'Bool',
+  demo: 'false',
+  dafault:'',
+  desc: ''
+}, {
+  attr: '多选',
+  code: 'multiple',
+  type: 'Bool',
+  demo: "false",
+  dafault:'',
+  desc: ''
+}, {
+  attr: '支持编辑',
+  code: 'editable',
+  type: 'Bool',
+  demo: 'false',
+  dafault:'',
+  desc: ''
+},  {
+  attr: '支持拖拽',
+  code: 'draggable',
+  type: 'Bool',
+  demo: 'false',
+  dafault:'',
+  desc: ''
+}, {
+  attr: '默认展开',
+  code: 'defaultExpandAll',
+  type: 'Bool',
+  demo: 'false',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '默认展开节点数组',
+  code: 'defaultExpandedKeys',
+  type: 'Array',
+  demo: '[] ',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '支持选中',
+  code: 'selectable',
+  type: 'Bool',
+  demo: 'true',
+  dafault:' ',
+  desc: ''
+},
+{
+  attr: '默认选中节点',
+  code: 'checkedKeys',
+  type: 'Array',
+  demo: '[]',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '复选框',
+  code: 'checkable',
+  type: 'Bool',
+  demo: 'false',
+  dafault:'',
+  desc: ''
+},{
+  attr: '默认勾选节点',
+  code: 'checkedKeys',
+  type: 'Array',
+  demo: '[]',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '复选框完全受控',
+  code: 'checkStrictly',
+  type: 'Bool',
+  demo: 'false',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '定义选中时回填的方式',
+  code: 'checkStrictly',
+  type: 'String',
+  demo: "'parent' ",
+  dafault:'',
+  desc: ''
+},{
+  attr: '开启异步加载',
+  code: 'isLoadData',
+  type: 'Bool',
+  demo: 'false',
+  dafault:'',
+  desc: ''
+},{
+  attr: 'loadData 函数 ',
+  code: 'loadData',
+  type: 'String',
+  demo: "function loadData(data){ return new Promise((resolve) => { resolve(); })} ",
+  dafault:'',
+  desc: ''
+},{
+  attr: '节点是否占满剩余空间',
+  code: 'isLabelBlock',
+  type: 'Bool',
+  demo: 'false',
+  dafault:'',
+  desc: ''
+},{
+  attr: '节点是否占满一行',
+  code: 'isNodeBlock',
+  type: 'Bool',
+  demo: 'false',
+  dafault:'',
+  desc: ''
+},{
+  attr: '选中或取消选中节点时',
+  code: 'onSelect',
+  type: 'Func',
+  demo: "function(ctx, selectedKeys, extra) { console.log('选中或取消选中节点时'); }",
+  dafault:'',
+  desc: ''
+},{
+  attr: '勾选或取消勾选复选框时',
+  code: 'onCheck',
+  type: 'Func',
+  demo: "function(ctx, checkedKeys, extra) { console.log('勾选或取消勾选复选框时'); } ",
+  dafault:'',
+  desc: ''
+},{
+  attr: '展开收起节点时',
+  code: 'onExpand',
+  type: 'Func',
+  demo: "function(ctx, expandedKeys, extra) { console.log('展开收起节点时'); }",
+  dafault:'',
+  desc: ''
+},{
+  attr: '编辑节点内容完成时',
+  code: 'onEditFinish',
+  type: 'Func',
+  demo: "function(ctx, key, label, node) { console.log('编辑节点内容完成时'); }",
+  dafault:'',
+  desc: ''
+},{
+  attr: '开始拖拽节点时',
+  code: 'onDragStart',
+  type: 'Func',
+  demo: "function(ctx, info) { console.log('开始拖拽节点时'); } ",
+  dafault:'',
+  desc: ''
+},{
+  attr: '拖拽节点进入目标时',
+  code: 'onDragEnter',
+  type: 'Func',
+  demo: "function(ctx, info) { console.log('拖拽节点进入目标时'); } ",
+  dafault:'',
+  desc: ''
+},{
+  attr: '拖拽节点在目标节点上移动时',
+  code: 'onDragOver',
+  type: 'Func',
+  demo: "function(ctx, info) { console.log('拖拽节点在目标节点上移动时'); } ",
+  dafault:'',
+  desc: ''
+},{
+  attr: '拖拽节点离开目标节点时',
+  code: 'onDragLeave',
+  type: 'Func',
+  demo: "function(ctx, info) { console.log('拖拽节点离开目标节点时'); } ",
+  dafault:'',
+  desc: ''
+},{
+  attr: '拖拽结束时',
+  code: 'onDragEnd',
+  type: 'Func',
+  demo: "function(ctx, info) { console.log('拖拽结束时'); } ",
+  dafault:'',
+  desc: ''
+},{
+  attr: '拖拽节点放入目标节点内或前后时',
+  code: 'onDrop',
+  type: 'Func',
+  demo: "function(ctx, info) { console.log('拖拽节点放入目标节点内或前后时'); }  ",
+  dafault:'',
+  desc: ''
+},{
+  attr: '节点是否可被作为目标节点',
+  code: 'canDrop',
+  type: 'Func',
+  demo: "function(ctx, info) { console.log('节点是否可被作为目标节点'); }",
+  dafault:'',
+  desc: ''
+}
+]}
+/>

@@ -14,18 +14,120 @@ import Iframe from '../../../src/components/Iframe'
   
 ## 组件属性
 
-| 属性名   |  属性code  | 类型 | 数据示例 | 默认值  | 动态属性 | 备注 |
+<!-- | 属性名   |  属性code  | 类型 | 数据示例 | 默认值  | 动态属性 | 备注 |
 | :------ | :------ | :------ | :------ | :----- | :----- | :----- |
 | 总记录数 | total | string | | 100 | 是 |  | 
 | 当前页码 | current | string | | 1 | 是 |  | 
 | 分页尺寸 | size | string | "small" "medium" "large" | "medium" | 否 |  | 
 | 分页类型 | type | string |"normal" "simple" "mini" | "normal" | 否 |  | 
 | 前进后退按钮样式 | shape | string |"normal" "arrow-only" "arrow-prev-only" "no-border" | "normal" | 否 |  | 
-| 每页显示选择器类型 | pageSizeSelector | boolean/string | false, 'filter', 'dropdown'| false | 否 |  | 
-| 每页显示选择器可选值 | pageSizeList | string | | "5,10,20" | 否 |  | 
-| pageSize | pageSize | string | | 10 | 否 |  | 
-| 每页显示选择器在组件中的位置 | pageSizePosition | string | "start" "end"| "end" | 否 |  | 
-| 当分页数为1时，是否隐藏分页器 | hideOnlyOnePage | string | | false | 否 |  | 
+| 每页显示选择器类型 | pageSizeSelector | boolean/string | false, 'filter', 'dropdown'| false | 否 |  |  -->
+<!-- | 每页显示选择器可选值 | pageSizeList | string | | "5,10,20" | 否 |  |  -->
+<!-- | pageSize | pageSize | string | | 10 | 否 |  | 
+| 每页显示选择器在组件中的位置 | pageSizePosition | string | "start" "end"| "end" | 否 |  |  -->
+<!-- | 当分页数为1时，是否隐藏分页器 | hideOnlyOnePage | string | | false | 否 |  | 
 | 显示跳转输入框与按钮 | showJump | string | | true | 否 |  | 
 | 当每页数量改变时 | onPageSizeChange | function | function(pageSize){} || 否 |
-| 当页码改变时 | onChange | function | function(currentPagination){} || 否 |
+| 当页码改变时 | onChange | function | function(currentPagination){} || 否 | -->
+import AttrTable from 'components/AttrTable'
+
+<AttrTable dataSource={[{
+  attr: '总记录数',
+  code: 'total',
+  type: 'String',
+  demo: '',
+  dafault:'100',
+  desc: ''
+}, {
+  attr: '当前页码',
+  code: 'current',
+  type: 'String',
+  demo: '',
+  dafault:'1',
+  desc: ''
+}, {
+  attr: '分页尺寸',
+  code: 'size',
+  type: 'String',
+  demo: '"small" "medium" "large"' ,
+  dafault:'normal',
+  desc: ''
+}, {
+  attr: '分页类型',
+  code: 'type',
+  type: 'String',
+  demo: '"normal" "simple" "mini"',
+  dafault:'normal',
+  desc: ''
+},  {
+  attr: '前进后退按钮样式',
+  code: 'shape',
+  type: 'String',
+  demo: '"normal" "arrow-only" "arrow-prev-only" "no-border"',
+  dafault:'false',
+  desc: ''
+}, {
+  attr: '每页显示选择器类型',
+  code: 'pageSizeSelector',
+  type: 'boolean/string',
+  demo: "'false, 'filter', 'dropdown'",
+  dafault:'false',
+  desc: ''
+},
+{
+  attr: '每页显示选择器可选值',
+  code: 'pageSizeList',
+  type: 'String',
+  demo: '"5,10,20" ',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: 'pageSize',
+  code: 'pageSize',
+  type: 'String',
+  demo: '',
+  dafault:'10',
+  desc: ''
+},
+{
+  attr: '每页显示选择器在组件中的位置',
+  code: 'pageSizePosition',
+  type: 'String',
+  demo: '"start" "end"',
+  dafault:'"end"',
+  desc: ''
+},
+{
+  attr: '当分页数为1时，是否隐藏分页器',
+  code: 'hideOnlyOnePage',
+  type: 'String',
+  demo: '',
+  dafault:'false',
+  desc: ''
+},{
+  attr: '显示跳转输入框与按钮',
+  code: 'showJump',
+  type: 'String',
+  demo: '',
+  dafault:'true',
+  desc: ''
+},
+{
+  attr: '当每页数量改变时',
+  code: 'onPageSizeChange',
+  type: 'function',
+  demo: 'function(pageSize){}',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '当页码改变时',
+  code: 'onChange',
+  type: 'function',
+  demo: 'ffunction(currentPagination){}',
+  dafault:'',
+  desc: ''
+},
+]}
+/>
