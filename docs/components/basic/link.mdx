@@ -14,11 +14,63 @@ import Iframe from '../../../src/components/Iframe'
 
 ## 组件属性
 
-| 属性名 |  属性code  | 类型 | 数据示例  | 动态属性 | 备注 |
+<!-- | 属性名 |  属性code  | 类型 | 数据示例  | 动态属性 | 备注 |
 | :------ | :------ | :------ | :------ | :----- | :----- |
 | 内容 | content | string | 图片资源地址 | 否 |  |
 | 单行截断 | textOverflow | boolean | false | 否 |  |
 | 链接类型 | type | string | ’page‘ | 否 |  |
 | 链接地址 | url | string | ’‘ | 否 |  |
 | 新开页面 | isBlank | boolean | false | 否 |  |
-| 携带参数 | params | object | false | 否 | url 查询参数 |
+| 携带参数 | params | object | false | 否 | url 查询参数 | -->
+
+import AttrTable from 'components/AttrTable'
+
+<AttrTable dataSource={[{
+  attr: '内容',
+  code: 'content',
+  type: 'String',
+  demo: '图片资源地址',
+  dafault:'',
+  desc: ''
+}, {
+  attr: '单行截断',
+  code: 'textOverflow',
+  type: 'boolean',
+  demo: 'false',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '链接类型',
+  code: 'type',
+  type: 'String',
+  demo: '',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '链接地址',
+  code: 'url',
+  type: 'String',
+  demo: '',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '新开页面',
+  code: 'isBlank',
+  type: 'boolean',
+  demo: 'false',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '携带参数',
+  code: 'params',
+  type: 'object',
+  demo: 'false',
+  dafault:'',
+  desc: 'url 查询参数'
+},
+]}
+/>

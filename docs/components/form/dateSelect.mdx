@@ -36,3 +36,156 @@ import Iframe from '../../../src/components/Iframe'
 | 值发生改变事件 | onChange | Function | ({value}) => {} | 否 |  |
 | 点击确认按钮 | onOk | Function |  ({value}) => {} | 否 |  |
 | 弹层展示状态变化 | onVisibleChange | Function | (visible, reason) => {} | 否 |  |
+import AttrTable from 'components/AttrTable'
+
+<AttrTable dataSource={[
+{
+  attr: '标题',
+  code: 'label',
+  type: 'String',
+  demo: '标题',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '值',
+  code: 'fieldData',
+  type: 'Object',
+  demo: '{value: 1505894659813}',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '标题位置',
+  code: 'labelAlign',
+  type: 'String',
+  demo: '“left”',
+  dafault:'',
+  desc: '可选值：“left”,”top”,”inset"'
+},
+{
+  attr: '标题宽度',
+  code: 'labelColSpan',
+  type: 'Number',
+  demo: '4',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '标题偏移',
+  code: 'labelColOffset',
+  type: 'Number',
+  demo: '0',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '内容宽度',
+  code: 'wrapperColSpan',
+  type: 'Number',
+  demo: '0',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '内容偏移',
+  code: 'wrapperColOffset',
+  type: 'Number',
+  demo: '0',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '标题对齐',
+  code: 'labelTextAlign',
+  type: 'String',
+  demo: '“left”',
+  dafault:'',
+  desc: '可选值：“left”,”right"'
+},
+{
+  attr: '提示文字',
+  code: 'placeholder',
+  type: 'String',
+  demo: '“请选择日期”',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '描述信息',
+  code: 'tips',
+  type: 'String',
+  demo: '这是一段描述信息',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '尺寸',
+  code: 'size',
+  type: 'String',
+  demo: '“small”',
+  dafault:'',
+  desc: '可选值：“small”,”medium”,"large"'
+},
+{
+  attr: '状态',
+  code: 'behavior',
+  type: 'String',
+  demo: '{fieldBehavior: "NORMAL"}',
+  dafault:'',
+  desc: 'fieldBehavior 可选值："NORMAL","DISABLED","READONLY","HIDDEN"'
+},
+{
+  attr: '格式',
+  code: 'format',
+  type: 'String',
+  demo: '"YYYY-MM-DD" ',
+  dafault:'',
+  desc: '可选值："YYYY","YYYY-MM","YYYY-MM-DD","YYYY-MM-DD HH:mm","YYYY-MM-DD HH:mm:ss" '
+},{
+  attr: '清除按钮',
+  code: 'hasClear',
+  type: 'Bool',
+  demo: 'true',
+  dafault:'',
+  desc: ''
+},{
+  attr: '每次选择日期时是否重置时间',
+  code: 'resetTime',
+  type: 'Bool',
+  demo: 'false ',
+  dafault:'',
+  desc: ''
+},{
+  attr: '禁用日期函数',
+  code: 'disabledDate',
+  type: 'Function',
+  demo: '(value) => {return false;}',
+  dafault:'',
+  desc: ''
+},{
+  attr: '值发生改变事件',
+  code: 'onChange',
+  type: 'Function',
+  demo: '({value}) => {}',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '点击确认按钮',
+  code: 'onOk',
+  type: 'Function',
+  demo: '({value}) => {}',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '弹层展示状态变化',
+  code: 'onVisibleChange',
+  type: 'Function',
+  demo: '(visible, reason) => {} ',
+  dafault:'',
+  desc: ''
+},
+]}
+/>

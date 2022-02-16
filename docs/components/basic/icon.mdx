@@ -20,3 +20,23 @@ import Iframe from '../../../src/components/Iframe'
 | 大小   | size | string | 'medium' | 否 | 从小到大依次为: `xxs`, `xs`, `small`, `medium`, `large`, `xl`, `xxl` |
 
 填充色请直接修改样式中的颜色属性。
+
+import AttrTable from 'components/AttrTable'
+
+<AttrTable dataSource={[{
+  attr: '图标',
+  code: 'src',
+  type: 'String',
+  demo: 'smile',
+  dafault:'',
+  desc: ''
+}, {
+  attr: '大小',
+  code: 'size',
+  type: 'String',
+  demo: 'medium',
+  dafault:'',
+  desc: ''
+}
+]}
+/>
