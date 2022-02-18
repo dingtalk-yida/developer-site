@@ -29,6 +29,6 @@
 可以的，自定义页面和普通的表单页面都为页面类型，因此可以在宜搭的页面设置中设置免登配置。
 
 ## 联系我们
-* 宜搭使用问题请到[讨论区](https://www.yuque.com/yida/topics)反馈;
+* 我们也维护了一个[开发者论坛(语雀讨论区)](https://www.yuque.com/yida/topics)，欢迎对低代码领域有兴趣的同学多多交流；
 * 关于开发者中心的任何问题，包括示例缺失、有误及体验问题，欢迎通过[官方渠道](https://www.aliwork.com/o/dev_feedback)进行反馈;
-* 我们也维护了一个[开发者论坛](https://developer.aliyun.com/group/yida/)，欢迎对低代码领域有兴趣的同学多多交流；
+

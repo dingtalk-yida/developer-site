@@ -34,4 +34,10 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   margin-right: 2rem;
 }
 
+.hero {
+  padding: 2rem 0!important;
+}
 
+.pagination-nav__item {
+  max-width: 400px;
+}
