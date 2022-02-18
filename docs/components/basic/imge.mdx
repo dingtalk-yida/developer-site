@@ -14,16 +14,107 @@ import Iframe from '../../../src/components/Iframe'
 
 ## 组件属性
 
-| 属性名 |  属性code  | 类型 | 数据示例  | 动态属性 | 备注 |
+<!-- | 属性名 |  属性code  | 类型 | 数据示例  | 动态属性 | 备注 |
 | :------ | :------ | :------ | :------ | :----- | :----- |
-| 图片地址   | src | string | 图片资源地址 | 否 |  |
-| 宽  | height | number | 300 | 否 |  |
-| 宽度 auto   | autuWidth | number | 300 | 否 |  |
-| 高   | height | number | 300 | 否 |  |
-| 高度 auto   | autuHeight | number | 300 | 否 |  |
-| 摆放方式  | fit | enum | ‘contain’ | 否 |  |
-| 圆角   | round | string | ‘8px’ | 否 | |
-| 圆角大小 | roundRadius | string | ‘8px’ | 否 | |
-| title  | title | string | ’‘ | 否 | 标题 |
-| 替代文本  | alt | string | ’‘ | 否 | 图片未加载时的占位文字 |
-| 点击事件  | onClick | function |
+| 图片地址   | src | string | 图片资源地址 | 否 |  | -->
+<!-- | 宽  | width | number | 300 | 否 |  | -->
+<!-- | 宽度 auto   | autuWidth | number | 300 | 否 |  | -->
+<!-- | 高   | height | number | 300 | 否 |  | -->
+<!-- | 高度 auto   | autuHeight | number | 300 | 否 |  | -->
+<!-- | 摆放方式  | fit | enum | ‘contain’ | 否 |  | -->
+<!-- | 圆角   | round | string | ‘8px’ | 否 | | -->
+<!-- | 圆角大小 | roundRadius | string | ‘8px’ | 否 | | -->
+<!-- | title  | title | string | ’‘ | 否 | 标题 | -->
+<!-- | 替代文本  | alt | string | ’‘ | 否 | 图片未加载时的占位文字 | -->
+<!-- | 点击事件  | onClick | function | -->
+
+
+<AttrTable dataSource={[{
+  attr: '图片地址',
+  code: 'src',
+  type: 'String',
+  demo: '图片资源地址',
+  dafault:'',
+  desc: ''
+}, {
+  attr: '宽',
+  code: 'width',
+  type: 'number',
+  demo: '300',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '宽度auto ',
+  code: 'autuHeight',
+  type: 'number',
+  demo: '300',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '高 ',
+  code: 'height',
+  type: 'number',
+  demo: '300',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '高度auto ',
+  code: 'autuHeight',
+  type: 'number',
+  demo: '300',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '摆放方式 ',
+  code: 'fit',
+  type: 'enum',
+  demo: '‘contain’',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '圆角 ',
+  code: 'round',
+  type: 'String',
+  demo: '8px',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '圆角大小 ',
+  code: 'roundRadius',
+  type: 'String',
+  demo: '8px',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: 'title ',
+  code: 'title',
+  type: 'String',
+  demo: '8px',
+  dafault:'',
+  desc: '标题'
+},
+{
+  attr: '替代文本 ',
+  code: 'alt',
+  type: 'String',
+  demo: '8px',
+  dafault:'',
+  desc: '图片未加载时的占位文字'
+},
+{
+  attr: '点击事件 ',
+  code: 'onClick',
+  type: 'function',
+  demo: '',
+  dafault:'',
+  desc: ''
+},
+]}
+/>

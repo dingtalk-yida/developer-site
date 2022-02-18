@@ -20,3 +20,41 @@ import Iframe from '../../../src/components/Iframe'
 | 链接地址 | url | string | ’‘ | 否 |  |
 | 新开页面 | isBlank | boolean | false | 否 |  |
 | 携带参数 | params | object | false | 否 | url 查询参数 |
+
+import AttrTable from 'components/AttrTable'
+
+<AttrTable dataSource={[
+{
+  attr: '链接类型',
+  code: 'type',
+  type: 'String',
+  demo: '’page‘',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '链接地址',
+  code: 'url',
+  type: 'String',
+  demo: '',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '新开页面',
+  code: 'isBlank',
+  type: 'boolean',
+  demo: 'false',
+  dafault:'',
+  desc: ''
+},
+{
+  attr: '携带参数',
+  code: 'params',
+  type: 'object',
+  demo: 'false',
+  dafault:'',
+  desc: 'url 查询参数'
+},
+]}
+/>
