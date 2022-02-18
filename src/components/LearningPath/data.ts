@@ -114,7 +114,7 @@ export default [
           },
           {
             title: '图片',
-            path: '/docs/components/basic/imge',
+            path: '/docs/components/basic/image',
           }, {
             title: '链接',
             path: '/docs/components/basic/link',
@@ -154,7 +154,7 @@ export default [
           },
           {
             title: '多选',
-            path: '/docs/components/form/check',
+            path: '/docs/components/form/checkbox',
           },
           {
             title: '下拉多选',

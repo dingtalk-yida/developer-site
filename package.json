@@ -57,6 +57,7 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "npm run build && gh-pages -d ./build -b docs",
+    "deploy:github": "npm run build && gh-pages -d ./build -b site -o github",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
