@@ -75,7 +75,7 @@ export default [
         title: '高阶教程',
         children: [{
           title: 'TodoMVC',
-          path: '/docs/guide/tutorial/todoMVC',
+          path: '/docs/tutorial/todoMVC',
         }]
       },
     ],

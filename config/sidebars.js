@@ -7,36 +7,36 @@
 const getDocsFromDir = require('../scripts/getDocsFromDir');
 
 module.exports = {
-  usage: [
-    'usage/changeLog',
-    'usage/dataSecurity',
-    {
-      type: 'category',
-      label: '产品简介',
-      collapsed: false,
-      items: getDocsFromDir('usage/intro'),
-    },
-    {
-      type: 'category',
-      label: '操作指引',
-      collapsed: false,
-      items: [{
-        type: 'category',
-        label: '平台管理',
-        collapsed: false,
-        items: getDocsFromDir('usage/guide/platform'),
-      }, {
-        type: 'category',
-        label: '应用创建',
-        collapsed: false,
-        items: getDocsFromDir('usage/guide/createApp'),
-      }],
-    },
-    'usage/newApp',
-    'usage/price',
-    'usage/contactUs',
-    'usage/keyWords',
-  ],
+  // usage: [
+  //   'usage/changeLog',
+  //   'usage/dataSecurity',
+  //   {
+  //     type: 'category',
+  //     label: '产品简介',
+  //     collapsed: false,
+  //     items: getDocsFromDir('usage/intro'),
+  //   },
+  //   {
+  //     type: 'category',
+  //     label: '操作指引',
+  //     collapsed: false,
+  //     items: [{
+  //       type: 'category',
+  //       label: '平台管理',
+  //       collapsed: false,
+  //       items: getDocsFromDir('usage/guide/platform'),
+  //     }, {
+  //       type: 'category',
+  //       label: '应用创建',
+  //       collapsed: false,
+  //       items: getDocsFromDir('usage/guide/createApp'),
+  //     }],
+  //   },
+  //   'usage/newApp',
+  //   'usage/price',
+  //   'usage/contactUs',
+  //   'usage/keyWords',
+  // ],
   guide: [
     'guide/about',
     'guide/start',
@@ -62,6 +62,9 @@ module.exports = {
       collapsed: false,
       items: getDocsFromDir('guide/FAQ')
     },
+  ],
+  tutorila: [
+    'tutorial/todoMVC',
   ],
   components: [
     {

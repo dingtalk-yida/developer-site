@@ -6,17 +6,23 @@ module.exports = {
     srcDark: 'https://img.alicdn.com/imgextra/i4/O1CN01Xcsimv1KYeVd2eKND_!!6000000001176-55-tps-298-86.svg'
   },
   items: [
-    {
-      to: '/docs/usage/changeLog',
-      position: 'right',
-      label: '使用指南',
-      activeBasePath: '/docs/usage/'
-    },
+    // {
+    //   to: '/docs/usage/changeLog',
+    //   position: 'right',
+    //   label: '使用指南',
+    //   activeBasePath: '/docs/usage/'
+    // },
     {
       to: '/docs/guide/about',
       position: 'right',
-      label: '开发者文档',
+      label: '开发指南',
       activeBasePath: '/docs/guide/'
+    },
+    {
+      to: '/docs/tutorial/todoMVC',
+      position: 'right',
+      label: '教程',
+      activeBasePath: '/docs/tutorial/'
     },
     {
       to: '/docs/components/layout/tabsLayout',
