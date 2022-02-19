@@ -14,7 +14,7 @@ import Iframe from '../../../src/components/Iframe'
 
 ## 组件属性
 
-<!-- | 属性名   |  属性code  | 类型 | 数据示例  |  备注 |
+<!-- | 属性名   |  属性 code  | 类型 | 数据示例  |  备注 |
 | :------ | :------ |: ------ | :------ | :----- |
 | 轮播项   | images | object | {src: 'https://test.png', title: 'title'} |  |
 | 类型 | type  | string  | 'single', 'multi'  | 轮播方式, 单图, 多图|  |
@@ -40,157 +40,157 @@ import Iframe from '../../../src/components/Iframe'
 import AttrTable from 'components/AttrTable'
 
 <AttrTable dataSource={[{
-  attr: '轮播项',
-  code: 'images',
-  type: 'object',
-  demo: "{src: 'https://test.png', title: 'title'}",
-  dafault:'',
+  attr: '轮播项', 
+  code: 'images', 
+  type: 'object', 
+  demo: "{src: 'https://test.png', title: 'title'}", 
+  dafault:'', 
   desc: ''
 }, {
-  attr: '类型',
-  code: 'type',
-  type: 'string',
-  demo: "'single', 'multi' ",
-  dafault:'',
+  attr: '类型', 
+  code: 'type', 
+  type: 'string', 
+  demo: "'single', 'multi' ", 
+  dafault:'', 
   desc: '轮播方式, 单图, 多图'
 }, {
-  attr: '图片宽度',
-  code: 'slideImageWidth',
-  type: 'string',
-  demo: "'100%'",
-  dafault:"  ",
+  attr: '图片宽度', 
+  code: 'slideImageWidth', 
+  type: 'string', 
+  demo: "'100%'", 
+  dafault:"  ", 
   desc: ''
 }, {
-  attr: '图片高度',
-  code: 'slideImageHeight',
-  type: 'string',
-  demo: "'300px'",
-  dafault:'',
-  desc: ''
-},  {
-  attr: '图片间距',
-  code: 'margin',
-  type: 'number',
-  demo: '10',
-  dafault:'',
+  attr: '图片高度', 
+  code: 'slideImageHeight', 
+  type: 'string', 
+  demo: "'300px'", 
+  dafault:'', 
   desc: ''
 }, {
-  attr: '同时展示的图片数量',
-  code: 'slidesToShow',
-  type: 'number',
-  demo: '2',
-  dafault:'',
+  attr: '图片间距', 
+  code: 'margin', 
+  type: 'number', 
+  demo: '10', 
+  dafault:'', 
   desc: ''
-},
+}, {
+  attr: '同时展示的图片数量', 
+  code: 'slidesToShow', 
+  type: 'number', 
+  demo: '2', 
+  dafault:'', 
+  desc: ''
+}, 
 {
-  attr: '同时滑动的图片数量',
-  code: 'slidesToScroll',
-  type: 'number',
-  demo: '1',
-  dafault:'',
+  attr: '同时滑动的图片数量', 
+  code: 'slidesToScroll', 
+  type: 'number', 
+  demo: '1', 
+  dafault:'', 
   desc: ''
-},
+}, 
 {
-  attr: '居中模式',
-  code: 'centerMode',
-  type: 'bool',
-  demo: 'false',
-  dafault:'"b" ',
+  attr: '居中模式', 
+  code: 'centerMode', 
+  type: 'bool', 
+  demo: 'false', 
+  dafault:'"b" ', 
   desc: ''
-},
+}, 
 {
-  attr: '多图轮播时，点击选中后自动居中',
-  code: 'focusOnSelect',
-  type: 'bool',
-  demo: 'false',
-  dafault:'',
+  attr: '多图轮播时，点击选中后自动居中', 
+  code: 'focusOnSelect', 
+  type: 'bool', 
+  demo: 'false', 
+  dafault:'', 
   desc: ''
-},
+}, 
 {
-  attr: '轮播方向',
-  code: 'slideDirection',
-  type: 'string',
-  demo: " 'hoz'",
-  dafault:" 'hoz', 'ver'",
+  attr: '轮播方向', 
+  code: 'slideDirection', 
+  type: 'string', 
+  demo: " 'hoz'", 
+  dafault:" 'hoz', 'ver'", 
   desc: ''
-},{
-  attr: '轮播速度',
-  code: 'speed',
-  type: 'number',
-  demo: '500',
-  dafault:'单位: ms ',
+}, {
+  attr: '轮播速度', 
+  code: 'speed', 
+  type: 'number', 
+  demo: '500', 
+  dafault:'单位: ms ', 
   desc: ''
-},
+}, 
 {
-  attr: '动效类型',
-  code: 'animation',
-  type: 'string',
-  demo: "'slide'",
-  dafault:"'slide', 'fade' ",
+  attr: '动效类型', 
+  code: 'animation', 
+  type: 'string', 
+  demo: "'slide'", 
+  dafault:"'slide', 'fade' ", 
   desc: ''
-},
+}, 
 {
-  attr: '箭头',
-  code: 'arrows',
-  type: 'bool',
-  demo: 'true',
-  dafault:'',
+  attr: '箭头', 
+  code: 'arrows', 
+  type: 'bool', 
+  demo: 'true', 
+  dafault:'', 
   desc: ''
-},{
-  attr: '箭头大小',
-  code: 'arrowSize',
-  type: 'string',
-  demo: "'medium' ",
-  dafault:"'medium', 'large'",
+}, {
+  attr: '箭头大小', 
+  code: 'arrowSize', 
+  type: 'string', 
+  demo: "'medium' ", 
+  dafault:"'medium', 'large'", 
   desc: ''
-},{
-  attr: '箭头位置',
-  code: 'arrowPosition',
-  type: 'string',
-  demo: "'inner' ",
-  dafault:" 'inner', 'outer'",
+}, {
+  attr: '箭头位置', 
+  code: 'arrowPosition', 
+  type: 'string', 
+  demo: "'inner' ", 
+  dafault:" 'inner', 'outer'", 
   desc: ''
-},{
-  attr: '箭头方向',
-  code: 'arrowDirection ',
-  type: 'string',
-  demo: "'hoz' ",
-  dafault:"'hoz', 'ver'",
+}, {
+  attr: '箭头方向', 
+  code: 'arrowDirection ', 
+  type: 'string', 
+  demo: "'hoz' ", 
+  dafault:"'hoz', 'ver'", 
   desc: ''
-},{
-  attr: '自动播放',
-  code: 'autoplay',
-  type: 'bool',
-  demo: "false ",
-  dafault:"",
+}, {
+  attr: '自动播放', 
+  code: 'autoplay', 
+  type: 'bool', 
+  demo: "false ", 
+  dafault:"", 
   desc: ''
-},{
-  attr: '自动播放的速度',
-  code: 'autoplaySpeed',
-  type: 'number',
-  demo: "3000 ",
-  dafault:"",
+}, {
+  attr: '自动播放的速度', 
+  code: 'autoplaySpeed', 
+  type: 'number', 
+  demo: "3000 ", 
+  dafault:"", 
   desc: ''
-},{
-  attr: '导航锚点',
-  code: 'dots',
-  type: 'bool',
-  demo: "true ",
-  dafault:"",
+}, {
+  attr: '导航锚点', 
+  code: 'dots', 
+  type: 'bool', 
+  demo: "true ", 
+  dafault:"", 
   desc: ''
-},{
-  attr: '导航锚点位置',
-  code: 'dotsDirection',
-  type: 'string',
-  demo: "'hoz' ",
-  dafault:"",
+}, {
+  attr: '导航锚点位置', 
+  code: 'dotsDirection', 
+  type: 'string', 
+  demo: "'hoz' ", 
+  dafault:"", 
   desc: ''
-},{
-  attr: '锚点导航触发方式',
-  code: 'triggerType',
-  type: 'string',
-  demo: "'click' ",
-  dafault:"'click', 'hover'",
+}, {
+  attr: '锚点导航触发方式', 
+  code: 'triggerType', 
+  type: 'string', 
+  demo: "'click' ", 
+  dafault:"'click', 'hover'", 
   desc: ''
 }
 ]}

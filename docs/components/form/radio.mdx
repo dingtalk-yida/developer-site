@@ -14,118 +14,118 @@ import Iframe from '../../../src/components/Iframe'
 
 ## 组件属性
 
-| 属性名 | 属性code | 类型 | 数据示例 | 动态属性 | 备注 |
+| 属性名 | 属性 code | 类型 | 数据示例 | 动态属性 | 备注 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 标题 | label | String | "标题" | 是 |  |
 | 值 | fieldData | Object | {dataType:"CHANGED", value:"moon"} | 是 |  |
-| 标题位置 | labelAlign | String | “left” | 否 | 可选值：“left”,”top” |
+| 标题位置 | labelAlign | String | “left” | 否 | 可选值：“left”, ”top” |
 | 标题宽度 | labelColSpan | Number | 4 | 否 |  |
 | 标题偏移 | labelColOffset | Number  | 0 | 否 |  |
 | 内容宽度 | wrapperColSpan | Number  | 0 | 否 |  |
 | 内容偏移 | wrapperColOffset | Number  | 0 | 否 |  |
 | 描述信息 | tips | String | "这是一段描述信息" | 否 |  |
-| 尺寸 | size | String | “small” | 否 | 可选值：“small”,”medium”,"large" |
-| 状态 | behavior | String | {fieldBehavior: "NORMAL"} | 是 | fieldBehavior 可选值："NORMAL","DISABLED","READONLY","HIDDEN" |
+| 尺寸 | size | String | “small” | 否 | 可选值：“small”, ”medium”, "large" |
+| 状态 | behavior | String | {fieldBehavior: "NORMAL"} | 是 | fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN" |
 | 校验 | validation | Array | [{type:"required"}] | 是 | 可选值：{type:"required"}, {type: "customValidate", message: "请选择指定选项", param: "function validateRule(value) { return value === 'test' }"} |
 | 值发生改变事件 | onChange | Function | function( {value} ){ console.log(value); } | 否 |  |
 import AttrTable from 'components/AttrTable'
 
 <AttrTable dataSource={[
 {
-  attr: '标题',
-  code: 'label',
-  type: 'String',
-  demo: '标题',
-  dafault:'',
+  attr: '标题', 
+  code: 'label', 
+  type: 'String', 
+  demo: '标题', 
+  dafault:'', 
   desc: ''
-},
+}, 
 {
-  attr: '值',
-  code: 'fieldData',
-  type: 'Object',
-  demo: '{dataType:"CHANGED", value:"moon"}',
-  dafault:'',
+  attr: '值', 
+  code: 'fieldData', 
+  type: 'Object', 
+  demo: '{dataType:"CHANGED", value:"moon"}', 
+  dafault:'', 
   desc: ''
-},
+}, 
 {
-  attr: '标题位置',
-  code: 'labelAlign',
-  type: 'String',
-  demo: '“left”',
-  dafault:'',
-  desc: '可选值：“left”,”top”'
-},
+  attr: '标题位置', 
+  code: 'labelAlign', 
+  type: 'String', 
+  demo: '“left”', 
+  dafault:'', 
+  desc: '可选值：“left”, ”top”'
+}, 
 {
-  attr: '标题宽度',
-  code: 'labelColSpan',
-  type: 'Number',
-  demo: '4',
-  dafault:'',
+  attr: '标题宽度', 
+  code: 'labelColSpan', 
+  type: 'Number', 
+  demo: '4', 
+  dafault:'', 
   desc: ''
-},
+}, 
 {
-  attr: '标题偏移',
-  code: 'labelColOffset',
-  type: 'Number',
-  demo: '0',
-  dafault:'',
+  attr: '标题偏移', 
+  code: 'labelColOffset', 
+  type: 'Number', 
+  demo: '0', 
+  dafault:'', 
   desc: ''
-},
+}, 
 {
-  attr: '内容宽度',
-  code: 'wrapperColSpan',
-  type: 'Number',
-  demo: '0',
-  dafault:'',
+  attr: '内容宽度', 
+  code: 'wrapperColSpan', 
+  type: 'Number', 
+  demo: '0', 
+  dafault:'', 
   desc: ''
-},
+}, 
 {
-  attr: '内容偏移',
-  code: 'wrapperColOffset',
-  type: 'Number',
-  demo: '0',
-  dafault:'',
+  attr: '内容偏移', 
+  code: 'wrapperColOffset', 
+  type: 'Number', 
+  demo: '0', 
+  dafault:'', 
   desc: ''
-},
+}, 
 {
-  attr: '描述信息',
-  code: 'tips',
-  type: 'String',
-  demo: '这是一段描述信息',
-  dafault:'',
+  attr: '描述信息', 
+  code: 'tips', 
+  type: 'String', 
+  demo: '这是一段描述信息', 
+  dafault:'', 
   desc: ''
-},
+}, 
 {
-  attr: '尺寸',
-  code: 'size',
-  type: 'String',
-  demo: '“small”',
-  dafault:'',
-  desc: '可选值：“small”,”medium”,"large"'
-},
+  attr: '尺寸', 
+  code: 'size', 
+  type: 'String', 
+  demo: '“small”', 
+  dafault:'', 
+  desc: '可选值：“small”, ”medium”, "large"'
+}, 
 {
-  attr: '状态',
-  code: 'behavior',
-  type: 'String',
-  demo: '{fieldBehavior: "NORMAL"}',
-  dafault:'',
-  desc: 'fieldBehavior 可选值："NORMAL","DISABLED","READONLY","HIDDEN"'
-},
+  attr: '状态', 
+  code: 'behavior', 
+  type: 'String', 
+  demo: '{fieldBehavior: "NORMAL"}', 
+  dafault:'', 
+  desc: 'fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"'
+}, 
 {
-  attr: '校验',
-  code: 'validation',
-  type: 'Array',
-  demo: '[{type:"required"}] ',
-  dafault:'',
+  attr: '校验', 
+  code: 'validation', 
+  type: 'Array', 
+  demo: '[{type:"required"}] ', 
+  dafault:'', 
   desc: '可选值：{type:"required"}, {type: "customValidate", message: "请选择指定选项", param: "function validateRule(value) { return value === "test" }"}'
-},
+}, 
 {
-  attr: '值发生改变事件',
-  code: 'onChange',
-  type: 'Function',
-  demo: 'function(value){ console.log(value); }',
-  dafault:'',
+  attr: '值发生改变事件', 
+  code: 'onChange', 
+  type: 'Function', 
+  demo: 'function(value){ console.log(value); }', 
+  dafault:'', 
   desc: ''
-},
+}, 
 ]}
 />
