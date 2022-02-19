@@ -40,10 +40,10 @@ function HomepageHeader() {
 }
 
 export default function Home(): JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
+  // const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={siteConfig.title}
+      title="首页"
       description="宜搭开发者中心，让开发者更好使用宜搭。">
       <HomepageHeader />
       <main>
