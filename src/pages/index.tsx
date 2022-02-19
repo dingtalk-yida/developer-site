@@ -44,7 +44,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title="首页"
-      description="宜搭开发者中心，让开发者更好使用宜搭。">
+      description="钉钉宜搭开发者中心，让开发者更好使用钉钉宜搭。">
       <HomepageHeader />
       <main>
         {/* <h1 className={styles.title}>产品特性</h1>
