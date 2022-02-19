@@ -13,7 +13,7 @@ $ npm install
 ```
 $ npm start
 ```
-启动后，我们便可以在本地通过 [http://localhost:3000](http://localhost:3000) 进行访问。
+启动后，我们便可以在本地通过 [http://localhost:3000/developer-site/](http://localhost:3000/developer-site) 进行访问。
 
 > P.S.: 本地启动情况下，全局搜索是不生效的。
 
