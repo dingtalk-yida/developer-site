@@ -1,11 +1,11 @@
 module.exports = {
-  style: 'dark',
+  style: 'light',
   links: [
     {
       title: '快捷入口',
       items: [
         {
-          to: 'https://alidocs.dingtalk.com/i/p/6gYG95Vo1D8nVGo9/docs/6gYG9qWrdjAO0Go9',
+          to: 'https://yuque.com/yida',
           label: '帮助中心',
         },
         {
@@ -17,7 +17,7 @@ module.exports = {
           label: '社区',
         },
         {
-          to: 'https://www.aliwork.com/developer/',
+          to: 'https://dingtalk-yida.github.io/developer-site/',
           label: '开发者中心',
         },
       ],
@@ -26,15 +26,15 @@ module.exports = {
       title: '更多',
       items: [
         {
-          to: 'https://www.aliwork.com/workPlatform.html',
-          label: '关于宜搭',
+          to: 'https://www.aliwork.com/home',
+          label: '关于钉钉宜搭',
         },
         {
           to: 'https://www.aliwork.com/o/team',
-          label: '向团队推荐宜搭',
+          label: '向团队推荐钉钉宜搭',
         },
         {
-          to: 'https://alidocs.dingtalk.com/i/p/6gYG95Vo1D8nVGo9',
+          to: 'https://www.yuque.com/yida/updates',
           label: '更新日志',
         },
       ],
@@ -47,11 +47,11 @@ module.exports = {
           label: '售前咨询',
         },
         {
-          to: 'https://alidocs.dingtalk.com/i/p/6gYG95Vo1D8nVGo9/docs/6gYG9q9BkB4qDGo9',
+          to: 'https://www.yuque.com/yida/support/bp2rhh',
           label: '技术支持',
         },
       ],
     },
   ],
-  copyright: `Copyright © ${new Date().getFullYear()} 钉钉（中国）信息技术有限公司和／或其关联公司 浙ICP备18037475号-4. Built with Docusaurus.`,
+  copyright: `Made with ❤️ by 钉钉宜搭 F2E Team`,
 }

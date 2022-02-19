@@ -7,7 +7,7 @@ export default [
       title: '产品简介',
       children: [
         {
-          title: '宜搭介绍',
+          title: '钉钉宜搭介绍',
           path: 'https://www.yuque.com/yida/support/ytzzua',
         },
         {
