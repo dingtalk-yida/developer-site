@@ -14,25 +14,25 @@ module.exports = {
     // },
     {
       to: '/docs/guide/about',
-      position: 'right',
+      position: 'left',
       label: '开发指南',
       activeBasePath: '/docs/guide/'
     },
     {
       to: '/docs/tutorial/todoMVC',
-      position: 'right',
+      position: 'left',
       label: '教程',
       activeBasePath: '/docs/tutorial/'
     },
     {
       to: '/docs/components/layout/tabsLayout',
-      position: 'right',
+      position: 'left',
       label: '组件',
       activeBasePath: '/docs/components/'
     },
     {
       to: '/docs/examples/form',
-      position: 'right',
+      position: 'left',
       label: '示例',
       activeBasePath: '/docs/examples/'
     },
