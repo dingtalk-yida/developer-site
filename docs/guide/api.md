@@ -1,8 +1,8 @@
 # 前端 API
 本文档主要介绍宜搭平台在 JS 面板或变量绑定弹框中可以直接调用的 API 及其使用方法，每一个 API 都会配备一个示例用于展示 API 的具体使用方式，在示例中，我们都会通过以下函数结构来进行包裹用于模拟动作面板的真实使用场景（包裹的函数名称在真实环境下用户可以自由定义）。
 ```js
-export function xxx() {
-  ... ]
+export function someFunctionName() {
+  ...
 }
 ```
 
@@ -11,6 +11,8 @@ export function xxx() {
 
 ### this.state.xxx
 获取全局变量的值（和 React 的 API 一致）。
+
+`xxx` 一般为页面数据源的变量名称。
 
 示例：
 ```js
@@ -22,15 +24,23 @@ export function getState() {
 ```
 
 ### this.setState()
-设置全局变量的值并触发页面重新渲染（和 React 的 API 一致）。
+设置全局变量的值并触发页面重新渲染（和 React 的 API 基本一致）。
 
 示例：
 ```js
 export function setStateValue() {
   // 设置页面全局变量的值并触发页面重新渲染
+  // 用法1，推荐：
   this.setState({
-    status: 'loading'
+    status: 'loading',
+    text: '加载中…'
   });
+
+  //用法2，当只更新一个变量时，推荐。
+  //this.setState('status', 'loading');
+
+  //用法3，非常不推荐，仅仅对部分文本类型站点生效。
+  //this.state.status = 'loading';
 }
 ```
 
@@ -118,7 +128,7 @@ export function onClickInvoke(){
 
 示例：
 ```js
-export function poptoast(){
+export function popToast(){
   this.utils.toast({
     title: 'success', 
     type: 'success', 
@@ -132,7 +142,7 @@ export function poptoast(){
 
 ![](https://img.alicdn.com/imgextra/i1/O1CN01gPpC9627v11DxaImu_!!6000000007858-2-tps-1194-314.png_.webp)
 
-宜搭底层采用 fusion 组件进行实现，你可以配置所有 Dialog 组件的属性
+宜搭底层采用 [fusion](https://fusion.design/) 组件进行实现，你可以配置所有 Dialog 组件的属性
 [文档地址](https://fusion.design/pc/component/dialog?themeid=2#demo-api)，以下列出了常用属性：
 
 | 参数 | 属性 | 默认值 | 说明 |
@@ -168,18 +178,24 @@ export function format() {
   // 格式化日期，输出值为：2022-01-29
   const formatDate = this.utils.formatter('date', new Date(), 'YYYY-MM-DD');
 
-  // 格式化金额，输出值为：10 000.99
-  const formatMondy = this.utils.formatter('money', '10000.99');
+  // 格式化日期，输出值为：2022/01/29
+  const formatDate = this.utils.formatter('date', new Date(), 'YYYY/MM/DD');
+
+  // 格式化日期，输出值为：2022-01-29 13:01:02
+  const formatDate2 = this.utils.formatter('date', new Date(), 'YYYY-MM-DD HH:mm:ss');
+
+  // 格式化金额，输出值为：10, 000.99
+  const formatMoney = this.utils.formatter('money', '10000.99', ', ');
   
   // 格式化电话，输出值为：+86 1565 2988 282
-  const formatPhone = this.utils.formatter('cnmobile', '+8615652988282');
+  const formatPhoneNumber = this.utils.formatter('cnmobile', '+8615652988282');
 
-  // 格式化银行卡好，输出值为：1565 2988 2821 2233
-  const formatCard = this.utils.formatter('card', '1565298828212233');
+  // 格式化银行卡号，输出值为：1565 2988 2821 2233
+  const formatCardNumber = this.utils.formatter('card', '1565298828212233');
 }
 ```
 ### this.utils.getLocale()
-获取当前渲染上下文的文字语言标识符。
+获取当前页面的语言环境。
 
 示例：
 ```js
@@ -238,22 +254,23 @@ function push(path: string, params?: object, blank?: boolean, isUrl?: boolean, t
 
 | 参数名 | 类型 | 必填 | 说明 |
 | :--- | :--- | :--- | :--- |
-| path | string | 是 | 跳转的地址，可以是完整的 url，url 片段，也可以是 pageID 构成的字符串, 如果有 slug，优先使用 [slug](https://lark.alipay.com/legao/help/faq#%E9%A1%B5%E9%9D%A2-slug) 跳转。<br/> 当 `isUrl` 参数为 `true` 的时候会按照 url 的方式解析，否则会以 `pageId` 的形式解析实现内部页面之间的跳转。 |
+| path | string | 是 | 跳转的地址，可以是完整的 url，url 片段，也可以是 pageID 构成的字符串, 如果有 slug，优先使用 slug（页面别名，宜搭暂未开放配置） 跳转。<br/> 当 `isUrl` 参数为 `true` 的时候会按照 url 的方式解析，否则会以 `pageId` 的形式解析实现内部页面之间的跳转。 |
 | params | object | 否 | 跳转地址所带的查询参数 `{q: 'a', r: 'b'}` 等效于 `?q=a&r=b` |
 | blank | boolean | 否 | 是否新打开页面，默认值为 `false` |
-| isUrl | boolean | 否 | 是否是 url 地址，默认值为 `false` |
-| type | string | 否 | 可选值为 push 或 replace，使用 push 的方式或 replace 的方式跳转 |
+| isUrl | boolean | 否 | 是否是 `url` 地址，默认值为 `false` |
+| type | string | 否 | 可选值为 `push` 或 `replace`，使用 push 的方式或 replace 的方式跳转 |
 
 示例：
 ```js
 export function pushUrl() {
-  // 跳转页面，且注入 fromSource 参数
+  // 跳转页面，且注入 fromSource 参数，最终眺往的地址为：https://www.aliwork.com?formSource=customPage
   this.utils.router.push('https://www.aliwork.com', {fromSource: 'customPage'});
 }
 ```
 
 ### this.utils.router.replace()
 页面替换，与 router.push 的区别是该 API 会替换当前页面而不是进入下一个页面，因此无法通过浏览器的会对按钮进行退回，等价于：
+
 ```js
 this.utils.router.push(path, params, false, false, 'replace');
 ```
@@ -275,7 +292,7 @@ function getQuery(key?: string, queryStr?: string) => Record<string, string> | s
 | 参数名 | 类型 | 必填 | 说明 |
 | :--- | :--- | :--- | :--- |
 | key | string | 否 | 传入 key 返回对应的值，否则返回整个对象 |
-| queryStr | string | 否 | 默认值：location.search + location.hash, hash 覆盖 search；支持自定义字符串解析，格式为 '?a=1&b=2' |
+| queryStr | string | 否 | 默认值：`location.search + location.hash`, `hash` 覆盖 `search`；支持自定义字符串解析，格式为 '?a=1&b=2' |
 
 示例：
 ```js
@@ -294,17 +311,17 @@ export function getQuery() {
 export function stringifyQuery() {
   // 将对象序列化为 URL 参数形式，并通过 console 打印
   const params = {
-    name: 'Jack', 
-    isMan: true
+    name: 'yida', 
+    gender: 'm'
   };
   const urlStr = this.utils.router.stringifyQuery(params);
   console.log( `urlParams: ${urlStr}` );
-  // 输出结果为：urlParams: name=Jack&isMan=true
+  // 输出结果为：urlParams: name=yida&gender='m'
 }
 ```
 
 ## 组件通用 API
-在讲解组件相关的 API 之前需要提前介绍几个概念：
+在讲解组件相关的 API 之前需要提前介绍几个[概念](guide/keywords.md)：
 * 组件唯一标识（fieldId）- 宜搭会为每个组件设置一个唯一标识，用于识别组件实例，组件唯一标识可以通过组件属性面板进行查看；
 * 组件属性（prop）- 在宜搭中每个组件都可以通过设置组件属性来实现不同功能（类似 React 的 props），我们可以通过 hover 组件属性面板查看配置项对应的属性名称；
 
@@ -338,7 +355,7 @@ export function setAttribute(){
 表单组件是宜搭平台中最重要的一类组件，我们通常通过表单组件来收集数据，例如：输入框、单选、多选、下拉选择等，本部分将主要介绍表单组件相关的 API：
 
 ### this.$(fieldId)
-获取组件实例，fieldId 为组件唯一标识，在调用组件 API 之前，通常我们需要通过 `` `this.$(fieldId)` `` 先获取组件实例再进行 API 调用。
+获取组件实例，fieldId 为组件唯一标识，在调用组件 API 之前，通常我们需要通过 `this.$(fieldId)` 先获取组件实例再进行 API 调用。
 
 ### this.$(fieldId).getValue()
 获取指定表单组件的输入值。
@@ -371,7 +388,7 @@ function setValue(value: any, options?: IOptions) => void;
 示例：
 ```js
 export function setValue(){
-  // 将输入框组件的值设置为“hello world”
+  // 将输入框组件的值设置为「hello world」
    this.$('textField_kyz78exp').setValue('hello world');
 }
 ```
@@ -396,10 +413,10 @@ export function reset() {
 
 ### this.$(fieldId).getBehavior()
 获取指定表单组件的当前状态，表单组件的状态有以下可选值：
-***NORMAL**- 正常态，即输入态；
-***READONLY**- 只读态；
-***DISABLED**- 禁用态；
-***HIDDEN**- 隐藏态；
+* **NORMAL** - 正常态，即输入态；
+* **READONLY** - 只读态；
+* **DISABLED** - 禁用态；
+* **HIDDEN** - 隐藏态；
 
 示例：
 ```js
@@ -411,7 +428,7 @@ export function getBehavior() {
 ```
 
 ### this.$(fieldId).setBehavior()
-设置指定表单组件的状态，可以设置的状态可以参考 getBehavior 部分的描述。
+设置指定表单组件的状态，可以设置的状态可以参考 `getBehavior` 部分的描述。
 
 示例：
 ```js
@@ -501,6 +518,7 @@ export function enableValid() {
 
 ### this.$(fieldId).setValidation()
 设置表单组件的校验规则，setValidation 的参数描述如下所示：
+
 ```typescript
 interface IRule {
   type: string; // 校验类型
@@ -546,7 +564,7 @@ export function setValidation() {
     type: 'maxLength', 
     param: '10'
   }, {
-    type: "customValidate", 
+    type: 'customValidate', 
     param: (value, rule) => {
       if(/^\d*$/.test(value)) {
         return true;
@@ -555,10 +573,10 @@ export function setValidation() {
       return rule.message;
     }, 
     message: {
-      type: "i18n", 
-      use: "zh_CN", 
-      en_US: "only support number", 
-      zh_CN: "只能输入数字"
+      type: 'i18n', 
+      use: 'zh_CN', 
+      en_US: 'only support number', 
+      zh_CN: '只能输入数字'
     }
   }]);
 }
