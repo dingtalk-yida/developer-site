@@ -32,7 +32,7 @@ function HelloText({showName, name}) {
 我们通过 URL 参数来控制一个文本组件的显隐，当 URL 参数中存在 showName 参数时则展示，否则不展示，配置如下所示：
 * 通过变量绑定方式设置文本组件是否渲染属性：
 ![](https://img.alicdn.com/imgextra/i1/O1CN018iqVPy1WqJARoUCWE_!!6000000002839-2-tps-3582-2020.png_.webp)
-* 给文本组件的是否渲染属性绑定一个全局变量`` `state.urlParams.showName` ``用于根据 url 参数判断实现渲染文本组件：
+* 给文本组件的是否渲染属性绑定一个全局变量`state.urlParams.showName`用于根据 url 参数判断实现渲染文本组件：
 ![](https://img.alicdn.com/imgextra/i4/O1CN013knQpd1EQ3NYxwrD3_!!6000000000345-2-tps-3582-2020.png_.webp)
 
 最后我们可以通过在预览页面设置 showName 参数的方式来控制文本组件的展示如下所示 (我们可以通过预览页面右上角的**在新窗口打开**来在浏览器中直接打开预览页面，从而为其设置参数)：

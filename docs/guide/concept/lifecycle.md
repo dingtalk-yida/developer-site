@@ -4,8 +4,8 @@ order: 3
 ---
 # 页面生命周期
 和 React 一样，宜搭的自定义页面也提供了页面生命周期能力，只不过做了简化仅支持以下两个生命周期，用户可以在动作面板中进行相应的 JS 逻辑书写以便在页面挂载或者卸载时进行一些处理：
-***didMount**- 类似 React 的 componentDidMount，会在页面第一次渲染完成后调用；
-***willUnmount**- 类似 React 的 componentWillUnmount，会在页面卸载前调用；
+* **didMount** - 类似 React 的 componentDidMount，会在页面第一次渲染完成后调用；
+* **willUnmount** - 类似 React 的 componentWillUnmount，会在页面卸载前调用；
 
 ## 使用场景
 下面是一个简单的示例展示生命周期的具体使用，我们在动作面板中配置页面生命周期函数，用于进行以下操作：
