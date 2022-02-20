@@ -10,7 +10,7 @@ order: 3
 ## 组件示例
 import Iframe from '../../../src/components/Iframe'
 
-<Iframe url="https://pre-yida-performance3.alibaba-inc.com/developer/select-field-v2?isRenderNav=false" />
+<Iframe url="https://www.aliwork.com/developer/select-field-v2?isRenderNav=false" />
 
 ## 组件属性
 
@@ -18,18 +18,18 @@ import Iframe from '../../../src/components/Iframe'
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 标题 | label | String | "下拉单选" | 是 |  |
 | 值 | fieldData | Object | 单选：{value: "1"}；多选：{value: ["1"]} | 是 |  |
-| 标题位置 | labelAlign | String | “top” | 否 | 可选值：“left”, ”top”, ”inset" |
+| 标题位置 | labelAlign | String | "top" | 否 | 可选值："left", "top", "inset" |
 | 标题宽度 | labelColSpan | Number | 4 | 否 |  |
 | 标题偏移 | labelColOffset | Number  | 0 | 否 |  |
 | 内容宽度 | wrapperColSpan | Number  | 0 | 否 |  |
 | 内容偏移 | wrapperColOffset | Number  | 0 | 否 |  |
-| 标题对齐 | labelTextAlign | String | “right” | 否 | 可选值：“left”, ”right" |
-| 提示文字 | placeholder | String | “请选择” | 是 |  |
+| 标题对齐 | labelTextAlign | String | "right" | 否 | 可选值："left", "right" |
+| 提示文字 | placeholder | String | "请选择" | 是 |  |
 | 描述信息 | tips | String | "这是一段描述信息" | 否 |  |
-| 尺寸 | size | String | “small” | 否 | 可选值：“small”, ”medium”, "large" |
+| 尺寸 | size | String | "small" | 否 | 可选值："small", "medium", "large" |
 | 状态 | behavior | String | {fieldBehavior: "NORMAL"} | 是 | fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN" |
 | 校验 | validation | Array | [{type:"required"}] | 是 | 可选值：{type:"required"}, {type: "customValidate", message: "请选择今日之前的日期", param: "function validateRule(value) { return value <= new Date().getTime(); }"} |
-| 模式 | mode | String | "single" | 否 | 可选值：单选“single”、多选“multiple”、标签“tag” |
+| 模式 | mode | String | "single" | 否 | 可选值：单选"single"、多选"multiple"、标签"tag" |
 | 下拉箭头 | hasArrow | Boolean | true | 否 |  |
 | 边框 | hasBorder | Boolean | true | 否 |  |
 | 清除按钮 | hasClear | Boolean | true | 否 |  |单选模式时才有
@@ -69,9 +69,9 @@ import AttrTable from 'components/AttrTable'
   attr: '标题位置', 
   code: 'labelAlign', 
   type: 'String', 
-  demo: '“top”', 
+  demo: '"top"', 
   dafault:'', 
-  desc: '可选值：“left”, ”top”, ”inset"'
+  desc: '可选值："left", "top", "inset"'
 }, 
 {
   attr: '标题宽度', 
@@ -108,14 +108,14 @@ import AttrTable from 'components/AttrTable'
   attr: '标题对齐', 
   code: 'labelTextAlign', 
   type: 'String', 
-  demo: '“right”', 
+  demo: '"right"', 
   dafault:'', 
-  desc: '可选值：“left”, ”right"'
+  desc: '可选值："left", "right"'
 }, {
   attr: '提示文字', 
   code: 'placeholder', 
   type: 'String', 
-  demo: '“请选择”', 
+  demo: '"请选择"', 
   dafault:'', 
   desc: ''
 }, 
@@ -131,9 +131,9 @@ import AttrTable from 'components/AttrTable'
   attr: '尺寸', 
   code: 'size', 
   type: 'String', 
-  demo: '“small”', 
+  demo: '"small"', 
   dafault:'', 
-  desc: '可选值：“small”, ”medium”, "large"'
+  desc: '可选值："small", "medium", "large"'
 }, 
 {
   attr: '状态', 
@@ -156,7 +156,7 @@ import AttrTable from 'components/AttrTable'
   type: 'String', 
   demo: '"single"', 
   dafault:'', 
-  desc: '可选值：单选“single”、多选“multiple”、标签“tag”'
+  desc: '可选值：单选"single"、多选"multiple"、标签"tag"'
 }, {
   attr: '下拉箭头', 
   code: 'hasArrow', 
