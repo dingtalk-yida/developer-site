@@ -269,7 +269,7 @@ export function pushUrl() {
 ```
 
 ### this.utils.router.replace()
-页面替换，与 router.push 的区别是该 API 会替换当前页面而不是进入下一个页面，因此无法通过浏览器的会对按钮进行退回，等价于：
+页面替换，与 router.push 的区别是该 API 会替换当前页面而不是进入下一个页面，因此无法通过浏览器的返回按钮进行退回，等价于：
 
 ```js
 this.utils.router.push(path, params, false, false, 'replace');
