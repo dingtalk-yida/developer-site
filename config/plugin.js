@@ -5,7 +5,7 @@ module.exports = () => ({
   postBuild({outDir}) {
     fs.writeFileSync(`${outDir}/cd.json`, JSON.stringify({
       "public": "./",
-      "branch": "docs",
+      "branch": "site",
       "cname": "yida-developer.alibaba-inc.com"
      }, null, 2));
   }, configureWebpack(config, isServer, utils) {
