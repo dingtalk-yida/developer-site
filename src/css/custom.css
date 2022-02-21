@@ -41,8 +41,26 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .hero {
-  padding: 2rem 0 !important;
+  padding: 5rem 0 !important;
+  box-shadow: var(--ifm-navbar-shadow);
 }
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__title{
+  font-size: 2.5rem;
+  background: -webkit-linear-gradient(315deg,#0089ff 25%,#30e724);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
 
 .pagination-nav__item {
   max-width: 400px;
