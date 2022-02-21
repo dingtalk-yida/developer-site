@@ -47,7 +47,7 @@ const config = {
       navbar,
       footer,
       prism: {
-        theme: lightCodeTheme,
+        theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
       },
       hotjar: {
