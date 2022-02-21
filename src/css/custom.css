@@ -6,6 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --ifm-font-size-base: 14px;
   --ifm-color-primary: #0089ff;
   --ifm-color-primary-dark: #007be6;
   --ifm-color-primary-darker: #0074d9;
@@ -14,9 +15,13 @@
   --ifm-color-primary-lighter: #269bff;
   --ifm-color-primary-lightest: #4dacff;
   --ifm-code-font-size: 95%;
-
   --ifm-container-width-xl: 2000px;
   --aa-search-input-height: 32px;
+  --ifm-font-family-base: -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont,
+  'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji';
+  --ifm-global-spacing: 1.5rem;
+  --ifm-line-height-base: 1.85;
+  /* --ifm-font-color-base: #333; */
 }
 
 .docusaurus-highlight-code-line {
@@ -30,14 +35,31 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.navbar__logo, .navbar__search {
+.navbar__logo,
+.navbar__search {
   margin-right: 2rem;
 }
 
 .hero {
-  padding: 2rem 0!important;
+  padding: 2rem 0 !important;
 }
 
 .pagination-nav__item {
   max-width: 400px;
+}
+
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2rem;
+}
+
+.markdown > h2{
+  --ifm-h2-font-size: 1.5rem;
+}
+
+.markdown > h3{
+  --ifm-h3-font-size: 1.25rem;
+}
+
+.navbar__brand{
+  /* margin-right: 80px; */
 }
