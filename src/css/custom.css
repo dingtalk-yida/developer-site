@@ -78,6 +78,10 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   --ifm-h3-font-size: 1.25rem;
 }
 
+.markdown img {
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 15%);
+}
+
 .navbar__brand{
   /* margin-right: 80px; */
 }
