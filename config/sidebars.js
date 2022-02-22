@@ -92,7 +92,5 @@ module.exports = {
       items: getDocsFromDir('components/advanced')
     },
   ],
-  examples: [
-    'examples/form'
-  ]
+  examples: getDocsFromDir('examples')
 };

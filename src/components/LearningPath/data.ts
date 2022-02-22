@@ -276,8 +276,17 @@ export default [
     icon: MessageTwoTone,
     level: 1,
     children: [{
-      title: '如何调用第三方服务？',
-      path: '/docs/guide/FAQ/q1'
+      title: '如何调用表单数据作为数据源？',
+      path: '/docs/guide/FAQ/q1',
+      width: '33%',
+    }, {
+      title: '如何在自定义页面试用 ECharts？',
+      path: '/docs/guide/FAQ/q2',
+      width: '33%',
+    }, {
+      title: '如何使用钉钉 JS API？',
+      path: '/docs/guide/FAQ/q3',
+      width: '33%',
     }]
   }
 ];

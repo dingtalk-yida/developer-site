@@ -19,6 +19,10 @@
 ![](https://img.alicdn.com/imgextra/i2/O1CN01UOw5fH2AKK8cTHZDY_!!6000000008184-2-tps-3582-1230.png_.webp)
 :::
 
+:::caution
+由于宜搭提供的Open API调用需要进行鉴权，因此在免登页面中无法使用远程Open API。
+:::
+
 ### 接口返回结构
 宜搭平台提供的远程 API 的返回结构如下所示：
 ```typescript

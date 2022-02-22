@@ -32,6 +32,22 @@ this.setState({
   name: 'Jack'
 });
 ```
+:::caution
+宜搭的setState API 和 React看似一致，但是略有差别：
+* 宜搭的setState API 不提供callback 回调能力，因此不能像state那样书写setState的回调函数；
+* 宜搭的setState API 采用了响应式数据解决方案，因此，在执行完setState后立马可以拿到新的state数据，如下所示：
+```js
+// 假设执行setState前 this.state.name 的值为 '小红'
+this.setState({
+  name: '小明'
+});
+
+// 打印出来的内容为：小明
+console.log(this.state.name); 
+
+```
+
+:::
 
 ## 使用场景
 定义了全局变量，在自定义页面中有两种消费场景：

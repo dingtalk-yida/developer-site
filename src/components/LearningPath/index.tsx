@@ -13,14 +13,19 @@ function LearningPath() {
   };
   const renderSubTitle = (config) => {
     const { level = 2 } = config;
+
+    const renderLinkList = (list) => {
+      return (list || []).map((item, key) => (
+        <Link className="path-item" to={item.path} key={key} style={item.width ? {width: item.width} : {}}>
+          {item.title}
+        </Link>
+      ));
+    }
+
     if (level === 1) {
       return (
         <div className="path-block">
-          {(config.children || []).map((item, key) => (
-            <Link className="path-item" to={item.path} key={key}>
-              {item.title}
-            </Link>
-          ))}
+          {renderLinkList(config.children)}
         </div>
       );
     }
@@ -30,11 +35,7 @@ function LearningPath() {
           <div key={subKey}>
             <div className="step-sub-title">{sub.title}</div>
             <div className="path-block">
-              {(sub.children || []).map((item, key) => (
-                <Link className="path-item" to={item.path} key={key}>
-                  {item.title}
-                </Link>
-              ))}
+             {renderLinkList(sub.children)}
             </div>
           </div>
         ))}
