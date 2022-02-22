@@ -7,163 +7,147 @@ order: 15
 
 ## 何时使用
 
+- 级联选择由选择器和级联组成。把级联组件以弹层的方式隐藏，多用于表单场景。
+
 ## 组件示例
-import Iframe from 'components/Iframe'
+
+import Iframe from 'components/Iframe';
 
 <Iframe url="https://www.aliwork.com/developer/cascade-select-field-v2?isRenderNav=false" />
 
 ## 组件属性
 
-<!-- | 属性名 | 属性 code | 类型 | 数据示例 | 动态属性 | 备注 | 
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 标题 | label | String | "标题" | 是 |  |
-| 值 | fieldData | Object | "4121" | 是 |  |
-| 标题位置 | labelAlign | String | "left" | 否 | 可选值："left", "top", "inset" |
-| 标题宽度 | labelColSpan | Number | 4 | 否 |  |
-| 标题偏移 | labelColOffset | Number  | 0 | 否 |  |
-| 内容宽度 | wrapperColSpan | Number  | 0 | 否 |  |
-| 内容偏移 | wrapperColOffset | Number  | 0 | 否 |  |
-| 标题对齐 | labelTextAlign | String | "left" | 否 | 可选值："left", "right" |
-| 提示文字 | placeholder | String | "请选择" | 是 |  |
-| 描述信息 | tips | String | "这是一段描述信息" | 否 |  |
-| 尺寸 | size | String | "small" | 否 | 可选值："small", "medium", "large" |
-| 状态 | behavior | String | {fieldBehavior: "NORMAL"} | 是 | fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN" |
-| 校验 | validation | Array | [{type:"required"}] | 是 | 可选值：{type:"required"}, {type: "customValidate", message: "请选择指定项", param: "function validateRule(value) { return value === 'test'; }"} |
-| 是否有下拉箭头 | hasArrow | Boolean | true | 否 |  可选值：true, false |
-| 是否有搜索 | showSearch | Boolean | true | 否 |  可选值：true, false |
-|下拉框显示或关闭事件| onVisibleChange | Function | function onVisibleChange({ visible, type }){console.log('onVisibleChange', visible, type);} | 否
-| 值发生改变事件 | onChange | Function | function onChange({ value, data, extra }){ console.log('onChange', value, data, extra);} | 否 -->
+import AttrTable from 'components/AttrTable';
 
-import AttrTable from 'components/AttrTable'
-
-<AttrTable dataSource={[
-{
-  attr: '标题', 
-  code: 'label', 
-  type: 'String', 
-  demo: '标题', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '值', 
-  code: 'fieldData', 
-  type: 'Object', 
-  demo: '4121', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '标题位置', 
-  code: 'labelAlign', 
-  type: 'String', 
-  demo: '"left"', 
-  dafault:'', 
-  desc: '可选值："left", "top", "inset"'
-}, 
-{
-  attr: '标题宽度', 
-  code: 'labelColSpan', 
-  type: 'Number', 
-  demo: '', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '标题偏移', 
-  code: 'labelColOffset', 
-  type: 'Number', 
-  demo: 'true', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '内容宽度', 
-  code: 'wrapperColSpan', 
-  type: 'Number', 
-  demo: '0', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '内容偏移', 
-  code: 'wrapperColOffset', 
-  type: 'Number', 
-  demo: '0', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '标题对齐', 
-  code: 'labelTextAlign', 
-  type: 'String', 
-  demo: '"left"', 
-  dafault:'', 
-  desc: '可选值："left", "right"'
-}, 
-{
-  attr: '描述信息', 
-  code: 'tips', 
-  type: 'String', 
-  demo: '这是一段描述信息', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '状态', 
-  code: 'behavior', 
-  type: 'String', 
-  demo: '{fieldBehavior: "NORMAL"}', 
-  dafault:'', 
-  desc: 'fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"'
-}, 
-{
-  attr: '尺寸', 
-  code: 'size', 
-  type: '"small"', 
-  demo: 'false', 
-  dafault:'', 
-  desc: '可选值："small", "medium", "large"'
-}, 
-{
-  attr: '校验', 
-  code: 'validation', 
-  type: 'Array', 
-  demo: '[{type:"required"}]', 
-  dafault:'', 
-  desc: '可选值：{type:"required"}, {type: "customValidate", message: "请选择指定项", param: "function validateRule(value) { return value === test; }"}'
-}, 
-{
-  attr: '是否有下拉箭头', 
-  code: 'hasArrow', 
-  type: 'Boolean', 
-  demo: 'true', 
-  dafault:'', 
-  desc: '可选值：true, false'
-}, 
-{
-  attr: '是否有搜索', 
-  code: 'showSearch', 
-  type: 'Boolean', 
-  demo: 'true', 
-  dafault:'', 
-  desc: '可选值：true, false'
-}, 
-{
-  attr: '下拉框显示或关闭事件', 
-  code: 'onVisibleChange', 
-  type: 'Function', 
-  demo: 'true', 
-  dafault:'', 
-  desc: 'function onVisibleChange({ visible, type }){console.log(onVisibleChange, visible, type);} '
-}, 
-{
-  attr: '值发生改变事件', 
-  code: 'onChange', 
-  type: 'Function', 
-  demo: 'true', 
-  dafault:'', 
-  desc: 'function onChange({ value, data, extra }){ console.log(onChange, value, data, extra);}'
-}, 
-]}
+<AttrTable
+  dataSource={[
+    {
+      attr: '标题',
+      code: 'label',
+      type: 'String',
+      demo: '标题',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '值',
+      code: 'fieldData',
+      type: 'Object',
+      demo: '4121',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题位置',
+      code: 'labelAlign',
+      type: 'String',
+      demo: '"left"',
+      dafault: '',
+      desc: '可选值："left", "top", "inset"',
+    },
+    {
+      attr: '标题宽度',
+      code: 'labelColSpan',
+      type: 'Number',
+      demo: '',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题偏移',
+      code: 'labelColOffset',
+      type: 'Number',
+      demo: 'true',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '内容宽度',
+      code: 'wrapperColSpan',
+      type: 'Number',
+      demo: '0',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '内容偏移',
+      code: 'wrapperColOffset',
+      type: 'Number',
+      demo: '0',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题对齐',
+      code: 'labelTextAlign',
+      type: 'String',
+      demo: '"left"',
+      dafault: '',
+      desc: '可选值："left", "right"',
+    },
+    {
+      attr: '描述信息',
+      code: 'tips',
+      type: 'String',
+      demo: '这是一段描述信息',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '状态',
+      code: 'behavior',
+      type: 'String',
+      demo: '{fieldBehavior: "NORMAL"}',
+      dafault: '',
+      desc: 'fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
+    },
+    {
+      attr: '尺寸',
+      code: 'size',
+      type: '"small"',
+      demo: 'false',
+      dafault: '',
+      desc: '可选值："small", "medium", "large"',
+    },
+    {
+      attr: '校验',
+      code: 'validation',
+      type: 'Array',
+      demo: '[{type:"required"}]',
+      dafault: '',
+      desc: '可选值：{type:"required"}, {type: "customValidate", message: "请选择指定项", param: "function validateRule(value) { return value === test; }"}',
+    },
+    {
+      attr: '是否有下拉箭头',
+      code: 'hasArrow',
+      type: 'Boolean',
+      demo: 'true',
+      dafault: '',
+      desc: '可选值：true, false',
+    },
+    {
+      attr: '是否有搜索',
+      code: 'showSearch',
+      type: 'Boolean',
+      demo: 'true',
+      dafault: '',
+      desc: '可选值：true, false',
+    },
+    {
+      attr: '下拉框显示或关闭事件',
+      code: 'onVisibleChange',
+      type: 'Function',
+      demo: 'true',
+      dafault: '',
+      desc: 'function onVisibleChange({ visible, type }){console.log(onVisibleChange, visible, type);} ',
+    },
+    {
+      attr: '值发生改变事件',
+      code: 'onChange',
+      type: 'Function',
+      demo: 'true',
+      dafault: '',
+      desc: 'function onChange({ value, data, extra }){ console.log(onChange, value, data, extra);}',
+    },
+  ]}
 />

@@ -17,7 +17,7 @@ module.exports = {
           label: '社区',
         },
         {
-          to: 'https://developer-site.gitee.io/',
+          to: 'https://yida-developer.gitee.io/',
           label: '开发者中心',
         },
       ],

@@ -5,17 +5,24 @@ order: 9
 
 # 视频播放
 
+视频控件，用于播放 mp4、mov 等 HTML 原生支持的视频资源。
+
 ## 何时使用
 
+-
+
 ## 组件示例
-import Iframe from 'components/Iframe'
+
+import Iframe from 'components/Iframe';
 
 <Iframe url="https://www.aliwork.com/developer/video-v2?isRenderNav=false" />
 
 ## 组件属性
 
 <!-- | 属性名 |  属性 code  | 类型 | 数据示例  | 动态属性 | 备注 | -->
+
 <!-- | :------ | :------ | :------ | :------ | :----- | :----- | -->
+
 <!-- | 视频地址   | src | string | '/video-url' | 否 |  | -->
 <!-- | 原生标题   | title | string | '培训教材' | 否 |  | -->
 <!-- | 上传封面   | poster | string | '/image-url' | 否 |  | -->
@@ -27,88 +34,89 @@ import Iframe from 'components/Iframe'
 <!-- | 循环播放   | loop | bool | false | 否 |  | -->
 <!-- | 画中画   | pipControls | bool | false | 否 |  | -->
 
-import AttrTable from 'components/AttrTable'
+import AttrTable from 'components/AttrTable';
 
-<AttrTable dataSource={[
-{
-  attr: '视频地址', 
-  code: 'src', 
-  type: 'String', 
-  demo: '/video-url', 
-  dafault:'', 
-  desc: '支持国际化'
-}, 
-{
-  attr: '原生标题', 
-  code: 'title', 
-  type: 'String', 
-  demo: '培训教材', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '上传封面', 
-  code: 'poster', 
-  type: 'String', 
-  demo: '/image-url', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '画面适配模式', 
-  code: 'sizeFit', 
-  type: 'String', 
-  demo: 'contain', 
-  dafault:'', 
-  desc: 'contain, fill, cover, scale-down, none'
-}, 
-{
-  attr: '控制条', 
-  code: 'controls', 
-  type: 'bool', 
-  demo: 'true', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '倍数播放', 
-  code: 'playbackRateControls', 
-  type: 'bool', 
-  demo: 'false', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '是否静音', 
-  code: 'muted', 
-  type: 'bool', 
-  demo: 'false', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '自动播放', 
-  code: 'autoplay', 
-  type: 'bool', 
-  demo: 'false', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '循环播放', 
-  code: 'loop', 
-  type: 'bool', 
-  demo: 'false', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '画中画', 
-  code: 'pipControls', 
-  type: 'bool', 
-  demo: 'false', 
-  dafault:'', 
-  desc: ''
-}, 
-]}
+<AttrTable
+  dataSource={[
+    {
+      attr: '视频地址',
+      code: 'src',
+      type: 'String',
+      demo: '/video-url',
+      dafault: '',
+      desc: '支持国际化',
+    },
+    {
+      attr: '原生标题',
+      code: 'title',
+      type: 'String',
+      demo: '培训教材',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '上传封面',
+      code: 'poster',
+      type: 'String',
+      demo: '/image-url',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '画面适配模式',
+      code: 'sizeFit',
+      type: 'String',
+      demo: 'contain',
+      dafault: '',
+      desc: 'contain, fill, cover, scale-down, none',
+    },
+    {
+      attr: '控制条',
+      code: 'controls',
+      type: 'bool',
+      demo: 'true',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '倍数播放',
+      code: 'playbackRateControls',
+      type: 'bool',
+      demo: 'false',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '是否静音',
+      code: 'muted',
+      type: 'bool',
+      demo: 'false',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '自动播放',
+      code: 'autoplay',
+      type: 'bool',
+      demo: 'false',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '循环播放',
+      code: 'loop',
+      type: 'bool',
+      demo: 'false',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '画中画',
+      code: 'pipControls',
+      type: 'bool',
+      demo: 'false',
+      dafault: '',
+      desc: '',
+    },
+  ]}
 />

@@ -4,9 +4,10 @@ order: 15
 ---
 
 # 步骤条
+引导用户按照流程完成任务的导航条。
 
 ## 何时使用
-
+* 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务；
 ## 组件示例
 import Iframe from 'components/Iframe'
 
@@ -14,16 +15,6 @@ import Iframe from 'components/Iframe'
 
 ## 组件属性
 
-<!-- | 属性名   |  属性 code  | 类型 | 数据示例  |  备注 |
-| :------ | :------ | :------ | :------ | :----- |
-| 步骤数据 | dataSource  | object  | [{ title: 'step1', content: 'Open' }, { title: 'step2', content: 'Put'}] |  |
-| 当前步骤 | current  | number  | 1 |  |
-| 类型 | shape  | string  | 'circle' | 'circle', 'arrow', 'dot' |
-| 展示方向 | direction  | string  | 'horizontal'  | 'horizontal', 'vertical' |
-| 横向布局时的内容排列 | labelPlacement  | string  |  'vertical' | 'vertical', 'horizontal' |
-| 只读模式 | placeholder  | bool  |  false |  |
-| 开启动效 | animation  | bool  |  true |  |
-| 点击按钮动作 | onClick  | func  |  'function onClick(index) {}' |  | -->
 import AttrTable from 'components/AttrTable'
 
 <AttrTable dataSource={[{

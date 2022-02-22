@@ -7,131 +7,123 @@ order: 8
 
 ## 何时使用
 
+抽屉是用于在不离开主路径的情况下，提供用户快速执行简单的操作、确认用户信息或反馈提示的辅助窗口。
+
 ## 组件示例
-import Iframe from 'components/Iframe'
+
+import Iframe from 'components/Iframe';
 
 <Iframe url="https://www.aliwork.com/developer/drawer-v2?isRenderNav=false" />
 
-  
 ## 组件属性
 
-<!-- | 属性名 |  属性 code  | 类型 | 数据示例  | 动态属性 | 备注 |
-| :------ | :------ | :------ | :------ | :----- | :----- |
-| 标题   | title | string | "标题" | 是 |
-| 宽度 | width  | string  | "520px"  | 否 |
-| 高度 | height  | string  | "600px"  | 否 |
-| 是否显示 | visible  | bool  | false  | 是 |
-| 显示遮罩 | hasMask | bool  | true  | 否 |
-| 弹出位置 | placement | string  | "top"  | 否 | 可选值："top", "bottom", "left", "right" |
-| 关闭方式 | closeable | array  | ["mask"]  | 否  | 可选值："mask", "esc" |
-| 显示 footer | footer | bool  | true  | 否 |
-| footer 对齐方式 | footerAlign | string  | "right"  | 否 | 可选值："left", "right", "center" |
-| footer 排列方式 | footerActions | string  | "ok, cancel"  | 否 | 可选值："ok, cancel", "cancel, ok", "ok", "cancel" |
-| onOK | onOK | function  | ()=>{}  | 否 |
-| onCancel | onCancel | function  | ()=>{}  | 否 |
-| onClose | onClose | function  | ()=>{}  | 否 |
-| afterClose | afterClose | function  | ()=>{}  | 否 | -->
+import AttrTable from 'components/AttrTable';
 
-import AttrTable from 'components/AttrTable'
-
-<AttrTable dataSource={[{
-  attr: '标题', 
-  code: 'title', 
-  type: 'String', 
-  demo: '标题', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '宽度', 
-  code: 'width', 
-  type: 'String', 
-  demo: '520px', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '高度', 
-  code: 'height', 
-  type: 'String', 
-  demo: "600px", 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '是否显示', 
-  code: 'hasMask', 
-  type: 'bool', 
-  demo: 'true', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '显示遮罩', 
-  code: 'iconName', 
-  type: 'String', 
-  demo: 'add', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '弹出位置', 
-  code: 'placement', 
-  type: 'string', 
-  demo: '"top"', 
-  dafault:'', 
-  desc: '可选值："top", "bottom", "left", "right" '
-}, 
-{
-  attr: '关闭方式', 
-  code: 'closeable', 
-  type: 'array', 
-  demo: '["mask"]', 
-  dafault:'', 
-  desc: '可选值："mask", "esc"'
-}, 
-{
-  attr: '显示 footer', 
-  code: 'footer', 
-  type: 'bool', 
-  demo: '"true"', 
-  dafault:'', 
-  desc: '可选值："left", "right", "center"'
-}, 
-{
-  attr: 'footer 对齐方式', 
-  code: 'footerAlign', 
-  type: 'string', 
-  demo: '"right"', 
-  dafault:'', 
-  desc: '可选值："left", "right", "center"'
-}, 
-{
-  attr: 'footer 排列方式', 
-  code: 'footerActions', 
-  type: 'string', 
-  demo: '""ok, cancel" "', 
-  dafault:'', 
-  desc: '可选值："ok, cancel", "cancel, ok", "ok", "cancel"'
-}, 
-{
-  attr: 'onOk', 
-  code: 'onOk', 
-  type: 'function ', 
-  demo: '()=>{} ', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: 'onCancel', 
-  code: 'onCancel', 
-  type: 'function ', 
-  demo: '()=>{} ', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: 'afterClose', 
-  code: 'afterClose', 
-  type: 'function ', 
-  demo: '()=>{} ', 
-  dafault:'', 
-  desc: ''
-}, 
-]}
+<AttrTable
+  dataSource={[
+    {
+      attr: '标题',
+      code: 'title',
+      type: 'String',
+      demo: '标题',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '宽度',
+      code: 'width',
+      type: 'String',
+      demo: '520px',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '高度',
+      code: 'height',
+      type: 'String',
+      demo: '600px',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '是否显示',
+      code: 'hasMask',
+      type: 'bool',
+      demo: 'true',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '显示遮罩',
+      code: 'iconName',
+      type: 'String',
+      demo: 'add',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '弹出位置',
+      code: 'placement',
+      type: 'string',
+      demo: '"top"',
+      dafault: '',
+      desc: '可选值："top", "bottom", "left", "right" ',
+    },
+    {
+      attr: '关闭方式',
+      code: 'closeable',
+      type: 'array',
+      demo: '["mask"]',
+      dafault: '',
+      desc: '可选值："mask", "esc"',
+    },
+    {
+      attr: '显示 footer',
+      code: 'footer',
+      type: 'bool',
+      demo: '"true"',
+      dafault: '',
+      desc: '可选值："left", "right", "center"',
+    },
+    {
+      attr: 'footer 对齐方式',
+      code: 'footerAlign',
+      type: 'string',
+      demo: '"right"',
+      dafault: '',
+      desc: '可选值："left", "right", "center"',
+    },
+    {
+      attr: 'footer 排列方式',
+      code: 'footerActions',
+      type: 'string',
+      demo: '""ok, cancel" "',
+      dafault: '',
+      desc: '可选值："ok, cancel", "cancel, ok", "ok", "cancel"',
+    },
+    {
+      attr: 'onOk',
+      code: 'onOk',
+      type: 'function ',
+      demo: '()=>{} ',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: 'onCancel',
+      code: 'onCancel',
+      type: 'function ',
+      demo: '()=>{} ',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: 'afterClose',
+      code: 'afterClose',
+      type: 'function ',
+      demo: '()=>{} ',
+      dafault: '',
+      desc: '',
+    },
+  ]}
 />

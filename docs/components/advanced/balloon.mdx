@@ -7,137 +7,130 @@ order: 7
 
 ## 何时使用
 
+- 当用户与被说明对象（文字，图片，输入框等）发生交互行为的 action 开始时, 即刻跟随动作出现一种辅助或帮助的提示信息;
+
 ## 组件示例
-import Iframe from 'components/Iframe'
+
+import Iframe from 'components/Iframe';
 
 <Iframe url="https://www.aliwork.com/developer/balloon-v2?isRenderNav=false" />
-  
 ## 组件属性
 
-<!-- | 属性名   |  属性 code  | 类型 | 数据示例 | 默认值  | 动态属性 | 备注 | -->
-<!-- | :------ | :------ | :------ | :------ | :----- | :----- | :----- | -->
-<!-- | 气泡类型 | TYPE | string |"balloon" "tooltip" | "balloon" | 是 |  |  -->
-<!-- | 样式类型 | type | string |"normal" "primary" | "normal" | 是 |  |  -->
-<!-- | 弹窗内容 | content | string | | "提示内容" | 否 |  |  -->
-<!-- | 触发行为 | triggerType | string | "hover" "click" "focus" | "click" | 是 |  |  -->
-<!-- | 关闭按钮 | closable | string | | true | 是 |  |  -->
-<!-- | 默认显示 | defaultVisible | string | | false | 是 |  |  -->
-<!-- | 延时显示 | delay | string | | 0 | 否 |  |  -->
-<!-- | 弹出方向 | align | string | "t" "b" "l" "r" "tl" "tr" "bl" "br" "lt" "lb" "rt" "rb" | "b" | 是 |  |  -->
-<!-- | 占据空间 | display | string | "inline-block" "block"| "inline-block" | 是 |  |   -->
-<!-- | 最大宽度 | overlayMaxWidth | string | | "300px" | 是 |  |  -->
-<!-- | 显示弹层 | balloonOverlayVisible | string | | true | 否 |  |  -->
-<!-- | 当弹层关闭时触发 | onClose  | function  | function(){ console.log('确定'); } | |否 |
-| 浮层关闭后触发的事件 | afterClose | function | function(ctx){ console.log('取消'); } || 否 |Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发
-| 可见状态变化事件 | onVisibleChange | function | function(visible){ console.log('可见状态变化', visible); } || 否 | -->
+import AttrTable from 'components/AttrTable';
 
-import AttrTable from 'components/AttrTable'
-
-<AttrTable dataSource={[{
-  attr: '气泡类型', 
-  code: 'TYPE', 
-  type: 'string', 
-  demo: '"balloon" "tooltip"', 
-  dafault:'balloon', 
-  desc: ''
-}, {
-  attr: '样式类型', 
-  code: 'TYPE', 
-  type: 'String', 
-  demo: '"normal" "primary"', 
-  dafault:'normal', 
-  desc: ''
-}, {
-  attr: '弹窗内容', 
-  code: 'content', 
-  type: 'String', 
-  demo: "提示内容", 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '触发行为', 
-  code: 'triggerType', 
-  type: 'String', 
-  demo: '"hover" "click" "focus"', 
-  dafault:'click', 
-  desc: ''
-}, {
-  attr: '关闭按钮', 
-  code: 'closable', 
-  type: 'String', 
-  demo: '', 
-  dafault:'true', 
-  desc: ''
-}, {
-  attr: '默认显示', 
-  code: 'defaultVisible', 
-  type: 'string', 
-  demo: '', 
-  dafault:'false', 
-  desc: ''
-}, 
-{
-  attr: '延时显示', 
-  code: 'display', 
-  type: 'string', 
-  demo: '"inline-block" "block"', 
-  dafault:'0', 
-  desc: ''
-}, 
-{
-  attr: '弹出方向', 
-  code: 'align', 
-  type: 'string', 
-  demo: '"t" "b" "l" "r" "tl" "tr" "bl" "br" "lt" "lb" "rt" "rb"', 
-  dafault:'"b" ', 
-  desc: ''
-}, 
-{
-  attr: '占据空间', 
-  code: 'display', 
-  type: 'string', 
-  demo: '"inline-block" "block"', 
-  dafault:'"300px"', 
-  desc: ''
-}, 
-{
-  attr: '最大宽度', 
-  code: 'overlayMaxWidth', 
-  type: 'string', 
-  demo: '', 
-  dafault:'300px', 
-  desc: ''
-}, {
-  attr: '显示弹层', 
-  code: 'balloonOverlayVisible', 
-  type: 'string', 
-  demo: '', 
-  dafault:'true', 
-  desc: ''
-}, 
-{
-  attr: '当弹层关闭时触发', 
-  code: 'onClose', 
-  type: 'function', 
-  demo: 'function(){console.log(确定)', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '浮层关闭后触发的事件', 
-  code: 'afterClose', 
-  type: 'function', 
-  demo: 'function(ctx){ console.log(取消)', 
-  dafault:'', 
-  desc: 'Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发'
-}, {
-  attr: '可见状态变化事件', 
-  code: 'onVisibleChange', 
-  type: 'function', 
-  demo: 'function(visible){ console.log(visible)', 
-  dafault:'', 
-  desc: 'Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发'
-}
-]}
+<AttrTable
+  dataSource={[
+    {
+      attr: '气泡类型',
+      code: 'TYPE',
+      type: 'string',
+      demo: '"balloon" "tooltip"',
+      dafault: 'balloon',
+      desc: '',
+    },
+    {
+      attr: '样式类型',
+      code: 'TYPE',
+      type: 'String',
+      demo: '"normal" "primary"',
+      dafault: 'normal',
+      desc: '',
+    },
+    {
+      attr: '弹窗内容',
+      code: 'content',
+      type: 'String',
+      demo: '提示内容',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '触发行为',
+      code: 'triggerType',
+      type: 'String',
+      demo: '"hover" "click" "focus"',
+      dafault: 'click',
+      desc: '',
+    },
+    {
+      attr: '关闭按钮',
+      code: 'closable',
+      type: 'String',
+      demo: '',
+      dafault: 'true',
+      desc: '',
+    },
+    {
+      attr: '默认显示',
+      code: 'defaultVisible',
+      type: 'string',
+      demo: '',
+      dafault: 'false',
+      desc: '',
+    },
+    {
+      attr: '延时显示',
+      code: 'display',
+      type: 'string',
+      demo: '"inline-block" "block"',
+      dafault: '0',
+      desc: '',
+    },
+    {
+      attr: '弹出方向',
+      code: 'align',
+      type: 'string',
+      demo: '"t" "b" "l" "r" "tl" "tr" "bl" "br" "lt" "lb" "rt" "rb"',
+      dafault: '"b" ',
+      desc: '',
+    },
+    {
+      attr: '占据空间',
+      code: 'display',
+      type: 'string',
+      demo: '"inline-block" "block"',
+      dafault: '"300px"',
+      desc: '',
+    },
+    {
+      attr: '最大宽度',
+      code: 'overlayMaxWidth',
+      type: 'string',
+      demo: '',
+      dafault: '300px',
+      desc: '',
+    },
+    {
+      attr: '显示弹层',
+      code: 'balloonOverlayVisible',
+      type: 'string',
+      demo: '',
+      dafault: 'true',
+      desc: '',
+    },
+    {
+      attr: '当弹层关闭时触发',
+      code: 'onClose',
+      type: 'function',
+      demo: 'function(){console.log(确定)',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '浮层关闭后触发的事件',
+      code: 'afterClose',
+      type: 'function',
+      demo: 'function(ctx){ console.log(取消)',
+      dafault: '',
+      desc: 'Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发',
+    },
+    {
+      attr: '可见状态变化事件',
+      code: 'onVisibleChange',
+      type: 'function',
+      demo: 'function(visible){ console.log(visible)',
+      dafault: '',
+      desc: 'Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发',
+    },
+  ]}
 />
-

@@ -7,183 +7,171 @@ order: 16
 
 ## 何时使用
 
+- 用于子表单提交场景；
+
 ## 组件示例
-import Iframe from 'components/Iframe'
+
+import Iframe from 'components/Iframe';
 
 <Iframe url="https://www.aliwork.com/developer/table-field-v2?isRenderNav=false" />
 
 ## 组件属性
 
-<!-- | 属性名 |  属性 code  | 类型 | 数据示例  | 动态属性 | 备注 |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 标题   | label | string | "标题" | 是 |
-| 显示标题 | showLabel  | bool  | true  | 否 |
-| 默认值 | value  | Array  | [{"fieldId1": "123", "fieldId2": "456"}, {"fieldId1": "abc", "fieldId2": "def"}]  | 否 |
-| 排列方式 | representation  | string  | "TILED"  | 否 | 可选值："TILED", "TABLE" |
-| 展现方式 | layout  | string  | "VERTICAL"  | 否 | 可选值："VERTICAL", "HORIZONTAL" |
-| 主题 | theme | string  | "split"  | 否 | 只在 PC 表格模式下有效，可选值："zebra", "split", "border" | |
-| 显示序号 | showIndex | bool  | true  | 否 | 只在 PC 表格模式下有效 |
-| 显示表头 | showTableHead | bool  | true | 否 | 只在 PC 表格模式下有效 |
-| 按钮名称 | buttonName | string  | "新增一条"  | 否 |
-| 删除按钮 | deleteButtonName | string  | "删除"  | 否 |
-| 状态 | behavior | string  | {fieldBehavior: "NORMAL"}  | 是 | fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN" |
-| 最大宽度 | style | object  | { maxWidth:"100%" }  | 否  | 仅 PC 端支持 |
-| 最大条数 | listNum  | number  | 10 | 否 | 
-| 最小条数 | listMinNum  | number  | 1 | 否 |
-| 额外按钮 | importButton  | string  | "其他按钮" | 否 |
-| 点击添加事件 | onAddClick | function | function(ctx) {} | 否 |
-| 点击删除事件 | onDelClick | function | function(ctx) {} | 否 |
-| 点击自定义按钮事件 | onClick | function | function(ctx) {} | 否 |
-| 值改变事件 | onChange | function | function({ values, extra }) {} | 否 |  extra 结构：{ from: '动作来源，如 add_item / del_item', formGroupId: '表单分组 ID', changes: { name: '字段名称', value: '字段值' } } | -->
-import AttrTable from 'components/AttrTable'
+import AttrTable from 'components/AttrTable';
 
-<AttrTable dataSource={[
-{
-  attr: '标题', 
-  code: 'label', 
-  type: 'String', 
-  demo: '标题', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '显示标题', 
-  code: 'showLabel', 
-  type: 'bool', 
-  demo: 'true', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '默认值', 
-  code: 'value', 
-  type: 'Array', 
-  demo: '[{"fieldId1": "123", "fieldId2": "456"}, {"fieldId1": "abc", "fieldId2": "def"}] ', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '排列方式', 
-  code: 'representation', 
-  type: 'string', 
-  demo: '"TILED"', 
-  dafault:'', 
-  desc: '可选值："TILED", "TABLE"'
-}, 
-{
-  attr: '展现方式', 
-  code: 'layout', 
-  type: 'string', 
-  demo: '"VERTICAL"', 
-  dafault:'', 
-  desc: '可选值："VERTICAL", "HORIZONTAL"'
-}, 
-{
-  attr: '主题', 
-  code: 'theme', 
-  type: 'string', 
-  demo: '"split"', 
-  dafault:'', 
-  desc: '只在 PC 表格模式下有效，可选值："zebra", "split", "border"'
-}, 
-{
-  attr: '显示序号', 
-  code: 'showIndex', 
-  type: 'bool', 
-  demo: 'true', 
-  dafault:'', 
-  desc: '只在 PC 表格模式下有效 '
-}, 
-{
-  attr: '显示表头', 
-  code: 'showTableHead', 
-  type: 'bool', 
-  demo: 'true', 
-  dafault:'', 
-  desc: '只在 PC 表格模式下有效'
-}, 
-{
-  attr: '按钮名称', 
-  code: 'buttonName', 
-  type: 'string', 
-  demo: ' "新增一条"', 
-  dafault:'', 
-  desc: '可选值："left", "right"'
-}, 
-{
-  attr: '删除按钮', 
-  code: 'deleteButtonName', 
-  type: 'string', 
-  demo: '"删除"', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '状态', 
-  code: 'behavior', 
-  type: 'string', 
-  demo: '{fieldBehavior: "NORMAL"}', 
-  dafault:'', 
-  desc: 'fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"'
-}, 
-{
-  attr: '最大宽度', 
-  code: 'style', 
-  type: 'object', 
-  demo: '{ maxWidth:"100%" } ', 
-  dafault:'', 
-  desc: '仅 PC 端支持'
-}, 
-{
-  attr: '最大条数', 
-  code: 'listNum', 
-  type: 'number', 
-  demo: '10', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '最小条数', 
-  code: 'listMinNum', 
-  type: 'number', 
-  demo: '1', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '额外按钮', 
-  code: 'importButton', 
-  type: 'string', 
-  demo: '"其他按钮"', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '点击添加事件', 
-  code: 'onAddClick', 
-  type: 'function', 
-  demo: 'function(ctx) {} ', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '点击删除事件', 
-  code: 'onDelClick', 
-  type: 'function', 
-  demo: 'function(ctx) {} ', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '点击自定义按钮事件', 
-  code: 'onClick', 
-  type: 'function', 
-  demo: 'function(ctx) {}', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '值发生改变事件', 
-  code: 'onChange', 
-  type: 'function', 
-  demo: 'function({ values, extra }) {}', 
-  dafault:'', 
-  desc: "'extra 结构：{ from: '动作来源，如 add_item / del_item', formGroupId: '表单分组 ID', changes: { name: '字段名称', value: '字段值' } }'"
-}, 
-]}
+<AttrTable
+  dataSource={[
+    {
+      attr: '标题',
+      code: 'label',
+      type: 'String',
+      demo: '标题',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '显示标题',
+      code: 'showLabel',
+      type: 'bool',
+      demo: 'true',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '默认值',
+      code: 'value',
+      type: 'Array',
+      demo: '[{"fieldId1": "123", "fieldId2": "456"}, {"fieldId1": "abc", "fieldId2": "def"}] ',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '排列方式',
+      code: 'representation',
+      type: 'string',
+      demo: '"TILED"',
+      dafault: '',
+      desc: '可选值："TILED", "TABLE"',
+    },
+    {
+      attr: '展现方式',
+      code: 'layout',
+      type: 'string',
+      demo: '"VERTICAL"',
+      dafault: '',
+      desc: '可选值："VERTICAL", "HORIZONTAL"',
+    },
+    {
+      attr: '主题',
+      code: 'theme',
+      type: 'string',
+      demo: '"split"',
+      dafault: '',
+      desc: '只在 PC 表格模式下有效，可选值："zebra", "split", "border"',
+    },
+    {
+      attr: '显示序号',
+      code: 'showIndex',
+      type: 'bool',
+      demo: 'true',
+      dafault: '',
+      desc: '只在 PC 表格模式下有效 ',
+    },
+    {
+      attr: '显示表头',
+      code: 'showTableHead',
+      type: 'bool',
+      demo: 'true',
+      dafault: '',
+      desc: '只在 PC 表格模式下有效',
+    },
+    {
+      attr: '按钮名称',
+      code: 'buttonName',
+      type: 'string',
+      demo: ' "新增一条"',
+      dafault: '',
+      desc: '可选值："left", "right"',
+    },
+    {
+      attr: '删除按钮',
+      code: 'deleteButtonName',
+      type: 'string',
+      demo: '"删除"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '状态',
+      code: 'behavior',
+      type: 'string',
+      demo: '{fieldBehavior: "NORMAL"}',
+      dafault: '',
+      desc: 'fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
+    },
+    {
+      attr: '最大宽度',
+      code: 'style',
+      type: 'object',
+      demo: '{ maxWidth:"100%" } ',
+      dafault: '',
+      desc: '仅 PC 端支持',
+    },
+    {
+      attr: '最大条数',
+      code: 'listNum',
+      type: 'number',
+      demo: '10',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '最小条数',
+      code: 'listMinNum',
+      type: 'number',
+      demo: '1',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '额外按钮',
+      code: 'importButton',
+      type: 'string',
+      demo: '"其他按钮"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '点击添加事件',
+      code: 'onAddClick',
+      type: 'function',
+      demo: 'function(ctx) {} ',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '点击删除事件',
+      code: 'onDelClick',
+      type: 'function',
+      demo: 'function(ctx) {} ',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '点击自定义按钮事件',
+      code: 'onClick',
+      type: 'function',
+      demo: 'function(ctx) {}',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '值发生改变事件',
+      code: 'onChange',
+      type: 'function',
+      demo: 'function({ values, extra }) {}',
+      dafault: '',
+      desc: "'extra 结构：{ from: '动作来源，如 add_item / del_item', formGroupId: '表单分组 ID', changes: { name: '字段名称', value: '字段值' } }'",
+    },
+  ]}
 />

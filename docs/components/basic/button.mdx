@@ -5,77 +5,79 @@ order: 2
 
 # 按钮
 
+按钮用于开始一个即时操作。
+
 ## 何时使用
 
+- 标记一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
+
 ## 组件示例
-import Iframe from 'components/Iframe'
+
+import Iframe from 'components/Iframe';
 
 <Iframe url="https://www.aliwork.com/developer/button-v2?isRenderNav=false" />
 
 ## 组件属性
 
-<!-- | 属性名 |  属性 code  | 类型 | 数据示例  | 动态属性 | 备注 |
-| :------ | :------ | :------ | :------ | :----- | :----- |
-| 标题   | content | content | "按钮" | 否 | -->
-<!-- | 按钮类型 | type  | string  | "primary"  | 否 | 可选值："primary", "normal", "secondary", "ghostLight", "ghostDark", "warningNormal", "warningPrimary", "textNormal", "textPrimary", "textSecondary"  | -->
-<!-- | 按钮尺寸 | size  | string  | medium  | 否 | 可选值："small", "medium", "large"| -->
-<!-- | 状态设置 | behavior | string  | "NORMAL"  | 否 | | -->
-<!-- | 图标 | iconName | string  | "add"  | 否  |  -->
-<!-- | 加载状态 | loading  | boolean  | false | 否 | 仅 PC 端支持 |  -->
-<!-- | 加载点击 | triggerEventsWhenLoading | boolean  | false  | 否 | -->
-<!-- | 点击时事件 | onClick | function | function(){ console.log('click'); } | 否 | -->
+import AttrTable from 'components/AttrTable';
 
-import AttrTable from 'components/AttrTable'
-
-<AttrTable dataSource={[{
-  attr: '标题', 
-  code: 'content', 
-  type: 'String', 
-  demo: '"按钮"', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '按钮类型', 
-  code: 'TYPE', 
-  type: 'String', 
-  demo: '"primary"', 
-  dafault:'', 
-  desc: '可选值："primary", "normal", "secondary", "ghostLight", "ghostDark", "warningNormal", "warningPrimary", "textNormal", "textPrimary", "textSecondary" '
-}, {
-  attr: '按钮尺寸', 
-  code: 'size', 
-  type: 'String', 
-  demo: "medium", 
-  dafault:'', 
-  desc: '可选值："small", "medium", "large"'
-}, {
-  attr: '状态设置', 
-  code: 'behavior', 
-  type: 'String', 
-  demo: '"hover" "click" "focus"', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '图标', 
-  code: 'iconName', 
-  type: 'String', 
-  demo: 'add', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '加载状态', 
-  code: 'loading', 
-  type: 'boolean', 
-  demo: 'false', 
-  dafault:'', 
-  desc: ''
-}, 
-{
-  attr: '点击时事件', 
-  code: 'onClick', 
-  type: 'function', 
-  demo: 'function(){ console.log(click);}', 
-  dafault:'', 
-  desc: ''
-}, ]}
+<AttrTable
+  dataSource={[
+    {
+      attr: '标题',
+      code: 'content',
+      type: 'String',
+      demo: '"按钮"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '按钮类型',
+      code: 'TYPE',
+      type: 'String',
+      demo: '"primary"',
+      dafault: '',
+      desc: '可选值："primary", "normal", "secondary", "ghostLight", "ghostDark", "warningNormal", "warningPrimary", "textNormal", "textPrimary", "textSecondary" ',
+    },
+    {
+      attr: '按钮尺寸',
+      code: 'size',
+      type: 'String',
+      demo: 'medium',
+      dafault: '',
+      desc: '可选值："small", "medium", "large"',
+    },
+    {
+      attr: '状态设置',
+      code: 'behavior',
+      type: 'String',
+      demo: '"hover" "click" "focus"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '图标',
+      code: 'iconName',
+      type: 'String',
+      demo: 'add',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '加载状态',
+      code: 'loading',
+      type: 'boolean',
+      demo: 'false',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '点击时事件',
+      code: 'onClick',
+      type: 'function',
+      demo: 'function(){ console.log(click);}',
+      dafault: '',
+      desc: '',
+    },
+  ]}
 />

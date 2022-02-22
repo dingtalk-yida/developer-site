@@ -6,46 +6,54 @@ order: 2
 # 布局容器
 
 ## 何时使用
+
 布局容器可以用来实现分栏布局。 组件默认分为 12 栏，并预置了多种布局方式，同时也支持自定义布局。 移动端一行只支持 4 栏，超过 4 栏的会换行处理，如果换行后单行会横向铺满。
 
-* 这是组件的基本用法，单行分为等份的三栏，分栏的间隔是 15px 时的效果，你可以直接在设计态中修改。用。
-* 自定义行列用法，在右侧配置中的 布局-自定义行列 中输入各栏的比例值即可，格式为 `2:2:2:2:4` 
-* 多行用法，在右侧配置中的 布局-自定义行列 中输入各栏的比例值即可，格式为 `2:2:2:2:4:6:6` ，
-一旦比例之和大于 12 时就会另换一行渲染，建议总数始终保持 12 的倍数。多行的情况下，可能需要
-设置行间距（上下间距）。
+- 这是组件的基本用法，单行分为等份的三栏，分栏的间隔是 15px 时的效果，你可以直接在设计态中修改。用。
+- 自定义行列用法，在右侧配置中的 布局-自定义行列 中输入各栏的比例值即可，格式为 `2:2:2:2:4`
+- 多行用法，在右侧配置中的 布局-自定义行列 中输入各栏的比例值即可，格式为 `2:2:2:2:4:6:6` ，
+  一旦比例之和大于 12 时就会另换一行渲染，建议总数始终保持 12 的倍数。多行的情况下，可能需要
+  设置行间距（上下间距）。
 
 ## 组件示例
-import Iframe from 'components/Iframe'
+
+import Iframe from 'components/Iframe';
 
 <Iframe url="https://www.aliwork.com/developer/columns-layout-v2?isRenderNav=false" />
 
 ## 组件属性
-import AttrTable from 'components/AttrTable'
 
-<AttrTable dataSource={[{
-  attr: '分栏配置', 
-  code: 'layout', 
-  type: 'string', 
-  demo: '6:6', 
-  desc: '每行分为几栏，每一栏分别占几格'
-}, {
-  attr: '宽度', 
-  code: 'layout2', 
-  type: 'String', 
-  demo: '3:3:6', 
-  desc: '自定义分栏'
-}, {
-  attr: '列间距', 
-  code: 'columnGap', 
-  type: 'number/string', 
-  demo: '0 ', 
-  desc: '列间距 '
-}, {
-  attr: '行间距', 
-  code: 'rowGap', 
-  type: 'number/string ', 
-  demo: '0', 
-  desc: '行间距'
-}]}/>
+import AttrTable from 'components/AttrTable';
 
-
+<AttrTable
+  dataSource={[
+    {
+      attr: '分栏配置',
+      code: 'layout',
+      type: 'string',
+      demo: '6:6',
+      desc: '每行分为几栏，每一栏分别占几格',
+    },
+    {
+      attr: '宽度',
+      code: 'layout2',
+      type: 'String',
+      demo: '3:3:6',
+      desc: '自定义分栏',
+    },
+    {
+      attr: '列间距',
+      code: 'columnGap',
+      type: 'number/string',
+      demo: '0 ',
+      desc: '列间距 ',
+    },
+    {
+      attr: '行间距',
+      code: 'rowGap',
+      type: 'number/string ',
+      demo: '0',
+      desc: '行间距',
+    },
+  ]}
+/>

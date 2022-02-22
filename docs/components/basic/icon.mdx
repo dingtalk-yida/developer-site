@@ -5,31 +5,39 @@ order: 1
 
 # 图标
 
+图表展示，用户可以使用宜搭内置的图标，并设置其尺寸。
+
 ## 何时使用
 
+通过图标来展示一些标记，例如警告、提示、趋势等。
+
 ## 组件示例
-import Iframe from 'components/Iframe'
+
+import Iframe from 'components/Iframe';
 
 <Iframe url="https://www.aliwork.com/developer/icon-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable'
+import AttrTable from 'components/AttrTable';
 
-<AttrTable dataSource={[{
-  attr: '图标', 
-  code: 'src', 
-  type: 'String', 
-  demo: 'smile', 
-  dafault:'', 
-  desc: ''
-}, {
-  attr: '大小', 
-  code: 'size', 
-  type: 'String', 
-  demo: 'medium', 
-  dafault:'', 
-  desc: '从小到大依次为: `xxs` , `xs` , `small` , `medium` , `large` , `xl` , `xxl`'
-}
-]}
+<AttrTable
+  dataSource={[
+    {
+      attr: '图标',
+      code: 'src',
+      type: 'String',
+      demo: 'smile',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '大小',
+      code: 'size',
+      type: 'String',
+      demo: 'medium',
+      dafault: '',
+      desc: '从小到大依次为: `xxs` , `xs` , `small` , `medium` , `large` , `xl` , `xxl`',
+    },
+  ]}
 />

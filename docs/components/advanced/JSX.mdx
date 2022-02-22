@@ -5,25 +5,30 @@ order: 1
 
 # JSX
 
+JSX 组件允许你通过 jsx 代码渲染一个完全自定义的组件。一般用于纯展示的场景。
+
 ## 何时使用
 
+- 用于通过 JSX 形式来自定义渲染内容；
+
 ## 组件示例
-import Iframe from 'components/Iframe'
+
+import Iframe from 'components/Iframe';
 
 <Iframe url="https://www.aliwork.com/developer/jsx-v2?isRenderNav=false" />
 
 ## 组件属性
 
-<!-- | 属性名   |  属性 code  | 类型 | 数据示例  | 动态属性 | 备注 |
-| :------ | :------ | :------ | :------ | :----- | :----- |
-| 渲染函数   | render | string | 见组件默认函数 | 否 | -->
+import AttrTable from 'components/AttrTable';
 
-import AttrTable from 'components/AttrTable'
-
-<AttrTable dataSource={[{
-  attr: '渲染函数', 
-  code: 'render', 
-  type: 'string', 
-  demo: '见组件默认函数', 
-  desc: ''
-}]}/>
+<AttrTable
+  dataSource={[
+    {
+      attr: '渲染函数',
+      code: 'render',
+      type: 'string',
+      demo: '见组件默认函数',
+      desc: '',
+    },
+  ]}
+/>
