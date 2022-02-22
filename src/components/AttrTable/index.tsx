@@ -19,10 +19,6 @@ const COLUMNS = [{
   dataIndex: 'demo',
   width: '30%',
 }, {
-  title: '默认值',
-  dataIndex: 'dafault',
-  width: '10%',
-},{
   title: '备注',
   dataIndex: 'desc',
   width: '20%',

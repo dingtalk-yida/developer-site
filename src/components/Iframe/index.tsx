@@ -1,36 +1,22 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import Recevier from '@ali/b3-iframe/lib/recevier';
+import Recevier from './recevier';
 import './index.scss';
 
-const getOffset = item => {
-  let total = 0;
-  while (item !== null) {
-    total += item.offsetTop;
-    item = item.offsetParent;
-  }
-  return total;
-};
+export interface IIframeProps {
+  url: string;
+  disableHeightSync?: boolean;
+  onUpdateHeight: (height: number) => void;
+  id?: string;
+  className?: string;
+  style?: React.CSSProperties;
+}
 
-export default class BGIframe extends PureComponent {
+export default class Iframe extends PureComponent<IIframeProps> {
   static displayName = 'bg-iframe';
-  static propTypes = {
-    className: PropTypes.string,
-    disableHeightSync: PropTypes.bool,
-    id: PropTypes.string,
-    onUpdateHeight: PropTypes.func,
-    style: PropTypes.object,
-    url: PropTypes.string.isRequired
-  };
-  static defaultProps = {
-    className: '',
-    disableHeightSync: false,
-    id: '',
-    onUpdateHeight: () => {},
-    style: {},
-    syncParam: true,
-    url: ''
-  };
+
+  recevier: Recevier;
+  container: HTMLDivElement;
+  iframe: HTMLIFrameElement;
 
   constructor(props) {
     super(props);
@@ -45,13 +31,13 @@ export default class BGIframe extends PureComponent {
   }
 
 
-  componentDidUpdate({ url, disableHeightSync, style }) {
-    if (url.replace(/#.*$/, '') !== this.props.url.replace(/#.*$/, '')) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.url.replace(/#.*$/, '') !== this.props.url.replace(/#.*$/, '')) {
       if (this.container) {
-        this.container.style.height = (this.props.style && this.props.style.height) || '800px';
+        this.container.style.height = (this.props.style && this.props.style.height.toString()) || '800px';
       }
     }
-    if (disableHeightSync !== this.props.disableHeightSync) {
+    if (prevProps.disableHeightSync !== undefined && prevProps.disableHeightSync !== this.props.disableHeightSync) {
       if (this.props.disableHeightSync) {
         this.destroyRecevier();
       } else {

@@ -17,7 +17,7 @@ module.exports = {
           label: '社区',
         },
         {
-          to: 'https://dingtalk-yida.github.io/developer-site/',
+          to: 'https://developer-site.gitee.io/',
           label: '开发者中心',
         },
       ],
