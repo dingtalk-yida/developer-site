@@ -62,8 +62,8 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 
-.pagination-nav__item {
-  max-width: 400px;
+.pagination-nav__link {
+  padding: 0.5rem 1.5rem;
 }
 
 .markdown h1:first-child {

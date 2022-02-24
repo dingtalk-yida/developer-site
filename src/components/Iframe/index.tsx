@@ -59,7 +59,7 @@ export default class Iframe extends PureComponent<IIframeProps> {
           //增加20px，防止在windows浏览器下出现滚动条抖动问题
           // this.container.style.height = (data.msg || 0) + 20 + 'px';
           this.container.style.height = (data.msg || 0) + 'px';
-          this.props.onUpdateHeight(data.msg || '#');
+          this.props.onUpdateHeight && this.props.onUpdateHeight(data.msg || '#');
         }
       }
     });
@@ -80,7 +80,7 @@ export default class Iframe extends PureComponent<IIframeProps> {
         <div
           className={'bg-iframe ' + className}
           id={id}
-          style={{ height: 800, width: '100%', ...style }}
+          style={{ height: 400, width: '100%', ...style }}
           ref={ref => {
             this.container = ref;
           }}
