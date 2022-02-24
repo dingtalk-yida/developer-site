@@ -5,7 +5,7 @@ order: 5
 
 # 链接
 
-跳转超链接，用于打开新的窗口。
+跳转超链接，用于跳转到新页面。
 
 ## 何时使用
 
@@ -28,49 +28,49 @@ import AttrTable from 'components/AttrTable';
       attr: '内容',
       code: 'content',
       type: 'String',
-      demo: '图片资源地址',
+      demo: '"图片资源地址"',
       dafault: '',
       desc: '',
     },
     {
       attr: '单行截断',
       code: 'textOverflow',
-      type: 'boolean',
+      type: 'Boolean',
       demo: 'false',
       dafault: '',
-      desc: '',
+      desc: '可选值 false,true',
     },
     {
       attr: '链接类型',
       code: 'type',
       type: 'String',
-      demo: '',
+      demo: '"page"',
       dafault: '',
-      desc: '',
+      desc: '可选值 page,url',
     },
     {
       attr: '链接地址',
       code: 'url',
       type: 'String',
-      demo: '',
+      demo: '"https://www.aliwork.com/"',
       dafault: '',
       desc: '',
     },
     {
       attr: '新开页面',
       code: 'isBlank',
-      type: 'boolean',
+      type: 'Boolean',
       demo: 'false',
       dafault: '',
-      desc: '',
+      desc: '可选值 false,true',
     },
     {
       attr: '携带参数',
       code: 'params',
-      type: 'object',
-      demo: 'false',
+      type: 'Object',
+      demo: '{key:value}',
       dafault: '',
-      desc: 'url 查询参数',
+      desc: 'url 查询参数,多用于页面跳转传参',
     },
   ]}
 />
