@@ -18,3 +18,44 @@ import Iframe from 'components/Iframe';
 <Iframe url="https://www.aliwork.com/developer/iframe-v2?isRenderNav=false" />
 
 ## 组件属性
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '标题',
+      code: 'title',
+      type: 'String',
+      demo: '"标题"',
+      desc: '',
+    },
+    {
+      attr: 'Iframe地址',
+      code: 'src',
+      type: 'String',
+      demo: '"https://www.aliwork.com/"',
+      desc: '',
+    },
+    {
+      attr: '高度自适应',
+      code: 'autoFit',
+      type: 'bool',
+      demo: 'false',
+      desc: '自动调整高度，高度值=窗口高度-顶部留空高度-额外内容区高度',
+    },
+    {
+      attr: '额外内容区高度',
+      code: 'extraHeight',
+      type: 'Number',
+      demo: '0',
+      desc: '',
+    },
+    {
+      attr: '顶部空白高度',
+      code: 'offsetTop',
+      type: 'Number',
+      demo: '0',
+      desc: '启动了自适应高度后才生效，确定顶部留下的空白区域的高度',
+    }
+  ]}
+/>
