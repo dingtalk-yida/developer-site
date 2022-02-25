@@ -145,7 +145,19 @@ import AttrTable from 'components/AttrTable';
       attr: '禁用日期函数',
       code: 'disabledDate',
       type: 'Function',
-      demo: '(value) => {return false;}',
+      demo: 'function disabledDate(current) {
+             console.log(current);
+             return false;}',
+      dafault: '',
+      desc: '',
+    },
+           {
+      attr: '定制渲染只读态',
+      code: 'renderView',
+      type: 'Function',
+      demo: 'function renderView(value, props) {
+  return value;
+}',
       dafault: '',
       desc: '',
     },
@@ -153,7 +165,9 @@ import AttrTable from 'components/AttrTable';
       attr: '值发生改变事件',
       code: 'onChange',
       type: 'Function',
-      demo: '({value}) => {}',
+      demo: 'function onChange({ value }) {
+  console.log('onChange', value);
+}',
       dafault: '',
       desc: '',
     },
@@ -161,7 +175,9 @@ import AttrTable from 'components/AttrTable';
       attr: '点击确认按钮',
       code: 'onOk',
       type: 'Function',
-      demo: '({value}) => {}',
+      demo: 'function onOk({ value }) {
+  console.log('onOk', value);
+}',
       dafault: '',
       desc: '',
     },
@@ -169,7 +185,9 @@ import AttrTable from 'components/AttrTable';
       attr: '弹层展示状态变化',
       code: 'onVisibleChange',
       type: 'Function',
-      demo: '(visible, reason) => {} ',
+      demo: 'function onVisibleChange(visible, reason) {
+  console.log('onVisibleChange', visible, reason);
+}',
       dafault: '',
       desc: '',
     },
