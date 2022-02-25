@@ -20,14 +20,14 @@ import Iframe from 'components/Iframe'
 | 大小               | size               | String   | "medium" | 可选值: "medium","large"                      |
 | 类型               | type               | String   | "normal" | 可选值: "normal","primary","secondary","dark" |
 | 形状               | shape              | String   | "normal" | 可选值: "normal","simple"                     |
-| onChange           | onChange           | Function |          | 输入关键字时的回调                            |
-| onSearch           | onSearch           | Function |          | 点击搜索按钮触发的回调                        |
 | 选择器默认值       | defaultFilterValue | String   |          |                                               |
-| 选择器             | filter             | Array    |          |                                               |
+| 选择器             | filter             | Array    |[]        |                                               |
 | 选择器值           | filterValue        | String   |          |                                               |
-| onFilterChange     | onFilterChange     | Function |          | 选择器发生变化时回调                          |
-| 搜索框下拉联想列表 | dataSource         | Array    |          |                                               |
-| 默认提示           | placeholder        | String   |          |                                               |
-| 按钮内容           | searchText         | String   |          |                                               |
+| 搜索框下拉联想列表 | dataSource         | Array    |[]        |                                               |
+| 默认提示           | placeholder        | String   |"请输入"  |                                               |
+| 按钮内容           | searchText         | String   |"搜索"    |                                               |
 | 是否显示清除按钮   | hasClear           | Boolean  | false    | 可选值: false,true                            |
 | 是否禁用           | disabled           | Boolean  | false    | 可选值: false,true                            |
+| onChange           | onChange           | Function |onChange(value){console.log(value);}| 输入关键字时的回调                            |
+| onSearch           | onSearch           | Function |onSearch(value){console.log(value);}| 点击搜索按钮触发的回调                        |
+| onFilterChange     | onFilterChange     | Function |onFilterChange(filterValue){console.log(filterValue);}| 选择器发生变化时回调                          |
