@@ -7,7 +7,7 @@ order: 15
 引导用户按照流程完成任务的导航条。
 
 ## 何时使用
-* 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务；
+* 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
 ## 组件示例
 import Iframe from 'components/Iframe'
 
@@ -20,7 +20,7 @@ import AttrTable from 'components/AttrTable'
 <AttrTable dataSource={[{
   attr: '步骤数据', 
   code: 'dataSource', 
-  type: 'object', 
+  type: 'Array', 
   demo: "[{ title: 'step1', content: 'Open' }, { title: 'step2', content: 'Put'}]", 
   dafault:'', 
   desc: ''
@@ -36,29 +36,29 @@ import AttrTable from 'components/AttrTable'
   code: 'shape', 
   type: 'String', 
   demo: "'circle'", 
-  dafault:"'circle', 'arrow', 'dot'", 
-  desc: ''
+  dafault:"", 
+  desc: "可选值:'circle', 'arrow', 'dot' "
 }, {
   attr: '展示方向', 
   code: 'direction', 
   type: 'String', 
   demo: "'horizontal'", 
-  dafault:"'horizontal', 'vertical'", 
-  desc: ''
+  dafault:"", 
+  desc: "可选值: 'horizontal', 'vertical'"
 }, {
   attr: '横向布局时的内容排列', 
   code: 'labelPlacement', 
   type: 'String', 
   demo: "'vertical'", 
-  dafault:"'vertical', 'horizontal'", 
-  desc: ''
+  dafault:"", 
+  desc: "可选值: 'vertical', 'horizontal'"
 }, {
   attr: '只读模式', 
   code: 'placeholder', 
   type: 'Boolean', 
   demo: 'false', 
   dafault:'', 
-  desc: ''
+  desc: '可选值: true,false'
 }, 
 {
   attr: '开启动效', 
@@ -66,7 +66,7 @@ import AttrTable from 'components/AttrTable'
   type: 'Boolean', 
   demo: "true", 
   dafault:'', 
-  desc: ''
+  desc: '可选值: true,false'
 }, 
 {
   attr: '点击按钮动作', 
