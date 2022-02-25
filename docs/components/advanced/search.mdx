@@ -7,7 +7,7 @@ order: 12
 
 
 ## 何时使用
-* 页面、表单数据搜索时使用；
+* 页面、表单数据搜索时使用。
 ## 组件示例
 import Iframe from 'components/Iframe'
 
@@ -15,19 +15,19 @@ import Iframe from 'components/Iframe'
 
 ## 组件属性
 
-| 参数               | 说明                                                         | 类型      | 默认值    |
-| :----------------- | :----------------------------------------------------------- | :-------- | :-------- |
-| size               | 大小**可选值**: 'large'('大') 'medium'('小')               | Enum      | 'medium'  |
-| type               | 类型 shape=normal: primary/secondary; shape=simple: normal/dark;**可选值**: 'primary', 'secondary', 'normal', 'dark' | Enum      | 'normal'  |
-| shape              | 形状**可选值**: 'normal', 'simple'                         | Enum      | 'normal'  |
-| onChange           | 输入关键字时的回掉**签名**: Function(value: Object) => void**参数**: *value*: {Object} 输入值 | Function  | func.noop |
-| onSearch           | 点击搜索按钮触发的回调**签名**: Function(value: Object) => void**参数**: *value*: {Object} 输入值 | Function  | func.noop |
-| defaultFilterValue | 选择器默认值                                                 | String    | -         |
-| filter             | 选择器                                                       | Array     | []        |
-| filterValue        | 选择器值                                                     | String    | -         |
-| onFilterChange     | 选择器发生变化时回调**签名**: Function(filter: Object) => void**参数**: *filter*: {Object} value | Function  | func.noop |
-| dataSource         | 搜索框下拉联想列表                                           | Array     | -         |
-| placeholder        | 默认提示                                                     | String    | -         |
-| searchText         | button 的内容                                                | ReactNode | -         |
-| hasClear           | 是否显示清除按钮                                             | Boolean   | false     |
-| disabled           | 是否禁用                                                     | Boolean   | false     |
+| 属性名             | 属性 Code          | 类型     | 数据示例 | 备注                                          |
+| :----------------- | :----------------- | :------- | :------- | :-------------------------------------------- |
+| 大小               | size               | String   | "medium" | 可选值: "medium","large"                      |
+| 类型               | type               | String   | "normal" | 可选值: "normal","primary","secondary","dark" |
+| 形状               | shape              | String   | "normal" | 可选值: "normal","simple"                     |
+| onChange           | onChange           | Function |          | 输入关键字时的回调                            |
+| onSearch           | onSearch           | Function |          | 点击搜索按钮触发的回调                        |
+| 选择器默认值       | defaultFilterValue | String   |          |                                               |
+| 选择器             | filter             | Array    |          |                                               |
+| 选择器值           | filterValue        | String   |          |                                               |
+| onFilterChange     | onFilterChange     | Function |          | 选择器发生变化时回调                          |
+| 搜索框下拉联想列表 | dataSource         | Array    |          |                                               |
+| 默认提示           | placeholder        | String   |          |                                               |
+| 按钮内容           | searchText         | String   |          |                                               |
+| 是否显示清除按钮   | hasClear           | Boolean  | false    | 可选值: false,true                            |
+| 是否禁用           | disabled           | Boolean  | false    | 可选值: false,true                            |
