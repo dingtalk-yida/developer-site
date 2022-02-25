@@ -88,7 +88,9 @@ import AttrTable from 'components/AttrTable'
   attr: 'onOk', 
   code: 'onOk', 
   type: 'function ', 
-  demo: '()=>{} ', 
+  demo: 'function onOk() {
+  console.log('onOk');
+}', 
   dafault:'', 
   desc: ''
 }, 
@@ -96,7 +98,19 @@ import AttrTable from 'components/AttrTable'
   attr: 'onCancel', 
   code: 'onCancel', 
   type: 'function ', 
-  demo: '()=>{} ', 
+  demo: 'function onCancel() {
+  console.log('onCancel');
+}', 
+  dafault:'', 
+  desc: ''
+}, 
+{
+  attr: 'onClose', 
+  code: 'onClose', 
+  type: 'function ', 
+  demo: 'function onClose() {
+  console.log('onClose');
+}', 
   dafault:'', 
   desc: ''
 }, 
@@ -104,7 +118,27 @@ import AttrTable from 'components/AttrTable'
   attr: 'afterClose', 
   code: 'afterClose', 
   type: 'function ', 
-  demo: '()=>{} ', 
+  demo: 'function afterClose() {
+  console.log('afterClose');
+}', 
+  dafault:'', 
+  desc: ''
+}, 
+{
+  attr: 'afterOpen', 
+  code: 'afterOpen', 
+  type: 'function ', 
+  demo: '', 
+  dafault:'', 
+  desc: ''
+}, 
+{
+  attr: 'onOpen', 
+  code: 'onOpen', 
+  type: 'function ', 
+  demo: 'function onOpen() {
+  console.log('onOpen')
+}', 
   dafault:'', 
   desc: ''
 }, 
