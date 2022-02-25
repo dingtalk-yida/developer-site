@@ -7,26 +7,25 @@ order: 11
 
 
 ## 何时使用
-* 导航菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构；
+* 导航菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。
 ## 组件示例
 import Iframe from 'components/Iframe'
 
 <Iframe url="https://www.aliwork.com/developer/menu-v2?isRenderNav=false" />
 
 ## 组件属性
-
-| 参数                | 说明                                                         | 类型         | 默认值     |
-| :------------------ | :----------------------------------------------------------- | :----------- | :--------- |
-| onItemClick         | 点击菜单项触发的回调函数**签名**: Function(key: String, item: Object, event: Object) => void**参数**: *key*: {String} 点击的菜单项的 key 值 *item*: {Object} 点击的菜单项对象 *event*: {Object} 点击的事件对象 | Function     | onItemClick(key, item, event) { console.log(key, item, event);}   |
-| defaultOpenKeys     | 初始打开的子菜单的 key 值                                    | String/Array | ["key1"]         |
-| onOpen              | 打开或关闭子菜单触发的回调函数**签名**: Function(key: String, extra: Object) => void**参数**: *key*: {String} 打开的所有子菜单的 key 值 *extra*: {Object} 额外参数 *extra.key*: {String} 当前操作子菜单的 key 值 *extra.open*: {Boolean} 是否是打开 | Function     | () => {}   |
-| mode                | 子菜单打开的模式**可选值**: "inline", "popup"              | String       | "inline"   |
-| triggerType         | 子菜单打开的触发行为**可选值**: "click", "hover"           | String         | "click"    |
-| openMode            | 展开内连子菜单的模式，同时可以展开一个子菜单还是多个子菜单，该属性仅在 mode 为 inline 时生效**可选值**: "single", "multiple" | String     | "multiple" |
-| defaultSelectedKeys | 初始选中菜单项的 key 值                                      | String/Array | ["key1-1"]         |
-| onSelect            | 选中或取消选中菜单项触发的回调函数**签名**: Function(selectedKeys: Array, item: Object, extra: Object) => void**参数**: *selectedKeys*: {Array} 选中的所有菜单项的值 *item*: {Object} 选中或取消选中的菜单项 *extra*: {Object} 额外参数 *extra.select*: {Boolean} 是否是选中 *extra.key*: {Array} 菜单项的 key *extra.label*: {Object} 菜单项的文本 *extra.keyPath*: {Array} 菜单项 key 的路径 | Function     | onSelect(selectedKeys, extraObj) { console.log(selectedKeys, extraObj);}   |
-| selectMode          | 选中模式，单选还是多选，默认无值，不可选**可选值**: "single", "multiple","false" | String         | "single"         |
-| direction           | 菜单第一层展示方向**可选值**: "ver", "hoz"                 | String         | "ver"      |
-| header              | 自定义菜单头部                                               | Boolean    | 可选值 ：true,false         |
-| footer              | 自定义菜单尾部                                               | Boolean    | 可选值 ：true,false          |
-| autoFocus           | 是否自动获得焦点  
+| 属性名                         | 属性 Code           | 类型         | 数据示例                                                                 | 备注                                                                                                                         |
+| :----------------------------- | :------------------ | :----------- | :----------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| onItemClick       | onItemClick         | Function     | onItemClick(key, item, event) { console.log(key, item, event);}          |                                                                                                                              |
+| 初始打开的子菜单的 key 值      | defaultOpenKeys     | String/Array | ["key1"]                                                                 | ["key1"]                                                                                                                     |
+| onOpen | onOpen              | Function     |                                                                  |                                                                                                                              |
+| 子菜单打开模式                 | mode                | String       | "inline"                                                                 | 子菜单打开的模式可选值: "inline", "popup"                                                                                |
+| 触发行为                       | triggerType         | String       | "click"                                                                  | 子菜单打开的触发行为可选值: "click", "hover"                                                                             |
+| 展开内连子菜单的模式           | openMode            | String       | "multiple"                                                               | 展开内连子菜单的模式，同时可以展开一个子菜单还是多个子菜单，该属性仅在 mode 为 inline 时生效可选值: "single", "multiple" |
+| 初始选中菜单项的 key 值        | defaultSelectedKeys | String/Array | ["key1-1"]                                                               | ["key1-1"]                                                                                                                   |
+| onSelect           | onSelect            | Function     | onSelect(selectedKeys, extraObj) { console.log(selectedKeys, extraObj);} |                                                                                                                              |
+| 选择模式                       | selectMode          | String       | "single"                                                                 | 可选值: "single", "multiple","false"                                                                                     |
+| 展示方向                       | direction           | String       | "ver"                                                                    | 可选值: "ver", "hoz"                                                                                                     |
+| Header 插槽                    | header              | Boolean      | true                                                                     | 可选值 ：true,false                                                                                                          |
+| Footer 插槽                    | footer              | Boolean      | true                                                                     | 可选值 ：true,false                                                                                                          |
+| 是否自动获得焦点               | autoFocus           |              |                                                                          |                                                                                                                              |
