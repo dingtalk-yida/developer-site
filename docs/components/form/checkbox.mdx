@@ -7,8 +7,8 @@ order: 4
 
 ## 何时使用
 
-- 在一组可选项中进行多项选择时；
-- 单独使用可以表示两种状态之间的切换，和 switch 类似。区别在于切换 switch 会直接触发状态改变，而 checkbox 一般用于状态标记，需要和提交操作配合；
+- 在一组可选项中进行多项选择时。
+- 单独使用可以表示两种状态之间的切换，和 switch 类似。区别在于切换 switch 会直接触发状态改变，而 checkbox 一般用于状态标记，需要和提交操作配合。
 
 ## 组件示例
 
@@ -33,8 +33,8 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '值',
       code: 'value',
-      type: 'String',
-      demo: '"value"',
+      type: 'String/Array',
+      demo: '"单选: "1", 多选: ["1", "2"]"',
       dafault: '',
       desc: '',
     },
@@ -90,7 +90,7 @@ import AttrTable from 'components/AttrTable';
       attr: '描述信息',
       code: 'tips',
       type: 'String',
-      demo: '这是一段描述信息',
+      demo: '"这是一段描述信息"',
       dafault: '',
       desc: '',
     },
