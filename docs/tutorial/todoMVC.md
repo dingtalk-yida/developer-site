@@ -38,10 +38,10 @@ title: TodoMVC
 - **任务操作项**- 用于删除所属任务，可以使用 `按钮` 组件（图中用的是一个 Icon，为了更好的表达语义，我们选择使用按钮组件）；
 - **待办任务数量展示**- 用于展示待完成的任务总数，可以使用 `文本` 组件；
 - **任务状态筛选器**- 用于筛选不同状态的任务列表，可以使用 `单选` 组件；
-- **清除所有完成状态的任务**- 用于清除所有已完成的任务，可以使用 `按钮`组件；
+- **清除所有完成状态的任务**- 用于清除所有已完成的任务，可以使用 `按钮` 组件；
 - **工具介绍**- 介绍 Todos 的一些基本信息，静态展示，可以使用 `文本` 组件；
 
-确定了各个部分需要使用的组件，我们就可以开始通过拖拽及基础的组件属性配置搭建一个简单的页面了，效果如下所示，开发者可以前往 [Demo 示例](https://www.aliwork.com/o/demo/todoMVC-1)查看显示效果，通过[设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1)查看详细的配置：
+确定了各个部分需要使用的组件，我们就可以开始通过拖拽及基础的组件属性配置搭建一个简单的页面了，效果如下所示，开发者可以前往 [Demo 示例](https://www.aliwork.com/o/demo/todoMVC-1) 查看显示效果，通过 [设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1) 查看详细的配置：
 
 ![](https://img.alicdn.com/imgextra/i4/O1CN014nEjZL1cNoDQNH4O8_!!6000000003589-2-tps-1341-358.png_.webp)
 
@@ -60,7 +60,7 @@ title: TodoMVC
   - Completed - 显示已完成的任务列表；
 - **清空完成状态的待办任务**- 用户通过点击页面右下角的 `Clear completed` 按钮批量删除所有已完成的任务；
 
-基本功能已经梳理完成，我们现在就一步一步来实现 TodoMVC 的基础功能，最终效果详见 [Demo 示例](https://www.aliwork.com/o/demo/todoMVC-2)，通过[设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1)可以查看具体实现，展示效果如下所示：
+基本功能已经梳理完成，我们现在就一步一步来实现 TodoMVC 的基础功能，最终效果详见 [Demo 示例](https://www.aliwork.com/o/demo/todoMVC-2)，通过 [设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1) 可以查看具体实现，展示效果如下所示：
 
 ![](../../static/img/todoMVC2.0.gif)
 
@@ -79,7 +79,7 @@ title: TodoMVC
       id: 1, // 待办任务唯一 ID
       content: 'XXXX', // 待办任务内容
       done: false, // 待办任务完成状态
-    },
+    }, 
   ];
 }
 ```
@@ -109,11 +109,11 @@ export function onRowAdd(e) {
   this.setState({
     todoList: [
       {
-        id: newId,
-        done: false,
+        id: newId, 
+        done: false, 
         content: this.$('input').getValue(), // 获取输入框用户输入内容
-      },
-      ...todoList,
+      }, 
+      ...todoList, 
     ], // 更新 todoList 数据，增加一条记录，id 为 newId，状态为待完成，内容为输入框的用户输入内容
     newId: newId + 1, // 更新 newId 供下次创建任务使用
   });
@@ -160,9 +160,9 @@ export function onRowAdd(e) {
 
 以下是三个组件的是否渲染变量绑定值：
 
-- **编辑态**- 当全局变量 editRowId 和当前行的 ID 一致时显示：`state.editRowId === this.item.id`
-- **待完成态**- 当前任务不处于编辑态且其状态为待完成时显示：`state.editRowId !== this.item.id && !this.item.done`
-- **已完成态**- 当前任务不处于编辑态且其状态为已完成时显示：`state.editRowId !== this.item.id && this.item.done`
+- **编辑态**- 当全局变量 editRowId 和当前行的 ID 一致时显示： `state.editRowId === this.item.id` 
+- **待完成态**- 当前任务不处于编辑态且其状态为待完成时显示： `state.editRowId !== this.item.id && !this.item.done` 
+- **已完成态**- 当前任务不处于编辑态且其状态为已完成时显示： `state.editRowId !== this.item.id && this.item.done` 
 
 #### 实现任务内容编辑
 
@@ -177,7 +177,7 @@ onEdit 代码如下所示：
 ```js
 export function onEdit() {
   this.setState({
-    editRowId: this.item.id,
+    editRowId: this.item.id, 
   });
 }
 ```
@@ -196,18 +196,18 @@ export function onRowEdit(e) {
       if (item.id === this.item.id) {
         // 从 todoList 找到当前编辑的任务并更新其内容
         return {
-          ...item,
-          content: this.$('rowInput').getValue(),
+          ...item, 
+          content: this.$('rowInput').getValue(), 
         };
       }
       return item;
-    }),
+    }), 
     editRowId: 0, // 重置 editRowId 使当前任务回归到之前的展示状态
   });
 }
 ```
 
-PS：由于任务的内容编辑是基于已有内容的，因此需要通过变量方式设置输入框的默认值为 `item.content`。
+PS：由于任务的内容编辑是基于已有内容的，因此需要通过变量方式设置输入框的默认值为 `item.content` 。
 
 #### 实现任务完成状态切换
 
@@ -224,13 +224,13 @@ export function onTodoCheck({ value }) {
       if (item.id === this.item.id) {
         // 从 todoList 找到当前编辑的任务并更新其状态
         return {
-          ...item,
-          done: value === 'done',
+          ...item, 
+          done: value === 'done', 
         };
       }
       return item;
-    }),
-    editRowId: 0,
+    }), 
+    editRowId: 0, 
   });
 }
 ```
@@ -248,7 +248,7 @@ export function onDelete() {
     todoList: this.state.todoList.filter((item) => {
       // 从 todoList 中剔除当前任务
       return item.id !== this.item.id;
-    }),
+    }), 
   });
 }
 ```
@@ -279,7 +279,7 @@ onModeChange 代码如下所示：
 ```js
 export function onModeChange({ value }) {
   this.setState({
-    mode: value,
+    mode: value, 
   });
 }
 ```
@@ -329,9 +329,9 @@ export function onClearCompleted() {
 ```js
 export function saveTodoData() {
   const { todoList, newId } = this.state;
-  // 判断是否支持localStorage，若支持存储当前state中的数据
+  // 判断是否支持 localStorage，若支持存储当前 state 中的数据
   if (window.localStorage) {
-    // 通过localStorage存储数据
+    // 通过 localStorage 存储数据
     window.localStorage.setItem('todoMVC', JSON.stringify({ todoList, newId }));
   }
 }
@@ -342,7 +342,7 @@ export function saveTodoData() {
 ```js
 export function getTodoData() {
   if (window.localStorage) {
-    // 获取localStorage的存储数据
+    // 获取 localStorage 的存储数据
     const data = window.localStorage.getItem('todoMVC');
     // 判断是否有本地存储数据
     if (data) {
@@ -356,7 +356,7 @@ export function getTodoData() {
 有了上面的两个基础方法，我们接下来只需要做两件事情：
 
 - 在 didMount 生命周期中调用 getTodoData API 获取本地数据并更新 state 中的状态；
-- 在上面**所有**修改 todoList 的`setState`语句下方增加`this.saveTodoData()`调用；
+- 在上面**所有**修改 todoList 的 `setState` 语句下方增加 `this.saveTodoData()` 调用；
 
 具体如下所示：
 ![](https://img.alicdn.com/imgextra/i4/O1CN01kZbknQ1RSQRA2qM3G_!!6000000002110-2-tps-3582-2018.png_.webp)
@@ -365,7 +365,7 @@ export function getTodoData() {
 
 ## 样式完善——赋予 TodoMVC 好看的皮囊
 
-上一步我们完成的 TodoMVC 的基础功能实现，但是给人的第一感觉就是丑，对于一个产品好看的皮囊不是最重要的，但是如果没有一副好的皮囊，它一定不是一个好的产品，宜搭提供了自定义样式能力，详见 [样式定制文档](guide/concept/style.md)，通过定制样式，我们将得到下效果，（用户也可以通过访问 [示例页面](https://www.aliwork.com/o/demo/todoMVC-3) 进行试用，通过[设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1)查看具体实现）：
+上一步我们完成的 TodoMVC 的基础功能实现，但是给人的第一感觉就是丑，对于一个产品好看的皮囊不是最重要的，但是如果没有一副好的皮囊，它一定不是一个好的产品，宜搭提供了自定义样式能力，详见 [样式定制文档](guide/concept/style.md)，通过定制样式，我们将得到下效果，（用户也可以通过访问 [示例页面](https://www.aliwork.com/o/demo/todoMVC-3) 进行试用，通过 [设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1) 查看具体实现）：
 
 ![](../../static/img/todoMVC3.0.gif)
 
@@ -384,7 +384,7 @@ export function getTodoData() {
 ![](../../static/img/todoMVC4.0.gif)
 
 :::caution
-由于调用宜搭的 OpenAPI 需要进行鉴权，因此无法将页面设置成免登页面供大家试用，不过开发者同学可以前往[设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-4)查看页面的具体实现。
+由于调用宜搭的 OpenAPI 需要进行鉴权，因此无法将页面设置成免登页面供大家试用，不过开发者同学可以前往 [设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-4) 查看页面的具体实现。
 
 :::
 
@@ -454,7 +454,7 @@ function willFetch(vars, config) {
 function didFetch(content) {
   this.utils.toast({
     // 提醒操作成功
-    title: 'Add Success!',
+    title: 'Add Success!', 
   });
   this.reloadDataSource(); // 重新请求初始请求（即 todoList 接口），刷新任务列表
   return content; // 重要，需返回 content
@@ -501,7 +501,7 @@ function willFetch(vars, config) {
 ```js
 function didFetch(content) {
   this.utils.toast({
-    title: 'Update Success!',
+    title: 'Update Success!', 
   });
   this.reloadDataSource();
   return content; // 重要，需返回 content
@@ -528,7 +528,7 @@ export function onRowAdd(e) {
   if (e.keyCode !== 13) return;
   this.dataSourceMap.add.load({
     // 调用远程 API
-    content: this.$('input').getValue(),
+    content: this.$('input').getValue(), 
   });
 }
 ```
@@ -546,7 +546,7 @@ export function onDelete() {
       // 远程 API 回调处理，类似配置中的 didFetch
       this.utils.toast({
         // 成功提示
-        title: 'Delete Success!',
+        title: 'Delete Success!', 
       });
       this.reloadDataSource(); // 刷新任务列表
     });
@@ -561,11 +561,11 @@ export function onRowEdit(e) {
   if (e.keyCode !== 13) return;
 
   this.dataSourceMap.update.load({
-    id: this.item.id,
-    content: this.$('rowInput').getValue(),
+    id: this.item.id, 
+    content: this.$('rowInput').getValue(), 
   });
   this.setState({
-    editRowId: 0,
+    editRowId: 0, 
   });
 }
 ```
@@ -575,11 +575,11 @@ export function onRowEdit(e) {
 ```js
 export function onTodoCheck({ value }) {
   this.dataSourceMap.update.load({
-    id: this.item.id,
-    done: value === 'done',
+    id: this.item.id, 
+    done: value === 'done', 
   });
   this.setState({
-    editRowId: 0,
+    editRowId: 0, 
   });
 }
 ```
@@ -593,14 +593,14 @@ export function onClearCompleted() {
     deleteItems.map((item) =>
       this.dataSourceMap.del.load({
         // 通过 Promise.all 批量调用 del 远程接口进行任务删除
-        formInstId: item.id,
+        formInstId: item.id, 
       })
     )
   ).then((res) => {
     // Promise.all 回调处理
     this.utils.toast({
       // 成功提示
-      title: 'Clear Success!',
+      title: 'Clear Success!', 
     });
     this.reloadDataSource(); // 刷新任务列表
   });
