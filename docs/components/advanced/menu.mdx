@@ -14,17 +14,108 @@ import Iframe from 'components/Iframe'
 <Iframe url="https://www.aliwork.com/developer/menu-v2?isRenderNav=false" />
 
 ## 组件属性
-| 属性名                         | 属性 Code           | 类型         | 数据示例                                                                 | 备注                                                                                                                         |
-| :----------------------------- | :------------------ | :----------- | :----------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| 点击菜单项       | onItemClick         | Function     |function onItemClick(key, item, event) { console.log(key, item, event);}          |                                                                                                                              |
-| 初始打开的子菜单的 key 值      | defaultOpenKeys     | String/Array | ["key1"]                                                                 | ["key1"]                                                                                                                     |                                                                                                                     |
-| 子菜单打开模式                 | mode                | String       | "inline"                                                                 | 子菜单打开的模式可选值: "inline", "popup"                                                                                |
-| 触发行为                       | triggerType         | String       | "click"                                                                  | 子菜单打开的触发行为可选值: "click", "hover"                                                                             |
-| 展开内连子菜单的模式           | openMode            | String       | "multiple"                                                               | 展开内连子菜单的模式，同时可以展开一个子菜单还是多个子菜单，该属性仅在 mode 为 inline 时生效可选值: "single", "multiple" |
-| 初始选中菜单项的 key 值        | defaultSelectedKeys | String/Array | ["key1-1"]                                                               | ["key1-1"]                                                                                                                   |
-| 选中或取消选中菜单项           | onSelect            | Function     |function onSelect(selectedKeys, extraObj) { console.log(selectedKeys, extraObj);} |                                                                                                                              |
-| 选择模式                       | selectMode          | String       | "single"                                                                 | 可选值: "single", "multiple","false"                                                                                     |
-| 展示方向                       | direction           | String       | "ver"                                                                    | 可选值: "ver", "hoz"                                                                                                     |
-| Header 插槽                    | header              |       |                                                                      |                                                                                                           |
-| Footer 插槽                    | footer              |       |                                                                      |                                                                                                          |
-| 是否自动获得焦点               | autoFocus           |              |                                                                          |                                                                                                                              |
+
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '点击菜单项',
+      code: 'onItemClick',
+      type: 'Function',
+      demo: 'function onItemClick(key, item, event) { console.log(key, item, event);}',
+      dafault: '',
+      desc: '点击菜单项触发的事件',
+    },
+    {
+      attr: '初始打开的子菜单的 key 值',
+      code: 'defaultOpenKeys',
+      type: 'String/Array	',
+      demo: '["key1"]	',
+      dafault: '',
+      desc: '["key1"]',
+    },
+    {
+      attr: '子菜单打开模式',
+      code: 'mode',
+      type: 'String',
+      demo: '"inline"',
+      dafault: '',
+      desc: '子菜单打开的模式可选值: "inline", "popup"',
+    },
+    {
+      attr: '触发行为',
+      code: 'triggerType',
+      type: 'String',
+      demo: '"click"',
+      dafault: '',
+      desc: '子菜单打开的触发行为可选值: "click", "hover"',
+    },
+    {
+      attr: '展开内连子菜单的模式',
+      code: 'openMode',
+      type: 'String',
+      demo: '"multiple"',
+      dafault: '',
+      desc: '展开内连子菜单的模式，同时可以展开一个子菜单还是多个子菜单，该属性仅在 mode 为 inline 时生效可选值: "single", "multiple"',
+    },
+    {
+      attr: '初始选中菜单项的 key 值',
+      code: 'defaultSelectedKeys',
+      type: 'String/Array',
+      demo: '["key1-1"]',
+      dafault: '',
+      desc: '["key1-1"]',
+    },
+    {
+      attr: '选中或取消选中菜单项',
+      code: 'onSelect',
+      type: 'Function',
+      demo: 'function onSelect(selectedKeys, extraObj) { console.log(selectedKeys, extraObj);}	',
+      dafault: '',
+      desc: '选中或取消选中菜单项时触发的事件',
+    },
+    {
+      attr: '选择模式',
+      code: 'selectMode',
+      type: 'String',
+      demo: '"single"',
+      dafault: '',
+      desc: '可选值: "single", "multiple","false"',
+    },
+    {
+      attr: '展示方向',
+      code: 'direction',
+      type: 'String',
+      demo: '"ver"',
+      dafault: '',
+      desc: '可选值: "ver", "hoz"',
+    },
+    {
+      attr: 'Header 插槽',
+      code: 'header',
+      type: '',
+      demo: '',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: 'Footer 插槽',
+      code: 'footer',
+      type: '',
+      demo: '',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '是否自动获得焦点',
+      code: 'autoFocus',
+      type: '',
+      demo: '',
+      dafault: '',
+      desc: '',
+    }
+  ]}
+/>
+
+
