@@ -23,11 +23,11 @@ import AttrTable from 'components/AttrTable';
   dataSource={[
     {
       attr: '气泡类型',
-      code: 'type',
+      code: 'TYPE',
       type: 'String',
       demo: '"balloon"',
       dafault: 'balloon',
-      desc: '可选值："balloon" "tooltip"',
+      desc: '可选值："balloon" "tooltip"；其中，气泡类型选择为tooltip时用于直接展示文字。',
     },
     {
       attr: '样式类型',
@@ -35,13 +35,13 @@ import AttrTable from 'components/AttrTable';
       type: 'String',
       demo: '"normal"',
       dafault: 'normal',
-      desc: '可选值："normal" "primary"',
+      desc: '可选值：normal | primary',
     },
     {
       attr: '弹窗内容',
       code: 'content',
       type: 'String',
-      demo: '"提示内容"',
+      demo: '提示内容',
       dafault: '',
       desc: '',
     },
@@ -51,7 +51,7 @@ import AttrTable from 'components/AttrTable';
       type: 'String',
       demo: '"hover"',
       dafault: 'click',
-      desc: '可选值："hover" "click" "focus"',
+      desc: '可选值：hover（鼠标悬浮） | click（鼠标点击） | focus（获取鼠标光标），用于控制气泡组件的触发条件。',
     },
     {
       attr: '关闭按钮',
@@ -59,7 +59,7 @@ import AttrTable from 'components/AttrTable';
       type: 'String',
       demo: '',
       dafault: 'true',
-      desc: '可选值：true 、false',
+      desc: '可选值：true （显示） | false （不显示），用于控制是否显示关闭按钮。',
     },
     {
       attr: '默认显示',
@@ -67,15 +67,15 @@ import AttrTable from 'components/AttrTable';
       type: 'String',
       demo: '',
       dafault: 'false',
-      desc: '',
+      desc: '可选值：true （显示） | false （不显示），用于控制组件初始化时是否为显示状态。',
     },
     {
       attr: '延时显示',
-      code: 'display',
+      code: 'delay',
       type: 'String',
-      demo: '"inline-block"',
+      demo: '1',
       dafault: '0',
-      desc: '可选值："inline-block" "block"',
+      desc: '仅触发行为为 hover 时生效，单位为ms，用于控制鼠标悬浮在组件上(hover)时气泡显示的延迟时间。',
     },
     {
       attr: '弹出方向',
@@ -83,7 +83,7 @@ import AttrTable from 'components/AttrTable';
       type: 'String',
       demo: '"t"',
       dafault: '"b"',
-      desc: '可选值："t" "b" "l" "r" "tl" "tr" "bl" "br" "lt" "lb" "rt" "rb"',
+      desc: '可选值：t（上） b（下） l（左） r（右） tl（上左） tr（上右） bl（下左） br（下右） lt（左上） lb（左下） rt（右上） rb（右下），用于控制气泡提示相对于触发组件的显示位置。',
     },
     {
       attr: '占据空间',
@@ -91,15 +91,15 @@ import AttrTable from 'components/AttrTable';
       type: 'String',
       demo: '"block"',
       dafault: '"300px"',
-      desc: '可选值："inline-block" "block"',
+      desc: '可选值：inline-block（实际大小） block（整行），用于配置触发元素所占空间。',
     },
     {
       attr: '最大宽度',
       code: 'overlayMaxWidth',
       type: 'String',
       demo: '300px',
-      dafault: '',
-      desc: '',
+      dafault: '300px',
+      desc: '可选值：任意数字 或 Inltlal ，其中 Inltlal 表示无限制，用于控制浮层最大宽度。',
     },
     {
       attr: '显示弹层',
@@ -107,7 +107,7 @@ import AttrTable from 'components/AttrTable';
       type: 'String',
       demo: '',
       dafault: 'true',
-      desc: '',
+      desc: '可选值：true （显示）| false（不显示）仅用于控制设计器中是否显示弹层。',
     },
     {
       attr: '当弹层关闭时触发',
@@ -115,7 +115,7 @@ import AttrTable from 'components/AttrTable';
       type: 'Function',
       demo: 'function(){console.log("确定");}',
       dafault: '',
-      desc: '',
+      desc: 'Balloon 浮层关闭时触发的事件。',
     },
     {
       attr: '浮层关闭后触发的事件',
@@ -123,7 +123,7 @@ import AttrTable from 'components/AttrTable';
       type: 'Function',
       demo: 'function(ctx){ console.log("取消");}',
       dafault: '',
-      desc: 'Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发',
+      desc: 'Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发。',
     },
     {
       attr: '可见状态变化事件',
@@ -131,7 +131,7 @@ import AttrTable from 'components/AttrTable';
       type: 'Function',
       demo: 'function(visible){ console.log("visible");}',
       dafault: '',
-      desc: 'Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发',
+      desc: 'Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发。',
     },
   ]}
 />
