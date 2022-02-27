@@ -10,7 +10,7 @@ order: 5
 ## 何时使用
 
 - 切换访问当前应用的其他页面；
-- 跳转到外部页面；
+- 跳转到外部页面。
 
 ## 组件示例
 
@@ -29,8 +29,8 @@ import AttrTable from 'components/AttrTable';
       code: 'content',
       type: 'String',
       demo: '"图片资源地址"',
-      dafault: '',
-      desc: '',
+      dafault: '"这里是一个链接"',
+      desc: '设置链接内容',
     },
     {
       attr: '单行截断',
@@ -45,8 +45,8 @@ import AttrTable from 'components/AttrTable';
       code: 'type',
       type: 'String',
       demo: '',
-      dafault: '',
-      desc: '',
+      dafault: '"page"',
+      desc: '可选择跳转到内部页面或跳转外部链接',
     },
     {
       attr: '链接地址',
@@ -54,7 +54,7 @@ import AttrTable from 'components/AttrTable';
       type: 'String',
       demo: '"https://www.aliwork.com/"',
       dafault: '',
-      desc: '',
+      desc: '添加一个链接地址,点击链接即可跳转对应页面',
     },
     {
       attr: '新开页面',
@@ -68,9 +68,17 @@ import AttrTable from 'components/AttrTable';
       attr: '携带参数',
       code: 'params',
       type: 'Object',
-      demo: '{key:value}',
+      demo: '{name:"张三",sex:"男"}',
       dafault: '',
       desc: 'url 查询参数,多用于页面跳转传参',
+    },
+    {
+      attr: '当点击时',
+      code: 'onClick',
+      type: 'Function',
+      demo: 'function onClick(ctx) {console.log("点击链接块");}',
+      dafault: '',
+      desc: '点击链接触发的回调',
     },
   ]}
 />
