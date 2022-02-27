@@ -85,7 +85,7 @@ import AttrTable from 'components/AttrTable'
   desc: '可选值："ok, cancel", "cancel, ok", "ok", "cancel"'
 }, 
 {
-  attr: 'onOk', 
+  attr: 'onOk 点击确定', 
   code: 'onOk', 
   type: 'Function ', 
   demo: 'function onOk() {
@@ -95,7 +95,7 @@ import AttrTable from 'components/AttrTable'
   desc: ''
 }, 
 {
-  attr: 'onCancel', 
+  attr: 'onCancel 点击取消', 
   code: 'onCancel', 
   type: 'Function ', 
   demo: 'function onCancel() {
@@ -105,7 +105,7 @@ import AttrTable from 'components/AttrTable'
   desc: ''
 }, 
 {
-  attr: 'onClose', 
+  attr: 'onClose 对话框关闭时', 
   code: 'onClose', 
   type: 'Function ', 
   demo: 'function onClose() {
@@ -115,7 +115,7 @@ import AttrTable from 'components/AttrTable'
   desc: ''
 }, 
 {
-  attr: 'afterClose', 
+  attr: 'afterClose 对话框关闭后', 
   code: 'afterClose', 
   type: 'Function ', 
   demo: 'function afterClose() {
@@ -125,15 +125,17 @@ import AttrTable from 'components/AttrTable'
   desc: ''
 }, 
 {
-  attr: 'afterOpen', 
+  attr: 'afterOpen 对话框打开后', 
   code: 'afterOpen', 
   type: 'Function ', 
-  demo: '', 
+  demo: 'function afterOpen() {
+  console.log('afterOpen')
+}', 
   dafault:'', 
   desc: ''
 }, 
 {
-  attr: 'onOpen', 
+  attr: 'onOpen 对话框打开时', 
   code: 'onOpen', 
   type: 'Function ', 
   demo: 'function onOpen() {
