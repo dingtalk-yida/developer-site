@@ -3,7 +3,7 @@ const path = require('path');
 const glob = require('glob');
 const matter = require('gray-matter');
 
-module.exports = function getDocsFromDir(dir) {
+module.exports = function getDocsFromDir(dir, cateList) {
   // docs/
   const baseDir = path.join(__dirname, '../docs/');
   const docsDir = path.join(baseDir, dir);
@@ -32,6 +32,25 @@ module.exports = function getDocsFromDir(dir) {
       const id = path.relative(baseDir, filepath).replace(/\.mdx?/, '');
       return id;
     });
+
+  (cateList || []).forEach(item => {
+    const {dir, subCategory, ...otherConfig} = item;
+    const indexList = glob.sync('index.md?(x)', {
+      cwd: path.join(baseDir, dir),
+    });
+    if (indexList.length > 0) {
+      otherConfig.link = {
+        type: 'doc',
+        id: `${dir}/index`
+      };
+    }
+    result.push({
+      type: 'category',
+      collapsed: false,
+      ...otherConfig,
+      items: getDocsFromDir(dir, subCategory),
+    });
+  });
 
   return result;
 }
