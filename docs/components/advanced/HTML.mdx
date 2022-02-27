@@ -13,6 +13,8 @@ HTML 组件允许你进行一些自定义的功能开发。其中页面设计需
 
 ## 何时使用
 
+- 用于在当前页面编辑代码块，实现比较复杂的页面样式。
+
 ## 组件示例
 
 import Iframe from 'components/Iframe';
@@ -20,3 +22,17 @@ import Iframe from 'components/Iframe';
 <Iframe url="https://www.aliwork.com/developer/html-v2?isRenderNav=false" />
 
 ## 组件属性
+
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '内容',
+      code: 'content',
+      type: 'String',
+      demo: '"<div>这里可以写html</div>"',
+      desc: '用来编写HTML语法',
+    }
+  ]}
+/>
