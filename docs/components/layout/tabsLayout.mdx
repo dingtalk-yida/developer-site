@@ -9,11 +9,11 @@ order: 1
 
 ## 何时使用
 
-TAB 让用户可以在不同子任务、视图、模式之间切换，它具有全局导航的作用，是全局功能的主要展示和切换区域，一个 TAB 标记一个核心功能，TAB 之间可以快速点击切换。该窗口包含 2 个以上的选项卡，所有选项卡可以排列在一行中，即使该用户界面被本地化后也是如此。提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
+TAB(标签项) 让用户可以在不同子任务、视图、模式之间切换，它具有全局导航的作用，是全局功能的主要展示和切换区域，一个 TAB(标签项) 标记一个核心功能，TAB(标签项) 之间可以快速点击切换。该窗口包含 2 个以上的选项卡，所有选项卡可以排列在一行中，即使该用户界面被本地化后也是如此。提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
 
-宜搭提供了三级选项卡，分别用于不同的场景。
+宜搭提供了四种选项卡，分别用于不同的场景。
 
-- 普通选项卡，引领整页面的内容，起导航的作用。
+- 普通选项卡，引领页面的内容，起导航的作用。
 - 文本型选项卡。
 - 包裹型选项卡，在页面结构中，只是局部展示，需要和其他内容结合出现。
 - 胶囊型选项卡。
@@ -41,34 +41,34 @@ import AttrTable from 'components/AttrTable';
       attr: '形态',
       code: 'shape',
       type: 'String',
-      demo: '普通型',
-      desc: '可选项有普通型，包裹型，文本型，胶囊型等',
+      demo: '"wrapped"',
+      desc: '可选项有pure(普通型)，wrapped(包裹型)，text(文本型)，capsule(胶囊型)',
     },
     {
       attr: '大小',
       code: 'size',
       type: 'String',
-      demo: '正常',
-      desc: '可选项有小，正常，大',
+      demo: '"小号尺寸"',
+      desc: '可选项有小号尺寸，正常尺寸',
     },
     {
       attr: '选项卡过多时的滑动模式',
       code: 'excessMode',
       type: 'String',
-      demo: '滑动',
-      desc: '可选项为滑动、下拉',
+      demo: '"slide"',
+      desc: '可选项为slide(滑动)、dropdown(下拉)',
     },
     {
       attr: '导航选项卡的位置',
       code: 'tabPosition',
       type: 'String',
-      demo: '上',
-      desc: '可选项为上、下、左、右',
+      demo: '"top"',
+      desc: '可选项为top(上)、bottom(下)、left(左)、right(右)',
     },
     {
       attr: '选项卡切换时',
       code: 'onChange',
-      type: 'function',
+      type: 'Function',
       demo: 'function onChange(activeIndex, key){console.log(activeIndex, key); }',
       desc: '',
     },

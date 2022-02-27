@@ -9,8 +9,8 @@ order: 14
 
 ## 何时使用
 
-- 当有一系列信息需要从上至下按时间排列时；
-- 需要有一条时间轴进行视觉上的串联时；
+- 当有一系列信息需要从上至下按时间排列时。
+- 需要有一条时间轴进行视觉上的串联时。
 
 ## 组件示例
 
@@ -27,7 +27,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '时间轴数据',
       code: 'dataSource',
-      type: 'object',
+      type: 'Array',
       demo: "[{ title: 'Cloudy', time: '2016-06-10 10:30:00' }]",
       dafault: '',
       desc: '',
@@ -35,7 +35,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '折叠数据',
       code: 'fold',
-      type: 'object',
+      type: 'Array',
       demo: '[{ foldArea: [1, 2], foldShow: false }] ',
       dafault: '',
       desc: '',
@@ -43,7 +43,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '标题',
       code: 'title',
-      type: 'string',
+      type: 'String',
       demo: "'时间 1'",
       dafault: '',
       desc: '',
@@ -51,7 +51,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '时间',
       code: 'time',
-      type: 'string',
+      type: 'String',
       demo: "'2019-01-05' ，'2019-02-05'，'2019-02-05'",
       dafault: '',
       desc: '',
@@ -59,15 +59,15 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '状态',
       code: 'state',
-      type: 'string',
-      demo: "'process', 'success', 'error'",
+      type: 'String',
+      demo: "'process'",
       dafault: '',
-      desc: '',
+      desc: '可选值：'process', 'success', 'error'',
     },
     {
       attr: '图标',
       code: 'icon',
-      type: 'string',
+      type: 'String',
       demo: "'smile' ",
       dafault: '',
       desc: '',

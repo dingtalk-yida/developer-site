@@ -2,7 +2,7 @@
 
 本篇文档将带领大家快速借助宜搭自定义页面能力搭建一个简单 Demo 并发布上线，Demo 效果如下所示：
 
-![](../../static/img/helloDemo.gif)
+![](https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/58f2a1bd-4ca0-4200-8e89-25fe6998f2dc.gif)
 
 通过上面的效果我们可以看到，当用户在输入框中输入姓名并点击生成按钮，程序将自动生成问候语并打印在按钮下方，我们会尽可能详细的讲解每一个步骤，如果用户在这个过程中对于宜搭的产品功能有所疑惑，欢迎移步至 [宜搭使用手册](https://www.yuque.com/yida/support/ytzzua) 进行查看，下面我们就从 0 开始来实现上面的 Demo 效果。
 

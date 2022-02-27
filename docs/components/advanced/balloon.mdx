@@ -23,7 +23,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '气泡类型',
       code: 'TYPE',
-      type: 'string',
+      type: 'String',
       demo: '"balloon" "tooltip"',
       dafault: 'balloon',
       desc: '',
@@ -40,7 +40,7 @@ import AttrTable from 'components/AttrTable';
       attr: '弹窗内容',
       code: 'content',
       type: 'String',
-      demo: '提示内容',
+      demo: '"提示内容"',
       dafault: '',
       desc: '',
     },
@@ -63,7 +63,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '默认显示',
       code: 'defaultVisible',
-      type: 'string',
+      type: 'String',
       demo: '',
       dafault: 'false',
       desc: '',
@@ -71,7 +71,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '延时显示',
       code: 'display',
-      type: 'string',
+      type: 'String',
       demo: '"inline-block" "block"',
       dafault: '0',
       desc: '',
@@ -79,7 +79,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '弹出方向',
       code: 'align',
-      type: 'string',
+      type: 'String',
       demo: '"t" "b" "l" "r" "tl" "tr" "bl" "br" "lt" "lb" "rt" "rb"',
       dafault: '"b" ',
       desc: '',
@@ -87,7 +87,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '占据空间',
       code: 'display',
-      type: 'string',
+      type: 'String',
       demo: '"inline-block" "block"',
       dafault: '"300px"',
       desc: '',
@@ -95,7 +95,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '最大宽度',
       code: 'overlayMaxWidth',
-      type: 'string',
+      type: 'String',
       demo: '',
       dafault: '300px',
       desc: '',
@@ -103,7 +103,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '显示弹层',
       code: 'balloonOverlayVisible',
-      type: 'string',
+      type: 'String',
       demo: '',
       dafault: 'true',
       desc: '',
@@ -111,7 +111,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '当弹层关闭时触发',
       code: 'onClose',
-      type: 'function',
+      type: 'Function',
       demo: 'function(){console.log(确定)',
       dafault: '',
       desc: '',
@@ -119,7 +119,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '浮层关闭后触发的事件',
       code: 'afterClose',
-      type: 'function',
+      type: 'Function',
       demo: 'function(ctx){ console.log(取消)',
       dafault: '',
       desc: 'Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发',
@@ -127,7 +127,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '可见状态变化事件',
       code: 'onVisibleChange',
-      type: 'function',
+      type: 'Function',
       demo: 'function(visible){ console.log(visible)',
       dafault: '',
       desc: 'Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发',

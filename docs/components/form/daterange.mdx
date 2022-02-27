@@ -7,7 +7,7 @@ order: 7
 
 ## 何时使用
 
-- 输入或选择日期区间。当用户需要输入一个日期区间，可以点击标准输入框，弹出日期面板进行选择；
+- 输入或选择日期区间。当用户需要输入一个日期区间，可以点击标准输入框，弹出日期面板进行选择。
 
 ## 组件示例
 
@@ -25,7 +25,7 @@ import AttrTable from 'components/AttrTable';
       attr: '标题',
       code: 'label',
       type: 'String',
-      demo: '标题',
+      demo: '"标题"',
       dafault: '',
       desc: '',
     },
@@ -97,7 +97,7 @@ import AttrTable from 'components/AttrTable';
       attr: '描述信息',
       code: 'tips',
       type: 'String',
-      demo: '这是一段描述信息',
+      demo: '"这是一段描述信息"',
       dafault: '',
       desc: '',
     },
@@ -113,9 +113,9 @@ import AttrTable from 'components/AttrTable';
       attr: '状态',
       code: 'behavior',
       type: 'String',
-      demo: '{fieldBehavior: "NORMAL"}',
+      demo: '"NORMAL"',
       dafault: '',
-      desc: 'fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
+      desc: '可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
     },
     {
       attr: '格式',
@@ -128,24 +128,27 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '清除按钮',
       code: 'hasClear',
-      type: 'Bool',
+      type: 'Boolean',
       demo: 'true',
       dafault: '',
-      desc: '',
+      desc: '可选值：true,false',
     },
     {
       attr: '每次选择日期时是否重置时间',
       code: 'resetTime',
-      type: 'Bool',
+      type: 'Boolean',
       demo: 'false ',
       dafault: '',
-      desc: '',
+      desc: '可选值：true,false',
     },
     {
       attr: '禁用日期函数',
       code: 'disabledDate',
       type: 'Function',
-      demo: '(value) => {return false;}',
+      demo: 'function disabledDate(value){
+  console.log('disabledDate', value);
+  return false;
+}',
       dafault: '',
       desc: '',
     },
@@ -153,7 +156,9 @@ import AttrTable from 'components/AttrTable';
       attr: '值发生改变事件',
       code: 'onChange',
       type: 'Function',
-      demo: 'function(value){ console.log(value); }',
+      demo: 'function onChange({ value }) {
+  console.log('onChange', value);
+}',
       dafault: '',
       desc: '',
     },
@@ -161,7 +166,9 @@ import AttrTable from 'components/AttrTable';
       attr: '点击确认按钮',
       code: 'onOk',
       type: 'Function',
-      demo: '({value}) => {}',
+      demo: 'function onOk({ value }) {
+  console.log('onOk', value);
+}',
       dafault: '',
       desc: '',
     },
@@ -169,7 +176,9 @@ import AttrTable from 'components/AttrTable';
       attr: '弹层展示状态变化',
       code: 'onVisibleChange',
       type: 'Function',
-      demo: '(visible, reason) => {} ',
+      demo: 'function onVisibleChange(visible, reason) {
+  console.log('onVisibleChange', visible, reason);
+}',
       dafault: '',
       desc: '',
     },

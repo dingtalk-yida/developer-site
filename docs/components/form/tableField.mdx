@@ -25,14 +25,14 @@ import AttrTable from 'components/AttrTable';
       attr: '标题',
       code: 'label',
       type: 'String',
-      demo: '标题',
+      demo: '"标题"',
       dafault: '',
       desc: '',
     },
     {
       attr: '显示标题',
       code: 'showLabel',
-      type: 'bool',
+      type: 'Boolean',
       demo: 'true',
       dafault: '',
       desc: '',
@@ -48,7 +48,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '排列方式',
       code: 'representation',
-      type: 'string',
+      type: 'String',
       demo: '"TILED"',
       dafault: '',
       desc: '可选值："TILED", "TABLE"',
@@ -56,7 +56,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '展现方式',
       code: 'layout',
-      type: 'string',
+      type: 'String',
       demo: '"VERTICAL"',
       dafault: '',
       desc: '可选值："VERTICAL", "HORIZONTAL"',
@@ -64,7 +64,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '主题',
       code: 'theme',
-      type: 'string',
+      type: 'String',
       demo: '"split"',
       dafault: '',
       desc: '只在 PC 表格模式下有效，可选值："zebra", "split", "border"',
@@ -72,7 +72,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '显示序号',
       code: 'showIndex',
-      type: 'bool',
+      type: 'Boolean',
       demo: 'true',
       dafault: '',
       desc: '只在 PC 表格模式下有效 ',
@@ -80,7 +80,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '显示表头',
       code: 'showTableHead',
-      type: 'bool',
+      type: 'Boolean',
       demo: 'true',
       dafault: '',
       desc: '只在 PC 表格模式下有效',
@@ -88,7 +88,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '按钮名称',
       code: 'buttonName',
-      type: 'string',
+      type: 'String',
       demo: ' "新增一条"',
       dafault: '',
       desc: '可选值："left", "right"',
@@ -96,7 +96,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '删除按钮',
       code: 'deleteButtonName',
-      type: 'string',
+      type: 'String',
       demo: '"删除"',
       dafault: '',
       desc: '',
@@ -104,15 +104,15 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '状态',
       code: 'behavior',
-      type: 'string',
-      demo: '{fieldBehavior: "NORMAL"}',
+      type: 'String',
+      demo: '"NORMAL"',
       dafault: '',
-      desc: 'fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
+      desc: '可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
     },
     {
       attr: '最大宽度',
       code: 'style',
-      type: 'object',
+      type: 'Object',
       demo: '{ maxWidth:"100%" } ',
       dafault: '',
       desc: '仅 PC 端支持',
@@ -120,7 +120,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '最大条数',
       code: 'listNum',
-      type: 'number',
+      type: 'Number',
       demo: '10',
       dafault: '',
       desc: '',
@@ -128,7 +128,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '最小条数',
       code: 'listMinNum',
-      type: 'number',
+      type: 'Number',
       demo: '1',
       dafault: '',
       desc: '',
@@ -136,7 +136,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '额外按钮',
       code: 'importButton',
-      type: 'string',
+      type: 'String',
       demo: '"其他按钮"',
       dafault: '',
       desc: '',
@@ -144,7 +144,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '点击添加事件',
       code: 'onAddClick',
-      type: 'function',
+      type: 'Function',
       demo: 'function(ctx) {} ',
       dafault: '',
       desc: '',
@@ -152,7 +152,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '点击删除事件',
       code: 'onDelClick',
-      type: 'function',
+      type: 'Function',
       demo: 'function(ctx) {} ',
       dafault: '',
       desc: '',
@@ -160,7 +160,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '点击自定义按钮事件',
       code: 'onClick',
-      type: 'function',
+      type: 'Function',
       demo: 'function(ctx) {}',
       dafault: '',
       desc: '',
@@ -168,7 +168,7 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '值发生改变事件',
       code: 'onChange',
-      type: 'function',
+      type: 'Function',
       demo: 'function({ values, extra }) {}',
       dafault: '',
       desc: "'extra 结构：{ from: '动作来源，如 add_item / del_item', formGroupId: '表单分组 ID', changes: { name: '字段名称', value: '字段值' } }'",
