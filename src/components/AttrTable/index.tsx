@@ -1,6 +1,7 @@
 import React from 'react';
 import {Table, TableProps} from 'antd';
-import 'antd/lib/table/style/index.css'
+import 'antd/lib/table/style/index.css';
+import './index.scss';
 
 const COLUMNS = [{
   title: '属性名',
@@ -35,7 +36,7 @@ export interface TableRecord {
 
 function AttrTable(props: Pick<TableProps<TableRecord>, 'dataSource'>) {
   return (
-    <Table dataSource={props.dataSource} columns={COLUMNS} pagination={false} />
+    <Table className="attr-table" dataSource={props.dataSource} columns={COLUMNS} pagination={false} />
   );
 }
 
