@@ -14,10 +14,14 @@
       border-bottom: 1px solid var(--ifm-table-border-color);
       vertical-align: top;
       padding: 12px;
+      font-size: 13px;
     }
-    p { 
+    p, pre { 
       margin: 0;
     }
+  }
+  .attr-type {
+    color: #c41d7f;
   }
   .ant-table {
     color: var(--ifm-font-color-base);

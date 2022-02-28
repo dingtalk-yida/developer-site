@@ -1,9 +1,9 @@
 ---
-title: 数字输入框
+title: NumberField 数字输入框
 order: 1
 ---
 
-# 数字输入框
+# NumberField 数字输入框
 
 ## 何时使用
 
@@ -20,173 +20,44 @@ import Iframe from 'components/Iframe';
 import AttrTable from 'components/AttrTable';
 
 <AttrTable
+  category="form"
   dataSource={[
     {
-      code: 'label',
-      type: 'String',
-      demo: '"标题"',
+      attr: '值发生改变事件',
+      code: 'onChange',
+      type: '({value: number}) => void',
       default: '-',
-      desc: '表单控件标题',
-    },
-    {
-      code: 'value',
-      type: 'Number',
-      demo: '150',
-      default: '-',
-      desc: '数字输入框的默认值',
-    },
-    {
-      code: 'labelAlign',
-      type: 'String',
-      demo: '"left"',
-      default: '"top"',
-      desc: '表单控件标题的位置，可选值："left", "top"',
-    },
-    {
-      code: 'labelColSpan',
-      type: 'Number',
-      demo: '4',
-      default: '4',
-      desc: '设置标题的占位宽度，配置值为栅格值，1代表1/24',
-    },
-    {
-      code: 'labelColOffset',
-      type: 'Number',
-      demo: '2',
-      default: '0',
-      desc: '设置标题的偏移位置，配置值为栅格值，1代表1/24',
-    },
-    {
-      code: 'wrapperColSpan',
-      type: 'Number',
-      demo: '12',
-      default: '0',
-      desc: '设置表单控件的占位宽度，设置值为栅格值，1代表1/24',
-    },
-    {
-      code: 'wrapperColOffset',
-      type: 'Number',
-      demo: '2',
-      default: '0',
-      desc: '设置表单控件的偏移位置，设置值为栅格值，1代表1/24',
-    },
-    {
-      code: 'labelTextAlign',
-      type: 'String',
-      demo: '"left"',
-      default: '"right"',
-      desc: '表单控件的标题对齐方式，可选值："left", "right"',
+      desc: '表单组件值发生改变事件',
     },
     {
       code: 'placeholder',
       type: 'String',
-      demo: '"请输入金额"',
-      default: '"请输入数字"',
-      desc: '表单控件占位提示信息',
-    },
-    {
-      code: 'tips',
-      type: 'String',
-      demo: '"这是一段描述信息"',
-      default: '-',
-      desc: '表单控件描述信息，展示在控件下方',
-    },
-    {
-      code: 'size',
-      type: 'String',
-      demo: '"small"',
-      default: '"medium"',
-      desc: '表单控件尺寸，可选值："small", "medium", "large"',
-    },
-    {
-      code: 'behavior',
-      type: 'String',
-      demo: '"DISABLED"',
-      default: '"NORMAL"',
-      desc: '表单控件显示状态，可选值："NORMAL"(普通), "DISABLED"(禁用), "READONLY"(只读), "HIDDEN"(隐藏)',
-    },
-    {
-      code: 'labelTipsTypes',
-      type: 'String',
-      demo: '"text"',
-      default: '"none"',
-      desc: '表单控件标题提示信息类型设置，可选值："none"(无), "text"(文本), "render"(自定义渲染)'
-    },
-    {
-      code: 'labelTipsIcon',
-      type: 'String',
-      demo: '"help"',
-      default: '-',
-      desc: '表单控件标题提示信息入口图标，当labelTipsTypes取值为 **text** 及 **render** 时生效'
-    },
-    {
-      code: 'labelTipsText',
-      type: 'String',
-      demo: '"设置最大金额"',
-      default: '-',
-      desc: '表单控件标题提示文本信息，当labelTipsTypes取值为 **text** 时生效'
-    },
-    {
-      code: 'labelTipsRender',
-      type: 'Function',
-      demo: `~~~js
-function renderLabelTips(props) {
-  return '提示信息';
-}
-~~~`,
-      default: '-',
-      desc: '表单控件标题提示信息自定义渲染方法，当labelTipsTypes取值为 **render** 时生效'
+      default: `'请输入数字'`,
+      desc: '表单组件占位提示信息',
     },
     {
       code: 'innerBefore',
-      type: 'String',
-      demo: '"总收入"',
+      type: 'string',
       default: '-',
-      desc: '表单控件前缀文案'
+      desc: '表单组件前缀文案'
     },
     {
       code: 'innerAfter',
-      type: 'String',
-      demo: '"元"',
+      type: 'string',
       default: '-',
       desc: '数字输入框单位文案'
     },
     {
       code: 'thousandsSeparators',
-      type: 'Boolean',
-      demo: 'true',
+      type: 'boolean',
       default: 'false',
       desc: '是否进行千分位分隔',
     },
     {
       code: 'precision',
-      type: 'Number',
-      demo: '2',
+      type: 'number',
       default: '0',
       desc: '小数点位数，取值范围在0 - 20',
-    },
-    {
-      code: 'validation',
-      type: 'Array',
-      demo: '[{type:"required"}]',
-      default: '[]',
-      desc: '表单控件校验设置，具体使用详见[表单校验文档](/guide/concept/validation)',
-    },
-    {
-      attr: '值发生改变事件',
-      code: 'onChange',
-      type: 'Function',
-      demo:  `~~~js
-/**
-* numberField onChange
-* @param value 当前值
-*/
-function onChange({ value }) {
-  console.log('onChange', value);
-}
-~~~`,
-      default: '-',
-      desc: '表单控件值发生改变事件',
     },
   ]}
 />
