@@ -21,7 +21,7 @@ import AttrTable from 'components/AttrTable'
   attr: '标题', 
   code: 'title', 
   type: 'String', 
-  demo: '标题', 
+  demo: '"标题"', 
   dafault:'', 
   desc: ''
 }, {
@@ -44,12 +44,12 @@ import AttrTable from 'components/AttrTable'
   type: 'Boolean', 
   demo: 'true', 
   dafault:'', 
-  desc: ''
+  desc: '可选值：true,false'
 }, {
   attr: '显示遮罩', 
   code: 'iconName', 
   type: 'String', 
-  demo: 'add', 
+  demo: '"add"', 
   dafault:'', 
   desc: ''
 }, {
@@ -66,7 +66,7 @@ import AttrTable from 'components/AttrTable'
   type: 'Boolean', 
   demo: 'true', 
   dafault:'', 
-  desc: '可选值："left", "right", "center"'
+  desc: '可选值：true,false'
 }, 
 {
   attr: 'footer 对齐方式', 
@@ -85,26 +85,62 @@ import AttrTable from 'components/AttrTable'
   desc: '可选值："ok, cancel", "cancel, ok", "ok", "cancel"'
 }, 
 {
-  attr: 'onOk', 
+  attr: 'onOk 点击确定', 
   code: 'onOk', 
-  type: 'function ', 
-  demo: '()=>{} ', 
+  type: 'Function ', 
+  demo: 'function onOk() {
+  console.log('onOk');
+}', 
   dafault:'', 
   desc: ''
 }, 
 {
-  attr: 'onCancel', 
+  attr: 'onCancel 点击取消', 
   code: 'onCancel', 
-  type: 'function ', 
-  demo: '()=>{} ', 
+  type: 'Function ', 
+  demo: 'function onCancel() {
+  console.log('onCancel');
+}', 
   dafault:'', 
   desc: ''
 }, 
 {
-  attr: 'afterClose', 
+  attr: 'onClose 对话框关闭时', 
+  code: 'onClose', 
+  type: 'Function ', 
+  demo: 'function onClose() {
+  console.log('onClose');
+}', 
+  dafault:'', 
+  desc: ''
+}, 
+{
+  attr: 'afterClose 对话框关闭后', 
   code: 'afterClose', 
-  type: 'function ', 
-  demo: '()=>{} ', 
+  type: 'Function ', 
+  demo: 'function afterClose() {
+  console.log('afterClose');
+}', 
+  dafault:'', 
+  desc: ''
+}, 
+{
+  attr: 'afterOpen 对话框打开后', 
+  code: 'afterOpen', 
+  type: 'Function ', 
+  demo: 'function afterOpen() {
+  console.log('afterOpen')
+}', 
+  dafault:'', 
+  desc: ''
+}, 
+{
+  attr: 'onOpen 对话框打开时', 
+  code: 'onOpen', 
+  type: 'Function ', 
+  demo: 'function onOpen() {
+  console.log('onOpen')
+}', 
   dafault:'', 
   desc: ''
 }, 
