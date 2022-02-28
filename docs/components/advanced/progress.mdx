@@ -9,8 +9,8 @@ order: 13
 
 在操作需要较长时间才能完成时，为用户显示该操作的当前进度和状态。
 
-- 操作在后台运行，需要耗费一定的客户端等待时间；
-- 操作需要展示一个完成进度的百分比；
+- 操作在后台运行，需要耗费一定的客户端等待时间。
+- 操作需要展示一个完成进度的百分比。
 
 ## 组件示例
 
@@ -30,7 +30,7 @@ import AttrTable from 'components/AttrTable';
       type: 'String',
       demo: '"large" ',
       dafault: '',
-      desc: '可选值："small", "middle", "large"',
+      desc: '可选值："small","middle","large"',
     },
     {
       attr: '形态',
@@ -38,12 +38,12 @@ import AttrTable from 'components/AttrTable';
       type: 'String',
       demo: '"line" ',
       dafault: 'normal',
-      desc: '可选值："line", "circle"',
+      desc: '可选值："line","circle"',
     },
     {
       attr: '百分比',
       code: 'percent',
-      type: 'number',
+      type: 'Number',
       demo: '10',
       dafault: '',
       desc: '支持 0 到 100，超出范围，渲染不正常 ',
@@ -62,7 +62,7 @@ import AttrTable from 'components/AttrTable';
       type: 'Boolean',
       demo: 'false',
       dafault: '',
-      desc: '是否含有边框，只有条形支持',
+      desc: '是否含有边框，只有条形支持，可选值:true,false',
     },
     {
       attr: '色彩阶段变化模式',
@@ -70,7 +70,7 @@ import AttrTable from 'components/AttrTable';
       type: 'Boolean',
       demo: 'false',
       dafault: '',
-      desc: '颜色随数字变化',
+      desc: '颜色随数字变化，可选值:true,false',
     },
   ]}
 />

@@ -1,9 +1,9 @@
 ---
-title: 数字输入框
+title: NumberField 数字输入框
 order: 1
 ---
 
-# 数字输入框
+# NumberField 数字输入框
 
 ## 何时使用
 
@@ -20,150 +20,44 @@ import Iframe from 'components/Iframe';
 import AttrTable from 'components/AttrTable';
 
 <AttrTable
+  category="form"
   dataSource={[
-    {
-      attr: '标题',
-      code: 'label',
-      type: 'String',
-      demo: '标题',
-      dafault: '',
-      desc: '',
-    },
-    {
-      attr: '值',
-      code: 'fieldData',
-      type: 'Object',
-      demo: '{value: 1505894659813}',
-      dafault: '',
-      desc: '',
-    },
-    {
-      attr: '标题位置',
-      code: 'labelAlign',
-      type: 'String',
-      demo: '"left"',
-      dafault: '',
-      desc: '可选值："left", "top"',
-    },
-    {
-      attr: '标题宽度',
-      code: 'labelColSpan',
-      type: 'Number',
-      demo: '4',
-      dafault: '',
-      desc: '',
-    },
-    {
-      attr: '标题偏移',
-      code: 'labelColOffset',
-      type: 'Number',
-      demo: '0',
-      dafault: '',
-      desc: '',
-    },
-    {
-      attr: '内容宽度',
-      code: 'wrapperColSpan',
-      type: 'Number',
-      demo: '0',
-      dafault: '',
-      desc: '',
-    },
-    {
-      attr: '内容偏移',
-      code: 'wrapperColOffset',
-      type: 'Number',
-      demo: '0',
-      dafault: '',
-      desc: '',
-    },
-    {
-      attr: '标题对齐',
-      code: 'labelTextAlign',
-      type: 'String',
-      demo: '"left"',
-      dafault: '',
-      desc: '可选值："left", "right"',
-    },
-    {
-      attr: '提示文字',
-      code: 'placeholder',
-      type: 'String',
-      demo: '"请选择日期"',
-      dafault: '',
-      desc: '',
-    },
-    {
-      attr: '描述信息',
-      code: 'extra',
-      type: 'String',
-      demo: '这是一段描述信息',
-      dafault: '',
-      desc: '',
-    },
-    {
-      attr: '尺寸',
-      code: 'size',
-      type: 'String',
-      demo: '"small"',
-      dafault: '',
-      desc: '可选值："small", "medium", "large"',
-    },
-    {
-      attr: '默认状态',
-      code: 'behavior',
-      type: 'String',
-      demo: '{fieldBehavior: "NORMAL"}',
-      dafault: '',
-      desc: 'fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
-    },
-    {
-      attr: '类型',
-      code: 'extra',
-      type: 'String',
-      demo: '"normal"',
-      dafault: '',
-      desc: '可选值："normal", "inline" ',
-    },
-    {
-      attr: '步数',
-      code: 'step',
-      type: 'number',
-      demo: '1',
-      dafault: '',
-      desc: '',
-    },
-    {
-      attr: '小数位数',
-      code: 'precision',
-      type: 'Number',
-      demo: '0 ',
-      dafault: '',
-      desc: '',
-    },
-    {
-      attr: '可以输入',
-      code: 'editable',
-      type: 'Boolean',
-      demo: 'true',
-      dafault: '',
-      desc: '',
-    },
-    {
-      attr: '校验',
-      code: 'validation',
-      type: 'Array',
-      demo: '[{type:"required"}] ',
-      dafault: '',
-      desc: '可选值：{type:"required"}, {type: "customValidate", message: "请选择今日之前的日期", param: "function validateRule(value) { return value <= new Date().getTime(); }"}',
-    },
     {
       attr: '值发生改变事件',
       code: 'onChange',
-      type: 'Function',
-      demo: 'function(value){ console.log(value); }',
-      dafault: '',
-      desc: '',
+      type: '({value: number}) => void',
+      default: '-',
+      desc: '表单组件值发生改变事件',
+    },
+    {
+      code: 'placeholder',
+      type: 'String',
+      default: `'请输入数字'`,
+      desc: '表单组件占位提示信息',
+    },
+    {
+      code: 'innerBefore',
+      type: 'string',
+      default: '-',
+      desc: '表单组件前缀文案'
+    },
+    {
+      code: 'innerAfter',
+      type: 'string',
+      default: '-',
+      desc: '数字输入框单位文案'
+    },
+    {
+      code: 'thousandsSeparators',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否进行千分位分隔',
+    },
+    {
+      code: 'precision',
+      type: 'number',
+      default: '0',
+      desc: '小数点位数，取值范围在0 - 20',
     },
   ]}
 />

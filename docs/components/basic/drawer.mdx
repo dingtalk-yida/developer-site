@@ -25,7 +25,7 @@ import AttrTable from 'components/AttrTable';
       attr: '标题',
       code: 'title',
       type: 'String',
-      demo: '标题',
+      demo: '"标题"',
       dafault: '',
       desc: '',
     },
@@ -33,7 +33,7 @@ import AttrTable from 'components/AttrTable';
       attr: '宽度',
       code: 'width',
       type: 'String',
-      demo: '520px',
+      demo: '"520px"',
       dafault: '',
       desc: '',
     },
@@ -41,7 +41,7 @@ import AttrTable from 'components/AttrTable';
       attr: '高度',
       code: 'height',
       type: 'String',
-      demo: '600px',
+      demo: '"600px"',
       dafault: '',
       desc: '',
     },
@@ -51,13 +51,13 @@ import AttrTable from 'components/AttrTable';
       type: 'Boolean',
       demo: 'true',
       dafault: '',
-      desc: '',
+      desc: '可选值:true,false',
     },
     {
       attr: '显示遮罩',
       code: 'iconName',
       type: 'String',
-      demo: 'add',
+      demo: '"add"',
       dafault: '',
       desc: '',
     },
@@ -83,7 +83,7 @@ import AttrTable from 'components/AttrTable';
       type: 'Boolean',
       demo: 'true',
       dafault: '',
-      desc: '可选值："left", "right", "center"',
+      desc: '可选值：true,false',
     },
     {
       attr: 'footer 对齐方式',
@@ -104,24 +104,50 @@ import AttrTable from 'components/AttrTable';
     {
       attr: 'onOk',
       code: 'onOk',
-      type: 'function ',
-      demo: '()=>{} ',
+      type: 'Function ',
+      demo: `function onOk() {
+  console.log('onOk');
+}`,
       dafault: '',
       desc: '',
     },
     {
       attr: 'onCancel',
       code: 'onCancel',
-      type: 'function ',
-      demo: '()=>{} ',
+      type: 'Function ',
+      demo: `function onCancel() {
+  console.log('onCancel');
+}`,
+      dafault: '',
+      desc: '',
+    },
+     {
+      attr: 'onClose',
+      code: 'onClose',
+      type: 'Function ',
+      demo: `function onClose() {
+  console.log('onClose');
+}`,
       dafault: '',
       desc: '',
     },
     {
       attr: 'afterClose',
       code: 'afterClose',
-      type: 'function ',
-      demo: '()=>{} ',
+      type: 'Function ',
+      demo: `function afterClose() {
+  console.log('afterClose');
+}`,
+      dafault: '',
+      desc: '',
+    },
+           {
+      attr: 'afterOpen',
+      code: 'afterOpen',
+      type: 'Function ',
+      demo: `function afterOpen() {
+  console.log('afterOpen');
+}`,
       dafault: '',
       desc: '',
     },

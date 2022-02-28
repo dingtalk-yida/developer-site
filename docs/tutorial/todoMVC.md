@@ -7,9 +7,9 @@ title: TodoMVC
 
 ## 概述
 
-本篇教程属于宜搭的高级使用教程，我们会参考 [TodoMVC](https://todomvc.com/) 的功能，从 0 开始搭建一个简易的 TodoMVC 页面，最终的效果如下所示（用户也可以通过访问 [示例页面](https://www.aliwork.com/o/demo/todoMVC-3) 进行试用）：
+本篇教程属于宜搭的高级使用教程，我们会参考 [TodoMVC](https://todomvc.com/) 的功能，从零开始搭建一个简易的 TodoMVC 页面，最终的效果如下所示（用户也可以通过访问 [示例页面](https://www.aliwork.com/o/demo/todoMVC-3) 进行试用）：
 
-![](../../static/img/todoMVC3.0.gif)
+![](https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/cdf788c7-a571-414a-b326-c1873e809760.gif)
 
 通过本篇教程您将掌握以下宜搭技能：
 
@@ -38,10 +38,10 @@ title: TodoMVC
 - **任务操作项**- 用于删除所属任务，可以使用 `按钮` 组件（图中用的是一个 Icon，为了更好的表达语义，我们选择使用按钮组件）；
 - **待办任务数量展示**- 用于展示待完成的任务总数，可以使用 `文本` 组件；
 - **任务状态筛选器**- 用于筛选不同状态的任务列表，可以使用 `单选` 组件；
-- **清除所有完成状态的任务**- 用于清除所有已完成的任务，可以使用 `按钮`组件；
+- **清除所有完成状态的任务**- 用于清除所有已完成的任务，可以使用 `按钮` 组件；
 - **工具介绍**- 介绍 Todos 的一些基本信息，静态展示，可以使用 `文本` 组件；
 
-确定了各个部分需要使用的组件，我们就可以开始通过拖拽及基础的组件属性配置搭建一个简单的页面了，效果如下所示，开发者可以前往 [Demo 示例](https://www.aliwork.com/o/demo/todoMVC-1)查看显示效果，通过[设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1)查看详细的配置：
+确定了各个部分需要使用的组件，我们就可以开始通过拖拽及基础的组件属性配置搭建一个简单的页面了，效果如下所示，开发者可以前往 [Demo 示例](https://www.aliwork.com/o/demo/todoMVC-1) 查看显示效果，通过 [设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1) 查看详细的配置：
 
 ![](https://img.alicdn.com/imgextra/i4/O1CN014nEjZL1cNoDQNH4O8_!!6000000003589-2-tps-1341-358.png_.webp)
 
@@ -60,9 +60,9 @@ title: TodoMVC
   - Completed - 显示已完成的任务列表；
 - **清空完成状态的待办任务**- 用户通过点击页面右下角的 `Clear completed` 按钮批量删除所有已完成的任务；
 
-基本功能已经梳理完成，我们现在就一步一步来实现 TodoMVC 的基础功能，最终效果详见 [Demo 示例](https://www.aliwork.com/o/demo/todoMVC-2)，通过[设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1)可以查看具体实现，展示效果如下所示：
+基本功能已经梳理完成，我们现在就一步一步来实现 TodoMVC 的基础功能，最终效果详见 [Demo 示例](https://www.aliwork.com/o/demo/todoMVC-2)，通过 [设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1) 可以查看具体实现，展示效果如下所示：
 
-![](../../static/img/todoMVC2.0.gif)
+![](https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/71d8896f-62e1-4c7e-9c7b-a7fc57703c23.gif)
 
 ### 步骤 1：创建页面全局变量
 
@@ -84,9 +84,9 @@ title: TodoMVC
 }
 ```
 
-- editRowId（数字类型）- 用于标记当前处于编辑状态的任务 ID（当处于编辑状态时，任务内容区域会变为输入框供用户进行内容修改）；
-- mode（字符串类型）- 任务列表当前筛选状态值，可选值：All、Active 和 Completed，默认为：All；
-- newId（数字类型）- 一个新 ID 生成标识，每当创建一个新的任务，会用这个 newId 作为新的任务 ID，同时 newId 也会自动加 1，保障所有任务 ID 的唯一性；
+- editRowId（数字类型）- 用于标记当前处于编辑状态的任务 ID（当处于编辑状态时，任务内容区域会变为输入框供用户进行内容修改），默认可以不填；
+- mode（字符串类型）- 任务列表当前筛选状态值，可选值：All、Active 和 Completed，默认为：`"All"`；P.S.: 需要引号。
+- newId（数字类型）- 一个新 ID 生成标识，每当创建一个新的任务，会用这个 `newId` 作为新的任务 ID，同时 `newId` 也会自动加 1，保证所有任务 ID 的唯一性；
 
 ### 步骤 2：实现创建待办任务功能
 
@@ -97,7 +97,7 @@ title: TodoMVC
 
 - 给输入框添加一个唯一标识（"input"），方便获取获取输入框输入的内容；
 - 给输入框绑定一个 onKeyDown 的事件 ("onRowAdd")，当用户点击键盘时触发处理；
-- 实现 onRowAdd 的方法，判断如果用户点击的是回车键，则在 todoList 的最上方插入一条新的待办任务数据；
+- 实现 `onRowAdd` 的方法，判断如果用户点击的是回车键，则在 todoList 的最上方插入一条新的待办任务数据；
 
 具体实现代码如下：
 
@@ -123,7 +123,7 @@ export function onRowAdd(e) {
 
 ### 步骤 3：实现任务列表循环展示
 
-通过上一步，我们已经可以将用户输入的内容生成待办任务并添加到全局变量 todoList 中，接下来们就需要在输入框的下方展示待办列表了，这一步会用到 [循环渲染](guide/concept/loop.md) 的相关知识。
+通过上一步，我们已经可以将用户输入的内容生成待办任务并添加到全局变量 todoList 中，接下来我们就需要在输入框的下方展示待办列表了，这一步会用到 [循环渲染](guide/concept/loop.md) 的相关知识。
 
 - 首先选中待办任务信息外层的容器组件，然后在高级属性中通过变量绑定方式将 state.todoList 绑定到容器的**循环数据**上；
 
@@ -160,9 +160,9 @@ export function onRowAdd(e) {
 
 以下是三个组件的是否渲染变量绑定值：
 
-- **编辑态**- 当全局变量 editRowId 和当前行的 ID 一致时显示：`state.editRowId === this.item.id`
-- **待完成态**- 当前任务不处于编辑态且其状态为待完成时显示：`state.editRowId !== this.item.id && !this.item.done`
-- **已完成态**- 当前任务不处于编辑态且其状态为已完成时显示：`state.editRowId !== this.item.id && this.item.done`
+- **编辑态**- 当全局变量 editRowId 和当前行的 ID 一致时显示： `state.editRowId === this.item.id`
+- **待完成态**- 当前任务不处于编辑态且其状态为待完成时显示： `state.editRowId !== this.item.id && !this.item.done`
+- **已完成态**- 当前任务不处于编辑态且其状态为已完成时显示： `state.editRowId !== this.item.id && this.item.done`
 
 #### 实现任务内容编辑
 
@@ -207,11 +207,11 @@ export function onRowEdit(e) {
 }
 ```
 
-PS：由于任务的内容编辑是基于已有内容的，因此需要通过变量方式设置输入框的默认值为 `item.content`。
+PS：由于任务的内容编辑是基于已有内容的，因此需要通过变量方式设置输入框的默认值为 `item.content` 。
 
 #### 实现任务完成状态切换
 
-当用户点击任务最前方的单选框时，需要能够切换任务的完成状态，因此我们需要监听单选组件的 onChange 事件 ("onTodoCheck")，当单选框状态改变时实时更改 todoList 中任务状态：
+当用户点击任务最前方的单选框时，需要能够切换任务的完成状态，因此我们需要监听单选组件的 `onChange` 事件 ("onTodoCheck")，当单选框状态改变时实时更改 `todoList` 中任务状态：
 
 ![](https://img.alicdn.com/imgextra/i4/O1CN01Uz4FGm1eDqpyWbj8e_!!6000000003838-2-tps-3582-1906.png_.webp)
 
@@ -329,9 +329,9 @@ export function onClearCompleted() {
 ```js
 export function saveTodoData() {
   const { todoList, newId } = this.state;
-  // 判断是否支持localStorage，若支持存储当前state中的数据
+  // 判断是否支持 localStorage，若支持存储当前 state 中的数据
   if (window.localStorage) {
-    // 通过localStorage存储数据
+    // 通过 localStorage 存储数据
     window.localStorage.setItem('todoMVC', JSON.stringify({ todoList, newId }));
   }
 }
@@ -342,7 +342,7 @@ export function saveTodoData() {
 ```js
 export function getTodoData() {
   if (window.localStorage) {
-    // 获取localStorage的存储数据
+    // 获取 localStorage 的存储数据
     const data = window.localStorage.getItem('todoMVC');
     // 判断是否有本地存储数据
     if (data) {
@@ -356,7 +356,7 @@ export function getTodoData() {
 有了上面的两个基础方法，我们接下来只需要做两件事情：
 
 - 在 didMount 生命周期中调用 getTodoData API 获取本地数据并更新 state 中的状态；
-- 在上面**所有**修改 todoList 的`setState`语句下方增加`this.saveTodoData()`调用；
+- 在上面**所有**修改 todoList 的 `setState` 语句下方增加 `this.saveTodoData()` 调用；
 
 具体如下所示：
 ![](https://img.alicdn.com/imgextra/i4/O1CN01kZbknQ1RSQRA2qM3G_!!6000000002110-2-tps-3582-2018.png_.webp)
@@ -365,9 +365,9 @@ export function getTodoData() {
 
 ## 样式完善——赋予 TodoMVC 好看的皮囊
 
-上一步我们完成的 TodoMVC 的基础功能实现，但是给人的第一感觉就是丑，对于一个产品好看的皮囊不是最重要的，但是如果没有一副好的皮囊，它一定不是一个好的产品，宜搭提供了自定义样式能力，详见 [样式定制文档](guide/concept/style.md)，通过定制样式，我们将得到下效果，（用户也可以通过访问 [示例页面](https://www.aliwork.com/o/demo/todoMVC-3) 进行试用，通过[设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1)查看具体实现）：
+上一步我们完成的 TodoMVC 的基础功能实现，但是给人的第一感觉就是丑，对于一个产品好看的皮囊不是最重要的，但是如果没有一副好的皮囊，它一定不是一个好的产品，宜搭提供了自定义样式能力，详见 [样式定制文档](guide/concept/style.md)，通过定制样式，我们将得到下效果，（用户也可以通过访问 [示例页面](https://www.aliwork.com/o/demo/todoMVC-3) 进行试用，通过 [设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1) 查看具体实现）：
 
-![](../../static/img/todoMVC3.0.gif)
+![](https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/cdf788c7-a571-414a-b326-c1873e809760.gif)
 
 本部分不详细讲解每一个样式定制的细节点，只会列举一些有代表性的样式定制 case：
 
@@ -381,10 +381,10 @@ export function getTodoData() {
 
 到上一步，官方的 TodoMVC 的基本能力就实现了，不过细心的开发者会发现现在这个产品状态功能可用，但是如果换一个浏览器访问待办任务数据会丢失不见，这可不是一个可以交付的 TodoList 功能，宜搭除了提供基础的 UI 及前端逻辑定制能力，还提供了强大的数据能力，现在就让我们为 TodoMVC 披上强大的装备，实现数据的持久化存储吧，最终达到的效果如下所示：
 
-![](../../static/img/todoMVC4.0.gif)
+![](https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/4d5b9197-8c5f-4c0a-a0a3-0222cfe09867.gif)
 
 :::caution
-由于调用宜搭的 OpenAPI 需要进行鉴权，因此无法将页面设置成免登页面供大家试用，不过开发者同学可以前往[设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-4)查看页面的具体实现。
+由于调用宜搭的 OpenAPI 需要进行鉴权，因此无法将页面设置成免登页面供大家试用，不过开发者同学可以前往 [设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-4) 查看页面的具体实现。
 
 :::
 

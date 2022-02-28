@@ -9,7 +9,7 @@ order: 4
 
 ## 何时使用
 
--
+-页面里单个图片的展示。
 
 ## 组件示例
 
@@ -25,22 +25,22 @@ import Iframe from 'components/Iframe';
       attr: '图片地址',
       code: 'src',
       type: 'String',
-      demo: '图片资源地址',
+      demo: '"图片资源地址"',
       dafault: '',
       desc: '',
     },
     {
       attr: '宽',
       code: 'width',
-      type: 'number',
+      type: 'Number',
       demo: '300',
       dafault: '',
       desc: '',
     },
     {
       attr: '宽度 auto ',
-      code: 'autuHeight',
-      type: 'number',
+      code: 'autuWidth',
+      type: 'Number',
       demo: '300',
       dafault: '',
       desc: '',
@@ -48,7 +48,7 @@ import Iframe from 'components/Iframe';
     {
       attr: '高 ',
       code: 'height',
-      type: 'number',
+      type: 'Number',
       demo: '300',
       dafault: '',
       desc: '',
@@ -56,7 +56,7 @@ import Iframe from 'components/Iframe';
     {
       attr: '高度 auto ',
       code: 'autuHeight',
-      type: 'number',
+      type: 'Number',
       demo: '300',
       dafault: '',
       desc: '',
@@ -64,8 +64,8 @@ import Iframe from 'components/Iframe';
     {
       attr: '摆放方式 ',
       code: 'fit',
-      type: 'enum',
-      demo: '‘contain’',
+      type: 'String',
+      demo: '"contain"',
       dafault: '',
       desc: '',
     },
@@ -73,7 +73,7 @@ import Iframe from 'components/Iframe';
       attr: '圆角 ',
       code: 'round',
       type: 'String',
-      demo: '8px',
+      demo: '"8px"',
       dafault: '',
       desc: '',
     },
@@ -81,7 +81,7 @@ import Iframe from 'components/Iframe';
       attr: '圆角大小 ',
       code: 'roundRadius',
       type: 'String',
-      demo: '8px',
+      demo: '"8px"',
       dafault: '',
       desc: '',
     },
@@ -89,7 +89,7 @@ import Iframe from 'components/Iframe';
       attr: 'title ',
       code: 'title',
       type: 'String',
-      demo: '8px',
+      demo: '"标题"',
       dafault: '',
       desc: '标题',
     },
@@ -97,7 +97,7 @@ import Iframe from 'components/Iframe';
       attr: '替代文本 ',
       code: 'alt',
       type: 'String',
-      demo: '8px',
+      demo: '"替代文本"',
       dafault: '',
       desc: '图片未加载时的占位文字',
     },
@@ -105,9 +105,9 @@ import Iframe from 'components/Iframe';
       attr: '点击事件 ',
       code: 'onClick',
       type: 'Function',
-      demo: '',
+      demo: 'function onClick(value){console.log(value);}',
       dafault: '',
-      desc: '',
+      desc: '点击图片时触发回调',
     },
   ]}
 />

@@ -66,31 +66,18 @@ module.exports = {
   tutorila: [
     'tutorial/todoMVC',
   ],
-  components: [
-    {
-      type: 'category',
-      label: '布局组件',
-      collapsed: false,
-      items: getDocsFromDir('components/layout')
-    },
-    {
-      type: 'category',
-      label: '基础组件',
-      collapsed: false,
-      items: getDocsFromDir('components/basic')
-    },
-    {
-      type: 'category',
-      label: '表单组件',
-      collapsed: false,
-      items: getDocsFromDir('components/form')
-    },
-    {
-      type: 'category',
-      label: '高级组件',
-      collapsed: false,
-      items: getDocsFromDir('components/advanced')
-    },
-  ],
+  components:  getDocsFromDir('components', [{
+    label: '布局组件',
+    dir: 'components/layout',
+  }, {
+    label: '基础组件',
+    dir: 'components/basic',
+  }, {
+    label: '表单组件',
+    dir: 'components/form',
+  },  {
+    label: '高级组件',
+    dir: 'components/advanced',
+  }]),
   examples: getDocsFromDir('examples')
 };

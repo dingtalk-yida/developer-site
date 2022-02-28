@@ -19,6 +19,7 @@
   --aa-search-input-height: 32px;
   --ifm-font-family-base: -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont,
   'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji';
+  --ifm-font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
   --ifm-global-spacing: 1.5rem;
   --ifm-line-height-base: 1.85;
   /* --ifm-font-color-base: #333; */
@@ -61,9 +62,8 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   display: inline-block;
 }
 
-
-.pagination-nav__item {
-  /* max-width: 400px; */
+.pagination-nav__link {
+  padding: 0.5rem 1.5rem;
 }
 
 .markdown h1:first-child {
@@ -79,9 +79,5 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .markdown img {
-  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 15%);
-}
-
-.navbar__brand{
-  /* margin-right: 80px; */
+  box-shadow: 9px 8px 20px 0px rgb(0 0 0 / 15%);
 }

@@ -1,0 +1,37 @@
+.attr-table {
+  font-size: 13px;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  table {
+    border-top: 1px solid var(--ifm-table-border-color);
+    border-left: 1px solid var(--ifm-table-border-color);
+    border-right: 1px solid var(--ifm-table-border-color);
+    tr:nth-child(2n) {
+      background-color: var(--ifm-table-background);
+      vertical-align: top;
+    }
+    th, td {
+      border: none;
+      border-bottom: 1px solid var(--ifm-table-border-color);
+      vertical-align: top;
+      padding: 12px;
+      font-size: 13px;
+    }
+    p, pre { 
+      margin: 0;
+    }
+  }
+  .attr-type {
+    color: #c41d7f;
+  }
+  .ant-table {
+    color: var(--ifm-font-color-base);
+    background-color: var(--ifm-table-background);
+  }
+  .ant-table-thead>tr>th {
+    color: var(--ifm-font-color-base);
+    background-color: var(--ifm-table-stripe-background);
+  }
+  .ant-table-tbody > tr.ant-table-row:hover > td {
+    background-color: var(--ifm-table-background);
+  }
+}
