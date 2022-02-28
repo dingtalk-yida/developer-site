@@ -5,12 +5,12 @@ order: 6
 
 # 链接块
 
-链接容器，功能同链接组件，不过可以嵌入其他内容，例如图片等。
+链接块容器，功能同链接组件，不过可以嵌入其他内容，例如图片等。
 
 ## 何时使用
 
 - 切换访问当前应用的其他页面；
-- 跳转到外部页面；
+- 跳转到外部页面。
 
 ## 组件示例
 
@@ -28,33 +28,49 @@ import AttrTable from 'components/AttrTable';
       attr: '链接类型',
       code: 'type',
       type: 'String',
-      demo: '’page‘',
+      demo: '"page"',
       dafault: '',
-      desc: '',
+      desc: '可选择跳转到内部页面或者跳转到外部链接',
     },
     {
       attr: '链接地址',
       code: 'url',
       type: 'String',
-      demo: '',
+      demo: '"https://www.aliwork.com/"',
       dafault: '',
-      desc: '',
+      desc: '添加一个链接地址,点击链接块即可跳转对应页面',
     },
     {
       attr: '新开页面',
       code: 'isBlank',
-      type: 'boolean',
+      type: 'Boolean',
       demo: 'false',
       dafault: '',
-      desc: '',
+      desc: '可选值 false,true',
+    },
+    {
+      attr: '是否禁用',
+      code: 'disabled',
+      type: 'Boolean',
+      demo: 'false',
+      dafault: '',
+      desc: '可选值 false,true',
     },
     {
       attr: '携带参数',
       code: 'params',
-      type: 'object',
-      demo: 'false',
+      type: 'Object',
+      demo: '{name:"张三",sex:"男"}',
       dafault: '',
-      desc: 'url 查询参数',
+      desc: 'url 查询参数,多用于页面跳转传参',
+    },
+    {
+      attr: '当点击时',
+      code: 'onClick',
+      type: 'Function',
+      demo: 'function onClick(ctx) {console.log('点击链接块');}',
+      dafault: '',
+      desc: '点击链接块触发的回调',
     },
   ]}
 />
