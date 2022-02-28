@@ -33,8 +33,8 @@ import AttrTable from 'components/AttrTable';
     {
       attr: '值',
       code: 'fieldData',
-      type: 'Object',
-      demo: '{dataType:"CHANGED", value:"moon"}',
+      type: 'String',
+      demo: '"选项一"',
       dafault: '',
       desc: '',
     },
@@ -44,7 +44,7 @@ import AttrTable from 'components/AttrTable';
       type: 'String',
       demo: '"left"',
       dafault: '',
-      desc: '可选值："left", "top"',
+      desc: '可选值："left","top"',
     },
     {
       attr: '标题宽度',
@@ -101,6 +101,14 @@ import AttrTable from 'components/AttrTable';
       demo: '"NORMAL"',
       dafault: '',
       desc: '可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
+    },
+    {
+      attr: '展示形状',
+      code: 'shape',
+      type: 'String',
+      demo: '"default"',
+      dafault: '',
+      desc: '可选值："default", "button"',
     },
     {
       attr: '校验',
