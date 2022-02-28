@@ -49,7 +49,7 @@ export default [
   },
   {
     code: 'tips',
-    type: 'String',
+    type: 'string',
     default: '-',
     desc: '表单组件描述信息，展示在控件下方',
   },
