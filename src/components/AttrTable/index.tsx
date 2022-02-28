@@ -47,9 +47,9 @@ function AttrTable(props: IAttrTableProps) {
   const { category, dataSource } = props;
 
   const data =
-    category === 'form'
+    (category === 'form'
       ? [...formProps, ...(dataSource || [])]
-      : [...(dataSource || [])].sort((a, b) => (a.code < b.code ? -1 : 1));
+      : [...(dataSource || [])]).sort((a, b) => (a.code < b.code ? -1 : 1));
   return <Table className="attr-table" dataSource={data} pagination={false} columns={COLUMNS} />;
 }
 
