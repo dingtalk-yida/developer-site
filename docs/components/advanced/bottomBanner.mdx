@@ -8,6 +8,7 @@ order: 4
 底部通栏 组件允许你在页面底部添加内容，并且内容固定在页面底部和占据通栏
 
 ## 何时使用
+需要在页面底部添加内容时，例如添加版权信息等
 
 -
 
@@ -18,3 +19,59 @@ import Iframe from 'components/Iframe';
 <Iframe url="https://www.aliwork.com/developer/banner-container-v2?isRenderNav=false" />
 
 ## 组件属性
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '自适应宽度',
+      code: 'autoWidth',
+      type: 'Boolean',
+      demo: 'true',
+      dafault: '',
+      desc: '可选值：true, false',
+    },
+    {
+      attr: '布局方式',
+      code: 'layout',
+      type: 'String',
+      demo: '"h"',
+      dafault: '',
+      desc: '可选值："h", "v"',
+    },
+    {
+      attr: '内容宽度',
+      code: 'contentWidth',
+      type: 'Number',
+      demo: '10',
+      dafault: '',
+      desc: '可选值：数值',
+    },
+    {
+      attr: '容器宽度',
+      code: 'containerWidth',
+      type: 'Number',
+      demo: '10',
+      dafault: '',
+      desc: '可选值：数值',
+    },
+      {
+      attr: '自定义内容插槽',
+      code: '',
+      type: '',
+      demo: '',
+      dafault: '',
+      desc: '开启/关闭',
+    },
+      {
+      attr: '自定义挂载容器',
+      code: 'getRefContainer',
+      type: 'Function',
+      demo: 'function(value){ console.log(value); }',
+      dafault: '',
+      desc: '',
+    },
+  
+  ]}
+/>
+
