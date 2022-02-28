@@ -9,7 +9,7 @@ order: 4
 
 ## 何时使用
 
--单个图片的展示。
+-页面里单个图片的展示。
 
 ## 组件示例
 
@@ -32,7 +32,7 @@ import Iframe from 'components/Iframe';
     {
       attr: '宽',
       code: 'width',
-      type: 'number',
+      type: 'Number',
       demo: '300',
       dafault: '',
       desc: '',
@@ -40,7 +40,7 @@ import Iframe from 'components/Iframe';
     {
       attr: '宽度 auto ',
       code: 'autuWidth',
-      type: 'number',
+      type: 'Number',
       demo: '300',
       dafault: '',
       desc: '',
@@ -48,7 +48,7 @@ import Iframe from 'components/Iframe';
     {
       attr: '高 ',
       code: 'height',
-      type: 'number',
+      type: 'Number',
       demo: '300',
       dafault: '',
       desc: '',
@@ -56,7 +56,7 @@ import Iframe from 'components/Iframe';
     {
       attr: '高度 auto ',
       code: 'autuHeight',
-      type: 'number',
+      type: 'Number',
       demo: '300',
       dafault: '',
       desc: '',
@@ -64,8 +64,8 @@ import Iframe from 'components/Iframe';
     {
       attr: '摆放方式 ',
       code: 'fit',
-      type: 'enum',
-      demo: '‘contain’',
+      type: 'String',
+      demo: '"contain"',
       dafault: '',
       desc: '',
     },
@@ -105,9 +105,9 @@ import Iframe from 'components/Iframe';
       attr: '点击事件 ',
       code: 'onClick',
       type: 'Function',
-      demo: '',
+      demo: 'function onClick(value){console.log(value);}',
       dafault: '',
-      desc: '',
+      desc: '点击图片时触发回调',
     },
   ]}
 />
