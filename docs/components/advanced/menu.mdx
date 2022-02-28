@@ -7,7 +7,7 @@ order: 11
 
 
 ## 何时使用
-* 导航菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构；
+* 导航菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。
 ## 组件示例
 import Iframe from 'components/Iframe'
 
@@ -15,18 +15,107 @@ import Iframe from 'components/Iframe'
 
 ## 组件属性
 
-| 参数                | 说明                                                         | 类型         | 默认值     |
-| :------------------ | :----------------------------------------------------------- | :----------- | :--------- |
-| onItemClick         | 点击菜单项触发的回调函数**签名**: Function(key: String, item: Object, event: Object) => void**参数**: *key*: {String} 点击的菜单项的 key 值 *item*: {Object} 点击的菜单项对象 *event*: {Object} 点击的事件对象 | Function     | () => {}   |
-| defaultOpenKeys     | 初始打开的子菜单的 key 值                                    | String/Array | []         |
-| onOpen              | 打开或关闭子菜单触发的回调函数**签名**: Function(key: String, extra: Object) => void**参数**: *key*: {String} 打开的所有子菜单的 key 值 *extra*: {Object} 额外参数 *extra.key*: {String} 当前操作子菜单的 key 值 *extra.open*: {Boolean} 是否是打开 | Function     | () => {}   |
-| mode                | 子菜单打开的模式**可选值**: 'inline', 'popup'              | Enum         | 'inline'   |
-| triggerType         | 子菜单打开的触发行为**可选值**: 'click', 'hover'           | Enum         | 'click'    |
-| openMode            | 展开内连子菜单的模式，同时可以展开一个子菜单还是多个子菜单，该属性仅在 mode 为 inline 时生效**可选值**: 'single', 'multiple' | Enum         | 'multiple' |
-| defaultSelectedKeys | 初始选中菜单项的 key 值                                      | String/Array | []         |
-| onSelect            | 选中或取消选中菜单项触发的回调函数**签名**: Function(selectedKeys: Array, item: Object, extra: Object) => void**参数**: *selectedKeys*: {Array} 选中的所有菜单项的值 *item*: {Object} 选中或取消选中的菜单项 *extra*: {Object} 额外参数 *extra.select*: {Boolean} 是否是选中 *extra.key*: {Array} 菜单项的 key *extra.label*: {Object} 菜单项的文本 *extra.keyPath*: {Array} 菜单项 key 的路径 | Function     | () => {}   |
-| selectMode          | 选中模式，单选还是多选，默认无值，不可选**可选值**: 'single', 'multiple' | Enum         | -          |
-| direction           | 菜单第一层展示方向**可选值**: 'ver', 'hoz'                 | Enum         | 'ver'      |
-| header              | 自定义菜单头部                                               | ReactNode    | -          |
-| footer              | 自定义菜单尾部                                               | ReactNode    | -          |
-| autoFocus           | 是否自动获得焦点  
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '点击菜单项',
+      code: 'onItemClick',
+      type: 'Function',
+      demo: 'function onItemClick(key, item, event) { console.log(key, item, event);}',
+      dafault: '',
+      desc: '点击菜单项触发的事件',
+    },
+    {
+      attr: '初始打开的子菜单的key值',
+      code: 'defaultOpenKeys',
+      type: 'String/Array',
+      demo: '["key1"]',
+      dafault: '',
+      desc: '设置初始打开的子菜单的key值',
+    },
+    {
+      attr: '子菜单打开模式',
+      code: 'mode',
+      type: 'String',
+      demo: '"inline"',
+      dafault: '',
+      desc: '子菜单打开的模式可选值: "inline", "popup"',
+    },
+    {
+      attr: '触发行为',
+      code: 'triggerType',
+      type: 'String',
+      demo: '"click"',
+      dafault: '',
+      desc: '子菜单打开的触发行为可选值: "click", "hover"',
+    },
+    {
+      attr: '展开内连子菜单的模式',
+      code: 'openMode',
+      type: 'String',
+      demo: '"multiple"',
+      dafault: '',
+      desc: '展开内连子菜单的模式，同时可以展开一个子菜单还是多个子菜单，该属性仅在 mode 为 inline 时生效可选值: "single", "multiple"',
+    },
+    {
+      attr: '初始选中菜单项的key值',
+      code: 'defaultSelectedKeys',
+      type: 'String/Array',
+      demo: '["key1-1"]',
+      dafault: '',
+      desc: '设置初始选中菜单项的key值',
+    },
+    {
+      attr: '选中或取消选中菜单项',
+      code: 'onSelect',
+      type: 'Function',
+      demo: 'function onSelect(selectedKeys, extraObj) { console.log(selectedKeys, extraObj);}	',
+      dafault: '',
+      desc: '选中或取消选中菜单项时触发的事件',
+    },
+    {
+      attr: '选择模式',
+      code: 'selectMode',
+      type: 'String',
+      demo: '"single"',
+      dafault: '',
+      desc: '可选值: "single", "multiple","false"',
+    },
+    {
+      attr: '展示方向',
+      code: 'direction',
+      type: 'String',
+      demo: '"ver"',
+      dafault: '',
+      desc: '可选值: "ver", "hoz"',
+    },
+    {
+      attr: 'Header插槽',
+      code: 'header',
+      type: 'String',
+      demo: '"header内容"',
+      dafault: '',
+      desc: '设置Header插槽',
+    },
+    {
+      attr: 'Footer插槽',
+      code: 'footer',
+      type: 'String',
+      demo: '"footer内容"',
+      dafault: '',
+      desc: '设置Footer插槽',
+    },
+    {
+      attr: '是否自动获得焦点',
+      code: 'autoFocus',
+      type: 'Boolean',
+      demo: 'false',
+      dafault: '',
+      desc: '可选值:true,false',
+    }
+  ]}
+/>
+
+
