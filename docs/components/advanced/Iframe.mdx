@@ -4,13 +4,58 @@ order: 3
 ---
 
 # Iframe
-  Iframe 组件允许你将其他网页的内容嵌入到你当前的设计器页面中。一般用于纯展示的场景。
+
+Iframe 组件允许你将其他网页的内容嵌入到你当前的设计器页面中。
 
 ## 何时使用
 
-## 组件示例
-import Iframe from '../../../src/components/Iframe'
+- 用于在当前页面嵌入并展示其他外部页面的内容。
 
-<Iframe url="https://pre-yida-performance3.alibaba-inc.com/developer/iframe-v2?isRenderNav=false" />
+## 组件示例
+
+import Iframe from 'components/Iframe';
+
+<Iframe url="https://www.aliwork.com/developer/iframe-v2?isRenderNav=false" />
 
 ## 组件属性
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '标题',
+      code: 'title',
+      type: 'String',
+      demo: '"标题"',
+      desc: '',
+    },
+    {
+      attr: 'Iframe地址',
+      code: 'src',
+      type: 'String',
+      demo: '"https://www.aliwork.com/"',
+      desc: '用来填写Iframe组件所展示的网页地址链接',
+    },
+    {
+      attr: '高度自适应',
+      code: 'autoFit',
+      type: 'Boolean',
+      demo: 'false',
+      desc: '自动调整高度，高度值=窗口高度-顶部留空高度-额外内容区高度',
+    },
+    {
+      attr: '额外内容区高度',
+      code: 'extraHeight',
+      type: 'Number',
+      demo: '0',
+      desc: '用来调整Iframe组件内容区的高度',
+    },
+    {
+      attr: '顶部空白高度',
+      code: 'offsetTop',
+      type: 'Number',
+      demo: '0',
+      desc: '启动了自适应高度后才生效，确定顶部留下的空白区域的高度',
+    }
+  ]}
+/>

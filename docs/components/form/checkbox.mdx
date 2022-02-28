@@ -1,0 +1,130 @@
+---
+title: 多选
+order: 4
+---
+
+# 多选
+
+## 何时使用
+
+- 在一组可选项中进行多项选择时。
+- 单独使用可以表示两种状态之间的切换，和 switch 类似。区别在于切换 switch 会直接触发状态改变，而 checkbox 一般用于状态标记，需要和提交操作配合。
+
+## 组件示例
+
+import Iframe from 'components/Iframe';
+
+<Iframe url="https://www.aliwork.com/developer/check-v2?isRenderNav=false" />
+
+## 组件属性
+
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '标题',
+      code: 'text',
+      type: 'String',
+      demo: '"标题"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '值',
+      code: 'value',
+      type: 'String/Array',
+      demo: '"单选: "1", 多选: ["1", "2"]"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题位置',
+      code: 'labelAlign',
+      type: 'String',
+      demo: '"left"',
+      dafault: '',
+      desc: '可选值："left", "top", "inset"',
+    },
+    {
+      attr: '标题宽度',
+      code: 'labelColSpan',
+      type: 'Number',
+      demo: '4',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题偏移',
+      code: 'labelColOffset',
+      type: 'Number',
+      demo: '0',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '内容宽度',
+      code: 'wrapperColSpan',
+      type: 'Number',
+      demo: '0',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '内容偏移',
+      code: 'wrapperColOffset',
+      type: 'Number',
+      demo: '0',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题对齐',
+      code: 'labelTextAlign',
+      type: 'String',
+      demo: '"left"',
+      dafault: '',
+      desc: '可选值："left", "right"',
+    },
+    {
+      attr: '描述信息',
+      code: 'tips',
+      type: 'String',
+      demo: '"这是一段描述信息"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '尺寸',
+      code: 'size',
+      type: 'String',
+      demo: '"small"',
+      dafault: '',
+      desc: '可选值："small", "medium", "large"',
+    },
+    {
+      attr: '状态',
+      code: 'behavior',
+      type: 'String',
+      demo: '"NORMAL"',
+      dafault: '',
+      desc: 'fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
+    },
+    {
+      attr: '校验',
+      code: 'validation',
+      type: 'Array',
+      demo: '[{type:"required"}]',
+      dafault: '',
+      desc: '可选值：{type:"required"}, {type: "customValidate", message: "请选择今日之前的日期", param: "function validateRule(value) { return value <= new Date().getTime(); }"}',
+    },
+    {
+      attr: '值发生改变事件',
+      code: 'onChange',
+      type: 'Function',
+      demo: 'function(value){ console.log(value); }',
+      dafault: '',
+      desc: '',
+    },
+  ]}
+/>

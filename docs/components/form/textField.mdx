@@ -6,31 +6,163 @@ order: 10
 # 输入框
 
 ## 何时使用
+- 用于文字类信息输入场景；
 
 ## 组件示例
-import Iframe from '../../../src/components/Iframe'
 
-<Iframe url="https://pre-yida-performance3.alibaba-inc.com/developer/text-field-v2?isRenderNav=false" />
+import Iframe from 'components/Iframe';
+
+<Iframe url="https://www.aliwork.com/developer/text-field-v2?isRenderNav=false" />
 
 ## 组件属性
 
-| 属性名 | 属性code | 类型 | 数据示例 | 动态属性 | 备注 |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 标题 | label | String | "标题" | 是 |  |
-| 值 | value | String/Number | "" | 是 |  |
-| 标题位置 | labelAlign | String | “left” | 否 | 可选值：“left”,”top”,”inset" |
-| 占位提示 | placeholder | String | “请选择日期” | 是 |  |
-| 描述信息 | tips | String | "这是一段描述信息" | 否 |  |
-| 尺寸 | size | String | “small” | 否 | 可选值：“small”,”medium”,"large" |
-| 状态 | behavior | String | {fieldBehavior: "NORMAL"} | 是 | fieldBehavior 可选值："NORMAL","DISABLED","READONLY","HIDDEN" |
-| 标题提示 | labelTipsTypes | String | “请选择日期” | 是 | "none", "text", "render" |
-| 类型 | htmlType | String | "input" | 是 | "input", "textarea", "password" |
-| 状态 | state | String | "normal" | 是 | "error", "loading", "success" |
-| 计数器 | hasLimitHint | Bool | false | 否 |  |
-| 是否显示清除按钮 | hasClear | Bool | false | 否 |  |
-| 自动去除头尾空字符 | trim | Bool | false | 否 |  |
-| 自动聚焦 | autoFocus | Bool | false | 否 |  |
-| 输入框前附加内容 | addonBefore | String | "" | 否 |  |
-| 输入框后附加内容 | addonAfter | String | "" | 否 |  |
-| 校验 | validation | Array | [{type:"required"}] | 是 | 可选值：{type:"required"}, {type: "customValidate", message: "请选择今日之前的日期", param: "function validateRule(value) { return value <= new Date().getTime(); }"} |
-| 值发生改变事件 | onChange | Function | function onChange({ value }) {console.log('onChange', value);} | 否 |  |
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '标题',
+      code: 'label',
+      type: 'String',
+      demo: '"标题"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '值',
+      code: 'value',
+      type: 'String/Number ',
+      demo: '""',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题位置',
+      code: 'labelAlign',
+      type: 'String',
+      demo: '"left"',
+      dafault: '',
+      desc: '可选值："left", "top", "inset"',
+    },
+    {
+      attr: '占位提示',
+      code: 'placeholder',
+      type: 'String',
+      demo: '"请选择日期" ',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '描述信息',
+      code: 'tips',
+      type: 'String',
+      demo: '"这是一段描述信息"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '尺寸',
+      code: 'size',
+      type: 'String',
+      demo: '"small" ',
+      dafault: '',
+      desc: '可选值："small", "medium", "large" ',
+    },
+    {
+      attr: '状态',
+      code: 'behavior',
+      type: 'String',
+      demo: '"NORMAL"',
+      dafault: '',
+      desc: '可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
+    },
+    {
+      attr: '标题提示',
+      code: 'labelTipsTypes',
+      type: 'String',
+      demo: '"请选择日期" ',
+      dafault: '',
+      desc: '"none", "text", "render" ',
+    },
+    {
+      attr: '类型',
+      code: 'htmlType',
+      type: 'String',
+      demo: '"input"',
+      dafault: '',
+      desc: '"input", "textarea", "password"',
+    },
+    {
+      attr: '状态',
+      code: 'state',
+      type: 'String',
+      demo: '"normal"  ',
+      dafault: '',
+      desc: '"error", "loading", "success"',
+    },
+    {
+      attr: '计数器',
+      code: 'hasLimitHint',
+      type: 'Boolean',
+      demo: 'false',
+      dafault: '',
+      desc: '可选值：true,false',
+    },
+    {
+      attr: '是否显示清除按钮',
+      code: 'hasClear',
+      type: 'Boolean',
+      demo: 'false',
+      dafault: '',
+      desc: '可选值：true,false',
+    },
+    {
+      attr: '自动去除头尾空字符',
+      code: 'trim',
+      type: 'Boolean',
+      demo: 'false',
+      dafault: '',
+      desc: '可选值：true,false',
+    },
+    {
+      attr: '自动聚焦',
+      code: 'autoFocus',
+      type: 'Boolean',
+      demo: 'false ',
+      dafault: '',
+      desc: '可选值：true,false',
+    },
+    {
+      attr: '输入框前附加内容',
+      code: 'addonBefore',
+      type: 'String',
+      demo: '"请输入"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '输入框后附加内容',
+      code: 'addonAfter',
+      type: 'String',
+      demo: '"元"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '校验',
+      code: 'validation',
+      type: 'Array',
+      demo: '[{type:"required"}] ',
+      dafault: '',
+      desc: '可选值：{type:"required"}, {type: "customValidate", message: "请选择今日之前的日期", param: "function validateRule(value) { return value <= new Date().getTime(); }"} ',
+    },
+    {
+      attr: '值发生改变事件',
+      code: 'onChange',
+      type: 'Function',
+      demo: 'function onChange({ value }) {console.log("onChange", value);}  ',
+      dafault: '',
+      desc: ' ',
+    },
+  ]}
+/>

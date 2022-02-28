@@ -1,0 +1,13 @@
+.attr-table {
+  .ant-table {
+    color: var(--ifm-font-color-base);
+    background-color: var(--ifm-table-background);
+  }
+  .ant-table-thead>tr>th {
+    color: var(--ifm-font-color-base);
+    background-color: var(--ifm-table-background);
+  }
+  .ant-table-tbody > tr.ant-table-row:hover > td {
+    background-color: var(--ifm-table-background);
+  }
+}

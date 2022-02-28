@@ -7,36 +7,36 @@
 const getDocsFromDir = require('../scripts/getDocsFromDir');
 
 module.exports = {
-  usage: [
-    'usage/changeLog',
-    'usage/dataSecurity',
-    {
-      type: 'category',
-      label: '产品简介',
-      collapsed: false,
-      items: getDocsFromDir('usage/intro'),
-    },
-    {
-      type: 'category',
-      label: '操作指引',
-      collapsed: false,
-      items: [{
-        type: 'category',
-        label: '平台管理',
-        collapsed: false,
-        items: getDocsFromDir('usage/guide/platform'),
-      }, {
-        type: 'category',
-        label: '应用创建',
-        collapsed: false,
-        items: getDocsFromDir('usage/guide/createApp'),
-      }],
-    },
-    'usage/newApp',
-    'usage/price',
-    'usage/contactUs',
-    'usage/keyWords',
-  ],
+  // usage: [
+  //   'usage/changeLog',
+  //   'usage/dataSecurity',
+  //   {
+  //     type: 'category',
+  //     label: '产品简介',
+  //     collapsed: false,
+  //     items: getDocsFromDir('usage/intro'),
+  //   },
+  //   {
+  //     type: 'category',
+  //     label: '操作指引',
+  //     collapsed: false,
+  //     items: [{
+  //       type: 'category',
+  //       label: '平台管理',
+  //       collapsed: false,
+  //       items: getDocsFromDir('usage/guide/platform'),
+  //     }, {
+  //       type: 'category',
+  //       label: '应用创建',
+  //       collapsed: false,
+  //       items: getDocsFromDir('usage/guide/createApp'),
+  //     }],
+  //   },
+  //   'usage/newApp',
+  //   'usage/price',
+  //   'usage/contactUs',
+  //   'usage/keyWords',
+  // ],
   guide: [
     'guide/about',
     'guide/start',
@@ -63,33 +63,21 @@ module.exports = {
       items: getDocsFromDir('guide/FAQ')
     },
   ],
-  components: [
-    {
-      type: 'category',
-      label: '布局组件',
-      collapsed: false,
-      items: getDocsFromDir('components/layout')
-    },
-    {
-      type: 'category',
-      label: '基础组件',
-      collapsed: false,
-      items: getDocsFromDir('components/basic')
-    },
-    {
-      type: 'category',
-      label: '表单组件',
-      collapsed: false,
-      items: getDocsFromDir('components/form')
-    },
-    {
-      type: 'category',
-      label: '高级组件',
-      collapsed: false,
-      items: getDocsFromDir('components/advanced')
-    },
+  tutorila: [
+    'tutorial/todoMVC',
   ],
-  examples: [
-    'examples/form'
-  ]
+  components:  getDocsFromDir('components', [{
+    label: '布局组件',
+    dir: 'components/layout',
+  }, {
+    label: '基础组件',
+    dir: 'components/basic',
+  }, {
+    label: '表单组件',
+    dir: 'components/form',
+  },  {
+    label: '高级组件',
+    dir: 'components/advanced',
+  }]),
+  examples: getDocsFromDir('examples')
 };

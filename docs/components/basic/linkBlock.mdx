@@ -5,18 +5,56 @@ order: 6
 
 # 链接块
 
+链接容器，功能同链接组件，不过可以嵌入其他内容，例如图片等。
+
 ## 何时使用
 
-## 组件示例
-import Iframe from '../../../src/components/Iframe'
+- 切换访问当前应用的其他页面；
+- 跳转到外部页面；
 
-<Iframe url="https://pre-yida-performance3.alibaba-inc.com/developer/link-bolck-v2?isRenderNav=false" />
+## 组件示例
+
+import Iframe from 'components/Iframe';
+
+<Iframe url="https://www.aliwork.com/developer/link-block-v2?isRenderNav=false" />
 
 ## 组件属性
 
-| 属性名 |  属性code  | 类型 | 数据示例  | 动态属性 | 备注 |
-| :------ | :------ | :------ | :------ | :----- | :----- |
-| 链接类型 | type | string | ’page‘ | 否 |  |
-| 链接地址 | url | string | ’‘ | 否 |  |
-| 新开页面 | isBlank | boolean | false | 否 |  |
-| 携带参数 | params | object | false | 否 | url 查询参数 |
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '链接类型',
+      code: 'type',
+      type: 'String',
+      demo: '’page‘',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '链接地址',
+      code: 'url',
+      type: 'String',
+      demo: '',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '新开页面',
+      code: 'isBlank',
+      type: 'boolean',
+      demo: 'false',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '携带参数',
+      code: 'params',
+      type: 'object',
+      demo: 'false',
+      dafault: '',
+      desc: 'url 查询参数',
+    },
+  ]}
+/>

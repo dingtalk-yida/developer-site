@@ -7,32 +7,189 @@ order: 6
 
 ## 何时使用
 
-## 组件示例
-import Iframe from '../../../src/components/Iframe'
+- 输入或选择具体时间，当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。
 
-<Iframe url="https://pre-yida-performance3.alibaba-inc.com/developer/date-field-v2?isRenderNav=false" />
+## 组件示例
+
+import Iframe from 'components/Iframe';
+
+<Iframe url="https://www.aliwork.com/developer/date-field-v2?isRenderNav=false" />
 
 ## 组件属性
 
-| 属性名 | 属性code | 类型 | 数据示例 | 动态属性 | 备注 |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 标题 | label | String | "标题" | 是 |  |
-| 值 | fieldData | Object | {value: 1505894659813} | 是 |  |
-| 标题位置 | labelAlign | String | “left” | 否 | 可选值：“left”,”top”,”inset" |
-| 标题宽度 | labelColSpan | Number | 4 | 否 |  |
-| 标题偏移 | labelColOffset | Number  | 0 | 否 |  |
-| 内容宽度 | wrapperColSpan | Number  | 0 | 否 |  |
-| 内容偏移 | wrapperColOffset | Number  | 0 | 否 |  |
-| 标题对齐 | labelTextAlign | String | “left” | 否 | 可选值：“left”,”right" |
-| 提示文字 | placeholder | String | “请选择日期” | 是 |  |
-| 描述信息 | tips | String | "这是一段描述信息" | 否 |  |
-| 尺寸 | size | String | “small” | 否 | 可选值：“small”,”medium”,"large" |
-| 状态 | behavior | String | {fieldBehavior: "NORMAL"} | 是 | fieldBehavior 可选值："NORMAL","DISABLED","READONLY","HIDDEN" |
-| 格式 | format | String | "YYYY-MM-DD" | 否 | 可选值："YYYY","YYYY-MM","YYYY-MM-DD","YYYY-MM-DD HH:mm","YYYY-MM-DD HH:mm:ss" |
-| 清除按钮 | hasClear | Bool | true | 否 |  |
-| 每次选择日期时是否重置时间 | resetTime | Bool | false | 否 |  |
-| 禁用日期函数 | disabledDate | Function | (value) => {return false;} | 否 |  |
-| 校验 | validation | Array | [{type:"required"}] | 是 | 可选值：{type:"required"}, {type: "customValidate", message: "请选择今日之前的日期", param: "function validateRule(value) { return value <= new Date().getTime(); }"} |
-| 值发生改变事件 | onChange | Function | ({value}) => {} | 否 |  |
-| 点击确认按钮 | onOk | Function |  ({value}) => {} | 否 |  |
-| 弹层展示状态变化 | onVisibleChange | Function | (visible, reason) => {} | 否 |  |
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '标题',
+      code: 'label',
+      type: 'String',
+      demo: '"标题"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '值',
+      code: 'fieldData',
+      type: 'Object',
+      demo: '{value: 1505894659813}',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题位置',
+      code: 'labelAlign',
+      type: 'String',
+      demo: '"left"',
+      dafault: '',
+      desc: '可选值："left", "top", "inset"',
+    },
+    {
+      attr: '标题宽度',
+      code: 'labelColSpan',
+      type: 'Number',
+      demo: '4',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题偏移',
+      code: 'labelColOffset',
+      type: 'Number',
+      demo: '0',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '内容宽度',
+      code: 'wrapperColSpan',
+      type: 'Number',
+      demo: '0',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '内容偏移',
+      code: 'wrapperColOffset',
+      type: 'Number',
+      demo: '0',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题对齐',
+      code: 'labelTextAlign',
+      type: 'String',
+      demo: '"left"',
+      dafault: '',
+      desc: '可选值："left", "right"',
+    },
+    {
+      attr: '提示文字',
+      code: 'placeholder',
+      type: 'String',
+      demo: '"请选择日期"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '描述信息',
+      code: 'tips',
+      type: 'String',
+      demo: '"这是一段描述信息"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '尺寸',
+      code: 'size',
+      type: 'String',
+      demo: '"small"',
+      dafault: '',
+      desc: '可选值："small", "medium", "large"',
+    },
+    {
+      attr: '状态',
+      code: 'behavior',
+      type: 'String',
+      demo: '"NORMAL"',
+      dafault: '',
+      desc: '可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
+    },
+    {
+      attr: '格式',
+      code: 'format',
+      type: 'String',
+      demo: '"YYYY-MM-DD" ',
+      dafault: '',
+      desc: '可选值："YYYY", "YYYY-MM", "YYYY-MM-DD", "YYYY-MM-DD HH:mm", "YYYY-MM-DD HH:mm:ss" ',
+    },
+    {
+      attr: '清除按钮',
+      code: 'hasClear',
+      type: 'Boolean',
+      demo: 'true',
+      dafault: '',
+      desc: '可选值：true,false',
+    },
+    {
+      attr: '每次选择日期时是否重置时间',
+      code: 'resetTime',
+      type: 'Boolean',
+      demo: 'false ',
+      dafault: '',
+      desc: '可选值:true,false',
+    },
+    {
+      attr: '禁用日期函数',
+      code: 'disabledDate',
+      type: 'Function',
+      demo: `function disabledDate(current) {
+             console.log(current);
+             return false;}`,
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '定制渲染只读态',
+      code: 'renderView',
+      type: 'Function',
+      demo: `function renderView(value, props) {
+  return value;
+}`,
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '值发生改变事件',
+      code: 'onChange',
+      type: 'Function',
+      demo: `function onChange({ value }) {
+  console.log('onChange', value);
+}`,
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '点击确认按钮',
+      code: 'onOk',
+      type: 'Function',
+      demo: `function onOk({ value }) {
+  console.log('onOk', value);
+}`,
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '弹层展示状态变化',
+      code: 'onVisibleChange',
+      type: 'Function',
+      demo: `function onVisibleChange(visible, reason) {
+  console.log('onVisibleChange', visible, reason);
+}`,
+      dafault: '',
+      desc: '',
+    },
+  ]}
+/>

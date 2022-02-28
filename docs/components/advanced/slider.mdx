@@ -5,35 +5,193 @@ order: 6
 
 # 轮播图
 
+轮播组件，就是以幻灯片的方式，在页面中横向展示诸多内容的组件。
+
 ## 何时使用
 
-## 组件示例
-import Iframe from '../../../src/components/Iframe'
+- 轮播内容相互独立，前后在内容以及数据上都不存在逻辑关系。
+- 单图轮播：该样式通常用于承载运营 banner，是一个位置相对固定的模块。
+- 多图轮播：单元信息浏览
 
-<Iframe url="https://pre-yida-performance3.alibaba-inc.com/developer/slider-v2?isRenderNav=false" />
+## 组件示例
+
+import Iframe from 'components/Iframe';
+
+<Iframe url="https://www.aliwork.com/developer/slider-v2?isRenderNav=false" />
 
 ## 组件属性
 
-| 属性名   |  属性code  | 类型 | 数据示例  |  备注 |
-| :------ | :------ |: ------ | :------ | :----- |
-| 轮播项   | images | object | {src: 'https://test.png', title: 'title'} |  |
-| 类型 | type  | string  | 'single', 'multi'  | 轮播方式, 单图, 多图|  |
-| 图片宽度 | slideImageWidth  |  string  | '100%'  |   |
-| 图片高度 | slideImageHeight  |  string  | '300px'  |   |
-| 图片间距 | margin  |  number  | 10 |   |
-| 同时展示的图片数量 | slidesToShow  |  number  | 2 |   |
-| 同时滑动的图片数量 | slidesToScroll  |  number  | 1  |   |
-| 居中模式 | centerMode  |  bool  | false  |   |
-| 多图轮播时，点击选中后自动居中 | focusOnSelect  |  bool  | false  |   |
-| 轮播方向 | slideDirection  |  string  | 'hoz' | 'hoz' , 'ver' |
-| 轮播速度 | speed  |  number  | 500  |  单位: ms |
-| 动效类型 | animation  |  string  | 'slide'  |  'slide', 'fade' |
-| 箭头 | arrows  |  bool  | true  |   |
-| 箭头大小 | arrowSize  |  string  | 'medium'  |  'medium', 'large' |
-| 箭头位置 | arrowPosition  |  string  | 'inner'  |  'inner', 'outer' |
-| 箭头方向 | arrowDirection  |  string  | 'hoz'  | 'hoz', 'ver' |
-| 自动播放 | autoplay  |  bool  | false  |  |
-| 自动播放的速度 | autoplaySpeed  |  number  | 3000  |  |
-| 导航锚点 | dots  |  bool  | true  |  |
-| 导航锚点位置 | dotsDirection  |  string  | 'hoz'  |  |
-| 锚点导航触发方式 | triggerType  |  string  | 'click  | 'click', 'hover' |
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '轮播项',
+      code: 'images',
+      type: 'object',
+      demo: "{src: 'https://test.png', title: 'title'}",
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '类型',
+      code: 'type',
+      type: 'String',
+      demo: "'single', 'multi' ",
+      dafault: '',
+      desc: '轮播方式, 单图, 多图',
+    },
+    {
+      attr: '图片宽度',
+      code: 'slideImageWidth',
+      type: 'String',
+      demo: "'100%'",
+      dafault: '  ',
+      desc: '',
+    },
+    {
+      attr: '图片高度',
+      code: 'slideImageHeight',
+      type: 'String',
+      demo: "'300px'",
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '图片间距',
+      code: 'margin',
+      type: 'number',
+      demo: '10',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '同时展示的图片数量',
+      code: 'slidesToShow',
+      type: 'number',
+      demo: '2',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '同时滑动的图片数量',
+      code: 'slidesToScroll',
+      type: 'number',
+      demo: '1',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '居中模式',
+      code: 'centerMode',
+      type: 'Boolean',
+      demo: 'false',
+      dafault: '"b" ',
+      desc: '',
+    },
+    {
+      attr: '多图轮播时，点击选中后自动居中',
+      code: 'focusOnSelect',
+      type: 'Boolean',
+      demo: 'false',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '轮播方向',
+      code: 'slideDirection',
+      type: 'String',
+      demo: " 'hoz'",
+      dafault: " 'hoz', 'ver'",
+      desc: '',
+    },
+    {
+      attr: '轮播速度',
+      code: 'speed',
+      type: 'number',
+      demo: '500',
+      dafault: '单位: ms ',
+      desc: '',
+    },
+    {
+      attr: '动效类型',
+      code: 'animation',
+      type: 'String',
+      demo: "'slide'",
+      dafault: "'slide', 'fade' ",
+      desc: '',
+    },
+    {
+      attr: '箭头',
+      code: 'arrows',
+      type: 'Boolean',
+      demo: 'true',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '箭头大小',
+      code: 'arrowSize',
+      type: 'String',
+      demo: "'medium' ",
+      dafault: "'medium', 'large'",
+      desc: '',
+    },
+    {
+      attr: '箭头位置',
+      code: 'arrowPosition',
+      type: 'String',
+      demo: "'inner' ",
+      dafault: " 'inner', 'outer'",
+      desc: '',
+    },
+    {
+      attr: '箭头方向',
+      code: 'arrowDirection ',
+      type: 'String',
+      demo: "'hoz' ",
+      dafault: "'hoz', 'ver'",
+      desc: '',
+    },
+    {
+      attr: '自动播放',
+      code: 'autoplay',
+      type: 'Boolean',
+      demo: 'false ',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '自动播放的速度',
+      code: 'autoplaySpeed',
+      type: 'number',
+      demo: '3000 ',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '导航锚点',
+      code: 'dots',
+      type: 'Boolean',
+      demo: 'true ',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '导航锚点位置',
+      code: 'dotsDirection',
+      type: 'String',
+      demo: "'hoz' ",
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '锚点导航触发方式',
+      code: 'triggerType',
+      type: 'String',
+      demo: "'click' ",
+      dafault: "'click', 'hover'",
+      desc: '',
+    },
+  ]}
+/>

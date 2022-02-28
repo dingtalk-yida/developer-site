@@ -4,23 +4,77 @@ order: 15
 ---
 
 # 步骤条
+引导用户按照流程完成任务的导航条。
 
 ## 何时使用
-
+* 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
 ## 组件示例
-import Iframe from '../../../src/components/Iframe'
+import Iframe from 'components/Iframe'
 
-<Iframe url="https://pre-yida-performance3.alibaba-inc.com/developer/steps-v2?isRenderNav=false" />
+<Iframe url="https://www.aliwork.com/developer/steps-v2?isRenderNav=false" />
 
 ## 组件属性
 
-| 属性名   |  属性code  | 类型 | 数据示例  |  备注 |
-| :------ | :------ | :------ | :------ | :----- |
-| 步骤数据 | dataSource  | object  | [{ title: 'step1', content: 'Open' }, { title: 'step2', content: 'Put'}] |  |
-| 当前步骤 | current  | number  | 1 |  |
-| 类型 | shape  | string  | 'circle' | 'circle', 'arrow', 'dot' |
-| 展示方向 | direction  | string  | 'horizontal'  | 'horizontal', 'vertical' |
-| 横向布局时的内容排列 | labelPlacement  | string  |  'vertical' | 'vertical', 'horizontal' |
-| 只读模式 | placeholder  | bool  |  false |  |
-| 开启动效 | animation  | bool  |  true |  |
-| 点击按钮动作 | onClick  | func  |  'function onClick(index) {}' |  |
+import AttrTable from 'components/AttrTable'
+
+<AttrTable dataSource={[{
+  attr: '步骤数据', 
+  code: 'dataSource', 
+  type: 'Array', 
+  demo: "[{ title: 'step1', content: 'Open' }, { title: 'step2', content: 'Put'}]", 
+  dafault:'', 
+  desc: ''
+}, {
+  attr: '当前步骤', 
+  code: 'current', 
+  type: 'number', 
+  demo: '1', 
+  dafault:'', 
+  desc: ''
+}, {
+  attr: '类型', 
+  code: 'shape', 
+  type: 'String', 
+  demo: '"circle"', 
+  dafault:"", 
+  desc: '可选值:"circle", "arrow", "dot" '
+}, {
+  attr: '展示方向', 
+  code: 'direction', 
+  type: 'String', 
+  demo: '"horizontal"', 
+  dafault:"", 
+  desc: '可选值: "horizontal", "vertical"'
+}, {
+  attr: '横向布局时的内容排列', 
+  code: 'labelPlacement', 
+  type: 'String', 
+  demo: '"vertical"', 
+  dafault:"", 
+  desc: '可选值: "vertical", "horizontal"'
+}, {
+  attr: '只读模式', 
+  code: 'placeholder', 
+  type: 'Boolean', 
+  demo: 'false', 
+  dafault:'', 
+  desc: '可选值: true,false'
+}, 
+{
+  attr: '开启动效', 
+  code: 'animation', 
+  type: 'Boolean', 
+  demo: "true", 
+  dafault:'', 
+  desc: '可选值: true,false'
+}, 
+{
+  attr: '点击按钮动作', 
+  code: 'onClick', 
+  type: 'Function', 
+  demo: '"function onClick(index) {}"', 
+  dafault:'', 
+  desc: ''
+}, 
+]}
+/>

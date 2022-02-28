@@ -1,0 +1,9 @@
+.bg-iframe {
+  position: relative;
+  &.empty {
+    font-size: 14px;
+    text-align: center;
+    line-height: 100px;
+    border: 1px dashed #ccc;
+  }
+}

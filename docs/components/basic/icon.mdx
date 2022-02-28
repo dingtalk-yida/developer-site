@@ -5,18 +5,39 @@ order: 1
 
 # 图标
 
+图表展示，用户可以使用宜搭内置的图标，并设置其尺寸。
+
 ## 何时使用
 
-## 组件示例
-import Iframe from '../../../src/components/Iframe'
+通过图标来展示一些标记，例如警告、提示、趋势等。
 
-<Iframe url="https://pre-yida-performance3.alibaba-inc.com/developer/icon-v2?isRenderNav=false" />
+## 组件示例
+
+import Iframe from 'components/Iframe';
+
+<Iframe url="https://www.aliwork.com/developer/icon-v2?isRenderNav=false" />
 
 ## 组件属性
 
-| 属性名 |  属性code  | 类型 | 数据示例  | 动态属性 | 备注 |
-| :------ | :------ | :------ | :------ | :----- | :----- |
-| 图标   | src | string | 'smile' | 否 |
-| 大小   | size | string | 'medium' | 否 | 从小到大依次为: `xxs`, `xs`, `small`, `medium`, `large`, `xl`, `xxl` |
+import AttrTable from 'components/AttrTable';
 
-填充色请直接修改样式中的颜色属性。
+<AttrTable
+  dataSource={[
+    {
+      attr: '图标',
+      code: 'src',
+      type: 'String',
+      demo: 'smile',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '大小',
+      code: 'size',
+      type: 'String',
+      demo: 'medium',
+      dafault: '',
+      desc: '从小到大依次为: `xxs` , `xs` , `small` , `medium` , `large` , `xl` , `xxl`',
+    },
+  ]}
+/>

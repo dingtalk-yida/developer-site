@@ -1,0 +1,113 @@
+---
+title: 图片
+order: 4
+---
+
+# 图片
+
+用于展示图片资源。
+
+## 何时使用
+
+-
+
+## 组件示例
+
+import Iframe from 'components/Iframe';
+
+<Iframe url="https://www.aliwork.com/developer/image-v2?isRenderNav=false" />
+
+## 组件属性
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '图片地址',
+      code: 'src',
+      type: 'String',
+      demo: '图片资源地址',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '宽',
+      code: 'width',
+      type: 'number',
+      demo: '300',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '宽度 auto ',
+      code: 'autuHeight',
+      type: 'number',
+      demo: '300',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '高 ',
+      code: 'height',
+      type: 'number',
+      demo: '300',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '高度 auto ',
+      code: 'autuHeight',
+      type: 'number',
+      demo: '300',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '摆放方式 ',
+      code: 'fit',
+      type: 'enum',
+      demo: '‘contain’',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '圆角 ',
+      code: 'round',
+      type: 'String',
+      demo: '8px',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '圆角大小 ',
+      code: 'roundRadius',
+      type: 'String',
+      demo: '8px',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: 'title ',
+      code: 'title',
+      type: 'String',
+      demo: '8px',
+      dafault: '',
+      desc: '标题',
+    },
+    {
+      attr: '替代文本 ',
+      code: 'alt',
+      type: 'String',
+      demo: '8px',
+      dafault: '',
+      desc: '图片未加载时的占位文字',
+    },
+    {
+      attr: '点击事件 ',
+      code: 'onClick',
+      type: 'Function',
+      demo: '',
+      dafault: '',
+      desc: '',
+    },
+  ]}
+/>

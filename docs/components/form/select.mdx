@@ -7,42 +7,259 @@ order: 3
 
 ## 何时使用
 
-## 组件示例
-import Iframe from '../../../src/components/Iframe'
+- 用于替代原生 select，在限定的可选性内进行选择，核心能力是 选择；
 
-<Iframe url="https://pre-yida-performance3.alibaba-inc.com/developer/select-field-v2?isRenderNav=false" />
+## 组件示例
+
+import Iframe from 'components/Iframe';
+
+<Iframe url="https://www.aliwork.com/developer/select-field-v2?isRenderNav=false" />
 
 ## 组件属性
 
-| 属性名 | 属性code | 类型 | 数据示例 | 动态属性 | 备注 |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 标题 | label | String | "下拉单选" | 是 |  |
-| 值 | fieldData | Object | 单选：{value: "1"}；多选：{value: ["1"]} | 是 |  |
-| 标题位置 | labelAlign | String | “top” | 否 | 可选值：“left”,”top”,”inset" |
-| 标题宽度 | labelColSpan | Number | 4 | 否 |  |
-| 标题偏移 | labelColOffset | Number  | 0 | 否 |  |
-| 内容宽度 | wrapperColSpan | Number  | 0 | 否 |  |
-| 内容偏移 | wrapperColOffset | Number  | 0 | 否 |  |
-| 标题对齐 | labelTextAlign | String | “right” | 否 | 可选值：“left”,”right" |
-| 提示文字 | placeholder | String | “请选择” | 是 |  |
-| 描述信息 | tips | String | "这是一段描述信息" | 否 |  |
-| 尺寸 | size | String | “small” | 否 | 可选值：“small”,”medium”,"large" |
-| 状态 | behavior | String | {fieldBehavior: "NORMAL"} | 是 | fieldBehavior 可选值："NORMAL","DISABLED","READONLY","HIDDEN" |
-| 校验 | validation | Array | [{type:"required"}] | 是 | 可选值：{type:"required"}, {type: "customValidate", message: "请选择今日之前的日期", param: "function validateRule(value) { return value <= new Date().getTime(); }"} |
-| 模式 | mode | String | "single" | 否 | 可选值：单选“single”、多选“multiple”、标签“tag” |
-| 下拉箭头 | hasArrow | Boolean | true | 否 |  |
-| 边框 | hasBorder | Boolean | true | 否 |  |
-| 清除按钮 | hasClear | Boolean | true | 否 |  |单选模式时才有
-| 全选功能 | hasSelectAll | Boolean | true | 否 |  |多选模式时才有效
-| 下拉菜单是否与选择器对齐 | autoWidth | Boolean | true | 否 |  |
-| 展开后是否能搜索 | showSearch | Boolean | true | 否 |  | tag 模式下固定为true
-| 选项 | dataSource | Array  | [{ text: { zh_CN: '选项一', en_US: 'Option 1', type: 'i18n', }, value: '1', }]  | 是 | 设置选项 |
-| 弹层内容为空的文案 | noFoundContent | Boolean | true | 否 |  |
-| 本地过滤 | filterLocal | Boolean | true | 否 |  | 在数据源为远程的时候需要关闭此项
-| 开启本地自定义过滤方法 | isFilter | Boolean | true | 否 |  | 开启本地过滤时才有
-| 本地过滤方法 | filter | Function | function filter(value, data){ return true;} | 否 |  | 返回一个 Boolean 值确定是否保留
-| 选项 | dataSource | object  | 单选 { "options": [ { "text": { "zh_CN": "选项一", "en_US": "Option 1", "type": "i18n", }], "value": "1", }, 多选：{ "multiOptions":[],"value":[]} | 是 |  |
-| 值发生改变事件 | onChange | Function | function(value, actionType, item){ console.log(value); } | 否 | 选项的显示值可通过 `item.label` 来获取 |
-| 弹层显示或隐藏时触发的回调 | onVisibleChange | Function | function onVisibleChange(visible) { console.log('onVisibleChange', visible); } | 否 |  |
-| tag 删除回调 | onRemove | Function | function onRemove(item) { console.log('onRemove', item.value); } | 否 |  |
-| 当搜索框值变化时回调 | onSearch | Function | function onSearch(value) { console.log('onSearch', value); } | 否 |  |
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      attr: '标题',
+      code: 'label',
+      type: 'String',
+      demo: '"下拉单选"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '值',
+      code: 'fieldData',
+      type: 'Object',
+      demo: '单选：{value: "1"}；多选：{value: ["1"]}',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题位置',
+      code: 'labelAlign',
+      type: 'String',
+      demo: '"top"',
+      dafault: '',
+      desc: '可选值："left", "top", "inset"',
+    },
+    {
+      attr: '标题宽度',
+      code: 'labelColSpan',
+      type: 'Number',
+      demo: '4',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题偏移',
+      code: 'labelColOffset',
+      type: 'Number',
+      demo: '0',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '内容宽度',
+      code: 'wrapperColSpan',
+      type: 'Number',
+      demo: '0',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '内容偏移',
+      code: 'wrapperColOffset',
+      type: 'Number',
+      demo: '0',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '标题对齐',
+      code: 'labelTextAlign',
+      type: 'String',
+      demo: '"right"',
+      dafault: '',
+      desc: '可选值："left", "right"',
+    },
+    {
+      attr: '提示文字',
+      code: 'placeholder',
+      type: 'String',
+      demo: '"请选择"',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '描述信息',
+      code: 'tips',
+      type: 'String',
+      demo: '这是一段描述信息',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '尺寸',
+      code: 'size',
+      type: 'String',
+      demo: '"small"',
+      dafault: '',
+      desc: '可选值："small", "medium", "large"',
+    },
+    {
+      attr: '状态',
+      code: 'behavior',
+      type: 'String',
+      demo: '{fieldBehavior: "NORMAL"}',
+      dafault: '',
+      desc: 'fieldBehavior 可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
+    },
+    {
+      attr: '校验',
+      code: 'validation',
+      type: 'Array',
+      demo: '[{type:"required"}] ',
+      dafault: '',
+      desc: '可选值：{type:"required"}, {type: "customValidate", message: "请选择今日之前的日期", param: "function validateRule(value) { return value <= new Date().getTime(); }"} ',
+    },
+    {
+      attr: '模式',
+      code: 'mode',
+      type: 'String',
+      demo: '"single"',
+      dafault: '',
+      desc: '可选值：单选"single"、多选"multiple"、标签"tag"',
+    },
+    {
+      attr: '下拉箭头',
+      code: 'hasArrow',
+      type: 'Boolean',
+      demo: 'true',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '边框',
+      code: 'hasBorder',
+      type: 'Boolean',
+      demo: 'true',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '清除按钮',
+      code: 'hasClear',
+      type: 'Boolean',
+      demo: 'true',
+      dafault: '',
+      desc: '单选模式时才有',
+    },
+    {
+      attr: '全选功能',
+      code: 'hasSelectAll',
+      type: 'Boolean',
+      demo: 'true ',
+      dafault: '',
+      desc: '多选模式时才有效',
+    },
+    {
+      attr: '下拉菜单是否与选择器对齐',
+      code: 'autoWidth',
+      type: 'Boolean',
+      demo: 'true',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '展开后是否能搜索',
+      code: 'showSearch',
+      type: 'Boolean',
+      demo: ' true ',
+      dafault: '',
+      desc: 'tag 模式下固定为 true',
+    },
+    {
+      attr: '选项',
+      code: 'dataSource',
+      type: 'Array',
+      demo: "  [{ text: { zh_CN: '选项一', en_US: 'Option 1', type: 'i18n', }, value: '1', }] ",
+      dafault: '',
+      desc: '设置选项',
+    },
+    {
+      attr: '弹层内容为空的文案',
+      code: 'noFoundContent',
+      type: 'Boolean',
+      demo: ' true ',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '本地过滤',
+      code: 'filterLocal',
+      type: 'Boolean',
+      demo: ' true ',
+      dafault: '',
+      desc: '在数据源为远程的时候需要关闭此项',
+    },
+    {
+      attr: '开启本地自定义过滤方法',
+      code: 'isFilter',
+      type: 'Function',
+      demo: ' function filter(value, data){ return true;} ',
+      dafault: '',
+      desc: '开启本地过滤时才有',
+    },
+    {
+      attr: '本地过滤方法',
+      code: 'filterLocal',
+      type: 'Function',
+      demo: ' function filter(value, data){ return true;} ',
+      dafault: '',
+      desc: '返回一个 Boolean 值确定是否保留',
+    },
+    {
+      attr: '选项',
+      code: 'dataSource',
+      type: 'object',
+      demo: '单选 { "options": [ { "text": { "zh_CN": "选项一", "en_US": "Option 1", "type": "i18n", }], "value": "1", }, 多选：{ "multiOptions":[], "value":[]}',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '值发生改变事件',
+      code: 'onChange',
+      type: 'Function',
+      demo: 'function(value, actionType, item){ console.log(value); } ',
+      dafault: '',
+      desc: '选项的显示值可通过 `item.label` 来获取',
+    },
+    {
+      attr: '弹层显示或隐藏时触发的回调',
+      code: 'onVisibleChange',
+      type: 'Function',
+      demo: ' function onVisibleChange(visible) { console.log("onVisibleChange", visible); }',
+      dafault: '',
+      desc: '返回一个 Boolean 值确定是否保留',
+    },
+    {
+      attr: 'tag 删除回调',
+      code: 'onRemove',
+      type: 'Function',
+      demo: ' function onRemove(item) { console.log("onRemove", item.value); } ',
+      dafault: '',
+      desc: '',
+    },
+    {
+      attr: '当搜索框值变化时回调',
+      code: 'onSearch',
+      type: 'Function',
+      demo: ' function onSearch(value) { console.log("onSearch", value); }  ',
+      dafault: '',
+      desc: '',
+    },
+  ]}
+/>
