@@ -29,6 +29,12 @@ import AttrTable from "components/AttrTable";
       desc: "表单组件占位提示信息",
     },
     {
+      code: "value",
+      type: "any",
+      default: ``,
+      desc: "当前组件默认值",
+    },
+    {
       code: "hasArrow",
       type: "boolean",
       default: "true",
@@ -74,52 +80,52 @@ import AttrTable from "components/AttrTable";
       code: "searchDelay",
       type: "number",
       default: "300",
-      desc: "可以设置搜索延时时间",
+      desc: "设置搜索延时时间",
     },
     {
       code: "dataSource",
       type: "array",
       default: `~~~json
-      [
-                {
-                    "text": {
-                        "zh_CN": "选项一",
-                        "en_US": "Option 1",
-                        "type": "i18n"
-                    },
-                    "value": "1"
-                },
-                {
-                    "text": {
-                        "zh_CN": "选项二",
-                        "en_US": "Option 2",
-                        "type": "i18n"
-                    },
-                    "value": "2"
-                },
-                {
-                    "text": {
-                        "zh_CN": "选项三",
-                        "en_US": "Option 3",
-                        "type": "i18n"
-                    },
-                    "value": "3"
-                }
-            ]
-      ~~~`,
+[
+  {
+    "text": {
+      "zh_CN": "选项一",
+      "en_US": "Option 1",
+      "type": "i18n"
+    },
+    "value": "1"
+  },
+  {
+    "text": {
+      "zh_CN": "选项二",
+      "en_US": "Option 2",
+      "type": "i18n"
+    },
+    "value": "2"
+  },
+  {
+    "text": {
+      "zh_CN": "选项三",
+      "en_US": "Option 3",
+      "type": "i18n"
+    },
+    "value": "3"
+  }
+]
+      `,
       desc: "设置选项",
     },
     {
       code: "notFoundContent",
       type: "string",
-      default: "请输入",
+      default: `'请输入'`,
       desc: "为空文案",
     },
     {
       code: "filter",
       type: "(value:string, data:object) => boolean",
       default: "",
-      desc: "，本地过滤方法，开启本地过滤时才有",
+      desc: "本地过滤方法，开启本地过滤时才有",
     },
     {
       code: "filterLocal",
@@ -129,25 +135,25 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "onChange",
-      type: "({value:string}=>void)",
+      type: "(value:string)=>void",
       default: "",
       desc: "组件值发生改变事件",
     },
     {
       code: "onVisibleChange",
-      type: "({visible:boolean})=>void",
+      type: "(visible:boolean)=>void",
       default: "",
       desc: "弹层显示或隐藏时触发事件",
     },
     {
       code: "onRemove",
-      type: "({item:object})=>void",
+      type: "(item:object)=>void",
       default: "",
       desc: "值删除时事件",
     },
     {
       code: "onSearch",
-      type: "({value:string})=>void",
+      type: "(keyword:string)=>void",
       default: "",
       desc: "搜索框值变化时事件",
     },
