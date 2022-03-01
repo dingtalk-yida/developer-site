@@ -30,7 +30,7 @@ const COLUMNS = [
     title: '默认值',
     dataIndex: 'default',
     width: '15%',
-    render: (val) => (val === '-' ? <span>-</span> : <ReactMarkdown children={val} remarkPlugins={[remarkGfm]} />),
+    render: (val) => ((val === '-' || !val) ? <span>-</span> : <ReactMarkdown children={val} remarkPlugins={[remarkGfm]} />),
   },
 ];
 

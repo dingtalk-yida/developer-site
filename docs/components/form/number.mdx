@@ -23,7 +23,12 @@ import AttrTable from 'components/AttrTable';
   category="form"
   dataSource={[
     {
-      attr: '值发生改变事件',
+      code: 'value',
+      type: 'number',
+      default: '-',
+      desc: '表单组件的默认值',
+    },
+    {
       code: 'onChange',
       type: '({value: number}) => void',
       default: '-',

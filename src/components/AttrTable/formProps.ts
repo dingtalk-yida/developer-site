@@ -6,12 +6,6 @@ export default [
     desc: '表单组件标题',
   },
   {
-    code: 'value',
-    type: 'number',
-    default: '-',
-    desc: '表单组件的默认值',
-  },
-  {
     code: 'labelAlign',
     type: `'left' | 'top'`,
     default: `'top'`,
@@ -85,7 +79,7 @@ export default [
   },
   {
     code: 'labelTipsRender',
-    type: '(props: INumberFieldProps) => ReactNode',
+    type: '(props: IComponentProps) => ReactNode',
     default: '-',
     desc: '表单组件标题提示信息自定义渲染方法，当labelTipsTypes取值为 **render** 时生效'
   },
