@@ -23,80 +23,113 @@ import AttrTable from "components/AttrTable";
   category="form"
   dataSource={[
     {
-      code: 'placeholder',
-      type: 'string',
-      default: `'请选择'`,
-      desc: '表单组件占位提示信息',
-    },
-    {
-      code: "mode",
+      code: "placeholder",
       type: "string",
-      default: `'single'`,
-      desc: '可选值：单选"single",多选"multiple",标签"tag"',
+      default: `'请选择'`,
+      desc: "表单组件占位提示信息",
     },
     {
       code: "hasArrow",
       type: "boolean",
       default: "true",
-      desc: "可选值：true,false",
+      desc: "是否有下拉箭头",
     },
     {
       code: "hasBorder",
       type: "boolean",
       default: "true",
-      desc: "可选值：true,false",
+      desc: "是否有边框",
     },
     {
       code: "hasClear",
       type: "boolean",
       default: "true",
-      desc: "单选模式时才有，可选值：true,false",
+      desc: "是否有清除按钮，单选模式时才有",
     },
     {
       code: "hasSelectAll",
       type: "boolean",
       default: "true",
-      desc: "多选模式时才有效，可选值：true,false",
+      desc: "是否有全选功能，多选模式时才有效",
+    },
+    {
+      code: "useDetailValue",
+      type: "boolean",
+      default: "true",
+      desc: "设置value 使用对象类型{label, value}",
     },
     {
       code: "autoWidth",
       type: "boolean",
       default: "true",
-      desc: "可选值：true,false",
+      desc: "下拉菜单是否与选择器对齐",
     },
     {
       code: "showSearch",
       type: "boolean",
       default: "true",
-      desc: "tag 模式下固定为 true",
+      desc: "展开后是否能搜索，tag 模式下固定为 true",
+    },
+    {
+      code: "searchDelay",
+      type: "number",
+      default: "300",
+      desc: "可以设置搜索延时时间",
     },
     {
       code: "dataSource",
       type: "array",
-      default: "[{ text: { zh_CN: '选项一', en_US: 'Option 1', type: 'i18n', }, value: '1', }]",
+      default: `~~~json
+      [
+                {
+                    "text": {
+                        "zh_CN": "选项一",
+                        "en_US": "Option 1",
+                        "type": "i18n"
+                    },
+                    "value": "1"
+                },
+                {
+                    "text": {
+                        "zh_CN": "选项二",
+                        "en_US": "Option 2",
+                        "type": "i18n"
+                    },
+                    "value": "2"
+                },
+                {
+                    "text": {
+                        "zh_CN": "选项三",
+                        "en_US": "Option 3",
+                        "type": "i18n"
+                    },
+                    "value": "3"
+                }
+            ]
+      ~~~`,
       desc: "设置选项",
     },
     {
-      code: "noFoundContent",
-      type: "boolean",
-      default: "true",
-      desc: "可选值：true,false",
+      code: "notFoundContent",
+      type: "string",
+      default: "请输入",
+      desc: "为空文案",
     },
     {
       code: "filter",
-      type: "function",
-      default: "function filter(value, data){ return true;}",
-      desc: "开启本地过滤时才有",
+      type: "(value:string, data:object) => boolean",
+      default: "",
+      desc: "，本地过滤方法，开启本地过滤时才有",
     },
     {
       code: "filterLocal",
-      type: "function",
-      default: "function filter(value, data){ return true;}",
+      type: "(value:string, data:object) => boolean",
+      default: "",
       desc: "在数据源为远程的时候需要关闭此项，返回一个 Boolean 值确定是否保留",
     },
     {
       code: "onChange",
-      type: "({value:mixed}=>void)",
+      type: "({value:string}=>void)",
       default: "",
       desc: "组件值发生改变事件",
     },
