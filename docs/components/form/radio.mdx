@@ -1,9 +1,9 @@
 ---
-title: 单选
+title: RadioField 单选
 order: 2
 ---
 
-# 单选
+# RadioField 单选
 
 ## 何时使用
 
@@ -21,123 +21,88 @@ import Iframe from 'components/Iframe';
 import AttrTable from 'components/AttrTable';
 
 <AttrTable
+  category="form"
   dataSource={[
     {
-      attr: '标题',
-      code: 'label',
-      type: 'String',
-      demo: '"标题"',
-      default
-: '',
-      desc: '',
+      code: 'value',
+      type: 'string',
+      default: `'选项一'`,
+      desc: '默认值',
     },
     {
-      attr: '值',
-      code: 'fieldData',
-      type: 'String',
-      demo: '"选项一"',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '标题位置',
-      code: 'labelAlign',
-      type: 'String',
-      demo: '"left"',
-      default
-: '',
-      desc: '可选值："left","top"',
-    },
-    {
-      attr: '标题宽度',
-      code: 'labelColSpan',
-      type: 'Number',
-      demo: '4',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '标题偏移',
-      code: 'labelColOffset',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '内容宽度',
-      code: 'wrapperColSpan',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '内容偏移',
-      code: 'wrapperColOffset',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '描述信息',
-      code: 'tips',
-      type: 'String',
-      demo: '"这是一段描述信息"',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '尺寸',
-      code: 'size',
-      type: 'String',
-      demo: '"small"',
-      default
-: '',
-      desc: '可选值："small", "medium", "large"',
-    },
-    {
-      attr: '状态',
-      code: 'behavior',
-      type: 'String',
-      demo: '"NORMAL"',
-      default
-: '',
-      desc: '可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
-    },
-    {
-      attr: '展示形状',
       code: 'shape',
-      type: 'String',
-      demo: '"default"',
-      default
-: '',
-      desc: '可选值："default", "button"',
+      type: 'string',
+      default: `'default'| 'button'`,
+      desc: '展示形状',
     },
     {
-      attr: '校验',
-      code: 'validation',
-      type: 'Array',
-      demo: '[{type:"required"}] ',
-      default
-: '',
-      desc: '可选值：{type:"required"}, {type: "customValidate", message: "请选择指定选项", param: "function validateRule(value) { return value === "test" }"}',
+      code: 'itemDirection',
+      type: 'string',
+      default: `'hozt'| 'ver'`,
+      desc: '排列方式',
     },
     {
-      attr: '值发生改变事件',
+      code: 'useDrawerInMobile',
+      type: 'string',
+      default: `'hozt'| 'ver'`,
+      desc: '移动端排列方式，仅移动端生效',
+    },
+    {
+      code: 'iconPosition',
+      type: 'string',
+      default: `'left'| 'right'`,
+      desc: '移动端Icon位置，仅移动端生效',
+    },
+    {
+      code: "dataSource",
+      type: "array",
+      default: `~~~json
+[
+  {
+    "text": {
+      "zh_CN": "选项一",
+      "en_US": "Option 1",
+      "type": "i18n"
+    },
+    "value": "1"
+  },
+  {
+    "text": {
+      "zh_CN": "选项二",
+      "en_US": "Option 2",
+      "type": "i18n"
+    },
+    "value": "2"
+  },
+  {
+    "text": {
+      "zh_CN": "选项三",
+      "en_US": "Option 3",
+      "type": "i18n"
+    },
+    "value": "3"
+  }
+]
+      `,
+      desc: "设置选项",
+    },
+    {
+      code: 'supportInverse',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否支持反选，再次点击选项可取消选择',
+    },
+     {
+      code: 'customRender',
+      type: '(item: object) => ReactNode',
+      default: '-',
+      desc: '定制渲染',
+    },
+    {
       code: 'onChange',
-      type: 'Function',
-      demo: 'function(value){ console.log(value); }',
-      default
-: '',
-      desc: '',
+      type: '(value: string) => void',
+      default: '-',
+      desc: "组件值发生改变事件",
     },
   ]}
 />
