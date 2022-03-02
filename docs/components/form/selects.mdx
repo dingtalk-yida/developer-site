@@ -1,9 +1,9 @@
 ---
-title: 下拉多选
+title: MultiSelectField 下拉多选
 order: 5
 ---
 
-# 下拉多选
+# MultiSelectField 下拉多选
 
 ## 何时使用
 
@@ -20,168 +20,142 @@ import Iframe from 'components/Iframe';
 import AttrTable from 'components/AttrTable';
 
 <AttrTable
+category="form"
   dataSource={[
     {
-      attr: '标题',
-      code: 'label',
-      type: 'String',
-      demo: '"标题"',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '值',
       code: 'value',
-      type: 'String/Array',
-      demo: '单选: "4121", 多选: ["4102", "4212"]',
-      default
-: '',
-      desc: '',
+      type: 'any',
+      default:``,
+      desc: '当前组件默认值',
     },
     {
-      attr: '标题位置',
-      code: 'labelAlign',
-      type: 'String',
-      demo: '"left"',
-      default
-: '',
-      desc: '可选值："left", "top"',
-    },
-    {
-      attr: '标题宽度',
-      code: 'labelColSpan',
-      type: 'Number',
-      demo: '4',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '标题偏移',
-      code: 'labelColOffset',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '内容宽度',
-      code: 'wrapperColSpan',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '内容偏移',
-      code: 'wrapperColOffset',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '标题对齐',
-      code: 'labelTextAlign',
-      type: 'String',
-      demo: '"left"',
-      default
-: '',
-      desc: '可选值："left", "right"',
-    },
-    {
-      attr: '提示文字',
       code: 'placeholder',
-      type: 'String',
-      demo: '"请选择"',
-      default
-: '',
-      desc: '',
+      type: 'string',
+      default: `'请选择'`,
+      desc: '表单组件占位提示信息',
     },
     {
-      attr: '描述信息',
-      code: 'tips',
-      type: 'String',
-      demo: '"这是一段描述信息"',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '尺寸',
-      code: 'size',
-      type: 'String',
-      demo: '"small"',
-      default
-: '',
-      desc: '可选值："small", "medium", "large"',
-    },
-    {
-      attr: '状态',
-      code: 'behavior',
-      type: 'String',
-      demo: '"NORMAL"',
-      default
-: '',
-      desc: '可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
-    },
-    {
-      attr: '校验',
-      code: 'validation',
-      type: 'Array',
-      demo: '[{type:"required"}]',
-      default
-: '',
-      desc: '可选值：{type:"required"}, {type: "customValidate", message: "请选择指定项", param: "function validateRule(value) { return value === test; }"} ',
-    },
-    {
-      attr: '是否有下拉箭头',
       code: 'hasArrow',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: '可选值：true, false',
+      type: 'boolean',
+      default: 'true',
+      desc: '设置是否有下拉箭头',
     },
     {
-      attr: '是否多选',
       code: 'multiple',
-      type: 'BoBooleanol',
-      demo: 'true',
-      default
-: '',
-      desc: '可选值：true, false ',
+      type: 'boolean',
+      default: 'true',
+      desc: '设置是否多选',
     },
     {
-      attr: '是否有搜索',
       code: 'showSearch',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: ' 可选值：true, false',
+      type: 'boolean',
+      default: 'true',
+      desc: '展开后是否能搜索，tag 模式下固定为 true',
     },
     {
-      attr: '下拉框显示或关闭事件',
       code: 'onVisibleChange',
-      type: 'Function',
-      demo: 'function onVisibleChange({ visible, type }){console.log("onVisibleChange", visible, type);} ',
-      default
-: '',
-      desc: '',
+      type: '(visible: boolean) => void',
+      default: '',
+      desc: '弹层显示或隐藏时触发事件',
+    },
+      {
+      code: "dataSource",
+      type: "array",
+      default: `~~~json
+[
+  {
+    "text": {
+      "zh_CN": "选项一",
+      "en_US": "Option 1",
+      "type": "i18n"
+    },
+    "value": "1"
+  },
+  {
+    "text": {
+      "zh_CN": "选项二",
+      "en_US": "Option 2",
+      "type": "i18n"
+    },
+    "value": "2"
+  },
+  {
+    "text": {
+      "zh_CN": "选项三",
+      "en_US": "Option 3",
+      "type": "i18n"
+    },
+    "value": "3"
+  }
+]
+      `,
+      desc: "设置选项",
     },
     {
-      attr: '值发生改变事件',
+      code: "hasSelectAll",
+      type: "boolean",
+      default: "true",
+      desc: "是否有全选功能",
+    },
+    {
+      code: "useDetailValue",
+      type: "boolean",
+      default: "true",
+      desc: "设置value 使用对象类型{label, value}",
+    },
+    {
+      code: "autoWidth",
+      type: "boolean",
+      default: "true",
+      desc: "下拉菜单是否与选择器对齐",
+    },
+    {
+      code: "showSearch",
+      type: "boolean",
+      default: "true",
+      desc: "展开后是否能搜索，tag 模式下固定为 true",
+    },
+    {
+      code: "filter",
+      type: "(value: string, data: object) => boolean",
+      default: "",
+      desc: "本地过滤方法，开启本地过滤时才有",
+    },
+    {
+      code: "filterLocal",
+      type: "(value: string, data: object) => boolean",
+      default: "",
+      desc: "在数据源为远程的时候需要关闭此项，返回一个 Boolean 值确定是否保留",
+    },
+    {
+      code: "useDetailValue",
+      type: "boolean",
+      default: "true",
+      desc: "设置value 使用对象类型{label, value}",
+    },
+    {
       code: 'onChange',
-      type: 'Function',
-      demo: ' function onChange({ value, data, extra }){ console.log("onChange", value, data, extra);} ',
-      default
-: '',
-      desc: '',
+      type: '(value: string) => void',
+      default: '',
+      desc: '组件值发生改变事件',
+    },
+    {
+      code: "onVisibleChange",
+      type: "(visible: boolean) => void",
+      default: "",
+      desc: "弹层显示或隐藏时触发事件",
+    },
+    {
+      code: "onRemove",
+      type: "(item: object) => void",
+      default: "",
+      desc: "值删除时事件",
+    },
+    {
+      code: "onSearch",
+      type: "(keyword: string) => void",
+      default: "",
+      desc: "搜索框值变化时事件",
     },
   ]}
 />
