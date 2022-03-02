@@ -1,9 +1,9 @@
 ---
-title: 富文本编辑
+title: EditorField 富文本编辑
 order: 14
 ---
 
-# 富文本编辑
+# EditorField 富文本编辑
 
 ## 何时使用
 
@@ -17,3 +17,30 @@ import Iframe from 'components/Iframe';
 <Iframe url="https://www.aliwork.com/developer/editor-field-v2?isRenderNav=false" />
 
 ## 组件属性
+
+
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  category="form"
+  dataSource={[
+    {
+      code: 'value',
+      type: 'string',
+      default: '-',
+      desc: '富文本默认值',
+    },
+    {
+      code: 'placeholder',
+      type: 'string',
+      default: '请输入',
+      desc: '占位提示',
+    },
+    {
+      code: 'onChange',
+      type: '({ value : string }) => void',
+      default: '-',
+      desc: 'onChange 值发生变化',
+    },
+  ]}
+/>

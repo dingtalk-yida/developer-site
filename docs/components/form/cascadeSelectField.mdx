@@ -1,9 +1,9 @@
 ---
-title: 级联选择
+title: CascadeSelectField 级联选择
 order: 15
 ---
 
-# 级联选择
+# CascadeSelectField 级联选择
 
 ## 何时使用
 
@@ -20,150 +20,128 @@ import Iframe from 'components/Iframe';
 import AttrTable from 'components/AttrTable';
 
 <AttrTable
+  category="form"
   dataSource={[
     {
-      attr: '标题',
-      code: 'label',
-      type: 'String',
-      demo: '"标题"',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '值',
       code: 'value',
-      type: 'String',
-      demo: '"4121"',
-      default
-: '',
-      desc: '',
+      type: 'string',
+      default: 'part_b',
+      desc: '数据源中最后一个节点的 value',
     },
     {
-      attr: '标题位置',
-      code: 'labelAlign',
-      type: 'String',
-      demo: '"left"',
-      default
-: '',
-      desc: '可选值："left", "top", "inset"',
+      code: 'columnsNum',
+      type: 'number',
+      default: '0',
+      desc: '级联层级',
     },
     {
-      attr: '标题宽度',
-      code: 'labelColSpan',
-      type: 'Number',
-      demo: '4',
-      default
-: '',
-      desc: '',
+      code: 'placeholder',
+      type: 'string',
+      default: '请选择',
+      desc: '占位提示',
     },
     {
-      attr: '标题偏移',
-      code: 'labelColOffset',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
+      code: 'listStyle',
+      type: 'array',
+      default: {},
+      desc: '列表样式',
     },
     {
-      attr: '内容宽度',
-      code: 'wrapperColSpan',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
+      code: 'expandTriggerType',
+      type: `'click' | 'hover'`,
+      default: 'click',
+      desc: '触发行为',
     },
     {
-      attr: '内容偏移',
-      code: 'wrapperColOffset',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '标题对齐',
-      code: 'labelTextAlign',
-      type: 'String',
-      demo: '"left"',
-      default
-: '',
-      desc: '可选值："left", "right"',
-    },
-    {
-      attr: '描述信息',
-      code: 'tips',
-      type: 'String',
-      demo: '"这是一段描述信息"',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '状态',
-      code: 'behavior',
-      type: 'String',
-      demo: '"NORMAL"',
-      default
-: '',
-      desc: '可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
-    },
-    {
-      attr: '尺寸',
-      code: 'size',
-      type: 'String',
-      demo: '"small"',
-      default
-: '',
-      desc: '可选值："small", "medium", "large"',
-    },
-    {
-      attr: '校验',
-      code: 'validation',
-      type: 'Array',
-      demo: '[{type:"required"}]',
-      default
-: '',
-      desc: '可选值：{type:"required"}, {type: "customValidate", message: "请选择指定项", param: "function validateRule(value) { return value === test; }"}',
-    },
-    {
-      attr: '是否有下拉箭头',
       code: 'hasArrow',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: '可选值：true, false',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否显示下拉箭头',
     },
     {
-      attr: '是否有搜索',
+      code: 'hasBorder',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否显示边框',
+    },
+    {
       code: 'showSearch',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: '可选值：true, false',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否显示搜索框',
     },
     {
-      attr: '下拉框显示或关闭事件',
-      code: 'onVisibleChange',
-      type: 'Function',
-      demo: 'function onVisibleChange({ visible, type }){console.log(onVisibleChange, visible, type);} ',
-      default
-: '',
-      desc: '',
+      code: 'showSearch',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否显示清除按钮',
     },
     {
-      attr: '值发生改变事件',
+      code: 'dataSource',
+      type: 'array',
+      default: [{
+        "value": "part",
+        "label": {
+          "type": "i18n",
+          "en_US": "dep",
+          "zh_CN": "部门"
+        },
+        "children": [{
+          "value": "part_a",
+          "label": "A部门"
+        },
+        {
+          "value": "part_b",
+          "label": "B部门"
+        }]
+      },
+      {
+        "value": "product",
+        "label": "产品",
+        "children": [{
+          "value": "product_a",
+          "label": "a产品"
+        },
+        {
+          "value": "product_b",
+          "label": "b产品"
+        }]
+      }],
+      desc: '数据源',
+    },
+    {
+      code: 'isLoadData',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否开启异步加载',
+    },
+    {
+      code: 'loadData',
+      type: '() => void',
+      default: '-',
+      desc: 'loadData 函数',
+    },
+    {
+      code: 'notFoundContent',
+      type: 'string',
+      default: {
+        "zh_CN": "无数据",
+        "en_US": "Not Found",
+        "type": "i18n"
+      },
+      desc: '无数据时显示内容',
+    },
+    {
       code: 'onChange',
-      type: 'Function',
-      demo: 'function onChange({ value, data, extra }){ console.log(onChange, value, data, extra);}',
-      default
-: '',
-      desc: '',
+      type: '({ value : string / array, data : object / array , extra : object }) => void',
+      default: '-',
+      desc: 'onChange 值发生变化',
+    },
+    {
+      code: 'onVisibleChange',
+      type: '( visible : boolean ) => void',
+      default: '-',
+      desc: 'onVisibleChange 弹层显示隐藏变化',
     },
   ]}
 />
