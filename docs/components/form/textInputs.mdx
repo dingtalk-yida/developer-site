@@ -1,9 +1,9 @@
 ---
-title: 多行输入框
+title: TextareaField 多行输入框
 order: 11
 ---
 
-# 多行输入框
+# TextareaField 多行输入框
 
 ## 何时使用
 
@@ -11,141 +11,106 @@ order: 11
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/textarea-field-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
+  category="form"
   dataSource={[
     {
-      attr: '标题',
-      code: 'label',
-      type: 'String',
-      demo: '"标题"',
-      default
-: '',
-      desc: '',
+      code: "value",
+      type: `number | string`,
+      default: `-`,
+      desc: "当前组件默认值",
     },
     {
-      attr: '值',
-      code: 'value',
-      type: 'String/Number ',
-      demo: '"内容"',
-      default
-: '',
-      desc: '',
+      code: "placeholder",
+      type: "string",
+      default: ``,
+      desc: "表单组件占位提示信息",
     },
     {
-      attr: '标题位置',
-      code: 'labelAlign',
-      type: 'String',
-      demo: '"left"',
-      default
-: '',
-      desc: '可选值："left", "top"',
+      code: "htmlType",
+      type: "string",
+      default: `'textarea'`,
+      desc: "设置多行输入框类型",
     },
     {
-      attr: '标题宽度',
-      code: 'labelColSpan',
-      type: 'Number',
-      demo: '4',
-      default
-: '',
-      desc: '',
+      code: "rows",
+      type: "number",
+      default: "4",
+      desc: "设置多行文本高度",
     },
     {
-      attr: '标题偏移',
-      code: 'labelColOffset',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
+      code: "hasLimitHint",
+      type: "boolean",
+      default:"false",
+      desc:"是否开启多行文本计数器",
     },
     {
-      attr: '内容宽度',
-      code: 'wrapperColSpan',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
+      code: "maxLength",
+      type: "string",
+      default:`-`,
+      desc:"设置多行文本字数上限",
     },
     {
-      attr: '内容偏移',
-      code: 'wrapperColOffset',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
+      code: "autoHeight",
+      type: "boolean",
+      default: "false",
+      desc:"是否开启多行输入框自动高度",
     },
     {
-      attr: '标题对齐',
-      code: 'labelTextAlign',
-      type: 'String',
-      demo: '"left"',
-      default
-: '',
-      desc: '可选值："left", "right"',
+      code: "trim",
+      type: "boolean",
+      default: "false",
+      desc:"是否开启自动去除头尾空字符",
     },
     {
-      attr: '占位提示',
-      code: 'placeholder',
-      type: 'String',
-      demo: '"请选择日期"',
-      default
-: '',
-      desc: '',
+      code: "autoFocus",
+      type: "boolean",
+      default: "false",
+      desc:"是否开启自动聚焦",
+    },
+      {
+      code: "__style__",
+      type: "object",
+      default: "-",
+      desc:"设置多行文本的样式",
+    }
+    {
+      code: "onChange",
+      type: "(value: string) => void",
+      default: "",
+      desc: "组件值发生改变事件",
     },
     {
-      attr: '描述信息',
-      code: 'tips',
-      type: 'String',
-      demo: '"这是一段描述信息"',
-      default
-: '',
-      desc: '',
+      code: "onFocus",
+      type: "() => void",
+      default: "",
+      desc: "多行输入框获取焦点时触发的事件",
     },
     {
-      attr: '尺寸',
-      code: 'size',
-      type: 'String',
-      demo: '"small"',
-      default
-: '',
-      desc: '可选值："small", "medium", "large"',
+      code: "onBlur",
+      type: "() => void",
+      default: "",
+      desc: "多行输入框失去焦点触发的事件",
     },
     {
-      attr: '状态',
-      code: 'behavior',
-      type: 'String',
-      demo: '"NORMAL"',
-      default
-: '',
-      desc: '可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
+      code: "onPaste",
+      type: "(e: event) => void",
+      default: "",
+      desc: "多行输入框粘贴时触发的事件",
     },
     {
-      attr: '校验',
-      code: 'validation',
-      type: 'Array',
-      demo: '[{type:"required"}]',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '值发生改变事件',
-      code: 'onChange',
-      type: 'Function',
-      demo: 'function onChange({ value }) {console.log("onChange", value);}',
-      default
-: '',
-      desc: '可选值：{type:"required"}, {type: "customValidate", message: "请选择今日之前的日期", param: "function validateRule(value) { return value <= new Date().getTime(); }"}',
-    },
+      code: "onKeyDown",
+      type: "() => void",
+      default: "",
+      desc: "多行输入框键盘按下时触发的事件",
+    }
   ]}
 />

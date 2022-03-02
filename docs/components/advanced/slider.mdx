@@ -1,9 +1,9 @@
 ---
-title: 轮播图
+title: Slider 轮播图
 order: 6
 ---
 
-# 轮播图
+# Slider 轮播图
 
 轮播组件，就是以幻灯片的方式，在页面中横向展示诸多内容的组件。
 
@@ -15,204 +15,203 @@ order: 6
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/slider-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
   dataSource={[
     {
-      attr: '轮播项',
-      code: 'images',
-      type: 'object',
-      demo: "{src: 'https://test.png', title: 'title'}",
-      default
-: '',
-      desc: '',
+      cdoe:"isDiy",
+      type:"boolean",
+      default:"false",
+      desc:"用于开启自定义模式。"
     },
     {
-      attr: '类型',
-      code: 'type',
-      type: 'String',
-      demo: "'single', 'multi' ",
-      default
-: '',
-      desc: '轮播方式, 单图, 多图',
+      cdoe:"diyContents",
+      type:"array",
+      default:"[]",
+      desc:"用于输入自定义模式数据，仅开启自定义模式时生效。"
     },
     {
-      attr: '图片宽度',
-      code: 'slideImageWidth',
-      type: 'String',
-      demo: "'100%'",
-      default
-: '  ',
-      desc: '',
+      cdoe:"diyContentsRender",
+      type:"object",
+      default:"",
+      desc:"用于渲染自定义模式数据，仅开启自定义模式时生效。"
     },
     {
-      attr: '图片高度',
-      code: 'slideImageHeight',
-      type: 'String',
-      demo: "'300px'",
-      default
-: '',
-      desc: '',
+      code: "images",
+      type: "object",
+      default: `~~~json 
+      [{
+        "src": "https://img.alicdn.com/tps/TB1bewbNVXXXXc5XXXXXXXXXXXX-1000-300.png",
+        "title": {
+          "type": "i18n",
+          "zh_CN": "图片一",
+          "en_US": "Picture one"
+          }
+          },
+          {
+            "src": "https://img.alicdn.com/tps/TB1xuUcNVXXXXcRXXXXXXXXXXXX-1000-300.jpg",
+            "title": {
+              "type": "i18n",
+              "zh_CN": "图片二",
+              "en_US": "Picture two"
+          }
+        },
+        {
+          "src": "https://img.alicdn.com/tps/TB1s1_JNVXXXXbhaXXXXXXXXXXX-1000-300.jpg",
+          "title": {
+              "type": "i18n",
+              "zh_CN": "图片三",
+              "en_US": "Picture three"
+          }
+        },
+        {
+          "src": "https://img.alicdn.com/tps/TB1ikP.NVXXXXaYXpXXXXXXXXXX-1000-300.jpg",
+          "title": {
+            "type": "i18n",
+            "zh_CN": "图片四",
+            "en_US": "Picture four"
+            }
+            }]`,
+      desc: "用于配置轮播项。",
     },
     {
-      attr: '图片间距',
-      code: 'margin',
-      type: 'number',
-      demo: '10',
-      default
-: '',
-      desc: '',
+      code: "type",
+      type: "'single' （单图轮播） | 'multi'（多图轮播）",
+      default: "‘single’",
+      desc: "用于配置轮播方式。",
     },
     {
-      attr: '同时展示的图片数量',
-      code: 'slidesToShow',
-      type: 'number',
-      demo: '2',
-      default
-: '',
-      desc: '',
+      code: "slideImageWidth",
+      type: "String",
+      default: "100%",
+      desc: "用于设置轮播项宽度。",
     },
     {
-      attr: '同时滑动的图片数量',
-      code: 'slidesToScroll',
-      type: 'number',
-      demo: '1',
-      default
-: '',
-      desc: '',
+      code:"slideImageHeightAuto",
+      type:"boolean",
+      default:"false",
+      desc:"用于开启轮播项高度自适应（图片时会保持长宽比）"
     },
     {
-      attr: '居中模式',
-      code: 'centerMode',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '"b" ',
-      desc: '',
+      code: "slideImageHeight",
+      type: "String",
+      default: "300",
+      desc: "用于设置轮播项高度。",
     },
     {
-      attr: '多图轮播时，点击选中后自动居中',
-      code: 'focusOnSelect',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '',
+      code: "margin",
+      type: "number",
+      default: "10",
+      desc: "用于控制轮播项间距。",
     },
     {
-      attr: '轮播方向',
-      code: 'slideDirection',
-      type: 'String',
-      demo: " 'hoz'",
-      default
-: " 'hoz', 'ver'",
-      desc: '',
+      code: "slidesToShow",
+      type: "number",
+      default: "2",
+      desc: "用于控制同时展示的轮播项数量。",
     },
     {
-      attr: '轮播速度',
-      code: 'speed',
-      type: 'number',
-      demo: '500',
-      default
-: '单位: ms ',
-      desc: '',
+      code: "slidesToScroll",
+      type: "number",
+      default: "1",
+      desc: "用于控制同时滑动的轮播项数量。",
     },
     {
-      attr: '动效类型',
-      code: 'animation',
-      type: 'String',
-      demo: "'slide'",
-      default
-: "'slide', 'fade' ",
-      desc: '',
+      code: "centerMode",
+      type: "boolean",
+      default: "'false'",
+      desc: "用于控制是否开启居中模式",
     },
     {
-      attr: '箭头',
-      code: 'arrows',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: '',
+      code: "focusOnSelect",
+      type: "boolean",
+      default: "'false'",
+      desc: "用于多图轮播时，点击选中后自动居中。",
     },
     {
-      attr: '箭头大小',
-      code: 'arrowSize',
-      type: 'String',
-      demo: "'medium' ",
-      default
-: "'medium', 'large'",
-      desc: '',
+      code: "slideDirection",
+      type: "'hoz'（水平方向）|'ver'（垂直方向）",
+      default: "'hoz'",
+      desc: "用于控制轮播方向。",
     },
     {
-      attr: '箭头位置',
-      code: 'arrowPosition',
-      type: 'String',
-      demo: "'inner' ",
-      default
-: " 'inner', 'outer'",
-      desc: '',
+      code: "speed",
+      type: "number",
+      default: "500",
+      desc: "用于控制轮播速度，单位: ms。",
     },
     {
-      attr: '箭头方向',
-      code: 'arrowDirection ',
-      type: 'String',
-      demo: "'hoz' ",
-      default
-: "'hoz', 'ver'",
-      desc: '',
+      code:"lazyLoad",
+      type:"boolean",
+      default:"false",
+      desc:"用于是否开启懒加载模式"
     },
     {
-      attr: '自动播放',
-      code: 'autoplay',
-      type: 'Boolean',
-      demo: 'false ',
-      default
-: '',
-      desc: '',
+      code: "animation",
+      type: "'slide'（左右滑动）|'fade'（渐变）",
+      default: "slide",
+      desc: "用于选择轮播项动效类型。",
     },
     {
-      attr: '自动播放的速度',
-      code: 'autoplaySpeed',
-      type: 'number',
-      demo: '3000 ',
-      default
-: '',
-      desc: '',
+      code: "arrows",
+      type: "boolean",
+      default: "true",
+      desc: "用于控制是否开启轮播项箭头。",
     },
     {
-      attr: '导航锚点',
-      code: 'dots',
-      type: 'Boolean',
-      demo: 'true ',
-      default
-: '',
-      desc: '',
+      code: "arrowSize",
+      type: "'medium'（正常尺寸）|'large'（大号尺寸）",
+      default: "'medium'",
+      desc: "用于控制箭头大小。",
     },
     {
-      attr: '导航锚点位置',
-      code: 'dotsDirection',
-      type: 'String',
-      demo: "'hoz' ",
-      default
-: '',
-      desc: '',
+      code: "arrowPosition",
+      type: " 'inner'（内）|'outer'（外）",
+      default: "'inner'",
+      desc: "用于控制箭头位置。",
     },
     {
-      attr: '锚点导航触发方式',
-      code: 'triggerType',
-      type: 'String',
-      demo: "'click' ",
-      default
-: "'click', 'hover'",
-      desc: '',
+      code: "arrowDirection ",
+      type: "'hoz'（水平方向）|'ver'（垂直方向）",
+      default: "'hoz'",
+      desc: "用于控制箭头方向。",
+    },
+    {
+      code: "autoplay",
+      type: "boolean",
+      default: "false",
+      desc: "用于选择是否自动播放轮播项。",
+    },
+    {
+      code: "autoplaySpeed",
+      type: "number",
+      default: "3000",
+      desc: "用于设置轮播项自动播放速度，单位：ms。",
+    },
+    {
+      code: "dots",
+      type: "Boolean",
+      default: "true",
+      desc: "用于选择是否开启导航锚点。",
+    },
+    {
+      code: "dotsDirection",
+      type: "'hoz'（水平）|'ver'（垂直）",
+      default: "hoz",
+      desc: "用于设置导航锚点位置。",
+    },
+    {
+      code: "triggerType",
+      type: "'click'（点击触发）|'hover'（鼠标划入触发）",
+      default: "'click'",
+      desc: "用于选择锚点导航触发方式。",
     },
   ]}
 />
