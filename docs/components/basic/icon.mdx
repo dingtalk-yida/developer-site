@@ -1,9 +1,9 @@
 ---
-title: 图标
+title: Icon 图标
 order: 1
 ---
 
-# 图标
+# Icon 图标
 
 图标展示，用户可以使用宜搭内置的图标，并设置其尺寸。
 
@@ -13,33 +13,27 @@ order: 1
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/icon-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
-  dataSource={[
+dataSource={[
     {
-      attr: '图标',
-      code: 'src',
-      type: 'String',
-      demo: '"smile"',
-      default
-: '',
-      desc: '',
+      code: "type",
+      type: ` 'smile' `,
+      default: ` 'smile' `,
+      desc: "基础图标",
     },
     {
-      attr: '大小',
-      code: 'size',
-      type: 'String',
-      demo: '"medium"',
-      default
-: '',
-      desc: '从小到大依次为: `xxs` , `xs` , `small` , `medium` , `large` , `xl` , `xxl` , `xxxl`',
+      code: "size",
+      type: `'xxs' | 'xs' | 'small' | 'medium' | 'large' | 'xl' |'xxl' | 'xxl'`,
+      default: ` 'medium' `,
+      desc: "图标大小",
     },
-  ]}
+]}
 />

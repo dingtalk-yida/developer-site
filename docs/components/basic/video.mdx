@@ -1,9 +1,9 @@
 ---
-title: 视频播放
+title: Video 视频播放
 order: 9
 ---
 
-# 视频播放
+# Video 视频播放
 
 视频控件，用于播放 mp4、mov 等 HTML 原生支持的视频资源。
 
@@ -39,94 +39,136 @@ import AttrTable from 'components/AttrTable';
 <AttrTable
   dataSource={[
     {
-      attr: '视频地址',
-      code: 'url',
-      type: 'String',
-      demo: '/video-url',
-      default
-: '',
-      desc: '支持国际化',
+      code: "url",
+      type: `'https://cloud.video.taobao.com/play/u/1804320196/p/1/e/6/t/1/287344840104.mp4'`,
+      default: ` 'https://cloud.video.taobao.com/play/u/1804320196/p/1/e/6/t/1/287344840104.mp4' `,
+      desc: "视频地址",
     },
     {
-      attr: '原生标题',
-      code: 'title',
-      type: 'String',
-      demo: '"培训教材"',
-      default
-: '',
-      desc: '设置标题名称',
+      code: "poster",
+      type: "string",
+      default: "-",
+      desc: "上传封面",
     },
     {
-      attr: '上传封面',
-      code: 'poster',
-      type: 'String',
-      demo: '/image-url',
-      default
-: '',
-      desc: '',
+      code: "sizeFit",
+      type: `'contain' | 'fill' | 'cover' | 'scale-dowm' | 'none'`
+      default: ` 'contain' `,
+      desc: "画面适配模式",
     },
     {
-      attr: '画面适配模式',
-      code: 'sizeFit',
-      type: 'String',
-      demo: '"contain"',
-      default
-: '',
-      desc: '可选项:"contain","fill","cover","scale-down","none"',
+      code: "controls",
+      type: "boolean",
+      default: "true",
+      desc: "控制条",
     },
     {
-      attr: '控制条',
-      code: 'controls',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: '可选项:true,false',
+      code: "controlsList",
+      type: `'nodownload' | 'nofullscreen' | 'noremoteplayback' | 'disablePictureInPicture'`,
+      default: "-",
+      desc: "定制原生控制条",
     },
     {
-      attr: '倍数播放',
-      code: 'playbackRateControls',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选项:true,false',
+      code: "playbackRateControls",
+      type: "boolean",
+      default: "false",
+      desc: "倍数播放",
     },
     {
-      attr: '是否静音',
-      code: 'muted',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选项:true,false',
+      code: "playbackRate",
+      type: "array",
+      default: `~~~json
+      [
+        0.8,
+        1,
+        1.5,
+        2
+      ]`,
+      desc: "倍数列表",
     },
     {
-      attr: '自动播放',
-      code: 'autoplay',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选项:true,false',
+      code: "muted",
+      type: 'boolean',
+      default: "false",
+      desc: "是否静音",
     },
     {
-      attr: '循环播放',
-      code: 'loop',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选项:true,false',
+      code: "volumeControls",
+      type: 'boolean',
+      default: "true",
+      desc: "声音控件",
     },
     {
-      attr: '画中画',
-      code: 'pipControls',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选项:true,false',
+      code: "volume",
+      type: 'number',
+      default: "1",
+      desc: "音量大小",
+    },
+    {
+      code: "autoplay",
+      type: 'boolean',
+      default: "false",
+      desc: "自动播放",
+    },
+    {
+      code: "loop",
+      type: 'boolean',
+      default: "false",
+      desc: "循环播放",
+    },
+    {
+      code: "pipControls",
+      type: 'boolean',
+      default: "false",
+      desc: "画中画",
+    },
+    {
+      code: "onPlay",
+      type: '(ctx, video, ev) => void',
+      default: "-",
+      desc: "当开始播放时",
+    },
+    {
+      code: "onPause",
+      type: '(ctx, video, ev) => void',
+      default: "-",
+      desc: "当视频暂停时",
+    },
+    {
+      code: "onEnded",
+      type: '(ctx, video, ev) => void',
+      default: "-",
+      desc: "当视频播放结束时",
+    },
+    {
+      code: "onEnterFullscreen",
+      type: '(ctx, video, ev) => void',
+      default: "-",
+      desc: "当全屏时",
+    },
+    {
+      code: "onExitFullscreen",
+      type: '(ctx, video, ev) => void',
+      default: "-",
+      desc: "当退出全屏时",
+    },
+    {
+      code: "onError",
+      type: '(ctx, video, ev) => void',
+      default: "-",
+      desc: "当播放出错时",
+    },
+    {
+      code: "timeUpdate",
+      type: '(ctx, video, ev) => void',
+      default: "-",
+      desc: "当播放时间更新时",
+    },
+    {
+      code: "canPlayThrough",
+      type: '(ctx, video, ev) => void',
+      default: "-",
+      desc: "当加载完成可以播放时",
     },
   ]}
 />

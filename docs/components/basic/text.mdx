@@ -1,9 +1,9 @@
 ---
-title: 文本
+title: Text 文本
 order: 3
 ---
 
-# 文本
+# Text 文本
 
 文本展示。
 
@@ -13,51 +13,45 @@ order: 3
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/text-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
   dataSource={[
     {
-      attr: '内容',
-      code: 'content',
-      type: 'String',
-      demo: '"标题"',
-      default
-: '',
-      desc: '支持国际化',
+      code: "content",
+      type: "string",
+      default: `'文本'`,
+      desc: "请输入内容",
     },
     {
-      attr: '是否显示 HTML 形式的标题',
-      code: 'showTitle',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '将内容显示为 html 标签的 title。可选择值：false，true',
+      code: "showTitle",
+      type: "boolean",
+      default: "false",
+      desc: "将内容显示为 html 标签的 title。",
     },
     {
-      attr: '默认状态',
-      code: 'behavior',
-      type: 'String',
-      demo: '"NORMAL"',
-      default
-: '',
-      desc: '可选值：NORMAL,HIDDEN',
+      code: "maxLine",
+      type: "string",
+      default: `'0'`,
+      desc: "最大行数,超出时自动省略号显示",
+    },
+     {
+      code: "Mobile端设置",
+      type: `'0||16'`,
+      default: `'0'`,
+      desc: "左右间距",
     },
     {
-      attr: '点击事件',
-      code: 'onClick',
-      type: 'Function',
-      demo: 'function onClick(value){console.log(value);}',
-      default
-: '',
-      desc: '点击文本时触发回调',
+      code: "onClick",
+      type: "(event: Object) => void",
+      default: '-',
+      desc: "点击文本时触发事件",
     },
   ]}
 />

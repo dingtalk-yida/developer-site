@@ -1,9 +1,9 @@
 ---
-title: 明细
+title: TableField 明细
 order: 16
 ---
 
-# 明细
+# TableField 明细
 
 ## 何时使用
 
@@ -20,177 +20,245 @@ import Iframe from 'components/Iframe';
 import AttrTable from 'components/AttrTable';
 
 <AttrTable
+  category="form"
   dataSource={[
     {
-      attr: '标题',
-      code: 'label',
-      type: 'String',
-      demo: '"标题"',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '显示标题',
-      code: 'showLabel',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '默认值',
       code: 'value',
-      type: 'Array',
-      demo: '[{"fieldId1": "123", "fieldId2": "456"}, {"fieldId1": "abc", "fieldId2": "def"}] ',
-      default
-: '',
-      desc: '',
+      type: 'array',
+      default: [],
+      desc: '明细组件默认值',
     },
     {
-      attr: '排列方式',
-      code: 'representation',
-      type: 'String',
-      demo: '"TILED"',
-      default
-: '',
-      desc: '可选值："TILED", "TABLE"',
-    },
-    {
-      attr: '展现方式',
       code: 'layout',
-      type: 'String',
-      demo: '"VERTICAL"',
-      default
-: '',
-      desc: '可选值："VERTICAL", "HORIZONTAL"',
+      type: `'TILED' | 'TABLE'`,
+      default: `'TABLE'`,
+      desc: '排列方式（表格方式只在 PC 模式下有效）',
     },
     {
-      attr: '主题',
       code: 'theme',
-      type: 'String',
-      demo: '"split"',
-      default
-: '',
-      desc: '只在 PC 表格模式下有效，可选值："zebra", "split", "border"',
+      type: `'zebra' | 'split' | 'border'`,
+      default: `'split'`,
+      desc: '主题（只在 PC 表格方式下有效）',
     },
     {
-      attr: '显示序号',
-      code: 'showIndex',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: '只在 PC 表格模式下有效 ',
-    },
-    {
-      attr: '显示表头',
       code: 'showTableHead',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: '只在 PC 表格模式下有效',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否显示表头（只在 PC 表格方式下有效）',
     },
     {
-      attr: '新增按钮名称',
-      code: 'addButtonText',
-      type: 'String',
-      demo: '"新增一项"',
-      default
-: '',
-      desc: '',
+      code: 'showIndex',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否显示序号',
     },
     {
-      attr: '删除按钮名称',
+      code: 'indexName',
+      type: 'string',
+      default: {
+        "zh_CN": "项目",
+        "en_US": "Line",
+        "type": "i18n"
+      },
+      desc: '序号名称',
+    },
+    {
+      code: 'pcFreezeColumnStartCounts',
+      type: `'0' | '1' | '2' | '3'`,
+      default: '0',
+      desc: '左侧列冻结',
+    },
+    {
+      code: 'isFreezeOperateColumn',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否冻结操作列',
+    },
+    {
+      code: 'showActions',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否显示操作列',
+    },
+    {
+      code: 'showCopyAction',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否显示复制按钮',
+    },
+    {
+      code: 'copyButtonText',
+      type: 'string',
+      default: {
+        "zh_CN": "复制",
+        "en_US": "Copy",
+        "type": "i18n"
+      },
+      desc: '复制按钮名称',
+    },
+    {
+      code: 'showDelAction',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否显示删除按钮',
+    },
+    {
       code: 'delButtonText',
-      type: 'String',
-      demo: '"删除"',
-      default
-: '',
-      desc: '',
+      type: 'string',
+      default: {
+        "zh_CN": "删除",
+        "en_US": "Remove",
+        "type": "i18n"
+      },
+      desc: '删除按钮名称',
     },
     {
-      attr: '状态',
-      code: 'behavior',
-      type: 'String',
-      demo: '"NORMAL"',
-      default
-: '',
-      desc: '可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
+      code: 'showDeleteConfirm',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否开启删除确认',
     },
     {
-      attr: '最大宽度',
-      code: 'style',
-      type: 'Object',
-      demo: '{ maxWidth:"100%" } ',
-      default
-: '',
-      desc: '仅 PC 端支持',
+      code: 'showSortable',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否显示排序（只在 PC 表格方式下有效）',
     },
     {
-      attr: '最大条数',
+      code: 'moveUp',
+      type: 'string',
+      default: {
+        "zh_CN": "上移",
+        "en_US": "Up",
+        "type": "i18n"
+      },
+      desc: '上移按钮名称',
+    },
+    {
+      code: 'moveDown',
+      type: 'string',
+      default: {
+        "zh_CN": "下移",
+        "en_US": "Down",
+        "type": "i18n"
+      },
+      desc: '下移按钮名称',
+    },
+    {
+      code: 'content',
+      type: 'string',
+      default: {
+        "zh_CN": "操作",
+        "en_US": "action",
+        "type": "i18n"
+      },
+      desc: '自定义操作项名称',
+    },
+    {
+      code: 'callback',
+      type: '({ index : number , groupId : string , itemValue : object , actionKey : object }) => void',
+      default: '-',
+      desc: '自定义操作项回调函数',
+    },
+    {
+      code: 'render',
+      type: '({ index : number , groupId : string , itemValue : object , actionKey : object }) => void',
+      default: '-',
+      desc: '自定义操作项定制渲染',
+    },
+    {
+      code: 'addButtonText',
+      type: 'string',
+      default: {
+        "zh_CN": "新增一项",
+        "en_US": "Add item",
+        "type": "i18n"
+      },
+      desc: '按钮名称',
+    },
+    {
+      code: 'addButtonBehavior',
+      type: `'NORMAL' | 'DISABLED' | 'HIDDEN'`,
+      default: 'NORMAL',
+      desc: '新增按钮的可操作状态',
+    },
+    {
+      code: 'pageSize',
+      type: `'10' | '20' | '30'`,
+      default: '20',
+      desc: '分页条数',
+    },
+    {
       code: 'maxItems',
-      type: 'Number',
-      demo: '50',
-      default
-: '50',
-      desc: '最大条数为：500',
+      type: 'number',
+      default: '50',
+      desc: '最大条数，最大 500 条',
     },
     {
-      attr: '最小条数',
-      code: 'listMinNum',
-      type: 'Number',
-      demo: '1',
-      default
-: '',
-      desc: '',
+      code: 'actionsColumnWidth',
+      type: 'number',
+      default: '70',
+      desc: '操作列宽度，单位px',
     },
     {
-      attr: '额外按钮',
-      code: 'importButton',
-      type: 'String',
-      demo: '"其他按钮"',
-      default
-: '',
-      desc: '',
+      code: 'useCustomColumnsWidth',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否自定义其它列',
     },
     {
-      attr: '点击添加事件',
-      code: 'onAddClick',
-      type: 'Function',
-      demo: 'function(ctx) {} ',
-      default
-: '',
-      desc: '',
+      code: 'columnsWidth',
+      type: 'number',
+      default: '-',
+      desc: '字段列宽',
     },
     {
-      attr: '点击删除事件',
-      code: 'onDelClick',
-      type: 'Function',
-      demo: 'function(ctx) {} ',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '点击自定义按钮事件',
-      code: 'onClick',
-      type: 'Function',
-      demo: 'function(ctx) {}',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '值发生改变事件',
       code: 'onChange',
-      type: 'Function',
-      demo: 'function({ values, extra }) {}',
-      default
-: '',
-      desc: "'extra 结构：{ from: '动作来源，如 add_item / del_item', formGroupId: '表单分组 ID', changes: { name: '字段名称', value: '字段值' } }'",
+      type: '({ value : object , extra: object }) => void',
+      default: '-',
+      desc: 'onChange 子表单值变化',
+    },
+    {
+      code: 'beforeAddClick',
+      type: '() => void',
+      default: '-',
+      desc: 'beforeAddClick 添加回调执行前',
+    },
+    {
+      code: 'onAddClick',
+      type: '( newGroupId : string ) => void',
+      default: '-',
+      desc: 'onAddClick 点击添加',
+    },
+    {
+      code: 'beforeCopyClick',
+      type: '( sourceGroupId : string , sourceItem : object ) => void',
+      default: '-',
+      desc: 'beforeCopyClick 复制回调执行前',
+    },
+    {
+      code: 'onCopyClick',
+      type: '( newGroupId : string , copiedItem : object ) => void',
+      default: '-',
+      desc: 'onCopyClick 点击复制',
+    },
+    {
+      code: 'beforeDelClick',
+      type: '( groupId : string , item : object ) => void',
+      default: '-',
+      desc: 'beforeDelClick 删除回调执行前',
+    },
+    {
+      code: 'onDelClick',
+      type: '( newGroupId : string , copiedItem : object ) => void',
+      default: '-',
+      desc: 'onDelClick 点击删除',
+    },
+    {
+      code: 'beforeImportData',
+      type: '( data : array ) => void',
+      default: '-',
+      desc: 'beforeImportData 批量导入数据前执行',
     },
   ]}
 />
