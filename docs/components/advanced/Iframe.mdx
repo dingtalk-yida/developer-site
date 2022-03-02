@@ -23,38 +23,33 @@ import AttrTable from 'components/AttrTable';
 <AttrTable
   dataSource={[
     {
-      attr: '标题',
       code: 'title',
-      type: 'String',
-      demo: '"标题"',
-      desc: '',
+      type: 'string',
+      default: ''iFrame 组件'',
+      desc: '设置 iFrame 组件的标题',
     },
     {
-      attr: 'Iframe地址',
       code: 'src',
-      type: 'String',
-      demo: '"https://www.aliwork.com/"',
-      desc: '用来填写Iframe组件所展示的网页地址链接',
+      type: 'string',
+      default: ''https://www.aliwork.com/'',
+      desc: '填写Iframe组件所展示的网页地址链接',
     },
     {
-      attr: '高度自适应',
       code: 'autoFit',
-      type: 'Boolean',
-      demo: 'false',
+      type: 'boolean',
+      default: 'false',
       desc: '自动调整高度，高度值=窗口高度-顶部留空高度-额外内容区高度',
     },
     {
-      attr: '额外内容区高度',
       code: 'extraHeight',
-      type: 'Number',
-      demo: '0',
-      desc: '用来调整Iframe组件内容区的高度',
+      type: 'number',
+      default: '0',
+      desc: '调整Iframe组件内容区的高度',
     },
     {
-      attr: '顶部空白高度',
       code: 'offsetTop',
-      type: 'Number',
-      demo: '0',
+      type: 'number',
+      default: '0',
       desc: '启动了自适应高度后才生效，确定顶部留下的空白区域的高度',
     }
   ]}
