@@ -1,9 +1,9 @@
 ---
-title: 气泡提示
+title: Balloon 气泡提示
 order: 7
 ---
 
-# 气泡提示
+# Balloon 气泡提示
 
 ## 何时使用
 
@@ -11,141 +11,105 @@ order: 7
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/balloon-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
   dataSource={[
     {
-      attr: '气泡类型',
-      code: 'TYPE',
-      type: 'String',
-      demo: '"balloon"',
-      default
-: 'balloon',
-      desc: '可选值：balloon,tooltip 其中，气泡类型选择为tooltip时用于直接展示文字。',
+      code: "TYPE",
+      type: "'balloon'|'tooltip'",
+      default: "'balloon'",
+      desc: "用于设置气泡类型，当气泡类型选择为 tooltip 时直接展示文字。",
     },
     {
-      attr: '样式类型',
-      code: 'type',
-      type: 'String',
-      demo: '"normal"',
-      default
-: 'normal',
-      desc: '可选值：normal,primary',
+      code: "type",
+      type: "'normal'|'primary'",
+      default: "'normal'",
+      desc: "用于设置气泡的样式类型",
     },
     {
-      attr: '弹窗内容',
-      code: 'content',
-      type: 'String',
-      demo: '提示内容',
-      default
-: '',
-      desc: '用于配置气泡组件显示内容',
+      code: "content",
+      type: "object",
+      default: `~~~json
+      {
+      "zh_CN": "提示内容",
+      "en_US": "content",
+      "type": "i18n"
+      }`,
+      desc: "用于配置气泡组件显示内容",
     },
     {
-      attr: '触发行为',
-      code: 'triggerType',
-      type: 'String',
-      demo: '"hover"',
-      default
-: 'click',
-      desc: '可选值：hover,click,focus 用于控制气泡组件的触发条件。',
+      code: "triggerType",
+      type: "'hover'|'click'|'focus'",
+      default: "'click'",
+      desc: "用于控制气泡组件的触发条件。",
     },
     {
-      attr: '关闭按钮',
-      code: 'closable',
-      type: 'String',
-      demo: '',
-      default
-: 'true',
-      desc: '可选值：true,false 用于控制是否显示关闭按钮。',
+      code: "closable",
+      type: "boolean",
+      default: "'true'",
+      desc: "用于控制是否显示关闭按钮。",
     },
     {
-      attr: '默认显示',
-      code: 'defaultVisible',
-      type: 'String',
-      demo: '',
-      default
-: 'false',
-      desc: '可选值：true,false 用于控制组件初始化时是否为显示状态。',
+      code: "defaultVisible",
+      type: "boolean",
+      default: "'false'",
+      desc: "用于控制组件初始化时是否为显示状态。",
     },
     {
-      attr: '延时显示',
-      code: 'delay',
-      type: 'String',
-      demo: '1',
-      default
-: '0',
-      desc: '仅触发行为为hover时生效，单位为ms，用于控制鼠标悬浮在组件上(hover)时气泡显示的延迟时间。',
+      code: "delay",
+      type: "string",
+      default: "0",
+      desc: "用于控制鼠标悬浮在组件上 hover 时气泡显示的延迟时间,仅触发行为为hover时生效，单位为ms。",
     },
     {
-      attr: '弹出方向',
-      code: 'align',
-      type: 'String',
-      demo: '"t"',
-      default
-: '"b"',
-      desc: '可选值：t,b,l,r,tl,tr,bl,br,lt,lb,rt,rb 用于控制气泡提示相对于触发组件的显示位置。',
+      code: "align",
+      type: "'t' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br' | 'lt' | 'lb' | 'rt' | 'rb' ",
+      default: "'b'",
+      desc: "用于控制气泡弹出层的显示位置。",
     },
     {
-      attr: '占据空间',
-      code: 'display',
-      type: 'String',
-      demo: '"block"',
-      default
-: '"300px"',
-      desc: '可选值：inline-block,block 用于配置触发元素所占空间。',
+      code: "display",
+      type: "'inline-block' | 'block'",
+      default: "'inline-block'",
+      desc: "用于配置触发元素所占空间。 ",
     },
     {
-      attr: '最大宽度',
-      code: 'overlayMaxWidth',
-      type: 'String',
-      demo: '300px',
-      default
-: '300px',
-      desc: '可选值：Number,Inltlal 其中Inltlal表示无限制，用于控制浮层最大宽度。',
+      code: "overlayMaxWidth",
+      type: "string",
+      default: "'300px'",
+      desc: "用于控制浮层最大宽度,Inltlal表示无限制。",
     },
     {
-      attr: '显示弹层',
-      code: 'balloonOverlayVisible',
-      type: 'String',
-      demo: '',
-      default
-: 'true',
-      desc: '可选值：true,false 仅用于控制设计器中是否显示弹层。',
+      code: "balloonOverlayVisible",
+      type: "boolean",
+      default: "'true'",
+      desc: "用于控制设计器中是否显示弹层,该配置项只在设计器中有效.",
     },
     {
-      attr: '当弹层关闭时触发',
-      code: 'onClose',
-      type: 'Function',
-      demo: 'function(){console.log("确定");}',
-      default
-: '',
-      desc: 'Balloon 浮层关闭时触发的事件。',
+      code: "onClose",
+      type: "Function() => void",
+      default: "-",
+      desc: "Balloon 浮层关闭时触发的事件。",
     },
     {
-      attr: '浮层关闭后触发的事件',
-      code: 'afterClose',
-      type: 'Function',
-      demo: 'function(ctx){ console.log("取消");}',
-      default
-: '',
-      desc: 'Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发。',
+      code: "afterClose",
+      type: "Function() => void",
+      default: "-",
+      desc: "Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发。",
     },
     {
-      attr: '可见状态变化事件',
-      code: 'onVisibleChange',
-      type: 'Function',
-      demo: 'function(visible){ console.log("visible");}',
-      default
-: '',
-      desc: 'Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发。',
+      code: "onVisibleChange",
+      type: "Function() => void",
+      default: "-",
+      desc: "Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发。",
     },
+   
   ]}
 />
