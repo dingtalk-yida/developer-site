@@ -36,17 +36,12 @@ import AttrTable from "components/AttrTable";
     {
       code: "content",
       type: "string",
-      default: `~~~json
-      {
-      "zh_CN": "提示内容",
-      "en_US": "content",
-      "type": "i18n"
-      }`,
+      default: "提示内容",
       desc: "用于配置气泡组件显示内容",
     },
     {
       code: "triggerType",
-      type: " 'hover' | 'click' | 'focus' ",
+      type: "'hover' | 'click' | 'focus'",
       default: "'click'",
       desc: "用于控制气泡组件的触发条件",
     },
@@ -70,7 +65,7 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "align",
-      type: " 't' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br' | 'lt' | 'lb' | 'rt' | 'rb' ",
+      type: "'t' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br' | 'lt' | 'lb' | 'rt' | 'rb'",
       default: "'b'",
       desc: "用于控制气泡弹出层的显示位置",
     },
