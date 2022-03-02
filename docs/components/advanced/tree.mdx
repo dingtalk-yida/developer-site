@@ -1,9 +1,9 @@
 ---
-title: 树形控件
+title: Tree 树形控件
 order: 10
 ---
 
-# 树形控件
+# Tree 树形控件
 
 ## 何时使用
 
@@ -11,267 +11,233 @@ order: 10
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/tree-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
   dataSource={[
     {
-      attr: '数据',
-      code: 'dataSource',
-      type: 'Array',
-      demo: '[{"key":"0-0", "label":"0-0", "children":[{"key":"0-0-0", "label":"0-0-0", "children":[{"key":"0-0-0-0", "label":"0-0-0-0", "children":[{"key":"0-0-0-0-0", "label":"0-0-0-0-0"}]}, {"key":"0-0-0-1", "label":"0-0-0-1"}]}, {"key":"0-0-1", "label":"0-0-1", "children":[{"key":"0-0-1-0", "label":"0-0-1-0"}, {"key":"0-0-1-1", "label":"0-0-1-1"}]}]}]',
-      default
-: '',
-      desc: 'JSON 数组',
+      code: "dataSource",
+      type: "array",
+      default: `~~~json
+[
+  {
+    key: "0-0",
+    label: "0-0",
+    children: [
+      {
+        key: "0-0-0",
+        label: "0-0-0",
+        children: [
+          {
+            key: "0-0-0-0",
+            label: "0-0-0-0",
+            children: [
+              {
+                key: "0-0-0-0-0",
+                label: "0-0-0-0-0",
+              },
+            ],
+          },
+          {
+            key: "0-0-0-1",
+            label: "0-0-0-1",
+          },
+        ],
+      },
+      {
+        key: "0-0-1",
+        label: "0-0-1",
+        children: [
+          {
+            key: "0-0-1-0",
+            label: "0-0-1-0",
+          },
+          {
+            key: "0-0-1-1",
+            label: "0-0-1-1",
+          },
+        ],
+      },
+    ],
+  },
+]
+    `,
+      desc:"数据" ,
     },
     {
-      attr: '显示线',
-      code: 'showLine',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值：true,false',
+      code: "processDataSource",
+      type: "(data: object) => void",
+      default: "-",
+      desc: "数据预处理"，
+
     },
     {
-      attr: '多选',
-      code: 'multiple',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值：true,false',
+      code: "showLine",
+      type: "boolean",
+      default: "false",
+      desc: "显示线",
     },
     {
-      attr: '支持编辑',
-      code: 'editable',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值：true,false',
+      code: "multiple",
+      type: "boolean",
+      default: false
+      desc: "多选",
     },
     {
-      attr: '支持拖拽',
-      code: 'draggable',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值：true,false',
+      code: "editable",
+      type: "boolean",
+      default: "false",
+      desc: "支持编辑",
     },
     {
-      attr: '默认展开',
-      code: 'defaultExpandAll',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值：true,false',
+      code: "draggable",
+      type: "boolean",
+      default: "false",
+      desc: "支持拖拽",
     },
     {
-      attr: '默认展开节点数组',
-      code: 'defaultExpandedKeys',
-      type: 'Array',
-      demo: '[] ',
-      default
-: '',
-      desc: '',
+      code: "defaultExpandAll",
+      type: "boolean",
+      default: "false",
+      desc: "默认展开所有节点",
     },
     {
-      attr: '支持选中',
-      code: 'selectable',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: ' ',
-      desc: '可选值：true,false',
+      code: "defaultExpandedKeys",
+      type: "array",
+      default: "["0-0-0"]",
+      desc: "默认展开的节点",
     },
     {
-      attr: '默认选中节点',
-      code: 'checkedKeys',
-      type: 'Array',
-      demo: '["0-0-0"]',
-      default
-: '',
-      desc: '',
+      code: "selectable",
+      type: "boolean",
+      default: "true",
+      desc: "支持选中",
     },
     {
-      attr: '复选框',
-      code: 'checkable',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值：true,false',
+      code: "checkedKeys",
+      type: "array",
+      default: "["0-0-0"]",
+      desc: "默认选中节点",
     },
     {
-      attr: '默认勾选节点',
-      code: 'checkedKeys',
-      type: 'Array',
-      demo: '["0-0-0"]',
-      default
-: '',
-      desc: '',
+      code: "checkable",
+      type: "boolean",
+      default: "false",
+      desc: "复选框",
     },
     {
-      attr: '复选框完全受控',
-      code: 'checkStrictly',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值：true,false',
+      code: "checkedKeys",
+      type: "array",
+      default: "["0-0-0"]",
+      desc: "默认勾选节点",
     },
     {
-      attr: '定义选中时回填的方式',
-      code: 'checkStrictly',
-      type: 'String',
-      demo: "'parent' ",
-      default
-: '',
-      desc: '',
+      code: "checkStrictly",
+      type: "boolean",
+      default: false
+      desc: "复选框完全受控",
     },
     {
-      attr: '开启异步加载',
-      code: 'isLoadData',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值：true,false',
+      code: "checkStrictly",
+      type: `'all' | 'parent' | 'child' `,
+      default:` 'parent `,
+      desc: "定义选中时回填的方式",
     },
     {
-      attr: 'loadData 函数 ',
-      code: 'loadData',
-      type: 'Function',
-      demo: 'function loadData(data){ return new Promise((resolve) => { resolve(); })} ',
-      default
-: '',
-      desc: '',
+      code: "isLoadData",
+      type: "boolean",
+      default: "false",
+      desc: "是否开启异步加载",
     },
     {
-      attr: '节点是否占满剩余空间',
-      code: 'isLabelBlock',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值：true,false',
+      code: "loadData",
+      type: "(data: object) => void",
+      default: "-",
+      desc: "异步加载时触发的事件",
     },
     {
-      attr: '节点是否占满一行',
-      code: 'isNodeBlock',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值：true,false',
+      code: "isLabelBlock",
+      type: "boolean",
+      default: "false",
+      desc: "节点是否占满剩余空间",
     },
     {
-      attr: '选中或取消选中节点时',
-      code: 'onSelect',
-      type: 'Function',
-      demo: "function(ctx, selectedKeys, extra) { console.log('选中或取消选中节点时'); }",
-      default
-: '',
-      desc: '',
+      code: "isNodeBlock",
+      type: "boolean",
+      default: "false",
+      desc: "节点是否占满一行",
     },
     {
-      attr: '勾选或取消勾选复选框时',
-      code: 'onCheck',
-      type: 'Function',
-      demo: "function(ctx, checkedKeys, extra) { console.log('勾选或取消勾选复选框时'); } ",
-      default
-: '',
-      desc: '',
+      code: "onSelect",
+      type: "(selectedKeys: array, extra: object) => void",
+      default: "-",
+      desc: "选中或取消选中节点时触发的事件",
     },
     {
-      attr: '展开收起节点时',
-      code: 'onExpand',
-      type: 'Function',
-      demo: "function(ctx, expandedKeys, extra) { console.log('展开收起节点时'); }",
-      default
-: '',
-      desc: '',
+      code: "onCheck",
+      type: "(checkedKeys: srray, extra: object) => void",
+      default: "-",
+      desc: "勾选或取消勾选复选框时触发的事件",
     },
     {
-      attr: '编辑节点内容完成时',
-      code: 'onEditFinish',
-      type: 'Function',
-      demo: "function(ctx, key, label, node) { console.log('编辑节点内容完成时'); }",
-      default
-: '',
-      desc: '',
+      code: "onExpand",
+      type: "(expandedKeys: array, extra: object) => void",
+      default: "-",
+      desc: "展开收起节点时触发的事件",
     },
     {
-      attr: '开始拖拽节点时',
-      code: 'onDragStart',
-      type: 'Function',
-      demo: "function(ctx, info) { console.log('开始拖拽节点时'); } ",
-      default
-: '',
-      desc: '',
+      code: "onEditFinish",
+      type: "(key: string, label: string, node: object) => void",
+      default: "-",
+      desc: "编辑节点内容完成时触发的事件",
     },
     {
-      attr: '拖拽节点进入目标时',
-      code: 'onDragEnter',
-      type: 'Function',
-      demo: "function(ctx, info) { console.log('拖拽节点进入目标时'); } ",
-      default
-: '',
-      desc: '',
+      code: "onDragStart",
+      type: "(info: object) => void",
+      default: "-",
+      desc: "开始拖拽节点时触发的事件",
     },
     {
-      attr: '拖拽节点在目标节点上移动时',
-      code: 'onDragOver',
-      type: 'Function',
-      demo: "function(ctx, info) { console.log('拖拽节点在目标节点上移动时'); } ",
-      default
-: '',
-      desc: '',
+      code: "onDragEnter",
+      type: "(info: object) => void",
+      default: "-",
+      desc: "拖拽节点进入目标时触发的事件",
     },
     {
-      attr: '拖拽节点离开目标节点时',
-      code: 'onDragLeave',
-      type: 'Function',
-      demo: "function(ctx, info) { console.log('拖拽节点离开目标节点时'); } ",
-      default
-: '',
-      desc: '',
+      code: "onDragOver",
+      type: "(info: object) => void",
+      default: "-",
+      desc: "拖拽节点在目标节点上移动时触发的事件",
     },
     {
-      attr: '拖拽结束时',
-      code: 'onDragEnd',
-      type: 'Function',
-      demo: "function(ctx, info) { console.log('拖拽结束时'); } ",
-      default
-: '',
-      desc: '',
+      code: "onDragLeave",
+      type: "(info: object) => void",
+      default: "-",
+      desc: 拖拽节点离开目标节点时触发的事件
     },
     {
-      attr: '拖拽节点放入目标节点内或前后时',
-      code: 'onDrop',
-      type: 'Function',
-      demo: "function(ctx, info) { console.log('拖拽节点放入目标节点内或前后时'); }  ",
-      default
-: '',
-      desc: '',
+      code: "onDragEnd",
+      type: "(info: object) => void",
+      default: "-",
+      desc: "拖拽结束时触发的事件",
     },
     {
-      attr: '节点是否可被作为目标节点',
-      code: 'canDrop',
-      type: 'Function',
-      demo: "function(ctx, info) { console.log('节点是否可被作为目标节点'); }",
-      default
-: '',
-      desc: '',
+      code: "onDrop",
+      type: "(info: object) => void",
+      default: "-",
+      desc: "	拖拽节点放入目标节点内或前后触发的事件",
+    },
+    {
+      code: "canDrop",
+      type: "(info: object) => boolean",
+      default: "-",
+      desc: "节点是否可被作为目标节点时触发的事件",
     },
   ]}
 />
