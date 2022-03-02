@@ -1,133 +1,150 @@
 ---
-title: 菜单
+title: Menu 菜单
 order: 11
 ---
 
-# 菜单
-
+# Menu 菜单
 
 ## 何时使用
-* 导航菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。
+
+- 导航菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。
+
 ## 组件示例
-import Iframe from 'components/Iframe'
+
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/menu-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
   dataSource={[
     {
-      attr: '点击菜单项',
+      code:'dataSource',
+      type:'object',
+      default: `~~~json
+{
+    "defaultOpenKeys": [
+        "key1"
+    ],
+    "defaultSelectedKeys": [
+        "key1-1"
+    ],
+    "menu": [
+        {
+            "label": "菜单项一",
+            "key": "key1",
+            "children": [
+                {
+                    "label": "选项一",
+                    "key": "key1-1",
+                    "tag": {
+                        "text": "初始化",
+                        "color": "blue"
+                    }
+                },
+                {
+                    "label": "选项二",
+                    "key": "key1-2"
+                }
+            ]
+        },
+        {
+            "isDivider": true
+        },
+        {
+            "label": "菜单项二",
+            "key": "key2",
+            "children": [
+                {
+                    "label": "选项一",
+                    "key": "key2-1"
+                },
+                {
+                    "label": "选项二",
+                    "key": "key2-2"
+                }
+            ]
+        },
+        {
+            "label": "菜单项三",
+            "key": "key3",
+            "disabled": true
+        }
+    ]
+}      
+      `,
+      desc:'设置菜单的数据源',
+    },
+    {
+      code:'popupAlign',
+      type: `'follow' | 'outside'`,
+      default:`'follow'`,
+      desc:'设置弹层的对齐方式',
+    }
+    {
       code: 'onItemClick',
-      type: 'Function',
-      demo: 'function onItemClick(key, item, event) { console.log(key, item, event);}',
+      type: '(key: string,item: Object,event: Object) => void',
       default
-: '',
+: '-',
       desc: '点击菜单项触发的事件',
     },
     {
-      attr: '初始打开的子菜单的key值',
-      code: 'defaultOpenKeys',
-      type: 'String/Array',
-      demo: '["key1"]',
-      default
-: '',
-      desc: '设置初始打开的子菜单的key值',
-    },
-    {
-      attr: '子菜单打开模式',
       code: 'mode',
-      type: 'String',
-      demo: '"inline"',
+      type: `'inline' | 'popup'`,
       default
-: '',
-      desc: '子菜单打开的模式可选值: "inline", "popup"',
+: 'inline',
+      desc: '设置子菜单打开的模式',
     },
     {
-      attr: '触发行为',
       code: 'triggerType',
-      type: 'String',
-      demo: '"click"',
+      type: `'click' | 'hover'`,
       default
-: '',
-      desc: '子菜单打开的触发行为可选值: "click", "hover"',
+: 'click',
+      desc: '设置子菜单打开的触发行为',
     },
     {
-      attr: '展开内连子菜单的模式',
-      code: 'openMode',
-      type: 'String',
-      demo: '"multiple"',
-      default
-: '',
-      desc: '展开内连子菜单的模式，同时可以展开一个子菜单还是多个子菜单，该属性仅在 mode 为 inline 时生效可选值: "single", "multiple"',
-    },
-    {
-      attr: '初始选中菜单项的key值',
-      code: 'defaultSelectedKeys',
-      type: 'String/Array',
-      demo: '["key1-1"]',
-      default
-: '',
-      desc: '设置初始选中菜单项的key值',
-    },
-    {
-      attr: '选中或取消选中菜单项',
       code: 'onSelect',
-      type: 'Function',
-      demo: 'function onSelect(selectedKeys, extraObj) { console.log(selectedKeys, extraObj);}	',
+      type: '(selectedKeys: array,extraObj: Object) => void' ,
       default
-: '',
+: '-',
       desc: '选中或取消选中菜单项时触发的事件',
     },
     {
-      attr: '选择模式',
       code: 'selectMode',
-      type: 'String',
-      demo: '"single"',
+      type: `'single' | 'multiple'|'false'`,
       default
-: '',
-      desc: '可选值: "single", "multiple","false"',
+: `'false'`,
+      desc: '菜单组件的选择模式',
     },
     {
-      attr: '展示方向',
       code: 'direction',
-      type: 'String',
-      demo: '"ver"',
+      type: `'ver' | 'hoz'`,
       default
-: '',
-      desc: '可选值: "ver", "hoz"',
+: '-',
+      desc: '设置菜单第一层展示方向',
     },
     {
-      attr: 'Header插槽',
       code: 'header',
-      type: 'String',
-      demo: '"header内容"',
+      type: 'string',
       default
-: '',
-      desc: '设置Header插槽',
+: '-',
+      desc: '自定义菜单头部',
     },
     {
-      attr: 'Footer插槽',
+      code:'__style__',
+      type:object,
+      default: '-',
+      desc: '设置菜单的样式',
+    },
+    {
       code: 'footer',
-      type: 'String',
-      demo: '"footer内容"',
+      type: 'string',
       default
-: '',
-      desc: '设置Footer插槽',
+: '-',
+      desc: '自定义菜单尾部',
     },
-    {
-      attr: '是否自动获得焦点',
-      code: 'autoFocus',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值:true,false',
-    }
   ]}
 />
-
-
