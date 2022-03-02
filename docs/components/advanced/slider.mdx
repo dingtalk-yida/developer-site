@@ -26,72 +26,72 @@ import AttrTable from "components/AttrTable";
 <AttrTable
   dataSource={[
     {
-      cdoe:"isDiy",
+      code:"isDiy",
       type:"boolean",
       default:"false",
-      desc:"用于开启自定义模式。"
+      desc:"用于开启自定义模式"
     },
     {
-      cdoe:"diyContents",
+      code:"diyContents",
       type:"array",
       default:"[]",
-      desc:"用于输入自定义模式数据，仅开启自定义模式时生效。"
+      desc:"用于输入自定义模式数据，仅开启自定义模式时生效"
     },
     {
-      cdoe:"diyContentsRender",
+      code:"diyContentsRender",
       type:"object",
       default:"",
-      desc:"用于渲染自定义模式数据，仅开启自定义模式时生效。"
+      desc:"用于渲染自定义模式数据，仅开启自定义模式时生效"
     },
     {
       code: "images",
       type: "object",
       default: `~~~json 
-      [{
-        "src": "https://img.alicdn.com/tps/TB1bewbNVXXXXc5XXXXXXXXXXXX-1000-300.png",
-        "title": {
-          "type": "i18n",
-          "zh_CN": "图片一",
-          "en_US": "Picture one"
-          }
-          },
-          {
-            "src": "https://img.alicdn.com/tps/TB1xuUcNVXXXXcRXXXXXXXXXXXX-1000-300.jpg",
-            "title": {
-              "type": "i18n",
-              "zh_CN": "图片二",
-              "en_US": "Picture two"
-          }
-        },
-        {
-          "src": "https://img.alicdn.com/tps/TB1s1_JNVXXXXbhaXXXXXXXXXXX-1000-300.jpg",
-          "title": {
-              "type": "i18n",
-              "zh_CN": "图片三",
-              "en_US": "Picture three"
-          }
-        },
-        {
-          "src": "https://img.alicdn.com/tps/TB1ikP.NVXXXXaYXpXXXXXXXXXX-1000-300.jpg",
-          "title": {
-            "type": "i18n",
-            "zh_CN": "图片四",
-            "en_US": "Picture four"
-            }
-            }]`,
-      desc: "用于配置轮播项。",
+[{
+"src": "https://img.alicdn.com/tps/TB1bewbNVXXXXc5XXXXXXXXXXXX-1000-300.png",
+"title": {
+"type": "i18n",
+"zh_CN": "图片一",
+"en_US": "Picture one"
+}
+},
+{
+"src": "https://img.alicdn.com/tps/TB1xuUcNVXXXXcRXXXXXXXXXXXX-1000-300.jpg",
+"title": {
+"type": "i18n",
+"zh_CN": "图片二",
+"en_US": "Picture two"
+}
+},
+{
+"src": "https://img.alicdn.com/tps/TB1s1_JNVXXXXbhaXXXXXXXXXXX-1000-300.jpg",
+"title": {
+"type": "i18n",
+"zh_CN": "图片三",
+"en_US": "Picture three"
+}
+},
+{
+"src": "https://img.alicdn.com/tps/TB1ikP.NVXXXXaYXpXXXXXXXXXX-1000-300.jpg",
+"title": {
+"type": "i18n",
+"zh_CN": "图片四",
+"en_US": "Picture four"
+}
+}]`,
+      desc: "用于配置轮播项",
     },
     {
       code: "type",
-      type: "'single' （单图轮播） | 'multi'（多图轮播）",
-      default: "‘single’",
-      desc: "用于配置轮播方式。",
+      type: " 'single' | 'multi' ",
+      default: "'single'",
+      desc: "用于配置轮播方式",
     },
     {
       code: "slideImageWidth",
-      type: "String",
+      type: "string",
       default: "100%",
-      desc: "用于设置轮播项宽度。",
+      desc: "用于设置轮播项宽度",
     },
     {
       code:"slideImageHeightAuto",
@@ -101,51 +101,51 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "slideImageHeight",
-      type: "String",
-      default: "300",
-      desc: "用于设置轮播项高度。",
+      type: "string",
+      default: "300px",
+      desc: "用于设置轮播项高度,单位为px或设置半分比",
     },
     {
       code: "margin",
       type: "number",
       default: "10",
-      desc: "用于控制轮播项间距。",
+      desc: "用于控制轮播项间距",
     },
     {
       code: "slidesToShow",
       type: "number",
       default: "2",
-      desc: "用于控制同时展示的轮播项数量。",
+      desc: "用于控制同时展示的轮播项数量",
     },
     {
       code: "slidesToScroll",
       type: "number",
       default: "1",
-      desc: "用于控制同时滑动的轮播项数量。",
+      desc: "用于控制同时滑动的轮播项数量",
     },
     {
       code: "centerMode",
       type: "boolean",
-      default: "'false'",
+      default: "false",
       desc: "用于控制是否开启居中模式",
     },
     {
       code: "focusOnSelect",
       type: "boolean",
-      default: "'false'",
-      desc: "用于多图轮播时，点击选中后自动居中。",
+      default: "false",
+      desc: "用于多图轮播时，点击选中后自动居中",
     },
     {
       code: "slideDirection",
-      type: "'hoz'（水平方向）|'ver'（垂直方向）",
+      type: " 'hoz' | 'ver' ",
       default: "'hoz'",
-      desc: "用于控制轮播方向。",
+      desc: "用于控制轮播方向",
     },
     {
       code: "speed",
       type: "number",
       default: "500",
-      desc: "用于控制轮播速度，单位: ms。",
+      desc: "用于控制轮播速度，单位: ms",
     },
     {
       code:"lazyLoad",
@@ -155,63 +155,63 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "animation",
-      type: "'slide'（左右滑动）|'fade'（渐变）",
+      type: " 'slide' | 'fade' ",
       default: "slide",
-      desc: "用于选择轮播项动效类型。",
+      desc: "用于选择轮播项动效类型",
     },
     {
       code: "arrows",
       type: "boolean",
       default: "true",
-      desc: "用于控制是否开启轮播项箭头。",
+      desc: "用于控制是否开启轮播项箭头",
     },
     {
       code: "arrowSize",
-      type: "'medium'（正常尺寸）|'large'（大号尺寸）",
+      type: " 'medium' | 'large' ",
       default: "'medium'",
-      desc: "用于控制箭头大小。",
+      desc: "用于控制箭头大小",
     },
     {
       code: "arrowPosition",
-      type: " 'inner'（内）|'outer'（外）",
+      type: " 'inner' | 'outer' ",
       default: "'inner'",
-      desc: "用于控制箭头位置。",
+      desc: "用于控制箭头位置",
     },
     {
       code: "arrowDirection ",
-      type: "'hoz'（水平方向）|'ver'（垂直方向）",
+      type: "'hoz' |'ver' ",
       default: "'hoz'",
-      desc: "用于控制箭头方向。",
+      desc: "用于控制箭头方向",
     },
     {
       code: "autoplay",
       type: "boolean",
       default: "false",
-      desc: "用于选择是否自动播放轮播项。",
+      desc: "用于选择是否自动播放轮播项",
     },
     {
       code: "autoplaySpeed",
       type: "number",
       default: "3000",
-      desc: "用于设置轮播项自动播放速度，单位：ms。",
+      desc: "用于设置轮播项自动播放速度，单位：ms",
     },
     {
       code: "dots",
       type: "Boolean",
       default: "true",
-      desc: "用于选择是否开启导航锚点。",
+      desc: "用于选择是否开启导航锚点",
     },
     {
       code: "dotsDirection",
-      type: "'hoz'（水平）|'ver'（垂直）",
+      type: " 'hoz' | 'ver' ",
       default: "hoz",
-      desc: "用于设置导航锚点位置。",
+      desc: "用于设置导航锚点位置",
     },
     {
       code: "triggerType",
-      type: "'click'（点击触发）|'hover'（鼠标划入触发）",
+      type: " 'click' | 'hover' ",
       default: "'click'",
-      desc: "用于选择锚点导航触发方式。",
+      desc: "用于选择锚点导航触发方式",
     },
   ]}
 />
