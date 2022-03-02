@@ -1,88 +1,81 @@
 ---
-title: 步骤条
+title: Steps 步骤条
 order: 15
 ---
 
-# 步骤条
+# Steps 步骤条
+
 引导用户按照流程完成任务的导航条。
 
 ## 何时使用
-* 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
+
+- 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
+
 ## 组件示例
-import Iframe from 'components/Iframe'
+
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/steps-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable'
+import AttrTable from "components/AttrTable";
 
-<AttrTable dataSource={[{
-  attr: '步骤数据', 
-  code: 'dataSource', 
-  type: 'Array', 
-  demo: "[{ title: 'step1', content: 'Open' }, { title: 'step2', content: 'Put'}]", 
-  default
-:'', 
-  desc: ''
-}, {
-  attr: '当前步骤', 
-  code: 'current', 
-  type: 'number', 
-  demo: '1', 
-  default
-:'', 
-  desc: ''
-}, {
-  attr: '类型', 
-  code: 'shape', 
-  type: 'String', 
-  demo: '"circle"', 
-  default
-:"", 
-  desc: '可选值:"circle", "arrow", "dot" '
-}, {
-  attr: '展示方向', 
-  code: 'direction', 
-  type: 'String', 
-  demo: '"horizontal"', 
-  default
-:"", 
-  desc: '可选值: "horizontal", "vertical"'
-}, {
-  attr: '横向布局时的内容排列', 
-  code: 'labelPlacement', 
-  type: 'String', 
-  demo: '"vertical"', 
-  default
-:"", 
-  desc: '可选值: "vertical", "horizontal"'
-}, {
-  attr: '只读模式', 
-  code: 'placeholder', 
-  type: 'Boolean', 
-  demo: 'false', 
-  default
-:'', 
-  desc: '可选值: true,false'
-}, 
-{
-  attr: '开启动效', 
-  code: 'animation', 
-  type: 'Boolean', 
-  demo: "true", 
-  default
-:'', 
-  desc: '可选值: true,false'
-}, 
-{
-  attr: '点击按钮动作', 
-  code: 'onClick', 
-  type: 'Function', 
-  demo: '"function onClick(index) {}"', 
-  default
-:'', 
-  desc: ''
-}, 
-]}
+<AttrTable
+  dataSource={[
+    {
+      code: "dataSource",
+      type: "	array",
+      default: "0",
+      desc: "步骤数据",
+    },
+    {
+      code: "current",
+      type: "number",
+      default: "1",
+      desc: "当前步骤",
+    },
+    {
+      code: "shape",
+      type: `'circle'||'arrow'||'dot'`,
+      default: `'circle'`,
+      desc: '类型',
+    },
+    {
+      code: "direction",
+      type: `'horizontal'||'vertical'`,
+      default: "horizontal",
+      desc: "展示方向",
+    },
+    {
+      code: "labelPlacement",
+      type: `'horizontal'||'vertical'`,
+      default: "vertical",
+      desc: "内容排列方式",
+    },
+    {
+      code: "readOnly",
+      type: "boolean",
+      default: "false",
+      desc: "是否只读模式",
+    },
+    {
+      code: "animation",
+      type: "boolean",
+      default: "true",
+      desc: "是否开启动效",
+    },
+    {
+      code: "contentRender",
+      type: "(index: String) => void",
+      default: '-',
+      desc: "内容自定义渲染",
+    },
+    {
+      code: "onClick",
+      type: "(index: String) => void",
+      default: '-',
+      desc: "点击步骤时触发事件",
+    },
+  ]}
 />

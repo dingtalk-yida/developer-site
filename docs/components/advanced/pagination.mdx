@@ -1,9 +1,9 @@
 ---
-title: 翻页器
+title: Pagination 翻页器
 order: 9
 ---
 
-# 翻页器
+# Pagination 翻页器
 
 ## 何时使用
 
@@ -21,120 +21,79 @@ import AttrTable from 'components/AttrTable';
 <AttrTable
   dataSource={[
     {
-      attr: '总记录数',
       code: 'total',
-      type: 'String',
-      demo: '',
-      default
-: '100',
-      desc: '',
+      type: 'number',
+      defaul: '100',
+      desc: '总记录数',
     },
     {
-      attr: '当前页码',
       code: 'current',
-      type: 'String',
-      demo: '',
-      default
-: '1',
-      desc: '',
+      type: 'number',
+      default: '1',
+      desc: '当前页码',
     },
     {
-      attr: '分页尺寸',
-      code: 'size',
-      type: 'String',
-      demo: '"small"',
-      default
-: '',
-      desc: '可选项："small","medium","large"',
-    },
-    {
-      attr: '分页类型',
       code: 'type',
-      type: 'String',
-      demo: '"normal"',
-      default
-: 'normal',
-      desc: '可选项："normal","simple","mini"',
+      type: `'normal' | 'simple' | 'mini'`,
+      default: `'normal'`,
+      desc: '分页类型',
     },
     {
-      attr: '前进后退按钮样式',
       code: 'shape',
-      type: 'String',
-      demo: '"normal"',
-      default
-: '"normal"',
-      desc: '可选项："normal" "arrow-only" "arrow-prev-only" "no-border"',
+      type: `'normal' | 'arrow-only' | 'arrow-prev-only' | 'no-border'`,
+      default: `'normal'`,
+      desc: '前进后退按钮样式',
     },
     {
-      attr: '每页显示选择器类型',
       code: 'pageSizeSelector',
-      type: 'Boolean/String',
-      demo: 'false',
-      default
-: 'false',
-      desc: '可选项：false,"filter","dropdown"',
+      type: `false | 'filter' | 'dropdown'`,
+      default: "false",
+      desc: '每页显示选择器类型',
     },
     {
-      attr: '每页显示选择器可选值',
       code: 'pageSizeList',
-      type: 'String',
-      demo: '"5, 10, 20" ',
-      default
-: '',
-      desc: '',
+      type: `5 | 10 | 20`,
+      default: "10",
+      desc: '每页显示选择器可选值',
     },
     {
-      attr: 'pageSize',
       code: 'pageSize',
-      type: 'Number',
-      demo: '',
-      default
-: '10',
-      desc: '',
+      type: 'number',
+      default: '10',
+      desc: '每页展示条数',
     },
     {
-      attr: '每页显示选择器在组件中的位置',
       code: 'pageSizePosition',
-      type: 'String',
-      demo: '"start"',
-      default
-: '"end"',
-      desc: '可选项："start" "end"',
+      type: `'start' | 'end'`,
+      default: `'end'`,
+      desc: "每页显示选择器在组件中的位置",
     },
     {
-      attr: '当分页数为 1 时，是否隐藏分页器',
       code: 'hideOnlyOnePage',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: 'false',
-      desc: '可选项：false,true',
+      type: 'boolean',
+      default: 'false',
+      desc: "当分页数为 1 时，是否隐藏分页器",
     },
     {
-      attr: '显示跳转输入框与按钮',
-      code: 'showJump',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: 'true',
-      desc: '可选项：false,true',
+      code: "showJump",
+      type: "boolean",
+      default: "true",
+      desc: "显示跳转输入框与按钮",
     },
     {
       attr: '当每页数量改变时',
       code: 'onPageSizeChange',
-      type: 'Function',
+      type: '(pageSize: number) => void',
       demo: 'function(pageSize){}',
-      default
-: '',
+      default: '',
       desc: '',
     },
     {
       attr: '当页码改变时',
       code: 'onChange',
-      type: 'Function',
+      type: '(current: number, {e: object}) => void',
       demo: 'function(currentPagination){}',
-      default
-: '',
+      default: '',
       desc: '',
     },
   ]}

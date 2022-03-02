@@ -1,9 +1,9 @@
 ---
-title: 链接
+title: Link 链接
 order: 5
 ---
 
-# 链接
+# Link 链接
 
 跳转超链接，用于跳转到新页面。
 
@@ -14,78 +14,57 @@ order: 5
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/link-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
   dataSource={[
     {
-      attr: '内容',
-      code: 'content',
-      type: 'String',
-      demo: '"图片资源地址"',
-      default
-: '"这里是一个链接"',
-      desc: '设置链接内容',
+      code: "content",
+      type: "string",
+      default: `'这里是一个链接'`,
+      desc: "设置链接内容",
     },
     {
-      attr: '单行截断',
-      code: 'textOverflow',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值 false,true',
+      code: "textOverflow",
+      type: "boolean",
+      default: "false",
+      desc: "单行截断,文字超过一行是否使用...显示",
     },
     {
-      attr: '链接类型',
-      code: 'type',
-      type: 'String',
-      demo: '',
-      default
-: '"page"',
-      desc: '可选择跳转到内部页面或跳转外部链接',
+      code: "type",
+      type: `'page' | 'url'`,
+      default: `'page'`,
+      desc: "跳转内部页面或跳转外部链接",
     },
     {
-      attr: '链接地址',
-      code: 'url',
-      type: 'String',
-      demo: '"https://www.aliwork.com/"',
-      default
-: '',
-      desc: '添加一个链接地址,点击链接即可跳转对应页面',
+      code: "url",
+      type: "string",
+      default: "-",
+      desc: "添加一个链接地址,点击链接即可跳转对应页面",
     },
     {
-      attr: '新开页面',
-      code: 'isBlank',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值 false,true',
+      code: "isBlank",
+      type: "boolean",
+      default: "false",
+      desc: "是否新开页面",
     },
     {
-      attr: '携带参数',
-      code: 'params',
-      type: 'Object',
-      demo: '{name:"张三",sex:"男"}',
-      default
-: '',
-      desc: 'url 查询参数,多用于页面跳转传参',
+      code: "params",
+      type: "object",
+      default: "-",
+      desc: "url 查询参数,多用于页面跳转传参",
     },
     {
-      attr: '当点击时',
-      code: 'onClick',
-      type: 'Function',
-      demo: 'function onClick(ctx) {console.log("点击链接");}',
-      default
-: '',
-      desc: '点击链接触发的回调',
+      code: "onClick",
+      type: "(ctx: object) => void",
+      default: "-",
+      desc: "点击链接触发的事件",
     },
   ]}
 />

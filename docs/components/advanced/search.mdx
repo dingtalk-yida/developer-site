@@ -1,128 +1,145 @@
 ---
-title: 搜索
+title: Search 搜索
 order: 12
 ---
 
-# 搜索
-
+# Search 搜索
 
 ## 何时使用
-* 页面、表单数据搜索时使用。
+
+- 页面、表单数据搜索时使用。
+
 ## 组件示例
-import Iframe from 'components/Iframe'
+
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/search-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
   dataSource={[
     {
-      attr: '大小',
-      code: 'size',
-      type: 'String',
-      demo: '"medium"',
-      default
-: '"medium"',
-      desc: '可选值: "medium","large"',
-    },{
-      attr: '类型',
-      code: 'type',
-      type: 'String',
-      demo: '"normal"',
-      default
-: '"normal"',
-      desc: '可选值: "normal","primary","secondary","dark"',
-    },{
-      attr: '形状',
-      code: 'shape',
-      type: 'String',
-      demo: '"normal"',
-      default
-: '"normal"',
-      desc: '可选值: "normal","simple"',
-    },{
-      attr: '选择器默认值',
-      code: 'defaultFilterValue',
-      type: 'String',
-      demo: '"one"',
-      default
-: '"one"',
-      desc: '开启选择器按钮后，设置选择器默认值',
-    },{
-      attr: '选择器',
-      code: 'filter',
-      type: 'Array',
-      demo: '{"data": [{"label": "one","value": "one"},{"label": "two","value": "two"},{"label": "three","value": "three"}]}',
-      default
-: '',
-      desc: '设置选择器的下拉列表值',
-    },{
-      attr: '搜索框下拉联想列表',
-      code: 'dataSource',
-      type: 'Array',
-      demo: '{"data": [{"label": "天猫","value": "value1"},{"label": "淘宝","value": "value2"},{"label": "阿里巴巴","value": "value3"}]}',
-      default
-: '',
-      desc: '设置搜索框的下拉列表值',
-    },{
-      attr: '默认提示',
-      code: 'placeholder',
-      type: 'String',
-      demo: '"请输入"',
-      default
-: '',
-      desc: '设置搜索框默认提示',
-    },{
-      attr: '按钮内容',
-      code: 'searchText',
-      type: 'String',
-      demo: '"搜索"',
-      default
-: '"搜索"',
-      desc: '设置搜索按钮内容',
-    },{
-      attr: '是否显示清除按钮',
-      code: 'hasClear',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值: false,true',
-    },{
-      attr: '是否禁用',
-      code: 'disabled',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值: false,true',
-    },{
-      attr: '值发生变化',
-      code: 'onChange',
-      type: 'Function',
-      demo: 'function onChange(value){console.log(value);}',
-      default
-: '',
-      desc: '输入关键字时的回调',
-    },{
-      attr: '点击搜索按钮',
-      code: 'onSearch',
-      type: 'Function',
-      demo: 'function onSearch(value){console.log(value);}',
-      default
-: '',
-      desc: '点击搜索按钮触发的回调',
-    },{
-      attr: '选择器发生变化',
-      code: 'onFilterChange',
-      type: 'Function',
-      demo: 'function onFilterChange(filterValue){console.log(filterValue);}',
-      default
-: '',
-      desc: '选择器发生变化时回调',
+      code: "type",
+      type: `'normal' | 'primary' | 'secondary' | 'dark'`,
+      default: `'normal'`,
+      desc: "搜索类型",
+    },
+    {
+      code: "defaultValue",
+      type: "string",
+      default: `'请输入'`,
+      desc: "搜索框默认值",
+    },
+    {
+      code: "shape",
+      type: `'normal' | 'simple'`,
+      default: `'normal'`,
+      desc: "搜索形状",
+    },
+    {
+      code: "autoFocus",
+      type: "boolean",
+      default: "false",
+      desc: "是否自动聚焦",
+    },
+    {
+      code: "isFilter",
+      type: "boolean",
+      default: "false",
+      desc: "是否开启选择器",
+    },
+    {
+      code: "defaultFilterValue",
+      type: "string",
+      default: `'one'`,
+      desc: "开启选择器按钮后，设置选择器默认值",
+    },
+    {
+      code: "filter",
+      type: "array",
+      default: `~~~json
+[
+  {
+    "label": "one",
+    "value": "one"
+  },
+  {
+    "label": "two",
+    "value": "two"
+  },
+  {
+    "label": "three",
+    "value": "three"
+  }
+]
+      `,
+      desc: "设置选择器的下拉列表值",
+    },
+    {
+      code: "dataSource",
+      type: "array",
+      default: `~~~json
+[
+  {
+    "label": "天猫",
+    "value": "value1"
+  },
+  {
+    "label": "淘宝",
+    "value": "value2"
+  },
+  {
+    "label": "阿里巴巴",
+    "value": "value3"
+  }
+]
+      `,
+      desc: "设置搜索框的下拉列表值",
+    },
+    {
+      code: "placeholder",
+      type: "string",
+      default: `'请输入'`,
+      desc: "设置搜索框默认提示",
+    },
+    {
+      code: "searchText",
+      type: "string",
+      default: `'搜索'`,
+      desc: "设置搜索按钮内容",
+    },
+    {
+      code: "hasClear",
+      type: "boolean",
+      default: "false",
+      desc: "是否显示清除按钮",
+    },
+    {
+      code: "disabled",
+      type: "boolean",
+      default: "false",
+      desc: "是否禁用",
+    },
+    {
+      code: "onChange",
+      type: "(value: object) => void",
+      default: "-",
+      desc: "组件值发生改变事件",
+    },
+    {
+      code: "onSearch",
+      type: "(value: string) => void",
+      default: "-",
+      desc: "点击搜索按钮触发的事件",
+    },
+    {
+      code: "onFilterChange",
+      type: "(filterValue: object) => void",
+      default: "-",
+      desc: "选择器发生变化时的事件",
     },
   ]}
 />

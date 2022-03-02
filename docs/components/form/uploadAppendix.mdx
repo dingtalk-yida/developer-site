@@ -1,9 +1,9 @@
 ---
-title: 上传附件
+title: AttachmentField 上传附件
 order: 9
 ---
 
-# 上传附件
+# AttachmentField 上传附件
 
 ## 何时使用
 
@@ -11,357 +11,184 @@ order: 9
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/attachment-field-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
+  category="form"
   dataSource={[
     {
-      attr: '标题',
-      code: 'label',
-      type: 'String',
-      demo: '"标题"',
-      default
-: '',
-      desc: '',
+      code: "value",
+      type: "array",
+      default: `-`,
+      desc: "默认值",
     },
     {
-      attr: '值',
-      code: 'value',
-      type: 'Array',
-      demo: '[{ url: "xxx", name: "xx"}]',
-      default
-: '',
-      desc: '',
+      code: "type",
+      type: `'normal' | 'drag'`,
+      default: `'normal'`,
+      desc: "设置上传类型",
     },
     {
-      attr: '标题位置',
-      code: 'labelAlign',
-      type: 'String',
-      demo: '"left"',
-      default
-: '',
-      desc: '可选值："left", "top"',
+      code: "group",
+      type: `'normal' | 'drag'`,
+      default: `'normal'`,
+      desc: "设置上传详情",
     },
     {
-      attr: '标题宽度',
-      code: 'labelColSpan',
-      type: 'Number',
-      demo: '4',
-      default
-: '',
-      desc: '',
+      code: "buttonText",
+      type: "string",
+      default: `'上传文件'`,
+      desc: "设置按钮内容",
     },
     {
-      attr: '标题偏移',
-      code: 'labelColOffset',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
+      code: "buttonSize",
+      type: `'small' | 'medium' | 'large'`,
+      default: `'medium'`,
+      desc: "设置按钮尺寸",
     },
     {
-      attr: '内容宽度',
-      code: 'wrapperColSpan',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
+      code: "buttonType",
+      type: `'primary' | 'secondary' | 'normal'`,
+      default: `'primary'`,
+      desc: "设置按钮类型",
     },
     {
-      attr: '内容偏移',
-      code: 'wrapperColOffset',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
+      code: "multiple",
+      type: "boolean",
+      default: "flase",
+      desc: "设置是否多选",
     },
     {
-      attr: '标题对齐',
-      code: 'labelTextAlign',
-      type: 'String',
-      demo: '"left"',
-      default
-: '',
-      desc: '可选值："left", "right"',
+      code: "timeout",
+      type: "number",
+      default: "0",
+      desc: "设置上传超时，单位 ms",
     },
     {
-      attr: '描述信息',
-      code: 'tips',
-      type: 'String',
-      demo: '"这是一段描述信息"',
-      default
-: '',
-      desc: '',
+      code: "url",
+      type: "string",
+      default: `-`,
+      desc: "接口地址",
     },
     {
-      attr: '尺寸',
-      code: 'size',
-      type: 'String',
-      demo: '"small"',
-      default
-: '',
-      desc: '可选值："small", "medium", "large"',
+      code: "name",
+      type: "string",
+      default: `-`,
+      desc: "上传时发送给服务端的 name",
     },
     {
-      attr: '状态',
-      code: 'behavior',
-      type: 'String',
-      demo: '"NORMAL"',
-      default
-: '',
-      desc: '可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
+      code: "data",
+      type: "object",
+      default: `{}`,
+      desc: "设置上传可附带的额外参数",
     },
     {
-      attr: '校验',
-      code: 'validation',
-      type: 'Array',
-      demo: '[{type:"required"}] ',
-      default
-: '',
-      desc: "可选值：{type:'required'}, {type: 'customValidate', message: '请选择今日之前的日期', param: 'function validateRule(value) { return value <= new Date().getTime(); }'} ",
+      code: "headers",
+      type: "object",
+      default: `{}`,
+      desc: "设置上传的请求头部",
     },
     {
-      attr: '上传类型',
-      code: 'type',
-      type: 'String',
-      demo: '"normal"',
-      default
-: '',
-      desc: "可选值 'normal', 'drag'",
+      code: "beforeUpload",
+      type: "(file: { object }) => void",
+      default: "-",
+      desc: "上传前处理事件",
     },
     {
-      attr: '上传列表样式',
-      code: 'listType',
-      type: 'String',
-      demo: '"normal"',
-      default
-: '',
-      desc: "可选值 'normal',  'drag'",
+      code: "formatter",
+      type: "(response) => return response",
+      default: "-",
+      desc: "数据处理事件",
     },
     {
-      attr: '按钮内容',
-      code: 'buttonText',
-      type: 'String',
-      demo: '"上传附件"',
-      default
-: '',
-      desc: '',
+      code: "limit",
+      type: "number",
+      default: "9",
+      desc: "设置最大上传文件个数",
     },
     {
-      attr: '按钮尺寸',
-      code: 'buttonSize',
-      type: 'String',
-      demo: '"medium"',
-      default
-: '',
-      desc: "可选值: 'small', 'medium', 'large'",
+      code: "withCredentials",
+      type: "boolean",
+      default: "false",
+      desc: "设置是否允许请求携带 cookie",
     },
     {
-      attr: '按钮类型',
-      code: 'buttonType',
-      type: 'String',
-      demo: '"primary"',
-      default
-: '',
-      desc: "可选值: 'primary', 'secondary', 'normal'",
+      code: "autoUpload",
+      type: "boolean",
+      default: "true",
+      desc: "设置是否自动上传",
     },
     {
-      attr: '多选',
-      code: 'multiple',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: "可选值: true, false",
+      code: "accept",
+      type: "string",
+      default: `-`,
+      desc: "设置上传文件类型(多个以英文逗号，分隔)",
     },
     {
-      attr: '上传超时',
-      code: 'timeout',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
+      code: "onChange",
+      type: "({ value }: object) => void",
+      default: `-`,
+      desc: "组件值发生改变事件",
     },
     {
-      attr: '接口地址',
-      code: 'url',
-      type: 'String',
-      demo: '',
-      default
-: '',
-      desc: '可在 VM 中通过 globalProps 统一配置',
+      code: "onProgress",
+      type: "() => void", 
+      default: `-`,
+      desc: "组件上传中事件",
     },
     {
-      attr: 'name',
-      code: 'name',
-      type: 'String',
-      demo: '"root"',
-      default
-: '',
-      desc: '上传时发送给服务端的 name',
+      code: "onSuccess",
+      type: "(file: object) => void",
+      default: `-`,
+      desc: "组件值上传成功事件",
     },
     {
-      attr: '额外参数',
-      code: 'data',
-      type: 'Object',
-      demo: '{}',
-      default
-: '',
-      desc: '上传可附带的额外参数',
+      code: "onError",
+      type: "(file: object) => void",
+      default: "",
+      desc: "组件值上传失败事件",
     },
     {
-      attr: '上传前处理函数',
-      code: 'beforeUpload',
-      type: 'Function',
-      demo: 'function(file, options){ return true }',
-      default
-: '',
-      desc: '',
+      code: "onSelect",
+      type: "() => void",
+      default: `-`,
+      desc: "组件值选择的事件",
     },
     {
-      attr: '数据处理',
-      code: 'formatter',
-      type: 'Function',
-      demo: 'function formatter(response) { return response }',
-      default
-: '',
-      desc: '数据处理函数',
+      code: "onRemove",
+      type: "(file: object) => void",
+      default: `-`,
+      desc: "组件值点击移除的事件",
     },
     {
-      attr: '最大上传附件个数',
-      code: 'limit',
-      type: 'Number',
-      demo: '1',
-      default
-: '',
-      desc: '',
+      code: "onCancel",
+      type: "() => void",
+      default: `-`,
+      desc: "组件值点击取消上传的事件",
     },
     {
-      attr: '是否允许请求携带 cookie',
-      code: 'withCredentials',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: "可选值: true, false",
+      code: "onDragOver",
+      type: "() => void",
+      default: `-`,
+      desc: "组件值拖拽经过的事件",
     },
     {
-      attr: '自动上传',
-      code: 'autoUpload',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: "可选值: true, false",
+      code: "onDragLeave",
+      type: "() => void",
+      default: `-`,
+      desc: "组件值拖拽离开的事件",
     },
     {
-      attr: '上传附件类型',
-      code: 'accept',
-      type: 'String',
-      demo: '".pdf"',
-      default
-: '',
-      desc: '例如：.pdf, .doc, ',
-    },
-    {
-      attr: '值发生改变事件',
-      code: 'onChange',
-      type: 'Function',
-      demo: 'function(value){ console.log(value); }',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '上传中',
-      code: 'onProgress',
-      type: 'Function',
-      demo: 'function onProgress() {console.log("onProgress");} ',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '上传成功回调函数',
-      code: 'onSuccess',
-      type: 'Function',
-      demo: 'function onSuccess(file, value) {console.log("onSuccess", file, value);} ',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '上传失败',
-      code: 'onError',
-      type: 'Function',
-      demo: 'function onError(file, value) {console.log("onError", file, value);} ',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '选择文件',
-      code: 'onSelect',
-      type: 'Function',
-      demo: 'function onSelect() {console.log("onSelect");}',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '点击移除',
-      code: 'onRemove',
-      type: 'Function',
-      demo: 'function onRemove(file) {console.log("onRemove",file);} ',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '取消上传',
-      code: 'onCancel',
-      type: 'Function',
-      demo: 'function onCancel() {console.log("onCancel");}',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '拖拽经过',
-      code: 'onDragOver',
-      type: 'Function',
-      demo: "function onDragOver() { console.log('onDragOver');}",
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '拖拽离开',
-      code: 'onDragLeave',
-      type: 'Function',
-      demo: "function onDragLeave() { console.log('onDragLeave');}",
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '拖拽完成',
-      code: 'onDrop',
-      type: 'Function',
-      demo: "function onDrop() { console.log('onDrop');}",
-      default
-: '',
-      desc: '',
+      code: "onDrop",
+      type: "() => void",
+      default: `-`,
+      desc: "组件值拖拽完成的事件",
     },
   ]}
 />

@@ -1,9 +1,9 @@
 ---
-title: 图片
+title: Image 图片
 order: 4
 ---
 
-# 图片
+# Image 图片
 
 用于展示图片资源。
 
@@ -13,7 +13,7 @@ order: 4
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/image-v2?isRenderNav=false" />
 
@@ -22,103 +22,76 @@ import Iframe from 'components/Iframe';
 <AttrTable
   dataSource={[
     {
-      attr: '图片地址',
-      code: 'src',
-      type: 'String',
-      demo: '"图片资源地址"',
-      default
-: '',
-      desc: '',
+      code: "src",
+      type: "string",
+      default: '-',
+      desc: "图片地址",
     },
     {
-      attr: '宽',
-      code: 'width',
-      type: 'Number',
-      demo: '300',
-      default
-: '',
-      desc: '',
+      code: "width",
+      type: "number",
+      default: "350",
+      desc: "宽",
     },
     {
-      attr: '宽度 auto ',
-      code: 'autuWidth',
-      type: 'Number',
-      demo: '300',
-      default
-: '',
-      desc: '',
+      code: "autuWidth",
+      type: "number",
+      default: "false",
+      desc: "宽度自适应",
     },
     {
-      attr: '高 ',
-      code: 'height',
-      type: 'Number',
-      demo: '300',
-      default
-: '',
-      desc: '',
+      code: "height",
+      type: "number",
+      default: "200",
+      desc: "高",
     },
     {
-      attr: '高度 auto ',
-      code: 'autuHeight',
-      type: 'Number',
-      demo: '300',
-      default
-: '',
-      desc: '',
+      code: "autuHeight",
+      type: "number",
+      default: "false",
+      desc: "高度自适应",
     },
     {
-      attr: '摆放方式 ',
-      code: 'fit',
-      type: 'String',
-      demo: '"contain"',
-      default
-: '',
-      desc: '',
+      code: "fit",
+      type: `'cover'||'contain'||'fill'`,
+      default: `'cover'`,
+      desc: "摆放方式",
     },
     {
-      attr: '圆角 ',
-      code: 'round',
-      type: 'String',
-      demo: '"8px"',
-      default
-: '',
-      desc: '',
+      code: "round",
+      type: `'16'||'8'||'4'||'0'||'自定义'`,
+      default: `'0'`,
+      desc: "圆角",
     },
     {
-      attr: '圆角大小 ',
-      code: 'roundRadius',
-      type: 'String',
-      demo: '"8px"',
-      default
-: '',
-      desc: '',
+      code: "roundRadius",
+      type: "string",
+      default: `'0'`,
+      desc: "圆角大小",
     },
     {
-      attr: 'title ',
-      code: 'title',
-      type: 'String',
-      demo: '"标题"',
-      default
-: '',
-      desc: '标题',
+      code: "title",
+      type: "string",
+      default: '-',
+      desc: "图片标题",
     },
     {
-      attr: '替代文本 ',
-      code: 'alt',
-      type: 'String',
-      demo: '"替代文本"',
-      default
-: '',
-      desc: '图片未加载时的占位文字',
+      code: "alt",
+      type: "string",
+      default: `'Image 404'`,
+      desc: "图片未加载时的占位文字",
     },
     {
-      attr: '点击事件 ',
-      code: 'onClick',
-      type: 'Function',
-      demo: 'function onClick(value){console.log(value);}',
-      default
-: '',
-      desc: '点击图片时触发回调',
+      code: "preview",
+      type: "boolean",
+      default: "false",
+      desc: "是否开启图片预览",
+    },
+    {
+      code: "onClick",
+      type: "(event: Object) => void",
+      default: "",
+      desc: "点击图片时触发事件",
     },
   ]}
 />

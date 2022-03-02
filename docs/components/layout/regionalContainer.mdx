@@ -1,9 +1,9 @@
 ---
-title: 布局容器
+title: ColumnsLayout 布局容器
 order: 2
 ---
 
-# 布局容器
+# ColumnsLayout 布局容器
 
 ## 何时使用
 
@@ -28,25 +28,35 @@ import AttrTable from 'components/AttrTable';
 <AttrTable
   dataSource={[
     {
-      attr: '分栏配置',
       code: 'layout',
-      type: 'String',
-      demo: '"6:6"',
-      desc: '每行分为几栏，每一栏分别占几格',
+      type: 'string',
+      default: `'6:6'`,
+      desc: '分栏配置，每行分为几栏，每一栏分别占几格',
     },
     {
-      attr: '列间距',
       code: 'columnGap',
-      type: 'Number/String',
-      demo: '"10"',
-      desc: '列间距 ',
+      type: 'number|string',
+      default: `'10'`,
+      desc: '设置分栏相邻列之间的间距 ',
     },
     {
-      attr: '行间距',
       code: 'rowGap',
-      type: 'Number/String ',
-      demo: '"10"',
-      desc: '行间距',
+      type: 'number|string ',
+      default: `'10'`,
+      desc: '在多行分栏的场景下，设置分栏相邻行之间的间距',
     },
+    {
+      code: 'display',
+      type: 'string ',
+      default: `'VERTICAL'|'HORIZONTAL'`,
+      desc: '排列方式',
+    },
+    {
+      code: 'mobileRowGap',
+      type: 'string ',
+      default: `'16px'`,
+      desc: '垂直布局时的行间距',
+    }
+
   ]}
 />
