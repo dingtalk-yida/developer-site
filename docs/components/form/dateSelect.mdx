@@ -1,9 +1,9 @@
 ---
-title: 日期选择
+title: DateField 日期选择
 order: 6
 ---
 
-# 日期选择
+# DateField 日期选择
 
 ## 何时使用
 
@@ -11,205 +11,70 @@ order: 6
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/date-field-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
+  category="form"
   dataSource={[
     {
-      attr: '标题',
-      code: 'label',
-      type: 'String',
-      demo: '"标题"',
-      default
-: '',
-      desc: '',
+      code: "placeholder",
+      type: "string",
+      default: `'请选择'`,
+      desc: "表单组件占位提示信息",
     },
     {
-      attr: '值',
-      code: 'fieldData',
-      type: 'Object',
-      demo: '{value: 1505894659813}',
-      default
-: '',
-      desc: '',
+      code: "format",
+      type: `'YYYY' | 'YYYY-MM' | 'YYYY-MM-DD'| 'YYYY-MM-DD HH:mm'| 'YYYY-MM-DD HH:mm:ss'`,
+      default:`'YYYY-MM-DD'` ,
+      desc: "日期格式",
     },
     {
-      attr: '标题位置',
-      code: 'labelAlign',
-      type: 'String',
-      demo: '"left"',
-      default
-: '',
-      desc: '可选值："left", "top", "inset"',
+      code: "hasClear",
+      type: "boolean",
+      default:"true" ,
+      desc: "是否有清除按钮",
     },
     {
-      attr: '标题宽度',
-      code: 'labelColSpan',
-      type: 'Number',
-      demo: '4',
-      default
-: '',
-      desc: '',
+      code: "resetTime",
+      type: "boolean",
+      default: "false",
+      desc: "是否每次选择日期时重置时间",
     },
     {
-      attr: '标题偏移',
-      code: 'labelColOffset',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
+      code: "disabledDate",
+      type: "(current: object) => void",
+      default: "false",
+      desc: "可选时间区间",
     },
     {
-      attr: '内容宽度',
-      code: 'wrapperColSpan',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
+      code: "renderView",
+      type: "(value: object) => void",
+      default: "-",
+      desc: "定制渲染只读态",
     },
     {
-      attr: '内容偏移',
-      code: 'wrapperColOffset',
-      type: 'Number',
-      demo: '0',
-      default
-: '',
-      desc: '',
+      code: "onChange",
+      type: "(value: MomentObject/String) => void",
+      default: "-",
+      desc: "组件值发生改变事件",
     },
     {
-      attr: '标题对齐',
-      code: 'labelTextAlign',
-      type: 'String',
-      demo: '"left"',
-      default
-: '',
-      desc: '可选值："left", "right"',
+      code: "onOk",
+      type: "(value: MomentObject/String) => void",
+      default: "-",
+      desc: "点击确认时触发事件",
     },
     {
-      attr: '提示文字',
-      code: 'placeholder',
-      type: 'String',
-      demo: '"请选择日期"',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '描述信息',
-      code: 'tips',
-      type: 'String',
-      demo: '"这是一段描述信息"',
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '尺寸',
-      code: 'size',
-      type: 'String',
-      demo: '"small"',
-      default
-: '',
-      desc: '可选值："small", "medium", "large"',
-    },
-    {
-      attr: '状态',
-      code: 'behavior',
-      type: 'String',
-      demo: '"NORMAL"',
-      default
-: '',
-      desc: '可选值："NORMAL", "DISABLED", "READONLY", "HIDDEN"',
-    },
-    {
-      attr: '格式',
-      code: 'format',
-      type: 'String',
-      demo: '"YYYY-MM-DD" ',
-      default
-: '',
-      desc: '可选值："YYYY", "YYYY-MM", "YYYY-MM-DD", "YYYY-MM-DD HH:mm", "YYYY-MM-DD HH:mm:ss" ',
-    },
-    {
-      attr: '清除按钮',
-      code: 'hasClear',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: '可选值：true,false',
-    },
-    {
-      attr: '每次选择日期时是否重置时间',
-      code: 'resetTime',
-      type: 'Boolean',
-      demo: 'false ',
-      default
-: '',
-      desc: '可选值:true,false',
-    },
-    {
-      attr: '禁用日期函数',
-      code: 'disabledDate',
-      type: 'Function',
-      demo: `function disabledDate(current) {
-             console.log(current);
-             return false;}`,
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '定制渲染只读态',
-      code: 'renderView',
-      type: 'Function',
-      demo: `function renderView(value, props) {
-  return value;
-}`,
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '值发生改变事件',
-      code: 'onChange',
-      type: 'Function',
-      demo: `function onChange({ value }) {
-  console.log('onChange', value);
-}`,
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '点击确认按钮',
-      code: 'onOk',
-      type: 'Function',
-      demo: `function onOk({ value }) {
-  console.log('onOk', value);
-}`,
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '弹层展示状态变化',
-      code: 'onVisibleChange',
-      type: 'Function',
-      demo: `function onVisibleChange(visible, reason) {
-  console.log('onVisibleChange', visible, reason);
-}`,
-      default
-: '',
-      desc: '',
+      code: "onVisibleChange",
+      type: "(visible：boolean) => void",
+      default: "-",
+      desc: "弹层显示或隐藏时触发事件",
     },
   ]}
 />
