@@ -61,7 +61,7 @@ import AttrTable from "components/AttrTable";
     {
       code: "multiple",
       type: "boolean",
-      default: "flase",
+      default: "true",
       desc: "设置是否多选",
     },
     {
@@ -69,12 +69,6 @@ import AttrTable from "components/AttrTable";
       type: "number",
       default: "0",
       desc: "设置上传超时，单位 ms",
-    },
-    {
-      code: "url",
-      type: "string",
-      default: `-`,
-      desc: "接口地址",
     },
     {
       code: "name",
@@ -96,14 +90,14 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "beforeUpload",
-      type: "(file: { object }) => void",
+      type: "(file: { object }, options: { object }) => void",
       default: "-",
       desc: "上传前处理事件",
     },
     {
       code: "formatter",
       type: "(response) => return response",
-      default: "-",
+      default: "object",
       desc: "数据处理事件",
     },
     {
@@ -111,6 +105,12 @@ import AttrTable from "components/AttrTable";
       type: "number",
       default: "9",
       desc: "设置最大上传文件个数",
+    },
+    {
+      code: "maxFileSize",
+      type: "number",
+      default: "50",
+      desc: "设置单文件最大上传大小(MB)",
     },
     {
       code: "withCredentials",
@@ -132,7 +132,7 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "onChange",
-      type: "({ value }: object) => void",
+      type: "({ value: object }) => void",
       default: `-`,
       desc: "组件值发生改变事件",
     },
