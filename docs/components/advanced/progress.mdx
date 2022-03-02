@@ -1,9 +1,9 @@
 ---
-title: 进度条
+title: Progress 进度条
 order: 13
 ---
 
-# 进度条
+# Progress 进度条
 
 ## 何时使用
 
@@ -25,58 +25,41 @@ import AttrTable from 'components/AttrTable';
 <AttrTable
   dataSource={[
     {
-      attr: '尺寸',
       code: 'size',
-      type: 'String',
-      demo: '"large" ',
-      default
-: '',
-      desc: '可选值："small","middle","large"',
+      type: 'string',
+      default: `'medium'`,
+      desc: "设置尺寸",
     },
     {
-      attr: '形态',
       code: 'shape',
-      type: 'String',
-      demo: '"line" ',
-      default
-: 'normal',
-      desc: '可选值："line","circle"',
+      type: 'string',
+      default: `'line'`,
+      desc: "设置形态",
     },
     {
-      attr: '百分比',
+   
       code: 'percent',
-      type: 'Number',
-      demo: '10',
-      default
-: '',
-      desc: '支持 0 到 100，超出范围，渲染不正常 ',
+      type: 'number',
+      default: '0',
+      desc: "设置百分比",
     },
     {
-      attr: '状态',
       code: 'state',
-      type: 'String',
-      demo: '"normal" ',
-      default
-: 'click',
-      desc: '可选值："normal", "success", "error"',
+      type: 'string',
+      default: `'normal'`,
+      desc: "设置状态",
     },
     {
-      attr: '边框',
       code: 'hasBorder',
       type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '是否含有边框，只有条形支持，可选值:true,false',
+      default: 'false',
+      desc: "设置边框",
     },
     {
-      attr: '色彩阶段变化模式',
       code: 'progressive',
       type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '颜色随数字变化，可选值:true,false',
+      default: 'false',
+      desc: '设置色彩阶段变化模式',
     },
   ]}
 />

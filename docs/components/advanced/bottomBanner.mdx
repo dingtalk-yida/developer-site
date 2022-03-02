@@ -1,83 +1,71 @@
 ---
-title: 底部通栏
+title: BannerContainer 底部通栏
 order: 4
 ---
 
-# 底部通栏
+# BannerContainer 底部通栏
 
 底部通栏 组件允许你在页面底部添加内容，并且内容固定在页面底部和占据通栏
 
 ## 何时使用
+
 需要在页面底部添加内容时，例如添加版权信息等
 
 -
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/banner-container-v2?isRenderNav=false" />
 
 ## 组件属性
-import AttrTable from 'components/AttrTable';
+
+import AttrTable from "components/AttrTable";
 
 <AttrTable
   dataSource={[
     {
-      attr: '自适应宽度',
-      code: 'autoWidth',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: '可选值：true, false',
+      code: "autoWidth",
+      type: "boolean",
+      default: "false",
+      desc: "是否开启自适应宽度",
     },
     {
-      attr: '布局方式',
-      code: 'layout',
-      type: 'String',
-      demo: '"h"',
-      default
-: '',
-      desc: '可选值："h", "v"',
+      code: "layout",
+      type: "string",
+      default: `'h'`,
+      desc: "设置布局方式默认值",
     },
     {
-      attr: '内容宽度',
-      code: 'contentWidth',
-      type: 'Number',
-      demo: '10',
-      default
-: '',
-      desc: '可选值：数值',
+      code: "contentWidth",
+      type: "number",
+      default: "0",
+      desc: "设置内容宽度",
     },
     {
-      attr: '容器宽度',
-      code: 'containerWidth',
-      type: 'Number',
-      demo: '10',
-      default
-: '',
-      desc: '可选值：数值',
+      code: "containerWidth",
+      type: "number",
+      default: "0",
+      desc: "设置容器宽度",
+    },
+    {
+      code: "extra",
+      type: "string",
+      default: "",
+      desc: "是否开启自定义内容插槽",
+    },
+    {
+      code: "getRefContainer",
+      type: "()=>{document.body}",
+      default: "-",
+      desc: "设置自定义挂载容器",
     },
       {
-      attr: '自定义内容插槽',
-      code: '',
-      type: '',
-      demo: '',
-      default
-: '',
-      desc: '开启/关闭',
-    },
-      {
-      attr: '自定义挂载容器',
-      code: 'getRefContainer',
-      type: 'Function',
-      demo: 'function(value){ console.log(value); }',
-      default
-: '',
-      desc: '',
-    },
-  
+      code: "fieldId",
+      type: "string",
+      default: "-",
+      desc: "组件的唯一标识符，不能够与其它组件重名，不能够为空，且只能够使用以字母开头的，下划线以及数字的组合。",
+    }
   ]}
 />
-
