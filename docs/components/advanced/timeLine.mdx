@@ -1,9 +1,9 @@
 ---
-title: 时间轴
+title: Timeline 时间轴
 order: 14
 ---
 
-# 时间轴
+# Timeline 时间轴
 
 垂直展示的时间流信息。
 
@@ -14,69 +14,70 @@ order: 14
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/timeLine-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
   dataSource={[
     {
-      attr: '时间轴数据',
-      code: 'dataSource',
-      type: 'Array',
-      demo: "[{ title: 'Cloudy', time: '2016-06-10 10:30:00' }]",
-      default
-: '',
-      desc: '',
+      code: "dataSource",
+      type: "array",
+      default: `~~~json
+      [{"title": {
+        "zh_CN": "春天",
+        "en_US": "Spring",
+        "type": "i18n"
+        },
+        "time": "2021-03-10"
+        },
+        {
+        "title": {
+        "zh_CN": "夏天",
+        "en_US": "Summer",
+        "type": "i18n"
+        },
+        "time": "2016-06-11"
+        },
+        {
+        "title": {
+        "zh_CN": "秋天",
+        "en_US": "Autumn",
+        "type": "i18n"
+        },
+        "time": "2016-09-09"
+        },
+        {
+        "title": {
+        "zh_CN": "冬天",
+        "en_US": "Winter",
+        "type": "i18n"
+        },
+        "time": "2016-12-08"
+        }]`,
+      desc: "用于配置时间轴数据。",
     },
     {
-      attr: '折叠数据',
-      code: 'fold',
-      type: 'Array',
-      demo: '[{ foldArea: [1, 2], foldShow: false }] ',
-      default
-: '',
-      desc: '',
+      code: "fold",
+      type: "array",
+      default: `~~~json [{
+        "foldArea": [
+          1,
+          2
+          ],
+          "foldShow": false
+      }]`,
+      desc: "用于配置数据折叠。",
     },
     {
-      attr: '标题',
-      code: 'title',
-      type: 'String',
-      demo: "'时间 1'",
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '时间',
-      code: 'time',
-      type: 'String',
-      demo: "'2019-01-05' ，'2019-02-05'，'2019-02-05'",
-      default
-: '',
-      desc: '',
-    },
-    {
-      attr: '状态',
-      code: 'state',
-      type: 'String',
-      demo: "'process'",
-      default
-: '',
-      desc: "可选值：'process', 'success', 'error'",
-    },
-    {
-      attr: '图标',
-      code: 'icon',
-      type: 'String',
-      demo: "'smile' ",
-      default
-: '',
-      desc: '',
+      code: "animation",
+      type: "boolean",
+      default: "true",
+      desc: "用于选择是否开启动画。",
     },
   ]}
 />
