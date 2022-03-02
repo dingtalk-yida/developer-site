@@ -54,8 +54,8 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "maxLength",
-      type: "string",
-      default:`-`,
+      type: "number",
+      default:"-",
       desc:"设置多行文本字数上限",
     },
     {
@@ -76,15 +76,9 @@ import AttrTable from "components/AttrTable";
       default: "false",
       desc:"是否开启自动聚焦",
     },
-      {
-      code: "__style__",
-      type: "object",
-      default: "-",
-      desc:"设置多行文本的样式",
-    }
     {
       code: "onChange",
-      type: "(value: string) => void",
+      type: "({ value: string }) => void",
       default: "",
       desc: "组件值发生改变事件",
     },
@@ -111,6 +105,42 @@ import AttrTable from "components/AttrTable";
       type: "() => void",
       default: "",
       desc: "多行输入框键盘按下时触发的事件",
-    }
+    },
+    {
+      code:"state",
+      type:` "" | 'error' | 'loading' | 'success'`,
+      default: `""`,
+      desc : "设置多行文本的状态"
+    },
+    {
+      code:"hasClear",
+      type: "boolean",
+      default: "true",
+      desc : "是否开启多行文本清除按钮"
+    },
+    {
+      code:"addonBefore",
+      type: "boolean",
+      default: "true",
+      desc : "是否开启多行文本清除按钮"
+    },
+    {
+      code: "addonBefore",
+      type: "string",
+      default: `-`,
+      desc: "多行输入框前附加内容",
+    },
+    {
+      code: "addonAfter",
+      type: "string",
+      default: `-`,
+      desc: "输入框后附加内容",
+    },
+    {
+      code: "cutString",
+      type: "boolean",
+      default: "false",
+      desc: "超出maxlength截断超出字符串",
+    },
   ]}
 />
