@@ -1,9 +1,9 @@
 ---
-title: 按钮
+title: Button 按钮
 order: 2
 ---
 
-# 按钮
+# Button 按钮
 
 按钮用于开始一个即时操作。
 
@@ -13,78 +13,51 @@ order: 2
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/button-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
   dataSource={[
     {
-      attr: '标题',
-      code: 'content',
-      type: 'String',
-      demo: '"按钮"',
-      default
-: '',
-      desc: '',
+      code: "content",
+      type: "string",
+      default: "按钮",
+      desc: "标题",
     },
     {
-      attr: '按钮类型',
-      code: 'type',
-      type: 'String',
-      demo: '"primary"',
-      default
-: '',
-      desc: '可选值："primary", "normal", "secondary", "ghostLight", "ghostDark", "warningNormal", "warningPrimary", "textNormal", "textPrimary", "textSecondary" ',
+      code: "type",
+      type: `'primary' | 'normal' | 'secondary' | 'ghostLight' | 'ghostDark' | 'warningNormal' |'warningPrimary' | 'textNormal' | 'textPrimary' | 'textSecondary'`,
+      default:` 'primary' `,
+      desc: "按钮的类型",
     },
     {
-      attr: '按钮尺寸',
-      code: 'size',
-      type: 'String',
-      demo: '"medium"',
-      default
-: '',
-      desc: '可选值："small", "medium", "large"',
+      code: "baseIcon",
+      type: "string",
+      default: "-",
+      desc: "基础图标",
     },
     {
-      attr: '状态设置',
-      code: 'behavior',
-      type: 'String',
-      demo: '"hover"',
-      default
-: '',
-      desc: '可选值："hover", "click", "focus"',
+      code: "otherIcon",
+      type: "string",
+      default: "-",
+      desc: "其他图标",
     },
     {
-      attr: '图标',
-      code: 'iconName',
-      type: 'String',
-      demo: '"add"',
-      default
-: '',
-      desc: '',
+      code: "loading",
+      type: "boolean",
+      default: "false",
+      desc: "按钮的载入状态",
     },
     {
-      attr: '加载状态',
-      code: 'loading',
-      type: 'Boolean',
-      demo: 'false',
-      default
-: '',
-      desc: '可选值：false, true',
-    },
-    {
-      attr: '点击时事件',
-      code: 'onClick',
-      type: 'Function',
-      demo: 'function onClick(){ console.log("onClick");}',
-      default
-: '',
-      desc: '',
+      code: "onClick",
+      type: "(e: 0bject) => void",
+      default: "-",
+      desc: "点击按钮时事件",
     },
   ]}
 />
