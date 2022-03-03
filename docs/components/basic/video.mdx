@@ -5,11 +5,9 @@ order: 9
 
 # Video 视频播放
 
-视频控件，用于播放 mp4、mov 等 HTML 原生支持的视频资源。
-
 ## 何时使用
 
--
+-视频控件，用于播放 mp4、mov 等 HTML 原生支持的视频资源。
 
 ## 组件示例
 
@@ -39,8 +37,14 @@ import AttrTable from 'components/AttrTable';
 <AttrTable
   dataSource={[
     {
+      code: "title",
+      type: "string",
+      default: "-",
+      desc: "原生标题",
+    },
+    {
       code: "url",
-      type: `'https://cloud.video.taobao.com/play/u/1804320196/p/1/e/6/t/1/287344840104.mp4'`,
+      type: "string",
       default: ` 'https://cloud.video.taobao.com/play/u/1804320196/p/1/e/6/t/1/287344840104.mp4' `,
       desc: "视频地址",
     },
@@ -52,7 +56,7 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: "sizeFit",
-      type: `'contain' | 'fill' | 'cover' | 'scale-dowm' | 'none'`
+      type: `'contain' | 'fill' | 'cover' | 'scale-dowm' | 'none'`,
       default: ` 'contain' `,
       desc: "画面适配模式",
     },
@@ -124,49 +128,49 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: "onPlay",
-      type: '(ctx, video, ev) => void',
+      type: '(ctx: object) => void',
       default: "-",
       desc: "当开始播放时",
     },
     {
       code: "onPause",
-      type: '(ctx, video, ev) => void',
+      type: '(ctx: object) => void',
       default: "-",
       desc: "当视频暂停时",
     },
     {
       code: "onEnded",
-      type: '(ctx, video, ev) => void',
+      type: '(ctx: object) => void',
       default: "-",
       desc: "当视频播放结束时",
     },
     {
       code: "onEnterFullscreen",
-      type: '(ctx, video, ev) => void',
+      type: '(ctx: object) => void',
       default: "-",
       desc: "当全屏时",
     },
     {
       code: "onExitFullscreen",
-      type: '(ctx, video, ev) => void',
+      type: '(ctx: object) => void',
       default: "-",
       desc: "当退出全屏时",
     },
     {
       code: "onError",
-      type: '(ctx, video, ev) => void',
+      type: '(ctx: object) => void',
       default: "-",
       desc: "当播放出错时",
     },
     {
       code: "timeUpdate",
-      type: '(ctx, video, ev) => void',
+      type: '(ctx: object) => void',
       default: "-",
       desc: "当播放时间更新时",
     },
     {
       code: "canPlayThrough",
-      type: '(ctx, video, ev) => void',
+      type: '(ctx: object) => void',
       default: "-",
       desc: "当加载完成可以播放时",
     },

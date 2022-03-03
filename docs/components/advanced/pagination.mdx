@@ -52,8 +52,8 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'pageSizeList',
-      type: `5 | 10 | 20`,
-      default: "10",
+      type: `string`,
+      default: "5 , 10 , 20",
       desc: '每页显示选择器可选值',
     },
     {
@@ -81,20 +81,16 @@ import AttrTable from 'components/AttrTable';
       desc: "显示跳转输入框与按钮",
     },
     {
-      attr: '当每页数量改变时',
       code: 'onPageSizeChange',
       type: '(pageSize: number) => void',
-      demo: 'function(pageSize){}',
-      default: '',
-      desc: '',
+      default: '-',
+      desc: '当每页数量改变时',
     },
     {
-      attr: '当页码改变时',
       code: 'onChange',
-      type: '(current: number, {e: object}) => void',
-      demo: 'function(currentPagination){}',
-      default: '',
-      desc: '',
+      type: '(currentPagination: number) => void',
+      default: '-',
+      desc: '当页码改变时',
     },
   ]}
 />

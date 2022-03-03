@@ -24,14 +24,26 @@ import AttrTable from "components/AttrTable";
 <AttrTable
 dataSource={[
     {
-      code: "type",
-      type: ` 'smile' `,
+      code: "baseType",
+      type: "string",
       default: ` 'smile' `,
       desc: "基础图标",
     },
     {
+      code: "otherType",
+      type: "string",
+      default: ` 'smile' `,
+      desc: "基础图标",
+    },
+    {
+      code: "useType",
+      type: "boolean",
+      default: "false",
+      desc: "基础图标",
+    },
+    {
       code: "size",
-      type: `'xxs' | 'xs' | 'small' | 'medium' | 'large' | 'xl' |'xxl' | 'xxl'`,
+      type: `'xxs' | 'xs' | 'small' | 'medium' | 'large' | 'xl' |'xxl' | 'xxxl'`,
       default: ` 'medium' `,
       desc: "图标大小",
     },
