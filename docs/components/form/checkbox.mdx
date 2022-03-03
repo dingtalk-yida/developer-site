@@ -1,5 +1,5 @@
 ---
-title: CheckboxField多选
+title: CheckboxField 多选
 order: 4
 ---
 
@@ -25,26 +25,26 @@ category="form"
   dataSource={[
     {
       code: 'value',
-      type: 'String | Array',
-      default: ``,
+      type: 'string | array',
+      default: '-',
       desc: '当前组件默认值',
     },
     {
       code: 'itemDirection',
       type: `'hoz' | 'ver'`,
-      default: 'hoz',
+      default: `'hoz'`,
       desc: '排列方式',
     },
     {
       code: "useDrawerInMobile",
       type: "boolean",
-      default: "true",
+      default: "false",
       desc: "移动端排列方式",
     },
     {
       code: 'iconPosition',
       type: `'left' | 'right'`,
-      default: 'left',
+      default: `'left'`,
       desc: '移动端Icon位置,仅移动端生效',
     },
     {
@@ -82,7 +82,7 @@ category="form"
     },
     {
       code: 'onChange',
-      type:'(value: string) => void' ,
+      type: '(value: string) => void' ,
       default: '',
       desc: '组件值发生改变事件',
     },
