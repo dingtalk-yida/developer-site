@@ -90,14 +90,14 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "beforeUpload",
-      type: "(file: { object }, options: { object }) => void",
-      default: "-",
+      type: "(file: object, options: object) => void",
+      default: `-`,
       desc: "上传前处理事件",
     },
     {
       code: "formatter",
-      type: "(response) => return response",
-      default: "object",
+      type: "(response: object) => response",
+      default: `-`,
       desc: "数据处理事件",
     },
     {
