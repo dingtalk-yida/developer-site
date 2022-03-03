@@ -22,6 +22,24 @@ import AttrTable from "components/AttrTable";
 <AttrTable
   dataSource={[
     {
+      code: "title",
+      type: "string",
+      default: `'Drawer标题'`,
+      desc: "抽屉标题",
+    },
+    {
+      code: "width",
+      type: "number",
+      default: "-",
+      desc: "抽屉框宽度",
+    },
+    {
+      code: "height",
+      type: "number",
+      default: "-",
+      desc: "抽屉框高度",
+    },
+    {
       code: "visible",
       type: "boolean",
       default: "false",
@@ -65,19 +83,19 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "onOk",
-      type: "(event: Object) => void",
+      type: "() => void",
       default: "-",
       desc: "点击确定按钮时事件",
     },
     {
       code: "onCancel",
-      type: "(event: Object) => void",
+      type: "() => void",
       default: "-",
       desc: "点击取消按钮时事件",
     },
     {
       code: "onClose",
-      type: "(trigger: String, event: Object) => void",
+      type: "() => void",
       default: "-",
       desc: "Drawer关闭时事件",
     },
