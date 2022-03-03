@@ -74,19 +74,18 @@ import AttrTable from "components/AttrTable";
       code: "processDataSource",
       type: "(data: object) => void",
       default: "-",
-      desc: "数据预处理"，
-
+      desc: "数据预处理",
     },
     {
       code: "showLine",
       type: "boolean",
-      default: "false",
+      default: "true",
       desc: "显示线",
     },
     {
       code: "multiple",
       type: "boolean",
-      default: false
+      default: "false",
       desc: "多选",
     },
     {
@@ -104,13 +103,13 @@ import AttrTable from "components/AttrTable";
     {
       code: "defaultExpandAll",
       type: "boolean",
-      default: "false",
+      default: "true",
       desc: "默认展开所有节点",
     },
     {
       code: "defaultExpandedKeys",
       type: "array",
-      default: "["0-0-0"]",
+      default: `["0-0-0"]`,
       desc: "默认展开的节点",
     },
     {
@@ -122,7 +121,7 @@ import AttrTable from "components/AttrTable";
     {
       code: "checkedKeys",
       type: "array",
-      default: "["0-0-0"]",
+      default: `["0-0-0"]`,
       desc: "默认选中节点",
     },
     {
@@ -134,13 +133,13 @@ import AttrTable from "components/AttrTable";
     {
       code: "checkedKeys",
       type: "array",
-      default: "["0-0-0"]",
+      default: `["0-0-0"]`,
       desc: "默认勾选节点",
     },
     {
       code: "checkStrictly",
       type: "boolean",
-      default: false
+      default: "false",
       desc: "复选框完全受控",
     },
     {
@@ -181,7 +180,7 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "onCheck",
-      type: "(checkedKeys: srray, extra: object) => void",
+      type: "(checkedKeys: array, extra: object) => void",
       default: "-",
       desc: "勾选或取消勾选复选框时触发的事件",
     },
@@ -219,7 +218,7 @@ import AttrTable from "components/AttrTable";
       code: "onDragLeave",
       type: "(info: object) => void",
       default: "-",
-      desc: 拖拽节点离开目标节点时触发的事件
+      desc: "拖拽节点离开目标节点时触发的事件",
     },
     {
       code: "onDragEnd",
@@ -239,5 +238,23 @@ import AttrTable from "components/AttrTable";
       default: "-",
       desc: "节点是否可被作为目标节点时触发的事件",
     },
+    {
+      code: "selectedKeys",
+      type: "array",
+      default: `["0-0-0"]`,
+      desc: "默认选中节点",
+    },
+    {
+      code: "expandedKeys",
+      type: "array",
+      default: `["0-0-0"]`,
+      desc: "展开的节点",
+    },
+    {
+      code: "checkStrictly",
+      type: "boolean",
+      default: "false",
+      desc: "复选框完全受控",
+    }
   ]}
 />

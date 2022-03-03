@@ -36,7 +36,7 @@ import AttrTable from "components/AttrTable";
     {
       code: "content",
       type: "string",
-      default: "提示内容",
+      default: "'提示内容'",
       desc: "用于配置气泡组件显示内容",
     },
     {
@@ -59,7 +59,7 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "delay",
-      type: "string",
+      type: "number",
       default: "0",
       desc: "用于控制鼠标悬浮在组件上 hover 时气泡显示的延迟时间,仅触发行为为hover时生效，单位为ms",
     },
@@ -89,19 +89,19 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "onClose",
-      type: "Function() => void",
+      type: "() => void",
       default: "-",
       desc: "Balloon 浮层关闭时触发的事件",
     },
     {
       code: "afterClose",
-      type: "Function() => void",
+      type: "() => void",
       default: "-",
       desc: "Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发",
     },
     {
       code: "onVisibleChange",
-      type: "Function() => void",
+      type: "(visible:boolean) => void",
       default: "-",
       desc: "Balloon 浮层关闭后触发的事件, 如果有动画，则在动画结束后触发",
     },

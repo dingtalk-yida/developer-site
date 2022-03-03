@@ -35,12 +35,6 @@ import AttrTable from "components/AttrTable";
       desc: "设置上传类型",
     },
     {
-      code: "group",
-      type: `'normal' | 'drag'`,
-      default: `'normal'`,
-      desc: "设置上传详情",
-    },
-    {
       code: "buttonText",
       type: "string",
       default: `'上传文件'`,
@@ -90,14 +84,14 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "beforeUpload",
-      type: "(file: { object }, options: { object }) => void",
+      type: "(file: object, options: object) => void",
       default: "-",
       desc: "上传前处理事件",
     },
     {
       code: "formatter",
-      type: "(response) => return response",
-      default: "object",
+      type: "(response: object) => response",
+      default: "-",
       desc: "数据处理事件",
     },
     {
@@ -144,13 +138,13 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "onSuccess",
-      type: "(file: object) => void",
+      type: "(file: object, value: array) => void",
       default: `-`,
       desc: "组件值上传成功事件",
     },
     {
       code: "onError",
-      type: "(file: object) => void",
+      type: "(file: object, value: array) => void",
       default: "",
       desc: "组件值上传失败事件",
     },
