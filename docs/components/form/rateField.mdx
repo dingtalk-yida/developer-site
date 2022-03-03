@@ -29,16 +29,10 @@ import AttrTable from 'components/AttrTable';
       desc: '默认值',
     },
     {
-      code: 'fieldData',
-      type: 'Object',
-      default: '',
-      desc: '',
-    },
-    {
       code: 'placeholder',
-      type: 'String',
-      default: '',
-      desc: '',
+      type: 'string',
+      default: "-",
+      desc: '占位提示',
     },
     {
       code: 'count',
@@ -48,26 +42,26 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'allowHalf',
-      type: 'Boolean',
+      type: 'boolean',
       default: 'false',
       desc: '半星评分',
     },
     {
       code: 'showGrade',
-      type: 'Boolean',
+      type: 'boolean',
       default: 'false',
       desc: '显示分数',
     },
     {
      code: "onChange",
       type: '({ value: number }) => void',
-      default: "",
+      default: "-",
       desc: "用户点击评分时",
     },
     {
       code: 'onHoverChange',
-      type: '({ value: number }) => void',
-      default: "",
+      type: '(value: number) => void',
+      default: "-",
       desc: "用户hover评分时",
     },
   ]}
