@@ -35,20 +35,20 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'columnGap',
-      type: 'number|string',
-      default: `'10'`,
+      type: 'number',
+      default: '0',
       desc: '设置分栏相邻列之间的间距 ',
     },
     {
       code: 'rowGap',
-      type: 'number|string ',
-      default: `'10'`,
+      type: 'number',
+      default: '0',
       desc: '在多行分栏的场景下，设置分栏相邻行之间的间距',
     },
     {
       code: 'display',
-      type: 'string ',
-      default: `'VERTICAL'|'HORIZONTAL'`,
+      type: `'VERTICAL' | 'HORIZONTAL'`,
+      default: `'VERTICAL'`,
       desc: '排列方式',
     },
     {
@@ -57,6 +57,5 @@ import AttrTable from 'components/AttrTable';
       default: `'16px'`,
       desc: '垂直布局时的行间距',
     }
-
   ]}
 />

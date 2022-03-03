@@ -55,9 +55,21 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "onClick",
-      type: "(e: 0bject) => void",
+      type: "() => void",
       default: "-",
       desc: "点击按钮时事件",
     },
+    {
+      code: "triggerEventsWhenLoading",
+      type: "boolean",
+      default: "false",
+      desc: "加载点击",
+    },
+    {
+      code: "contentMarginMobile",
+      type: `'0' | '16'`,
+      default: ` '0' `,
+      desc: "Mobile 端设置 左右间距",
+    }
   ]}
 />
