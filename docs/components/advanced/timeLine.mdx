@@ -28,49 +28,52 @@ import AttrTable from "components/AttrTable";
       code: "dataSource",
       type: "array",
       default:`~~~json
-[{"title": {
-"zh_CN": "春天",
-"en_US": "Spring",
-"type": "i18n"
-},
-"time": "2021-03-10"
-},
-{
-"title": {
-"zh_CN": "夏天",
-"en_US": "Summer",
-"type": "i18n"
-},
-"time": "2016-06-11"
-},
-{
-"title": {
-"zh_CN": "秋天",
-"en_US": "Autumn",
-"type": "i18n"
-},
-"time": "2016-09-09"
-},
-{
-"title": {
-"zh_CN": "冬天",
-"en_US": "Winter",
-"type": "i18n"
-},
-"time": "2016-12-08"
-}]`,
+[
+  {
+    title: {
+      zh_CN: "春天",
+      en_US: "Spring",
+      type: "i18n",
+    },
+    time: "2021-03-10",
+  },
+  {
+    title: {
+      zh_CN: "夏天",
+      en_US: "Summer",
+      type: "i18n",
+    },
+    time: "2016-06-11",
+  },
+  {
+    title: {
+      zh_CN: "秋天",
+      en_US: "Autumn",
+      type: "i18n",
+    },
+    time: "2016-09-09",
+  },
+  {
+    title: {
+      zh_CN: "冬天",
+      en_US: "Winter",
+      type: "i18n",
+    },
+    time: "2016-12-08",
+  },
+]`,
       desc: "用于配置时间轴数据",
     },
     {
       code: "fold",
       type: "array",
-      default: `~~~json [{
-"foldArea": [
-1,
-2
-],
-"foldShow": false
-}]`,
+      default: `~~~json 
+[
+  {
+    foldArea: [1, 2],
+    foldShow: false,
+  },
+]`,
       desc: "用于配置数据折叠",
     },
     {

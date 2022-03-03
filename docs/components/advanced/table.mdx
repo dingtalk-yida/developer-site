@@ -680,6 +680,41 @@ import AttrTable from "components/AttrTable";
       default: "false",
       desc: "高级:设置列固定优化",
     },
-
+    {
+      code: "onFetchData",
+      type: "({params: object})=>void",
+      default: "-",
+      desc: "动作设置:分页、搜索、排序时触发",
+    },
+    {
+      code: "onCellDataChange",
+      type: "({data: object})=>void",
+      default: "-",
+      desc: "动作设置:编态数据发生变化时触发",
+    },
+    {
+      code: "onRowClick",
+      type: "({record: object,index:number,evt:object})=>void",
+      default: "-",
+      desc: "动作设置:点击表格每一行触发的事件",
+    },
+    {
+      code: "onRowMouseEnter",
+      type: "({record: object,index:number,evt:object})=>void",
+      default: "-",
+      desc: "动作设置:悬浮在表格每一行的时候触发的事件",
+    },
+    {
+      code: "onRowMouseLeave",
+      type: "({record: object,index:number,evt:object})=>void",
+      default: "-",
+      desc: "动作设置:离开表格每一行的时候触发的事件",
+    },
+    {
+      code: 'onResizeChange',
+      type: "({dataIndex: string,value:number})=>void",
+      default: "-",
+      desc: "动作设置:重设列尺寸的时候触发的事件",
+    }
   ]}
 /> 

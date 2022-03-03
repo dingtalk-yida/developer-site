@@ -21,6 +21,24 @@ import AttrTable from "components/AttrTable";
 <AttrTable
   dataSource={[
     {
+      code: "title",
+      type: "string",
+      default: `'Dialog标题'`,
+      desc: "对话框标题",
+    },
+    {
+      code: "width",
+      type: "number",
+      default: "-",
+      desc: "对话框宽度",
+    },
+    {
+      code: "height",
+      type: "number",
+      default: "-",
+      desc: "对话框高度",
+    },
+    {
       code: "visible",
       type: "boolean",
       default: "false",
@@ -48,29 +66,29 @@ import AttrTable from "components/AttrTable";
       code: "footerAlign",
       type: `'left' | 'center' | 'right'`,
       default: `'right'`,
-      desc: '对话框确定按钮和取消按钮对齐方式',
+      desc: "对话框确定按钮和取消按钮对齐方式",
     },
     {
       code: "footerActions",
-      type: `'cancel,ok' | 'cancel, ok' | 'ok' | 'cancel'`,
+      type: `'cancel,ok' | 'cancel,ok' | 'ok' | 'cancel'`,
       default: `'cancel,ok'`,
-      desc: '确定按钮和取消按钮是否存在以及如何排列',
+      desc: "确定按钮和取消按钮是否存在以及如何排列",
     },
     {
       code: "onOk",
-      type: "(event: Object) => void",
+      type: "() => void",
       default: "-",
       desc: "点击确定按钮时事件",
     },
     {
       code: "onCancel",
-      type: "(event: Object) => void",
+      type: "() => void",
       default: "-",
       desc: "点击取消按钮时事件",
     },
     {
       code: "onClose",
-      type: "(trigger: String, event: Object) => void",
+      type: "() => void",
       default: "-",
       desc: "对话框关闭时事件",
     },
@@ -107,20 +125,20 @@ import AttrTable from "components/AttrTable";
     {
       code: "cancelText",
       type: "string",
-      default:"取消",
+      default: "取消",
       desc: "取消按钮内文字",
     },
     {
       code: "confirmText",
       type: "string",
-      default:"确定",
+      default: "确定",
       desc: "确定按钮内文字",
     },
     {
       code: "confirmState",
       type: `'NORMAL' | 'DISABLED' | 'LOADING'`,
-      default:"确定",
+      default: "确定",
       desc: "确定按钮的确认状态",
-    }
+    },
   ]}
 />
