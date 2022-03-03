@@ -26,55 +26,51 @@ import AttrTable from "components/AttrTable";
       type:'object',
       default: `~~~json
 {
-    "defaultOpenKeys": [
-        "key1"
-    ],
-    "defaultSelectedKeys": [
-        "key1-1"
-    ],
-    "menu": [
+  defaultOpenKeys: ["key1"],
+  defaultSelectedKeys: ["key1-1"],
+  menu: [
+    {
+      label: "菜单项一",
+      key: "key1",
+      children: [
         {
-            "label": "菜单项一",
-            "key": "key1",
-            "children": [
-                {
-                    "label": "选项一",
-                    "key": "key1-1",
-                    "tag": {
-                        "text": "初始化",
-                        "color": "blue"
-                    }
-                },
-                {
-                    "label": "选项二",
-                    "key": "key1-2"
-                }
-            ]
+          label: "选项一",
+          key: "key1-1",
+          tag: {
+            text: "初始化",
+            color: "blue",
+          },
         },
         {
-            "isDivider": true
+          label: "选项二",
+          key: "key1-2",
+        },
+      ],
+    },
+    {
+      isDivider: true,
+    },
+    {
+      label: "菜单项二",
+      key: "key2",
+      children: [
+        {
+          label: "选项一",
+          key: "key2-1",
         },
         {
-            "label": "菜单项二",
-            "key": "key2",
-            "children": [
-                {
-                    "label": "选项一",
-                    "key": "key2-1"
-                },
-                {
-                    "label": "选项二",
-                    "key": "key2-2"
-                }
-            ]
+          label: "选项二",
+          key: "key2-2",
         },
-        {
-            "label": "菜单项三",
-            "key": "key3",
-            "disabled": true
-        }
-    ]
-}      
+      ],
+    },
+    {
+      label: "菜单项三",
+      key: "key3",
+      disabled: true,
+    },
+  ],
+};      
       `,
       desc:'设置菜单的数据源',
     },
@@ -83,10 +79,10 @@ import AttrTable from "components/AttrTable";
       type: `'follow' | 'outside'`,
       default:`'follow'`,
       desc:'设置弹层的对齐方式',
-    }
+    },
     {
       code: 'onItemClick',
-      type: '(key: string,item: Object,event: Object) => void',
+      type: '(key: string,item: object,event: object) => void',
       default
 : '-',
       desc: '点击菜单项触发的事件',
@@ -107,16 +103,16 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: 'onSelect',
-      type: '(selectedKeys: array,extraObj: Object) => void' ,
+      type: '(selectedKeys: array,extraObj: object) => void' ,
       default
 : '-',
       desc: '选中或取消选中菜单项时触发的事件',
     },
     {
       code: 'selectMode',
-      type: `'single' | 'multiple'|'false'`,
+      type: `'single' | 'multiple' | false `,
       default
-: `'false'`,
+: "false",
       desc: '菜单组件的选择模式',
     },
     {
@@ -132,12 +128,6 @@ import AttrTable from "components/AttrTable";
       default
 : '-',
       desc: '自定义菜单头部',
-    },
-    {
-      code:'__style__',
-      type:object,
-      default: '-',
-      desc: '设置菜单的样式',
     },
     {
       code: 'footer',

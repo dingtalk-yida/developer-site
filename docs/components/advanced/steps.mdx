@@ -26,7 +26,22 @@ import AttrTable from "components/AttrTable";
     {
       code: "dataSource",
       type: "	array",
-      default: "0",
+      default: `~~~json
+[
+    {
+        "title": "step1",
+        "content": "Open the refrigerator door"
+    },
+    {
+        "title": "step2",
+        "content": "Put the elephant in the refrigerator"
+    },
+    {
+        "title": "step3",
+        "content": "Close the refrigerator door"
+    }
+]
+      `,
       desc: "步骤数据",
     },
     {
@@ -37,20 +52,20 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "shape",
-      type: `'circle'||'arrow'||'dot'`,
+      type: `'circle' | 'arrow' | 'dot'`,
       default: `'circle'`,
       desc: '类型',
     },
     {
       code: "direction",
-      type: `'horizontal'||'vertical'`,
-      default: "horizontal",
+      type: `'horizontal' | 'vertical'`,
+      default: `'horizontal'`,
       desc: "展示方向",
     },
     {
       code: "labelPlacement",
-      type: `'horizontal'||'vertical'`,
-      default: "vertical",
+      type: `'horizontal' | 'vertical'`,
+      default: `'vertical'`,
       desc: "内容排列方式",
     },
     {
@@ -67,13 +82,13 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "contentRender",
-      type: "(index: String) => void",
+      type: "(item:object,index:number)=>item.content",
       default: '-',
       desc: "内容自定义渲染",
     },
     {
       code: "onClick",
-      type: "(index: String) => void",
+      type: "(index: number) => void",
       default: '-',
       desc: "点击步骤时触发事件",
     },

@@ -36,19 +36,19 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "htmlType",
-      type: `'input' | 'textarea'|'password'`,
+      type: `'input' | 'textarea' | 'password'`,
       default: "input",
       desc: '设置输入框的类型',
     },
     {
       code:"validationType",
-      type:`'text' | 'mobile'|'email'|'url'|'chineseID'|'password'`
+      type:` 'text' | 'mobile' | 'email' | 'url' | 'chineseID' | 'password'`,
       default: "-",
       desc: '设置输入框的格式',
-    }
+    },
     {
       code: "state",
-      type: `'error' | 'loading'|'success'`,
+      type: `'error' | 'loading' | 'success' | "" `,
       default: ``,
       desc: '设置输入框state状态',
     },
@@ -56,25 +56,19 @@ import AttrTable from "components/AttrTable";
       code: "hasLimitHint",
       type: "boolean",
       default: "false",
-      desc: "是否开启计数器,true为开启",
+      desc: "是否开启计数器",
     },
     {
       code: "hasClear",
       type: "boolean",
       default: "true",
-      desc: "是否显示清除按钮,true为开启",
+      desc: "是否显示清除按钮",
     },
     {
       code: "trim",
       type: "boolean",
       default: "false",
-      desc: "是否自动去除头尾空字符,true为去除",
-    },
-    {
-      code:"__style__",
-      type:"object",
-      default:"-",
-      desc:"设置输入框的样式"
+      desc: "是否自动去除头尾空字符",
     },
     {
       code: "scanCode",
@@ -157,12 +151,12 @@ import AttrTable from "components/AttrTable";
 ]      
     `,
     desc: "设置输入框的扫码模式",
-    }
+    },
     {
       code: "autoFocus",
       type: "boolean",
       default: "false",
-      desc: "是否开启自动聚焦,true为自动聚焦",
+      desc: "是否开启自动聚焦",
     },
     {
       code: "addonBefore",
@@ -178,7 +172,7 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "onChange",
-      type: "(value: string) => void",
+      type: "({ value: string }) => void",
       default: "",
       desc: "输入框组件值发生改变时触发的事件",
     },
@@ -223,6 +217,12 @@ import AttrTable from "components/AttrTable";
       type: "(errorMsg: string) => void",
       default: "",
       desc: "输入框扫码失败后触发的事件",
+    },
+    {
+      code: "maxLength",
+      type："number",
+      default: "200",
+      desc: "设置字数上限"
     }
   ]}
 />

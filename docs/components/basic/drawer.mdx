@@ -1,9 +1,9 @@
 ---
-title: 抽屉
+title: Drawer 抽屉
 order: 8
 ---
 
-# 抽屉
+# Drawer 抽屉
 
 ## 何时使用
 
@@ -11,160 +11,129 @@ order: 8
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/drawer-v2?isRenderNav=false" />
 
 ## 组件属性
 
-import AttrTable from 'components/AttrTable';
+import AttrTable from "components/AttrTable";
 
 <AttrTable
   dataSource={[
     {
-      attr: '标题',
-      code: 'title',
-      type: 'String',
-      demo: '"标题"',
-      default
-: '',
-      desc: '',
+      code: "title",
+      type: "string",
+      default: `'Drawer标题'`,
+      desc: "抽屉标题",
     },
     {
-      attr: '宽度',
-      code: 'width',
-      type: 'String',
-      demo: '"520px"',
-      default
-: '',
-      desc: '',
+      code: "width",
+      type: "number",
+      default: "-",
+      desc: "抽屉框宽度",
     },
     {
-      attr: '高度',
-      code: 'height',
-      type: 'String',
-      demo: '"600px"',
-      default
-: '',
-      desc: '',
+      code: "height",
+      type: "number",
+      default: "-",
+      desc: "抽屉框高度",
     },
     {
-      attr: '是否显示',
-      code: 'hasMask',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: '可选值:true,false',
+      code: "visible",
+      type: "boolean",
+      default: "false",
+      desc: "抽屉是否显示",
     },
     {
-      attr: '显示遮罩',
-      code: 'iconName',
-      type: 'String',
-      demo: '"add"',
-      default
-: '',
-      desc: '',
+      code: "hasMask",
+      type: "boolean",
+      default: "true",
+      desc: "遮罩是否显示",
     },
     {
-      attr: '弹出位置',
-      code: 'placement',
-      type: 'String',
-      demo: '"top"',
-      default
-: '',
-      desc: '可选值："top", "bottom", "left", "right" ',
+      code: "placement",
+      type: `'right' | 'top' | 'bottom' | 'left'`,
+      default: `'right'`,
+      desc: "Drawer弹出位置",
     },
     {
-      attr: '关闭方式',
-      code: 'closeable',
-      type: 'Array',
-      demo: '["mask"]',
-      default
-: '',
-      desc: '可选值："mask", "esc"',
+      code: "closeable",
+      type:`'esc' | 'mask'`,
+      default:`'esc'`,
+      desc: '关闭对话框方式',
     },
     {
-      attr: '显示 footer',
-      code: 'footer',
-      type: 'Boolean',
-      demo: 'true',
-      default
-: '',
-      desc: '可选值：true,false',
+      code: "footer",
+      type: "boolean",
+      default: "true",
+      desc: "底部按钮是否显示",
     },
     {
-      attr: 'footer 对齐方式',
-      code: 'footerAlign',
-      type: 'String',
-      demo: '"right"',
-      default
-: '',
-      desc: '可选值："left", "right", "center"',
+      code: "footerAlign",
+      type:`'left' | 'center' | 'right'`,
+      default: `'right'`,
+      desc: 'Drawer确定按钮和取消按钮对齐方式',
     },
     {
-      attr: 'footer 排列方式',
-      code: 'footerActions',
-      type: 'String',
-      demo: '"ok, cancel"',
-      default
-: '',
-      desc: '可选值："ok, cancel", "cancel, ok", "ok", "cancel"',
+      code: "footerActions",
+      type: `'ok,cancel' | 'cancel,ok' | 'ok' | 'cancel'`,
+      default: `'cancel,ok'`,
+      desc: '确定按钮和取消按钮是否存在以及如何排列',
     },
     {
-      attr: 'onOk',
-      code: 'onOk',
-      type: 'Function ',
-      demo: `function onOk() {
-  console.log('onOk');
-}`,
-      default
-: '',
-      desc: '',
+      code: "onOk",
+      type: "() => void",
+      default: "-",
+      desc: "点击确定按钮时事件",
     },
     {
-      attr: 'onCancel',
-      code: 'onCancel',
-      type: 'Function ',
-      demo: `function onCancel() {
-  console.log('onCancel');
-}`,
-      default
-: '',
-      desc: '',
-    },
-     {
-      attr: 'onClose',
-      code: 'onClose',
-      type: 'Function ',
-      demo: `function onClose() {
-  console.log('onClose');
-}`,
-      default
-: '',
-      desc: '',
+      code: "onCancel",
+      type: "() => void",
+      default: "-",
+      desc: "点击取消按钮时事件",
     },
     {
-      attr: 'afterClose',
-      code: 'afterClose',
-      type: 'Function ',
-      demo: `function afterClose() {
-  console.log('afterClose');
-}`,
-      default
-: '',
-      desc: '',
+      code: "onClose",
+      type: "() => void",
+      default: "-",
+      desc: "Drawer关闭时事件",
     },
-           {
-      attr: 'afterOpen',
-      code: 'afterOpen',
-      type: 'Function ',
-      demo: `function afterOpen() {
-  console.log('afterOpen');
-}`,
-      default
-: '',
-      desc: '',
+    {
+      code: "afterClose",
+      type: "() => void",
+      default: "-",
+      desc: "Drawer关闭后事件",
     },
+    {
+      code: "afterOpen",
+      type: "() => void",
+      default: "-",
+      desc: "Drawer打开后事件",
+    },
+    {
+      code: "confirmStyle",
+      type: `'primary' | 'warning' | 'ghostLight' | 'ghostDark'`,
+      default: `'primary'`,
+      desc: "确定按钮风格",
+    },
+    {
+      code: "cancelText",
+      type: "string",
+      default: "取消",
+      desc: "取消按钮内文字",
+    },
+    {
+      code: "confirmText",
+      type: "string",
+      default: "确定",
+      desc: "确定按钮内文字",
+    },
+    {
+      code: "confirmState",
+      type: `'NORMAL' | 'DISABLED' | 'LOADING'`,
+      default:"确定",
+      desc: "确定按钮的确认状态",
+    }
   ]}
 />
