@@ -19,6 +19,8 @@ import Iframe from "components/Iframe";
 
 ## 组件属性
 
+import AttrTable from "components/AttrTable";
+
 <AttrTable
   dataSource={[
     {
@@ -35,7 +37,7 @@ import Iframe from "components/Iframe";
     },
     {
       code: "autuWidth",
-      type: "number",
+      type: "boolean",
       default: "false",
       desc: "宽度自适应",
     },
@@ -47,26 +49,26 @@ import Iframe from "components/Iframe";
     },
     {
       code: "autuHeight",
-      type: "number",
+      type: "boolean",
       default: "false",
       desc: "高度自适应",
     },
     {
       code: "fit",
-      type: `'cover'||'contain'||'fill'`,
+      type: `'cover' | 'contain' | 'fill'`,
       default: `'cover'`,
       desc: "摆放方式",
     },
     {
       code: "round",
-      type: `'16'||'8'||'4'||'0'||'自定义'`,
-      default: `'0'`,
+      type: `'16' | '8' | '4' | '0' | '自定义'`,
+      default: "0",
       desc: "圆角",
     },
     {
       code: "roundRadius",
-      type: "string",
-      default: `'0'`,
+      type: "number",
+      default: "0",
       desc: "圆角大小",
     },
     {
@@ -89,7 +91,7 @@ import Iframe from "components/Iframe";
     },
     {
       code: "onClick",
-      type: "(event: Object) => void",
+      type: "(e:evevt: Object) => void",
       default: "",
       desc: "点击图片时触发事件",
     },
