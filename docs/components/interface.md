@@ -21,6 +21,48 @@ export function setAttribute(){
 }
 ```
 
+## I18n 
+国际化字符串相关配置。
+
+```ts
+inerface I18n {
+  zh_CN: string;
+  en_US: string;
+  type: 'i18n';
+}
+```
+
+## TabItem
+标签项的配置属性。
+
+```ts
+interface TabItem {
+  title: string; // 标签名称
+  primaryKey: string; // 标签唯一标识
+  disabled?: boolean; // 是否禁用
+  customKey？: string; // 自定义Key
+}
+```
+
+## DataSource
+下拉选择、单选、复选等选择性组件的选项格式。
+
+```ts
+interface DataSource {
+  text: string | I18n; // 实际展示内容
+  value: string; // 实际提交数据
+}
+```
+
+## CascadeDataSource
+级联选择等多层嵌套结构的组件选项格式。
+```ts
+interface CascadeDataSource {
+  label: string | I18n; // 实际展示内容
+  value: string; // 实际提交数据
+  chidren?: CascadeDataSource[]
+}
+```
 
 ## Behavior
 表单控件的显示状态类型:
@@ -56,3 +98,32 @@ type LabelTipsTypes = 'none' | 'text' | 'render';
 ```ts
 
 ```
+
+## ScanCodeConfig
+钉钉端扫码模式配置信息，钉钉端支持以下扫码模式：
+* barCode - 条形码；
+* qrCode - 二维码；
+* all - 以上都支持；
+
+```ts
+interface ScanCodeConfig {
+  enable: boolean;
+  type: 'all' | 'barCode' | 'qrCode';
+  editable: boolean; // 是否允许修改扫码结果
+}
+```
+
+## UploadConfig
+富文本组件图片上传配置。
+
+```ts
+interface UploadConfig {
+  inputName?: string; // 上传的file input的name属性，默认file
+  actionUrl: string; // 上传接口
+  formatResult?: (response: any) => any; // 返回数据处理
+  errorCallback?: () => void; // 错误回调
+  progressCallback?: () => void; // 上传进度回调
+  headers?: Record<string, string>; // 图片上传请求头配置
+}
+```
+

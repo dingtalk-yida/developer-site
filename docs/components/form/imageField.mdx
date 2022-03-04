@@ -47,28 +47,34 @@ import AttrTable from "components/AttrTable";
       desc: "设置按钮内容，仅 PC 端有效",
     },
     {
+      code: "customUploadPane",
+      type: '() => ReactNode',
+      default: '-',
+      desc: "定制面板",
+    },
+    {
       code: "buttonSize",
       type: `'small' | 'medium' | 'large'`,
       default: `'medium'`,
-      desc: "设置按钮尺寸",
+      desc: "上传按钮尺寸",
     },
     {
       code: "buttonType",
       type: `'primary' | 'secondary' | 'normal'`,
       default: `'primary'`,
-      desc: "设置按钮类型",
+      desc: "上传按钮类型",
     },
     {
       code: "onlyCameraUpload",
       type: "boolean",
       default: "false",
-      desc: "该功能目前仅支持钉钉移动端，开启后「非钉钉移动端」会自动禁用上传功能。",
+      desc: "仅允许拍照上传，该功能目前仅支持钉钉手机端，开启后「非钉钉手机端」会自动禁用上传功能。",
     },
     {
       code: "multiple",
       type: "boolean",
       default: "true",
-      desc: "设置是否多选",
+      desc: "是否支持上传多个图片",
     },
     {
       code: "timeout",
@@ -96,7 +102,7 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "formatter",
-      type: "(response: object) => response",
+      type: "(response: any) => any",
       default: `-`,
       desc: "数据处理事件",
     },
@@ -122,13 +128,13 @@ import AttrTable from "components/AttrTable";
       code: "autoUpload",
       type: "boolean",
       default: "true",
-      desc: "设置是否自动上传，闭后，需要手动调用 this.fieldId.getInstance().startUpload() 开始上传",
+      desc: "是否自动上传，关闭后，需要手动调用 this.$('fieldId').startUpload() 开始上传",
     },
     {
       code: "accept",
       type: "string",
       default: `'image/*'`,
-      desc: "设置上传图片类型(多个以英文逗号，分隔)",
+      desc: "设置上传图片类型(多个以英文逗号,分隔)",
     },
     {
       code: "onChange",
@@ -156,7 +162,7 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "onSelect",
-      type: "() => void",
+      type: "(file: object) => void",
       default: `-`,
       desc: "组件值选择的事件",
     },

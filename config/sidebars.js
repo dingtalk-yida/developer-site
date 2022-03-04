@@ -62,6 +62,7 @@ module.exports = {
       collapsed: false,
       items: getDocsFromDir('guide/FAQ')
     },
+    'guide/contributing',
   ],
   tutorila: [
     'tutorial/todoMVC',

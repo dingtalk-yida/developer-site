@@ -24,39 +24,39 @@ import AttrTable from "components/AttrTable";
   dataSource={[
     {
       code: "value",
-      type: `number | string`,
+      type: 'string',
       default: `-`,
       desc: "当前组件默认值",
     },
     {
       code: "placeholder",
       type: "string",
-      default: ``,
+      default: '请输入',
       desc: "表单组件占位提示信息",
     },
     {
-      code: "htmlType",
-      type: "string",
-      default: `'textarea'`,
-      desc: "设置多行输入框类型",
+      code: "state",
+      type: `'error' | 'loading' | 'success' | '' `,
+      default: `''`,
+      desc: '设置输入框state状态',
     },
     {
       code: "rows",
       type: "number",
       default: "4",
-      desc: "设置多行文本高度",
+      desc: "设置多行文本高度，仅 PC 端有效",
     },
     {
       code: "hasLimitHint",
       type: "boolean",
-      default:"false",
-      desc:"是否开启多行文本计数器",
+      default: "false",
+      desc:"是否展示多行文本计数器",
     },
     {
       code: "maxLength",
       type: "number",
       default:"-",
-      desc:"设置多行文本字数上限",
+      desc:"多行文本字数上限",
     },
     {
       code: "autoHeight",
@@ -83,43 +83,7 @@ import AttrTable from "components/AttrTable";
       desc: "组件值发生改变事件",
     },
     {
-      code: "onFocus",
-      type: "() => void",
-      default: "",
-      desc: "多行输入框获取焦点时触发的事件",
-    },
-    {
-      code: "onBlur",
-      type: "() => void",
-      default: "",
-      desc: "多行输入框失去焦点触发的事件",
-    },
-    {
-      code: "onPaste",
-      type: "(e: event) => void",
-      default: "",
-      desc: "多行输入框粘贴时触发的事件",
-    },
-    {
-      code: "onKeyDown",
-      type: "() => void",
-      default: "",
-      desc: "多行输入框键盘按下时触发的事件",
-    },
-    {
-      code:"state",
-      type:` "" | 'error' | 'loading' | 'success'`,
-      default: `""`,
-      desc : "设置多行文本的状态",
-    },
-    {
       code:"hasClear",
-      type: "boolean",
-      default: "true",
-      desc : "是否开启多行文本清除按钮",
-    },
-    {
-      code:"addonBefore",
       type: "boolean",
       default: "true",
       desc : "是否开启多行文本清除按钮",
@@ -140,7 +104,7 @@ import AttrTable from "components/AttrTable";
       code: "cutString",
       type: "boolean",
       default: "false",
-      desc: "超出maxlength截断超出字符串",
+      desc: "当超出maxlength时截断超出字符串",
     },
   ]}
 />

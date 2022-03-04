@@ -24,7 +24,7 @@ category="form"
   dataSource={[
     {
       code: "value",
-      type: "object",
+      type: "number[]",
       default: "-",
       desc: "表单组件的默认值",
     },
@@ -50,23 +50,11 @@ category="form"
       code: "hasClear",
       type: "boolean",
       default: "true",
-      desc: "清除按钮",
-    },
-     {
-      code: "start",
-      type: "number",
-      default: "-",
-      desc: "日期开始时间",
-    },
-     {
-      code: "end",
-      type: "number",
-      default: "-",
-      desc: "日期结束时间",
+      desc: "显示清除按钮",
     },
     {
       code: "ranges",
-      type:"()=> array",
+      type:"()=> number[]",
       default:"-",
       desc: "快速区间选择",
     },
@@ -78,9 +66,9 @@ category="form"
     },
     {
       code: "disabledDate",
-      type: '(current: object) => void',
-      default: "-",
-      desc: "禁用日期函数事件",
+      type: "(current: number)=> boolean",
+      default:"-",
+      desc: "自定义限制，当**type**属性为custom时生效",
     },
     {
       code: "onChange",

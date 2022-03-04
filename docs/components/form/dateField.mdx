@@ -28,17 +28,23 @@ import AttrTable from "components/AttrTable";
       default: "-",
       desc: "日期选择默认值",
     },
+     {
+      code: "placeholder",
+      type: "string",
+      default: "'请选择'",
+      desc: "占位提示",
+    },
     {
       code: "start",
       type: "number",
       default: "-",
-      desc: "日期开始时间",
+      desc: "日期开始时间， 当**type**属性为duration时生效",
     },
      {
       code: "end",
       type: "number",
       default: "-",
-      desc: "日期结束时间",
+      desc: "日期结束时间，当**type**属性为duration时生效",
     },
     {
       code: "returnType",
@@ -50,19 +56,13 @@ import AttrTable from "components/AttrTable";
       code: "type",
       type: `'none' | 'beforeToday' | 'afterToday'| 'duration'| 'custom'` ,
       default: `'none'` ,
-      desc: "可选择时间日期限制范围",
+      desc: "时间限制范围",
     },
     {
-      code: "customFun",
-      type: "()=> array",
+      code: "disabledDate",
+      type: "(current: number)=> boolean",
       default:"-",
-      desc: "自定义区间选择",
-    },
-    {
-      code: "placeholder",
-      type: "string",
-      default: `'请选择'`,
-      desc: "表单组件占位提示信息",
+      desc: "自定义限制，当**type**属性为custom时生效",
     },
     {
       code: "format",
@@ -81,18 +81,6 @@ import AttrTable from "components/AttrTable";
       type: "boolean",
       default: "false",
       desc: "是否每次选择日期时重置时间",
-    },
-    {
-      code: "disabledDate",
-      type: "boolean",
-      default: "false",
-      desc: "可选时间区间",
-    },
-    {
-      code: "renderView",
-      type: "(value: object) => void",
-      default: "-",
-      desc: "定制渲染只读态",
     },
     {
       code: "onChange",

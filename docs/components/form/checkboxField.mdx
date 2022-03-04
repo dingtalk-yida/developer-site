@@ -25,7 +25,7 @@ category="form"
   dataSource={[
     {
       code: 'value',
-      type: 'string | array',
+      type: 'string[]',
       default: '-',
       desc: '当前组件默认值',
     },
@@ -33,23 +33,23 @@ category="form"
       code: 'itemDirection',
       type: `'hoz' | 'ver'`,
       default: `'hoz'`,
-      desc: '排列方式',
+      desc: 'PC端选项排列方式',
     },
     {
-      code: "useDrawerInMobile",
-      type: "boolean",
-      default: "false",
-      desc: "移动端排列方式",
+      code: 'useDrawerInMobile',
+      type: 'boolean',
+      default: 'false',
+      desc: '手机端排列方式，为true则直接平铺，为false则底部弹层',
     },
     {
       code: 'iconPosition',
       type: `'left' | 'right'`,
       default: `'left'`,
-      desc: '移动端Icon位置,仅移动端生效',
+      desc: '手机端Icon位置',
     },
     {
       code: "dataSource",
-      type: "array",
+      type: "[DataSource[]](/docs/components/interface#datasource)",
       default: `~~~json
 [
   {
@@ -82,7 +82,7 @@ category="form"
     },
     {
       code: 'onChange',
-      type: '(value: string) => void' ,
+      type: '(value: string[]) => void' ,
       default: '',
       desc: '组件值发生改变事件',
     },

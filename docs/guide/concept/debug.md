@@ -27,10 +27,9 @@ order: 10
 
 安装地址：[https://www.tampermonkey.net/](https://www.tampermonkey.net/)
 ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01Xos7mS1eUnUeGNHsD_!!6000000003875-2-tps-2824-1548.png._webp)
-​
 
 
-2. 访问插件 - 实用工具 ， 导入此文件 
+2. 访问插件 - 实用工具 ， 导入<a href="/file/schemaButton.zip" target="_blank">此文件</a>
 ```json
 {
   "created_by": "Tampermonkey", 

@@ -5,18 +5,13 @@ order: 1
 
 # TabsLayout 选项卡
 
-选项卡切换组件。
-
-## 何时使用
-
 TAB(标签项) 让用户可以在不同子任务、视图、模式之间切换，它具有全局导航的作用，是全局功能的主要展示和切换区域，一个 TAB(标签项) 标记一个核心功能，TAB(标签项) 之间可以快速点击切换。该窗口包含 2 个以上的选项卡，所有选项卡可以排列在一行中，即使该用户界面被本地化后也是如此。提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
 
-宜搭提供了四种选项卡，分别用于不同的场景。
 
-- 普通选项卡，引领页面的内容，起导航的作用。
-- 文本型选项卡。
-- 包裹型选项卡，在页面结构中，只是局部展示，需要和其他内容结合出现。
-- 胶囊型选项卡。
+## 何时使用
+- 当需要对页面内容进行分类或区隔时使用。
+- 当需要对页面控件进行压缩，提升空间利用率时。
+
 
 ## 组件示例
 
@@ -32,7 +27,7 @@ import AttrTable from "components/AttrTable";
   dataSource={[
     {
       code: 'items',
-      type: 'array',
+      type: '[TabItem[]](/docs/components/interface#tabitem)',
       default: '-',
       desc: '可以设置默认激活选项、禁用选项和标签名',
     },
@@ -46,7 +41,7 @@ import AttrTable from "components/AttrTable";
       code: 'size',
       type: `'small' | 'medium'`,
       default: `'medium'`,
-      desc: '设置标签项大小',
+      desc: '标签项大小',
     },
     {
       code: 'contentPadding',
@@ -58,12 +53,12 @@ import AttrTable from "components/AttrTable";
       code: 'excessMode',
       type: `'slide' | 'dropdown'`,
       default: `'slide'`,
-      desc: '选项卡过多时的滑动模式',
+      desc: '选项卡过多时的滑动模式，slide：滑动、dropdown：下拉选择',
     },
     {
       code: 'tabPosition',
       type: `'top' | 'bottom' | 'left' | 'right'`,
-      default: `'block'`,
+      default: `'top'`,
       desc: '导航选项卡的位置',
     },
     {
@@ -74,25 +69,25 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: 'renderBadge',
-      type: `(tabItem: object) =>'dot' }`,
+      type: `(tabItem: object) => ReactNode }`,
       default: `-`,
       desc: '徽标渲染',
     },
     {
       code: 'tabRender',
-      type: `(key: string, props: object) =>ReactNode }`,
+      type: `(key: string, props: object) => ReactNode`,
       default: `-`,
       desc: '自定义渲染选项卡',
     },
     {
       code: 'extraRender',
-      type: `() =>'Extra' }`,
+      type: `() => ReactNode`,
       default: `-`,
       desc: '渲染导航栏附加内容',
     },
     {
       code: 'onTabChange',
-      type: 'function onChange(activeIndex: number, key: string)=>void',
+      type: '(activeIndex: number, key: string) => void',
       default: '-',
       desc: '选项卡切换事件',
     },

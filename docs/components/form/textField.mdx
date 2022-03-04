@@ -24,39 +24,57 @@ import AttrTable from "components/AttrTable";
   dataSource={[
     {
       code: "value",
-      type: "number | string",
+      type: "string",
       default: "-",
       desc: "设置输入框默认值",
     },
     {
       code: "placeholder",
       type: "string",
-      default: `'请选择'`,
+      default: `'请输入'`,
       desc: "占位提示",
     },
     {
       code: "htmlType",
       type: `'input' | 'textarea' | 'password'`,
       default: "input",
-      desc: '设置输入框的类型',
+      desc: '设置输入框的类型，input：单行文案、 textarea：多行文案、 password：密码',
     },
     {
       code:"validationType",
       type:` 'text' | 'mobile' | 'email' | 'url' | 'chineseID' | 'password'`,
-      default: "-",
-      desc: '设置输入框的格式',
+      default: "'text'",
+      desc: '输入框的格式',
     },
     {
       code: "state",
-      type: `'error' | 'loading' | 'success' | "" `,
-      default: `""`,
+      type: `'error' | 'loading' | 'success' | '' `,
+      default: `''`,
       desc: '设置输入框state状态',
+    },
+     {
+      code: "rows",
+      type: 'number',
+      default: `4`,
+      desc: '多行输入框高度，当 **htmlType** 属性为 textarea 时生效',
     },
     {
       code: "hasLimitHint",
       type: "boolean",
       default: "false",
-      desc: "是否开启计数器",
+      desc: "是否显示计数器",
+    },
+    {
+      code: "maxLength",
+      type: "number",
+      default: "200",
+      desc: "设置字数上限"
+    },
+     {
+      code: "autoHeight",
+      type: "boolean",
+      default: "false",
+      desc: "多行输入框自动高度，当 **htmlType** 属性为 textarea 时生效"
     },
     {
       code: "hasClear",
@@ -72,85 +90,9 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "scanCode",
-      type: "array",
-      default: `~~~json
-[
-    {
-        "title": "启用",
-        "name": "enabled",
-        "initialValue": false,
-        "display": "inline",
-        "setter": {
-            "key": null,
-            "ref": null,
-            "props": {},
-            "_owner": null
-        }
-    },
-    {
-        "title": "扫码类型",
-        "name": "type",
-        "initialValue": "all",
-        "display": "inline",
-        "setter": {
-            "key": null,
-            "ref": null,
-            "props": {
-                "options": [
-                    {
-                        "title": "全部",
-                        "value": "all"
-                    },
-                    {
-                        "title": "仅条形码",
-                        "value": "barCode"
-                    },
-                    {
-                        "title": "仅二维码",
-                        "value": "qrCode"
-                    }
-                ],
-                "placeholder": "请选择"
-            },
-            "_owner": null
-        }
-    },
-    {
-        "title": {
-            "type": "span",
-            "key": null,
-            "ref": null,
-            "props": {
-                "style": {
-                    "color": "var(--color-text)"
-                },
-                "children": [
-                    "允许修改",
-                    {
-                        "type": "br",
-                        "key": null,
-                        "ref": null,
-                        "props": {},
-                        "_owner": null
-                    },
-                    "扫码结果"
-                ]
-            },
-            "_owner": null
-        },
-        "name": "editable",
-        "initialValue": true,
-        "display": "inline",
-        "setter": {
-            "key": null,
-            "ref": null,
-            "props": {},
-            "_owner": null
-        }
-    }
-]      
-    `,
-    desc: "设置输入框的扫码模式",
+      type: "[ScanCodeConfig](/docs/components/interface#scancodeconfig) | boolean",
+      default: 'false',
+      desc: "是否启用扫码模式（仅钉钉手机端内支持）",
     },
     {
       code: "autoFocus",
@@ -177,30 +119,6 @@ import AttrTable from "components/AttrTable";
       desc: "输入框组件值发生改变时触发的事件",
     },
     {
-      code: "onFocus",
-      type: "() => void",
-      default: "",
-      desc: "输入框获取焦点时触发的事件",
-    },
-     {
-      code: "onBlur",
-      type: "() => void",
-      default: "",
-      desc: "输入框失去焦点触发的事件",
-    },
-     {
-      code: "onPaste",
-      type: "(e: event) => void",
-      default: "",
-      desc: "输入框粘贴时触发的事件",
-    },
-     {
-      code: "onKeyDown",
-      type: "() => void",
-      default: "",
-      desc: "输入框键盘按下时触发的事件",
-    },
-      {
       code: "onPressEnter",
       type: "() => void",
       default: "",
@@ -213,16 +131,10 @@ import AttrTable from "components/AttrTable";
       desc: "输入框扫码成功后触发的事件",
     },
     { 
-      code: "onScanCodeSuccess",
+      code: "onScanCodeError",
       type: "(errorMsg: string) => void",
       default: "",
       desc: "输入框扫码失败后触发的事件",
     },
-    {
-      code: "maxLength",
-      type:"number",
-      default: "200",
-      desc: "设置字数上限"
-    }
   ]}
 />

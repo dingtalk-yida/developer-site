@@ -30,7 +30,7 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "value",
-      type: "any",
+      type: "string",
       default: ``,
       desc: "当前组件默认值",
     },
@@ -50,18 +50,12 @@ import AttrTable from "components/AttrTable";
       code: "hasClear",
       type: "boolean",
       default: "true",
-      desc: "是否有清除按钮，单选模式时才有",
-    },
-    {
-      code: "hasSelectAll",
-      type: "boolean",
-      default: "true",
-      desc: "是否有全选功能，多选模式时才有效",
+      desc: "是否有清除按钮",
     },
     {
       code: "useDetailValue",
       type: "boolean",
-      default: "true",
+      default: "false",
       desc: "设置value 使用对象类型{label, value}",
     },
     {
@@ -80,11 +74,11 @@ import AttrTable from "components/AttrTable";
       code: "searchDelay",
       type: "number",
       default: "300",
-      desc: "设置搜索延时时间",
+      desc: "搜索延时时间，单位ms",
     },
     {
       code: "dataSource",
-      type: "array",
+      type: "[DataSource[]](/docs/components/interface#datasource)",
       default: `~~~json
 [
   {
@@ -123,15 +117,15 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "filter",
-      type: "(value: string, data: object) => boolean",
+      type: "(value: string, data: DataSource) => boolean",
       default: "",
       desc: "本地过滤方法，开启本地过滤时才有",
     },
     {
       code: "filterLocal",
-      type: "(value: string, data: object) => boolean",
+      type: "boolean",
       default: "",
-      desc: "在数据源为远程的时候需要关闭此项，返回一个 Boolean 值确定是否保留",
+      desc: "支持本地过滤，在数据源为远程的时候需要关闭此项",
     },
     {
       code: "onChange",

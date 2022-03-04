@@ -42,7 +42,7 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'listStyle',
-      type: 'object',
+      type: 'React.CSSProperties',
       default: '{}',
       desc: '列表样式',
     },
@@ -78,7 +78,7 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'dataSource',
-      type: 'array',
+      type: '[CascadeDataSource[]](/docs/components/interface#cascadeDataSource)',
       default: `~~~json
 [{
 		"value": "part",
@@ -121,7 +121,7 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'loadData',
-      type: '( node : object ) => promise',
+      type: '( node: object ) => Promise<CascadeDataSource[]>',
       default: '-',
       desc: 'loadData 函数',
     },
@@ -135,11 +135,11 @@ import AttrTable from 'components/AttrTable';
       code: 'optionAutoWidth',
       type: 'boolean',
       default: 'false',
-      desc: '是否开启选项自动宽度',
+      desc: '是否开启选项自动宽度，仅支持PC端',
     },
     {
       code: 'onChange',
-      type: '({ value : string | array, data : object | array , extra : object }) => void',
+      type: '({ value: string | array, data: object | array , extra: object }) => void',
       default: '-',
       desc: 'onChange 值发生变化',
     },

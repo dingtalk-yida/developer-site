@@ -39,64 +39,56 @@ import AttrTable from 'components/AttrTable';
     {
       code: 'config',
       type: 'object',
-      default: `{
-                "statusbar": false,
-                "menubar": false,
-                "toolbar1": "undo redo bold italic underline strikethrough | fontselect fontsizeselect forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | table link image media upload | code | fullscreen | variable | removeformat",
-                "toolbar2": false,
-                "height": 300,
-                "fontsize_formats": "8px 10px 12px 14px 16px 18px 24px 36px 48px",
-                "visual": true,
-                "keep_values": false,
-                "forced_root_block": "div",
-                "plugins": [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table contextmenu paste code",
-                    "colorpicker",
-                    "upload",
-                    "placeholder",
-                    "variable",
-                    "noneditable"
-                ]
-            }`,
+      default: `~~~json
+{
+  "statusbar": false,
+  "menubar": false,
+  "toolbar1": "undo redo bold italic underline strikethrough | fontselect fontsizeselect forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | table link image media upload | code | fullscreen | variable | removeformat",
+  "toolbar2": false,
+  "height": 300,
+  "fontsize_formats": "8px 10px 12px 14px 16px 18px 24px 36px 48px",
+  "visual": true,
+  "keep_values": false,
+  "forced_root_block": "div",
+  "plugins": [
+    "advlist autolink lists link image charmap print preview anchor",
+    "searchreplace visualblocks code fullscreen",
+    "insertdatetime media table contextmenu paste code",
+    "colorpicker",
+    "upload",
+    "placeholder",
+    "variable",
+    "noneditable"
+  ]
+} {
+  "statusbar": false,
+  "menubar": false,
+  "toolbar1": "undo redo bold italic underline strikethrough | fontselect fontsizeselect forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | table link image media upload | code | fullscreen | variable | removeformat",
+  "toolbar2": false,
+  "height": 300,
+  "fontsize_formats": "8px 10px 12px 14px 16px 18px 24px 36px 48px",
+  "visual": true,
+  "keep_values": false,
+  "forced_root_block": "div",
+  "plugins": [
+    "advlist autolink lists link image charmap print preview anchor",
+    "searchreplace visualblocks code fullscreen",
+    "insertdatetime media table contextmenu paste code",
+    "colorpicker",
+    "upload",
+    "placeholder",
+    "variable",
+    "noneditable"
+  ]
+}
+~~~`,
       desc: '通用配置',
     },
-    {
-      code: 'inputName',
-      type: 'string',
-      default: `'file'`,
-      desc: '上传的file input的name属性，默认file',
-    },
-    {
-      code: 'actionUrl',
-      type: 'string',
-      default: '-',
-      desc: '数据提交后端处理接口，需要返回JSON格式数据',
-    },
-    {
-      code: 'formatResult',
-      type: '( response: object ) => void',
-      default: '-',
-      desc: '处理返回数据',
-    },
-    {
-      code: 'errorCallback',
-      type: '() => void',
-      default: '-',
-      desc: '错误回调',
-    },
-    {
-      code: 'progressCallback',
-      type: '() => void',
-      default: '-',
-      desc: '上传进度回调',
-    },
-    {
-      code: 'headers',
-      type: 'object',
+     {
+      code: 'uploadConfig',
+      type: '[UploadConfig](/docs/components/interface#uploadconfig)',
       default: '{}',
-      desc: '图片上传请求头配置',
+      desc: '图片上传配置',
     },
     {
       code: 'onChange',
