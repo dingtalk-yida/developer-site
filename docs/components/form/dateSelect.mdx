@@ -23,6 +23,42 @@ import AttrTable from "components/AttrTable";
   category="form"
   dataSource={[
     {
+      code: "value",
+      type: "number",
+      default: "-",
+      desc: "日期选择默认值",
+    },
+    {
+      code: "start",
+      type: "number",
+      default: "-",
+      desc: "日期开始时间",
+    },
+     {
+      code: "end",
+      type: "number",
+      default: "-",
+      desc: "日期结束时间",
+    },
+    {
+      code: "returnType",
+      type: `'timestamp' | 'string' | 'moment' `,
+      default: `'timestamp'`,
+      desc: "日期返回类型",
+    },
+     {
+      code: "type",
+      type: `'none' | 'beforeToday' | 'afterToday'| 'duration'| 'custom'` ,
+      default: `'none'` ,
+      desc: "可选择时间日期限制范围",
+    },
+    {
+      code: "customFun",
+      type: "()=> array",
+      default:"-",
+      desc: "自定义区间选择",
+    },
+    {
       code: "placeholder",
       type: "string",
       default: `'请选择'`,
@@ -48,7 +84,7 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "disabledDate",
-      type: "(current: object) => void",
+      type: "boolean",
       default: "false",
       desc: "可选时间区间",
     },
@@ -60,13 +96,13 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "onChange",
-      type: "(value: MomentObject/String) => void",
+      type: "({value: number})=> void",
       default: "-",
       desc: "组件值发生改变事件",
     },
     {
       code: "onOk",
-      type: "(value: MomentObject/String) => void",
+      type: "({value: number})=> void",
       default: "-",
       desc: "点击确认时触发事件",
     },
