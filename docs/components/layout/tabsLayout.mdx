@@ -1,19 +1,28 @@
 ---
-title: Tree 树形控件
-order: 10
+title: TabsLayout 选项卡
+order: 1
 ---
 
-# Tree 树形控件
+# TabsLayout 选项卡
+
+选项卡切换组件。
 
 ## 何时使用
 
-- 适用于大量、具有层级关系的数据展示场景中，并且利用组件的展开收起和关联选中等交互可以方便地对数据进行操作处理。
+TAB(标签项) 让用户可以在不同子任务、视图、模式之间切换，它具有全局导航的作用，是全局功能的主要展示和切换区域，一个 TAB(标签项) 标记一个核心功能，TAB(标签项) 之间可以快速点击切换。该窗口包含 2 个以上的选项卡，所有选项卡可以排列在一行中，即使该用户界面被本地化后也是如此。提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
+
+宜搭提供了四种选项卡，分别用于不同的场景。
+
+- 普通选项卡，引领页面的内容，起导航的作用。
+- 文本型选项卡。
+- 包裹型选项卡，在页面结构中，只是局部展示，需要和其他内容结合出现。
+- 胶囊型选项卡。
 
 ## 组件示例
 
 import Iframe from "components/Iframe";
 
-<Iframe url="https://www.aliwork.com/developer/tree-v2?isRenderNav=false" />
+<Iframe url="https://www.aliwork.com/developer/tabs-layout-v2?isRenderNav=false" />
 
 ## 组件属性
 
@@ -22,239 +31,70 @@ import AttrTable from "components/AttrTable";
 <AttrTable
   dataSource={[
     {
-      code: "dataSource",
-      type: "array",
-      default: `~~~json
-[
-  {
-    key: "0-0",
-    label: "0-0",
-    children: [
-      {
-        key: "0-0-0",
-        label: "0-0-0",
-        children: [
-          {
-            key: "0-0-0-0",
-            label: "0-0-0-0",
-            children: [
-              {
-                key: "0-0-0-0-0",
-                label: "0-0-0-0-0",
-              },
-            ],
-          },
-          {
-            key: "0-0-0-1",
-            label: "0-0-0-1",
-          },
-        ],
-      },
-      {
-        key: "0-0-1",
-        label: "0-0-1",
-        children: [
-          {
-            key: "0-0-1-0",
-            label: "0-0-1-0",
-          },
-          {
-            key: "0-0-1-1",
-            label: "0-0-1-1",
-          },
-        ],
-      },
-    ],
-  },
-]
-    `,
-      desc:"数据" ,
+      code: 'items',
+      type: 'array',
+      default: '-',
+      desc: '可以设置默认激活选项、禁用选项和标签名',
     },
     {
-      code: "processDataSource",
-      type: "(data: object) => void",
-      default: "-",
-      desc: "数据预处理",
+      code: 'shape',
+      type: `'pure' | 'wrapped' | 'text' | 'capsule'`,
+      default: `'pure'`,
+      desc: '设置选项卡形态',
     },
     {
-      code: "showLine",
-      type: "boolean",
-      default: "true",
-      desc: "显示线",
+      code: 'size',
+      type: `'small' | 'medium'`,
+      default: `'medium'`,
+      desc: '设置标签项大小',
     },
     {
-      code: "multiple",
-      type: "boolean",
-      default: "false",
-      desc: "多选",
+      code: 'contentPadding',
+      type: `string`,
+      default: `'20px 20px'`,
+      desc: '设定内容区的内间距，请输入合法的 CSS padding 值',
     },
     {
-      code: "editable",
-      type: "boolean",
-      default: "false",
-      desc: "支持编辑",
+      code: 'excessMode',
+      type: `'slide' | 'dropdown'`,
+      default: `'slide'`,
+      desc: '选项卡过多时的滑动模式',
     },
     {
-      code: "draggable",
-      type: "boolean",
-      default: "false",
-      desc: "支持拖拽",
+      code: 'tabPosition',
+      type: `'top' | 'bottom' | 'left' | 'right'`,
+      default: `'block'`,
+      desc: '导航选项卡的位置',
     },
     {
-      code: "defaultExpandAll",
-      type: "boolean",
-      default: "true",
-      desc: "默认展开所有节点",
+      code: 'needBadge',
+      type: 'boolean',
+      default: `false`,
+      desc: '开启徽标',
     },
     {
-      code: "defaultExpandedKeys",
-      type: "array",
-      default: `["0-0-0"]`,
-      desc: "默认展开的节点",
+      code: 'renderBadge',
+      type: `(tabItem: object) =>'dot' }`,
+      default: `-`,
+      desc: '徽标渲染',
     },
     {
-      code: "selectable",
-      type: "boolean",
-      default: "true",
-      desc: "支持选中",
+      code: 'tabRender',
+      type: `(key: string, props: object) =>ReactNode }`,
+      default: `-`,
+      desc: '自定义渲染选项卡',
     },
     {
-      code: "checkedKeys",
-      type: "array",
-      default: `["0-0-0"]`,
-      desc: "默认选中节点",
+      code: 'extraRender',
+      type: `() =>'Extra' }`,
+      default: `-`,
+      desc: '渲染导航栏附加内容',
     },
     {
-      code: "checkable",
-      type: "boolean",
-      default: "false",
-      desc: "复选框",
+      code: 'onTabChange',
+      type: 'function onChange(activeIndex: number, key: string)=>void',
+      default: '-',
+      desc: '选项卡切换事件',
     },
-    {
-      code: "checkedKeys",
-      type: "array",
-      default: `["0-0-0"]`,
-      desc: "默认勾选节点",
-    },
-    {
-      code: "checkStrictly",
-      type: "boolean",
-      default: "false",
-      desc: "复选框完全受控",
-    },
-    {
-      code: "checkStrictly",
-      type: `'all' | 'parent' | 'child' `,
-      default:` 'parent `,
-      desc: "定义选中时回填的方式",
-    },
-    {
-      code: "isLoadData",
-      type: "boolean",
-      default: "false",
-      desc: "是否开启异步加载",
-    },
-    {
-      code: "loadData",
-      type: "(data: object) => void",
-      default: "-",
-      desc: "异步加载时触发的事件",
-    },
-    {
-      code: "isLabelBlock",
-      type: "boolean",
-      default: "false",
-      desc: "节点是否占满剩余空间",
-    },
-    {
-      code: "isNodeBlock",
-      type: "boolean",
-      default: "false",
-      desc: "节点是否占满一行",
-    },
-    {
-      code: "onSelect",
-      type: "(selectedKeys: array, extra: object) => void",
-      default: "-",
-      desc: "选中或取消选中节点时触发的事件",
-    },
-    {
-      code: "onCheck",
-      type: "(checkedKeys: array, extra: object) => void",
-      default: "-",
-      desc: "勾选或取消勾选复选框时触发的事件",
-    },
-    {
-      code: "onExpand",
-      type: "(expandedKeys: array, extra: object) => void",
-      default: "-",
-      desc: "展开收起节点时触发的事件",
-    },
-    {
-      code: "onEditFinish",
-      type: "(key: string, label: string, node: object) => void",
-      default: "-",
-      desc: "编辑节点内容完成时触发的事件",
-    },
-    {
-      code: "onDragStart",
-      type: "(info: object) => void",
-      default: "-",
-      desc: "开始拖拽节点时触发的事件",
-    },
-    {
-      code: "onDragEnter",
-      type: "(info: object) => void",
-      default: "-",
-      desc: "拖拽节点进入目标时触发的事件",
-    },
-    {
-      code: "onDragOver",
-      type: "(info: object) => void",
-      default: "-",
-      desc: "拖拽节点在目标节点上移动时触发的事件",
-    },
-    {
-      code: "onDragLeave",
-      type: "(info: object) => void",
-      default: "-",
-      desc: "拖拽节点离开目标节点时触发的事件",
-    },
-    {
-      code: "onDragEnd",
-      type: "(info: object) => void",
-      default: "-",
-      desc: "拖拽结束时触发的事件",
-    },
-    {
-      code: "onDrop",
-      type: "(info: object) => void",
-      default: "-",
-      desc: "	拖拽节点放入目标节点内或前后触发的事件",
-    },
-    {
-      code: "canDrop",
-      type: "(info: object) => boolean",
-      default: "-",
-      desc: "节点是否可被作为目标节点时触发的事件",
-    },
-    {
-      code: "selectedKeys",
-      type: "array",
-      default: `["0-0-0"]`,
-      desc: "默认选中节点",
-    },
-    {
-      code: "expandedKeys",
-      type: "array",
-      default: `["0-0-0"]`,
-      desc: "展开的节点",
-    },
-    {
-      code: "checkStrictly",
-      type: "boolean",
-      default: "false",
-      desc: "复选框完全受控",
-    }
   ]}
 />
