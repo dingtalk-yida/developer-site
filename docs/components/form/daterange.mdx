@@ -23,22 +23,22 @@ import AttrTable from "components/AttrTable";
 category="form"
   dataSource={[
     {
+      code: "value",
+      type: "object",
+      default: "-",
+      desc: "表单组件的默认值",
+    },
+    {
       code: "placeholder",
       type: "string",
       default: `'请选择'`,
       desc: "表单组件占位提示信息",
     },
-    {
-      code: "size",
-      type: `'small' | 'medium' | 'large'`,
-      default: `'medium'`,
-      desc: "组件尺寸",
-    },
-    {
-      code: "behavior",
-      type: `'NORMAL' | 'DISABLED' | 'READONLY' | 'HIDDEN'`,
-      default: `'NORMAL'`,
-      desc: "组件状态",
+     {
+      code: "returnType",
+      type: `'timestamp' | 'string' | 'moment' `,
+      default: `'timestamp'`,
+      desc: "日期区间返回类型",
     },
     {
       code: "format",
@@ -52,6 +52,24 @@ category="form"
       default: "true",
       desc: "清除按钮",
     },
+     {
+      code: "start",
+      type: "number",
+      default: "-",
+      desc: "日期开始时间",
+    },
+     {
+      code: "end",
+      type: "number",
+      default: "-",
+      desc: "日期结束时间",
+    },
+    {
+      code: "ranges",
+      type:"()=> array",
+      default:"-",
+      desc: "快速区间选择",
+    },
     {
       code: "resetTime",
       type: "boolean",
@@ -60,25 +78,25 @@ category="form"
     },
     {
       code: "disabledDate",
-      type: ""(current: object) => void"",
+      type: "(current: object) => void",
       default: "-",
       desc: "禁用日期函数事件",
     },
     {
       code: "onChange",
-      type: "(value：object) => void",
+      type: "({value：object}) => void",
       default: "-",
       desc: "组件值发生改变事件",
     },
     {
       code: "onOk",
-      type: "(value：object) => void",
+      type: "({value：object}) => void",
       default: "-",
       desc: "点击确认时触发事件",
     },
     {
       code: "onVisibleChange",
-      type: ""(visible：boolean) => void"",
+      type: "(visible：boolean) => void"",
       default: "-",
       desc: "弹层显示或隐藏时触发事件",
     },
