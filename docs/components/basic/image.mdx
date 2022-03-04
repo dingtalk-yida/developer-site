@@ -27,13 +27,13 @@ import AttrTable from "components/AttrTable";
       code: "src",
       type: "string",
       default: '-',
-      desc: "图片地址",
+      desc: "图片地址URL",
     },
     {
       code: "width",
       type: "number",
       default: "350",
-      desc: "宽",
+      desc: "图片宽度",
     },
     {
       code: "autuWidth",
@@ -45,7 +45,7 @@ import AttrTable from "components/AttrTable";
       code: "height",
       type: "number",
       default: "200",
-      desc: "高",
+      desc: "图片高度",
     },
     {
       code: "autuHeight",
@@ -57,25 +57,25 @@ import AttrTable from "components/AttrTable";
       code: "fit",
       type: `'cover' | 'contain' | 'fill'`,
       default: `'cover'`,
-      desc: "摆放方式",
+      desc: "图片展示方式，cover：按图片尺寸进行裁剪、contain：按图片尺寸进行留白、fill：按图片尺寸进行拉伸",
     },
     {
       code: "round",
       type: `'16' | '8' | '4' | '0' | '自定义'`,
       default: "0",
-      desc: "圆角",
+      desc: "图片圆角，单位px",
     },
     {
       code: "roundRadius",
       type: "number",
       default: "0",
-      desc: "圆角大小",
+      desc: `自定义图片圆角大小，当 **round** 属性设置为'自定义'时生效`,
     },
     {
       code: "title",
       type: "string",
       default: '-',
-      desc: "图片标题",
+      desc: "图片标题，用于设置html 原生 title属性，在用户鼠标hover时显示",
     },
     {
       code: "alt",
@@ -88,12 +88,6 @@ import AttrTable from "components/AttrTable";
       type: "boolean",
       default: "false",
       desc: "是否开启图片预览",
-    },
-    {
-      code: "onClick",
-      type: "(e:evevt: Object) => void",
-      default: "",
-      desc: "点击图片时触发事件",
     },
   ]}
 />

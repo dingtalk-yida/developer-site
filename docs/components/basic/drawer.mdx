@@ -59,9 +59,9 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "closeable",
-      type:`'esc' | 'mask'`,
-      default:`'esc'`,
-      desc: '关闭对话框方式',
+      type: `'esc' | 'mask'`,
+      default: `'esc'`,
+      desc: "关闭对话框方式，esc：点击 ESC 按键关闭、mask：点击遮罩关闭",
     },
     {
       code: "footer",
@@ -71,15 +71,15 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "footerAlign",
-      type:`'left' | 'center' | 'right'`,
+      type: `'left' | 'center' | 'right'`,
       default: `'right'`,
-      desc: 'Drawer确定按钮和取消按钮对齐方式',
+      desc: "对话框确定按钮和取消按钮对齐方式",
     },
     {
       code: "footerActions",
-      type: `'ok,cancel' | 'cancel,ok' | 'ok' | 'cancel'`,
+      type: `'cancel,ok' | 'cancel,ok' | 'ok' | 'cancel'`,
       default: `'cancel,ok'`,
-      desc: '确定按钮和取消按钮是否存在以及如何排列',
+      desc: "对话框底部默认按钮排列方式，cancel代表取消按钮，ok代表确定按钮",
     },
     {
       code: "onOk",
@@ -115,25 +115,25 @@ import AttrTable from "components/AttrTable";
       code: "confirmStyle",
       type: `'primary' | 'warning' | 'ghostLight' | 'ghostDark'`,
       default: `'primary'`,
-      desc: "确定按钮风格",
+      desc: "确定按钮类型，参考 **Button** 组件的[文档](/docs/components/basic/button#组件属性)",
     },
     {
       code: "cancelText",
       type: "string",
-      default: "取消",
-      desc: "取消按钮内文字",
+      default: `'取消'`,
+      desc: "取消按钮文案",
     },
     {
       code: "confirmText",
       type: "string",
-      default: "确定",
-      desc: "确定按钮内文字",
+      default: `'确定'`,
+      desc: "确定按钮内文案",
     },
     {
       code: "confirmState",
       type: `'NORMAL' | 'DISABLED' | 'LOADING'`,
-      default:"确定",
+      default: `'NORMAL'`,
       desc: "确定按钮的确认状态",
-    }
+    },
   ]}
 />

@@ -26,8 +26,8 @@ import AttrTable from "components/AttrTable";
     {
       code: "content",
       type: "string",
-      default: "按钮",
-      desc: "标题",
+      default: `'按钮'`,
+      desc: "按钮文案内容",
     },
     {
       code: "type",
@@ -36,40 +36,46 @@ import AttrTable from "components/AttrTable";
       desc: "按钮的类型",
     },
     {
+      code: 'size',
+      type: `'small' | 'medium' | 'large'`,
+      default: `'medium'`,
+      desc: '按钮尺寸大小'
+    },
+    {
+      code: 'behavior',
+      type: `'NORMAL' | 'DISABLED' | 'HIDDEN'`,
+      default: `'NORMAL'`,
+      desc: '表单展示状态'
+    },
+    {
       code: "baseIcon",
       type: "string",
       default: "-",
-      desc: "基础图标",
+      desc: "按钮基础图标，参考Icon的 **baseIcon** [属性设置](/docs/components/basic/icon#组件属性)",
     },
     {
       code: "otherIcon",
       type: "string",
       default: "-",
-      desc: "其他图标",
+      desc: "其他图标，参考Icon的 **otherIcon** [属性设置](/docs/components/basic/icon#组件属性)",
     },
     {
       code: "loading",
       type: "boolean",
       default: "false",
-      desc: "按钮的载入状态",
-    },
-    {
-      code: "onClick",
-      type: "() => void",
-      default: "-",
-      desc: "点击按钮时事件",
+      desc: "是否处于加载状态",
     },
     {
       code: "triggerEventsWhenLoading",
       type: "boolean",
       default: "false",
-      desc: "加载点击",
+      desc: "当按钮为加载状态时，是否响应动作",
     },
     {
       code: "contentMarginMobile",
       type: `'0' | '16'`,
       default: ` '0' `,
-      desc: "Mobile 端设置 左右间距",
+      desc: "手机端按钮的左右间距",
     }
   ]}
 />

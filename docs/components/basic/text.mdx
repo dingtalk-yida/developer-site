@@ -27,13 +27,19 @@ import AttrTable from "components/AttrTable";
       code: "content",
       type: "string",
       default: `'文本'`,
-      desc: "请输入内容",
+      desc: "文案内容",
     },
     {
       code: "showTitle",
       type: "boolean",
       default: "false",
-      desc: "将内容显示为 html 标签的 title",
+      desc: "是否将内容显示为 html 标签的 title属性上",
+    },
+    {
+      code: 'behavior',
+      type: `'NORMAL' | 'HIDDEN'`,
+      default: `'NORMAL'`,
+      desc: "默认状态",
     },
     {
       code: "maxLine",
@@ -45,13 +51,7 @@ import AttrTable from "components/AttrTable";
       code: "contentPaddingMobile",
       type: `'0 | 16'`,
       default: `'0'`,
-      desc: "左右间距",
-    },
-    {
-      code: "onClick",
-      type: "()=>void",
-      default: '-',
-      desc: "点击文本时触发事件",
-    },
+      desc: "手机端左右间距，单位为px",
+    }
   ]}
 />

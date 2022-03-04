@@ -28,13 +28,13 @@ import AttrTable from "components/AttrTable";
       code: "type",
       type: `'page' | 'url'`,
       default: `'page'`,
-      desc: "跳转内部页面或者跳转外部链接",
+      desc: "链接类型，page：内部页面、url：外部链接",
     },
     {
       code: "url",
       type: "string",
       default: "-",
-      desc: "添加一个链接地址,点击链接块即可跳转对应页面",
+      desc: "链接地址，点击链接即可跳转对应页面，当 **type** 属性为url时生效",
     },
     {
       code: "isBlank",
@@ -46,19 +46,19 @@ import AttrTable from "components/AttrTable";
       code: "disabled",
       type: "boolean",
       default: "false",
-      desc: "是否禁用",
+      desc: "是否禁用，禁用后点击链接块不会进行页面跳转",
     },
     {
       code: "params",
-      type: "object",
+      type: "Record<string, string>",
       default: "-",
-      desc: "url 查询参数,多用于页面跳转传参",
+      desc: "url 查询参数，多用于页面跳转传参",
     },
-    {
-      code: "onClick",
-      type: "(ctx: object) => void",
-      default: "-",
-      desc: "点击链接块触发的事件",
+     {
+      code: 'page',
+      type: 'string',
+      default: '-',
+      desc: '内部页面Uuid，当 **type** 属性为page时生效'
     },
   ]}
 />
