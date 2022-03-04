@@ -285,7 +285,7 @@ import AttrTable from "components/AttrTable";
     {
       code: "actionBar",
       type: "array",
-      default: "[{"title": {"zh_CN": "操作1","en_US": "Action 1","type": "i18n"},"option": "callback"}]",
+      default: "[{title: {zh_CN: '操作1',en_US: 'Action 1',type: 'i18n'},option: 'callback'}]",
       desc: "设置顶部操作-操作条",
     },
     {
@@ -510,8 +510,7 @@ import AttrTable from "components/AttrTable";
       default: "true",
       desc: "分页设置-使用分页",
     },
-
-     {
+    {
       code: "pagination",
       type: "string",
       default: `'right'`,
@@ -597,13 +596,13 @@ import AttrTable from "components/AttrTable";
     },
     {
       code: "expandedRowRender",
-      type: "(record: object,index: number)=>{""}",
+      type: "(record: object,index: number)=> ReactNode",
       default: "-",
       desc: "设置可折叠/树形表格-启用折叠,额外渲染行的渲染函数",
     },
     {
       code: "getExpandedColProps",
-      type: "(record: object,index: number)=>{""}",
+      type: "(record: object,index: number)=> ReactNode",
       default: "-",
       desc: "设置可折叠/树形表格-启用折叠,设置额外渲染行的属性",
     },
@@ -637,7 +636,6 @@ import AttrTable from "components/AttrTable";
       default: "-",
       desc: "设置可折叠/树形表格-启用树形,展开收起时触发的事件",
     },
-
     {
       code: "mobileMode",
       type: "string",
