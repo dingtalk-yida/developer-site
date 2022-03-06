@@ -2,9 +2,7 @@
   font-size: 13px;
   font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
   table {
-    border-top: 1px solid var(--ifm-table-border-color);
-    border-left: 1px solid var(--ifm-table-border-color);
-    border-right: 1px solid var(--ifm-table-border-color);
+    
     tr:nth-child(2n) {
       background-color: var(--ifm-table-background);
       vertical-align: top;
@@ -15,6 +13,15 @@
       vertical-align: top;
       padding: 12px;
       font-size: 13px;
+      &:first-child {
+        border-left: 1px solid var(--ifm-table-border-color);
+      }
+      &:last-child {
+        border-right: 1px solid var(--ifm-table-border-color);
+      }
+    }
+    th {
+      border-top: 1px solid var(--ifm-table-border-color);
     }
     p, pre { 
       margin: 0;

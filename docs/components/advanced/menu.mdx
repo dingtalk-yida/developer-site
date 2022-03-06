@@ -17,21 +17,18 @@ import Iframe from "components/Iframe";
 
 ## 组件属性
 
-import AttrTable from "components/AttrTable";
+import AttrTable from 'components/AttrTable';
 
 <AttrTable
   dataSource={[
     {
-      code:'dataSource',
-      type:'object',
+      code: 'dataSource',
+      type: '[MenuDataSource[]](/docs/components/interface#menudatasource)',
       default: `~~~json
-{
-  defaultOpenKeys: ["key1"],
-  defaultSelectedKeys: ["key1-1"],
-  menu: [
-    {
-      label: "菜单项一",
-      key: "key1",
+[
+  {
+    label: "菜单项一",
+    key: "key1",
       children: [
         {
           label: "选项一",
@@ -69,71 +66,62 @@ import AttrTable from "components/AttrTable";
       key: "key3",
       disabled: true,
     },
-  ],
-};      
-      `,
-      desc:'设置菜单的数据源',
+  ]      
+`,
+      desc: '菜单的数据源',
     },
     {
-      code:'popupAlign',
+      code: 'popupAlign',
       type: `'follow' | 'outside'`,
-      default:`'follow'`,
-      desc:'设置弹层的对齐方式',
+      default: `'follow'`,
+      desc: '弹层的对齐方式',
     },
     {
       code: 'onItemClick',
-      type: '(key: string,item: object,event: object) => void',
-      default
-: '-',
+      type: '(key: string,item: MenuDataSource, event: any) => void',
+      default: '-',
       desc: '点击菜单项触发的事件',
     },
     {
       code: 'mode',
       type: `'inline' | 'popup'`,
-      default
-: 'inline',
+      default: 'inline',
       desc: '设置子菜单打开的模式',
     },
     {
       code: 'triggerType',
       type: `'click' | 'hover'`,
-      default
-: 'click',
+      default: 'click',
       desc: '设置子菜单打开的触发行为',
     },
     {
       code: 'onSelect',
-      type: '(selectedKeys: array,extraObj: object) => void' ,
-      default
-: '-',
+      type: '(selectedKeys: string[] ,extraObj: any) => void',
+      default: '-',
       desc: '选中或取消选中菜单项时触发的事件',
     },
     {
       code: 'selectMode',
       type: `'single' | 'multiple' | false `,
-      default
-: "false",
+      default: 'false',
       desc: '菜单组件的选择模式',
     },
     {
       code: 'direction',
       type: `'ver' | 'hoz'`,
-      default
-: '-',
-      desc: '设置菜单第一层展示方向',
+      default: '-',
+      desc: '菜单第一层展示方向',
     },
     {
       code: 'header',
       type: 'string',
-      default
-: '-',
+      default: '-',
       desc: '自定义菜单头部',
     },
     {
       code: 'footer',
       type: 'string',
-      default
-: '-',
+      default: '-',
       desc: '自定义菜单尾部',
     },
   ]}

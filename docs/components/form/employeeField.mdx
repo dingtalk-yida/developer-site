@@ -22,38 +22,38 @@ import AttrTable from 'components/AttrTable';
   dataSource={[
     {
       code: 'closeOnSelect',
-      type: "boolean",
-      default: "false",
+      type: 'boolean',
+      default: 'false',
       desc: '是否在选中后关闭',
     },
     {
       code: 'beforeSearchTeam',
-      type: "(params: Record<string, string>) => Record<string, string>",
-      default: "-",
+      type: '(params: Record<string, string>) => Record<string, string>',
+      default: '-',
       desc: '搜索组织，发送请求前，可以通过此函数处理参数，当**dataType**属性为 url时生效',
     },
     {
       code: 'subUrl',
-      type: "string",
-      default: "-",
+      type: 'string',
+      default: '-',
       desc: '下属异步接口，自定义搜索全员和下属时的服务 URL，默认用 接口地址',
     },
     {
       code: 'fit',
-      type: "(response: any) => any",
-      default: "-",
+      type: '(response: any) => any',
+      default: '-',
       desc: '异步数据结果处理，当**dataType**属性为 url时生效',
     },
     {
       code: 'beforeSearch',
-      type: "(params: Record<string, string>) => Record<string, string>",
-      default: "-",
+      type: '(params: Record<string, string>) => Record<string, string>',
+      default: '-',
       desc: '搜索人员，发送请求前，可以通过此函数处理参数，当**dataType**属性为 url时生效',
     },
     {
       code: 'url',
-      type: "string",
-      default: "-",
+      type: 'string',
+      default: '-',
       desc: '人员信息异步接口地址，当**dataType**属性为 url时生效',
     },
     {
@@ -74,11 +74,11 @@ import AttrTable from 'components/AttrTable';
       default: `'请选择'`,
       desc: '人员搜索框占位提示',
     },
-     {
-      code: "value",
-      type: "any[]",
-      default: "-",
-      desc: "当前组件默认值",
+    {
+      code: 'value',
+      type: 'any[]',
+      default: '-',
+      desc: '当前组件默认值',
     },
     {
       code: 'emplIdInLabel',
@@ -113,13 +113,13 @@ import AttrTable from 'components/AttrTable';
     {
       code: 'renderOption',
       type: '(option: any) => string',
-      default: "-",
+      default: '-',
       desc: '自定义选项渲染字段',
     },
     {
       code: 'renderSelection',
       type: '(option: any) => string',
-      default: "-",
+      default: '-',
       desc: '自定义选中后的渲染字段',
     },
     {
@@ -157,20 +157,23 @@ import AttrTable from 'components/AttrTable';
       type: 'boolean',
       default: 'true',
       desc: '是否显示职位描述',
-    }, {
-      code: 'hasOrderNum', 
+    },
+    {
+      code: 'hasOrderNum',
       type: 'boolean',
       default: '',
       desc: '显示主兼职',
-    }, {
-      code: 'showAllSub', 
+    },
+    {
+      code: 'showAllSub',
       type: 'boolean',
       default: '',
       desc: '显示全员',
-    }, {
+    },
+    {
       code: 'dataSource',
       type: 'any[]',
-      default:"-",
+      default: '-',
       desc: '人员数据，当**dataType** 为 dataSource 时生效',
     },
   ]}

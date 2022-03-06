@@ -54,8 +54,8 @@ import AttrTable from 'components/AttrTable';
       desc: '手机端Icon位置，仅手机端生效',
     },
     {
-      code: "dataSource",
-      type: "[DataSource[]](/docs/components/interface#datasource)",
+      code: 'dataSource',
+      type: '[DataSource[]](/docs/components/interface#datasource)',
       default: `~~~json
 [
   {
@@ -84,7 +84,7 @@ import AttrTable from 'components/AttrTable';
   }
 ]
       `,
-      desc: "待选项",
+      desc: '待选项',
     },
     {
       code: 'supportInverse',
@@ -92,7 +92,7 @@ import AttrTable from 'components/AttrTable';
       default: 'false',
       desc: '是否支持反选，再次点击选项可取消选择',
     },
-     {
+    {
       code: 'customRender',
       type: '(item: DataSource) => ReactNode',
       default: '-',
@@ -102,7 +102,7 @@ import AttrTable from 'components/AttrTable';
       code: 'onChange',
       type: '(value: string) => void',
       default: '-',
-      desc: "组件值发生改变事件",
+      desc: '组件值发生改变事件',
     },
   ]}
 />

@@ -222,7 +222,7 @@ export default [
           }, 
           {
             title: '底部通栏', 
-            path: '/docs/components/advanced/bottomBanner', 
+            path: '/docs/components/advanced/bannerContainer', 
           }, 
           {
             title: '表格', 

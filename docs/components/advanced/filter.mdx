@@ -14,46 +14,51 @@ import Iframe from 'components/Iframe'
 
 ## 组件属性
 
-import AttrTable from "components/AttrTable";
+import AttrTable from 'components/AttrTable';
 
 <AttrTable
   dataSource={[
     {
-      code: "config",
-      type: "boolean",
-      default: "true",
-      desc: "筛选项配置",
+      code: 'config',
+      type: '[FilterConfig[]](/docs/components/interface#filterconfig)',
+      default: '[]',
+      desc: '筛选项配置',
     },
     {
-      code: "labelAlign",
+      code: 'labelAlign',
       type: `'left' | 'top'`,
       default: `'top'`,
-      desc: "标题位置",
+      desc: '标题位置',
     },
     {
-      code: "labelColSpan",
-      type: "number",
-      default: "4",
-      desc: "标题宽度",
-    },
-     {
-      code: "rowColumn",
-      type: "number",
-      default: "3",
-      desc: "每行列数",
+      code: 'labelColSpan',
+      type: 'number',
+      default: '4',
+      desc: '标题宽度，1代表1/24',
     },
     {
-      code: "showTag",
-      type: "boolean",
-      default: "true",
-      desc: "标签隔离模式",
+      code: 'size',
+      type: '[Size](/docs/components/interface#size)',
+      default: `'medium'`,
+      desc: '表单组件尺寸',
     },
     {
-      code: "createForm",
-      type: "boolean",
-      default: "true",
-      desc: "创建节点",
+      code: 'rowColumn',
+      type: 'number',
+      default: '3',
+      desc: '每行列数',
+    },
+    {
+      code: 'showTag',
+      type: 'boolean',
+      default: 'true',
+      desc: '标签隔离模式，拖入的Pickable会自动另起单独的区域来呈现',
+    },
+    {
+      code: 'createForm',
+      type: 'boolean',
+      default: 'true',
+      desc: '创建节点',
     },
   ]}
 />
-## 组件属性

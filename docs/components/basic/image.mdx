@@ -19,75 +19,75 @@ import Iframe from "components/Iframe";
 
 ## 组件属性
 
-import AttrTable from "components/AttrTable";
+import AttrTable from 'components/AttrTable';
 
 <AttrTable
   dataSource={[
     {
-      code: "src",
-      type: "string",
+      code: 'src',
+      type: 'string',
       default: '-',
-      desc: "图片地址URL",
+      desc: '图片地址URL',
     },
     {
-      code: "width",
-      type: "number",
-      default: "350",
-      desc: "图片宽度",
+      code: 'width',
+      type: 'number',
+      default: '350',
+      desc: '图片宽度',
     },
     {
-      code: "autuWidth",
-      type: "boolean",
-      default: "false",
-      desc: "宽度自适应",
+      code: 'autuWidth',
+      type: 'boolean',
+      default: 'false',
+      desc: '宽度自适应',
     },
     {
-      code: "height",
-      type: "number",
-      default: "200",
-      desc: "图片高度",
+      code: 'height',
+      type: 'number',
+      default: '200',
+      desc: '图片高度',
     },
     {
-      code: "autuHeight",
-      type: "boolean",
-      default: "false",
-      desc: "高度自适应",
+      code: 'autuHeight',
+      type: 'boolean',
+      default: 'false',
+      desc: '高度自适应',
     },
     {
-      code: "fit",
+      code: 'fit',
       type: `'cover' | 'contain' | 'fill'`,
       default: `'cover'`,
-      desc: "图片展示方式，cover：按图片尺寸进行裁剪、contain：按图片尺寸进行留白、fill：按图片尺寸进行拉伸",
+      desc: '图片展示方式，cover：按图片尺寸进行裁剪、contain：按图片尺寸进行留白、fill：按图片尺寸进行拉伸',
     },
     {
-      code: "round",
+      code: 'round',
       type: `'16' | '8' | '4' | '0' | '自定义'`,
-      default: "0",
-      desc: "图片圆角，单位px",
+      default: '0',
+      desc: '图片圆角，单位px',
     },
     {
-      code: "roundRadius",
-      type: "number",
-      default: "0",
+      code: 'roundRadius',
+      type: 'number',
+      default: '0',
       desc: `自定义图片圆角大小，当 **round** 属性设置为'自定义'时生效`,
     },
     {
-      code: "title",
-      type: "string",
+      code: 'title',
+      type: 'string',
       default: '-',
-      desc: "图片标题，用于设置html 原生 title属性，在用户鼠标hover时显示",
+      desc: '图片标题，用于设置html 原生 title属性，在用户鼠标hover时显示',
     },
     {
-      code: "alt",
-      type: "string",
+      code: 'alt',
+      type: 'string',
       default: `'Image 404'`,
-      desc: "图片未加载时的占位文字",
+      desc: '图片未加载时的占位文字',
     },
     {
-      code: "preview",
-      type: "boolean",
-      default: "false",
-      desc: "是否开启图片预览",
+      code: 'preview',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否开启图片预览',
     },
   ]}
 />

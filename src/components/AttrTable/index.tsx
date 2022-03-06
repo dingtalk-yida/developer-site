@@ -11,7 +11,7 @@ const COLUMNS = [
     title: '属性',
     dataIndex: 'code',
     width: '20%',
-    render: (code) => <span style={{ fontWeight: 600 }}>{code}</span>,
+    render: (code) => <div style={{ fontWeight: 600 }}>{code}</div>,
   },
   {
     title: '说明',
@@ -30,7 +30,7 @@ const COLUMNS = [
     title: '默认值',
     dataIndex: 'default',
     width: '15%',
-    render: (val) => ((val === '-' || !val) ? <span>-</span> : <ReactMarkdown children={val} remarkPlugins={[remarkGfm]} />),
+    render: (val) => ((val === '-' || !val) ? <div> - </div> : <ReactMarkdown children={val} remarkPlugins={[remarkGfm]} />),
   },
 ];
 
