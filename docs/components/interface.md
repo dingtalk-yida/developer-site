@@ -21,7 +21,9 @@ export function setAttribute(){
 }
 ```
 
-## I18n 
+## 基础类型
+
+### I18n 
 国际化字符串相关配置。
 
 ```ts
@@ -32,7 +34,144 @@ inerface I18n {
 }
 ```
 
-## TabItem
+## 表单基础属性
+
+### Behavior
+表单控件的显示状态类型:
+* NORMAL - 普通展示；
+* DISABLED - 禁用；
+* READONLY - 只读；
+* HIDDEN - 隐藏；
+
+```ts
+type Behavior = 'NORMAL' | 'DISABLED' | 'READONLY' | 'HIDDEN';
+```
+
+### Size
+表单控件的尺寸。
+
+```ts
+type Size = 'small' | 'medium' | 'large';
+```
+
+### LabelTipsTypes
+表单控件标题提示信息类型。
+* none - 无；
+* text - 文本类型；
+* render - 自定义渲染；
+
+```ts
+type LabelTipsTypes = 'none' | 'text' | 'render';
+```
+
+### Validation 
+表单控件校验规则。
+
+```ts
+interface Validation {
+  type: 'required' | 'minValue' | 'maxValue' | 'minLength' | 'maxLength' | 'customValidate'; //校验类型
+  message: string | I18n; // 错误提示信息
+  param: number | (value: any) => boolean; // 校验参数，type为customValidate时对应自定义函数
+}
+```
+
+
+## 组件相关数据源类型
+### DataSource
+下拉选择、单选、复选等选择性组件的选项格式。
+
+```ts
+interface DataSource {
+  text: string | I18n; // 实际展示内容
+  value: string; // 实际提交数据
+}
+```
+
+### CascadeDataSource
+级联选择等多层嵌套结构的组件选项格式。
+```ts
+interface CascadeDataSource {
+  label: string | I18n; // 实际展示内容
+  value: string; // 实际提交数据
+  chidren?: CascadeDataSource[]
+}
+```
+
+### SliderDataSource
+用于图片轮播组件的数据设置。
+
+```ts
+interface SliderDataSource {
+  src: string; // 轮播图片URL
+  title?: string | I18n; // 轮播内容标题
+  link?: string; // 图片点击跳转链接
+}
+```
+
+### StepsDataSource
+用于步骤条组件的数据设置。
+
+```ts
+interface StepsDataSource {
+  title: string;
+  content: string;
+  status?: '' | 'wait' | 'process' | 'finish'; // 当前步骤状态 
+  customSwitcher?: boolean; // 是否开启自定义渲染
+  customRender?: (item: StepsDataSource) => ReactNode; // 自定义渲染函数
+  icon?: string; // 步骤图标
+  percent?: number; // 当前步骤进度百分比，取1-100之间的数字
+  disabled?: boolean; // 是否禁用
+}
+```
+
+### TimelineDataSource
+用于时间轴组件的数据设置。
+
+```ts
+interface TimelineDataSource {
+  title: string | I18n; // 标题
+  time: string; // 时间
+  icon?: string; // 展示icon
+  state?: '' | 'process' | 'success' | 'error'; // 当前节点状态 
+  timeLeft?: () => ReactNode; // 左侧时间展示
+  doc?: () => ReactNode; // 自定义时间轴节点，优先级大于icon图标属性
+  content?: () => ReactNode; // 右侧内容自定义
+}
+```
+
+### TreeDataSource
+用于树形组件的数据设置。
+```ts
+interface TreeDataSource {
+  key: string;
+  label: string;
+  children?: TreeDataSource[]; // 子节点
+}
+```
+
+### MenuDataSource
+用于菜单组件数据设置。
+```ts
+interface MenuDataSource {
+  label: string;
+  key: string;
+  chidlren?: MenuDataSource[]; // 子节点
+}
+```
+
+### SearchDataSource
+用于搜索框数据设置。
+
+```ts
+interface SearchDataSource {
+  label: string;
+  value: string;
+}
+```
+
+## 其他
+
+### TabItem
 标签项的配置属性。
 
 ```ts
@@ -44,17 +183,9 @@ interface TabItem {
 }
 ```
 
-## DataSource
-下拉选择、单选、复选等选择性组件的选项格式。
 
-```ts
-interface DataSource {
-  text: string | I18n; // 实际展示内容
-  value: string; // 实际提交数据
-}
-```
 
-## TableColumn
+### TableColumn
 表格组件的列配置。
 
 ```ts
@@ -93,89 +224,9 @@ interface TableColumn {
 
 ```
 
-## CascadeDataSource
-级联选择等多层嵌套结构的组件选项格式。
-```ts
-interface CascadeDataSource {
-  label: string | I18n; // 实际展示内容
-  value: string; // 实际提交数据
-  chidren?: CascadeDataSource[]
-}
-```
 
-## SliderDataSource
-用于图片轮播组件的数据设置。
 
-```ts
-interface SliderDataSource {
-  src: string; // 轮播图片URL
-  title?: string | I18n; // 轮播内容标题
-  link?: string; // 图片点击跳转链接
-}
-```
-
-## StepsDataSource
-用于步骤条组件的数据设置。
-
-```ts
-interface StepsDataSource {
-  title: string;
-  content: string;
-  status?: '' | 'wait' | 'process' | 'finish'; // 当前步骤状态 
-  customSwitcher?: boolean; // 是否开启自定义渲染
-  customRender?: (item: StepsDataSource) => ReactNode; // 自定义渲染函数
-  icon?: string; // 步骤图标
-  percent?: number; // 当前步骤进度百分比，取1-100之间的数字
-  disabled?: boolean; // 是否禁用
-}
-```
-
-## TimelineDataSource
-用于时间轴组件的数据设置。
-
-```ts
-interface TimelineDataSource {
-  title: string | I18n; // 标题
-  time: string; // 时间
-  icon?: string; // 展示icon
-  state?: '' | 'process' | 'success' | 'error'; // 当前节点状态 
-  timeLeft?: () => ReactNode; // 左侧时间展示
-  doc?: () => ReactNode; // 自定义时间轴节点，优先级大于icon图标属性
-  content?: () => ReactNode; // 右侧内容自定义
-}
-```
-
-## TreeDataSource
-用于树形组件的数据设置。
-```ts
-interface TreeDataSource {
-  key: string;
-  label: string;
-  children?: TreeDataSource[]; // 子节点
-}
-```
-
-## MenuDataSource
-用于菜单组件数据设置。
-```ts
-interface MenuDataSource {
-  label: string;
-  key: string;
-  chidlren?: MenuDataSource[]; // 子节点
-}
-```
-
-## SearchDataSource
-用于搜索框数据设置。
-
-```ts
-interface SearchDataSource {
-  label: string;
-  value: string;
-}
-```
-
-## FilterConfig
+### FilterConfig
 用于筛选项的配置。
 
 ```ts
@@ -190,42 +241,8 @@ interface FilterConfig {
 }
 ```
 
-## Behavior
-表单控件的显示状态类型:
-* NORMAL - 普通展示；
-* DISABLED - 禁用；
-* READONLY - 只读；
-* HIDDEN - 隐藏；
 
-```ts
-type Behavior = 'NORMAL' | 'DISABLED' | 'READONLY' | 'HIDDEN';
-```
-
-## Size
-表单控件的尺寸。
-
-```ts
-type Size = 'small' | 'medium' | 'large';
-```
-
-## LabelTipsTypes
-表单控件标题提示信息类型。
-* none - 无；
-* text - 文本类型；
-* render - 自定义渲染；
-
-```ts
-type LabelTipsTypes = 'none' | 'text' | 'render';
-```
-
-## Validation 
-表单控件校验规则。
-
-```ts
-
-```
-
-## ScanCodeConfig
+### ScanCodeConfig
 钉钉端扫码模式配置信息，钉钉端支持以下扫码模式：
 * barCode - 条形码；
 * qrCode - 二维码；
@@ -239,7 +256,7 @@ interface ScanCodeConfig {
 }
 ```
 
-## UploadConfig
+### UploadConfig
 富文本组件图片上传配置。
 
 ```ts

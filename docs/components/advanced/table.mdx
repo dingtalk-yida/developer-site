@@ -21,6 +21,7 @@ import Iframe from "components/Iframe";
 ## 组件属性
 
 import AttrTable from 'components/AttrTable';
+
 <AttrTable
   dataSource={[
     {
@@ -108,12 +109,6 @@ import AttrTable from 'components/AttrTable';
       desc: '设置操作项-在特定端显示',
     },
     {
-      code: 'callback',
-      type: '(rowData: object)=>void',
-      default: '-',
-      desc: '设置操作项-回调函数',
-    },
-    {
       code: 'render',
       type: '(title: object,rowData: object)=>{title}',
       default: '-',
@@ -138,18 +133,6 @@ import AttrTable from 'components/AttrTable';
       desc: '设置顶部操作-操作条标题',
     },
     {
-      code: 'callback',
-      type: '()=>void',
-      default: '-',
-      desc: '设置顶部操作-操作条回调函数',
-    },
-    {
-      code: 'isDisabled',
-      type: '()=>{false}',
-      default: 'true',
-      desc: '设置顶部操作-操作条操作是否禁用',
-    },
-    {
       code: 'pageMode',
       type: 'string',
       default: '-',
@@ -157,7 +140,7 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'isDisabled',
-      type: '()=>{false}',
+      type: 'boolean',
       default: '-',
       desc: '设置顶部操作-操作条页面跳转,是否禁用',
     },
@@ -172,12 +155,6 @@ import AttrTable from 'components/AttrTable';
       type: 'string',
       default: `'外链操作'`,
       desc: '设置顶部操作-外链操作条,外链操作标题',
-    },
-    {
-      code: 'callback',
-      type: '()=>void',
-      default: '-',
-      desc: '设置顶部操作-外链操作条,外链操作回调',
     },
     {
       code: 'showSearch',
@@ -283,7 +260,7 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'emptyContent',
-      type: '()=>ReactNode',
+      type: '() => ReactNode',
       default: '-',
       desc: '设置风格和样式-空数据渲染',
     },
@@ -295,13 +272,13 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'mode',
-      type: 'string',
+      type: `'single' | 'multiple'`,
       default: `'multiple'`,
       desc: '设置行选择器-类型',
     },
     {
       code: 'selectedRowKeys',
-      type: 'string',
+      type: 'string[]',
       default: '-',
       desc: '设置行选择器-已选中的行',
     },
@@ -325,25 +302,25 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'columnProps',
-      type: '()=>void',
+      type: '() => void',
       default: '-',
       desc: '设置行选择器-选择列属性',
     },
     {
       code: 'getProps',
-      type: '(rowData: object,index: number)=>void',
+      type: '(rowData: object, index: number) => void',
       default: '-',
       desc: '设置行选择器-选择器属性',
     },
     {
       code: 'titleProps',
-      type: '(rowData: object,index: number)=>void',
+      type: '(rowData: object, index: number) => void',
       default: '',
       desc: '设置行选择器-选择列列标题属性',
     },
     {
       code: 'titleAddons',
-      type: '(rowData: object,index: number)=>{false}',
+      type: '(rowData: object,index: number) => ReactNode',
       default: '',
       desc: '设置行选择器-选择列列标题元素',
     },
@@ -439,25 +416,25 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'expandedRowRender',
-      type: '(record: object,index: number)=> ReactNode',
+      type: '(record: object, index: number) => ReactNode',
       default: '-',
       desc: '设置可折叠/树形表格-启用折叠,额外渲染行的渲染函数',
     },
     {
       code: 'getExpandedColProps',
-      type: '(record: object,index: number)=> ReactNode',
+      type: '(record: object, index: number) => ReactNode',
       default: '-',
       desc: '设置可折叠/树形表格-启用折叠,设置额外渲染行的属性',
     },
     {
       code: 'openRowKeys',
-      type: 'string',
+      type: 'string[]',
       default: '-',
       desc: '设置可折叠/树形表格-启用折叠,默认展开渲染的行',
     },
     {
       code: 'onRowOpen',
-      type: '(openRowKeys: array,currentRowKey: string,expanded: boolean,currentRecord: object)=>void',
+      type: '(openRowKeys: array, currentRowKey: string, expanded: boolean, currentRecord: object) => void',
       default: '-',
       desc: '设置可折叠/树形表格-启用折叠,展开收起时触发的事件',
     },
@@ -466,18 +443,6 @@ import AttrTable from 'components/AttrTable';
       type: 'boolean',
       default: 'false',
       desc: '设置可折叠/树形表格-启用树形',
-    },
-    {
-      code: 'openRowKeys',
-      type: 'string',
-      default: '-',
-      desc: '设置可折叠/树形表格-启用树形-默认展开渲染的行',
-    },
-    {
-      code: 'onRowOpen',
-      type: '(openRowKeys: array,currentRowKey: string,expanded: boolean,currentRecord: object)=>void',
-      default: '-',
-      desc: '设置可折叠/树形表格-启用树形,展开收起时触发的事件',
     },
     {
       code: 'mobileMode',
@@ -523,37 +488,37 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'onFetchData',
-      type: '({params: object})=>void',
+      type: '({params: object}) => void',
       default: '-',
       desc: '动作设置-分页、搜索、排序时触发',
     },
     {
       code: 'onCellDataChange',
-      type: '({data: object})=>void',
+      type: '({data: object}) => void',
       default: '-',
       desc: '动作设置-编态数据发生变化时触发',
     },
     {
       code: 'onRowClick',
-      type: '({record: object,index:number,evt:object})=>void',
+      type: '({record: object, index:number, evt:object}) => void',
       default: '-',
       desc: '动作设置-点击表格每一行触发的事件',
     },
     {
       code: 'onRowMouseEnter',
-      type: '({record: object,index:number,evt:object})=>void',
+      type: '({record: object, index: number, evt: object}) => void',
       default: '-',
       desc: '动作设置-悬浮在表格每一行的时候触发的事件',
     },
     {
       code: 'onRowMouseLeave',
-      type: '({record: object,index:number,evt:object})=>void',
+      type: '({record: object, index:number, evt:object}) => void',
       default: '-',
       desc: '动作设置-离开表格每一行的时候触发的事件',
     },
     {
       code: 'onResizeChange',
-      type: '({dataIndex: string,value:number})=>void',
+      type: '({dataIndex: string, value:number}) => void',
       default: '-',
       desc: '动作设置-重设列尺寸的时候触发的事件',
     },

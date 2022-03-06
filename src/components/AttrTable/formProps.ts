@@ -85,7 +85,7 @@ export default [
   },
     {
     code: 'validation',
-    type: '[Validation](/docs/components/interface#validation)',
+    type: '[Validation[]](/docs/components/interface#validation)',
     default: '[]',
     desc: '表单组件校验设置，具体使用详见[表单校验文档](/docs/guide/concept/validation)',
   },
