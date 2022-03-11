@@ -12,7 +12,7 @@ order: 2
 ## 使用场景
 本文档通过实现**当用户切换下拉选项控制短信的发送**的案例，将自定义连接器与数据源功能结合。为大家讲述**如何通过自定义连使用接器解决宜搭页面调用外部数据源所遇到的跨域及鉴权问题**。
 ## 效果演示
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN01AVYAIE1sqh3MWrkUL_!!6000000005818-2-tps-959-530.png)
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01UF16kd1inoP1qQcbD_!!6000000004458-2-tps-762-1676.png)
 ## 操作步骤
 ### 步骤一：创建自定义页面
 **操作步骤：**
@@ -24,10 +24,9 @@ order: 2
 ​
 
 
-3. 添加下拉单选组件，命名为「选择手机号」，组件选项填写为您需要接收短信通知的手机号码，并设置为必填项。用于选择您接收通知的手机号码。（操作如图3.1-2 所示）
+3. 添加下拉单选组件，命名为「选择手机号」，组件选项填写为您需要接收短信通知的手机号码，并设置为必填项。用于选择您接收通知的手机号码。（操作如下图所示）
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/1397496/1644217177845-5bf5d996-b2bd-457d-86e7-143ffd7fed2d.png#clientId=u1436eb50-2085-4&crop=0&crop=0&crop=1&crop=1&from=paste&id=u60006431&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1594&originWidth=2878&originalType=binary&ratio=1&rotation=0&showTitle=false&size=922836&status=done&style=shadow&taskId=ua91dc83b-f04a-46e9-ba5e-201562e0f4b&title=)
-图3.1-2 添加并配置下拉单选组件
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN015rpbEW1vZEnomBbfp_!!6000000006186-2-tps-959-531.png)
 
 4. 点击页面右上角「保存」。
 ### 步骤二：创建自定义连接器
@@ -38,17 +37,15 @@ order: 2
 ### 步骤三：自定义页面内新建数据源
 **操作步骤：**
 
-1. 「发送短信」自定义页面>>数据源面板>>添加>>连接器。（操作如图3.3-1 所示）
+1. 「发送短信」自定义页面>>数据源面板>>添加>>连接器。（操作如下图所示）
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/1397496/1644218184765-f5d46427-4b99-43a4-8746-bce1cb600eb6.png#clientId=u1436eb50-2085-4&crop=0&crop=0&crop=1&crop=1&from=paste&id=ue2e51987&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1486&originWidth=2876&originalType=binary&ratio=1&rotation=0&showTitle=false&size=276045&status=done&style=shadow&taskId=u261951f6-af5f-4711-aeea-cec75c1b69c&title=)
-图3.3-1 添加连接器数据源
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01GovIZj1owrvimKJEl_!!6000000005290-2-tps-958-495.png)
 ​
 
 
-2. 填写名称 >> 选择连接器 >> 填写数据源相关配置项 >> 选择连接器执行动作 >> 填写连接器执行动作参数。（操作如图3.3-2 所示）
+2. 填写名称 >> 选择连接器 >> 填写数据源相关配置项 >> 选择连接器执行动作 >> 填写连接器执行动作参数。（操作如下图所示）
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/1397496/1644219590946-31b53390-0ad9-4251-8819-bfa4cf8373f3.png#clientId=u1436eb50-2085-4&crop=0&crop=0&crop=1&crop=1&from=paste&id=u50230143&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1592&originWidth=2878&originalType=binary&ratio=1&rotation=0&showTitle=false&size=896543&status=done&style=shadow&taskId=u2b37117a-6817-439c-9ed7-7029962fbb9&title=)
-图3.3-2 配置连接器数据源-基础配置
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01Pfdnyx1x0Y2PBiC62_!!6000000006381-2-tps-959-530.png)
 :::info
 **说明：**
 
@@ -57,17 +54,15 @@ order: 2
 1. 一旦连接器和执行动作选择完毕之后，系统会自动给出出参和入参的解释，可以直接填入参默认值，也可以绑定变量。本案例为绑定默认值，后面事件中再去修改入参调用。本案例的入参有两个字段，分别为 mobile 数据格式为 string，content 数据格式也是 string，填写默认值。
 :::
 
-3. 动作设置 >> 新建动作 >> onChange 值发生变化 >> 确定（操作如图3.3-3 所示）
+3. 动作设置 >> 新建动作 >> onChange 值发生变化 >> 确定（操作如下图所示）
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/1397496/1644220374380-64f2015d-43ba-4aab-8ebe-3bf5475051cc.png#clientId=u1436eb50-2085-4&crop=0&crop=0&crop=1&crop=1&from=paste&id=u803abb84&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1592&originWidth=2878&originalType=binary&ratio=1&rotation=0&showTitle=false&size=904150&status=done&style=shadow&taskId=ufa43120f-2de5-451b-9f79-20547440bf8&title=)
-图3.3-3 为下拉单选组件绑定动作
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN012urAaL1Td4ssb51hf_!!6000000002404-2-tps-959-530.png)
 ​
 
 
-4. 将下述代码填写到`onChange()`函数中。（操作如图3.3-4 所示）
+4. 将下述代码填写到`onChange()`函数中。（操作如下图所示）
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/1397496/1645408527615-733d624b-c334-4d5e-b3af-b1deb832abcb.png#clientId=udf9c021e-6b34-4&crop=0&crop=0&crop=1&crop=1&from=paste&id=u3f62628c&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1590&originWidth=2878&originalType=binary&ratio=1&rotation=0&showTitle=false&size=1589801&status=done&style=shadow&taskId=ue86b04b1-1f04-4113-b484-31fcbe03a06&title=)
-图3.3-4 下拉单选组件绑定动作所需代码
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01BSUtPY1nr5JVLrMRj_!!6000000005142-2-tps-959-530.png)
 :::danger
 **特别提醒：**
 
@@ -118,12 +113,10 @@ export function onChange({ value, actionType, item }) {
 
 ```
 ### 步骤四：填写表单数据
-填写数据后，切换下拉单选组件的选项时就会触发连接器从而发出一条短信。（操作如图3.4-1 所示）
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/1397496/1644221683972-34948181-3759-42cf-a5bc-3c743b97cc77.png#clientId=u1436eb50-2085-4&crop=0&crop=0&crop=1&crop=1&from=paste&id=ua0850166&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1592&originWidth=2878&originalType=binary&ratio=1&rotation=0&showTitle=false&size=280778&status=done&style=shadow&taskId=ud4eaa5a5-3464-489e-9636-c774b45fd3a&title=)
-图3.4-1 填写表单数据
+填写数据后，切换下拉单选组件的选项时就会触发连接器从而发出一条短信。（操作如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01SnmTf61RFbLfnTDal_!!6000000002082-2-tps-959-530.png)
 
 
 ## 附录
-下方给出 fetchOptions 的典型结构，供参考。（如图5.1-1 所示）
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/1397496/1644222206552-b7be5c81-e289-49ee-a1c5-7f41bc57c1b4.png#clientId=ubd4b1b4e-412a-4&crop=0&crop=0&crop=1&crop=1&from=paste&id=u0c5781f8&margin=%5Bobject%20Object%5D&name=image.png&originHeight=384&originWidth=2426&originalType=binary&ratio=1&rotation=0&showTitle=false&size=91964&status=done&style=shadow&taskId=ud2891549-30b5-4366-b790-a9a70d844d5&title=)
-图5.1-1 fetchOptions典型结构
+下方给出 fetchOptions 的典型结构，供参考。（如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01qOYcHK1TaKVTJJYO4_!!6000000002398-2-tps-2426-384.png)
