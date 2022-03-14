@@ -3,17 +3,12 @@ title: 集成&自动化 — 创建企业公告
 order: 8
 ---
 
-## 示例说明
+## 使用场景
 
 宜搭提供了钉钉公告连接器，可以由企业的主管理员（或是子管理员）发送给全公司（也可指定部门、指定员工）的通知性文章，可以通过公告发布公司的规章制度、放假信息等。
 
-## 示例演示
-
-查看路径：钉钉消息 >> 工作 >> 工作通知 >> 公告 >> 查看详情
-
-![image.png](https://img.alicdn.com/imgextra/i2/O1CN01nxX2ny1UulnZ6196e_!!6000000002578-2-tps-1920-1038.png)
-
 ## 操作步骤
+
 ### 步骤一：表单设计
 
 创建表单，进行公告的相关内容填充及配置。
@@ -24,8 +19,8 @@ order: 8
 2. 添加成员组件，命名为「发布人」，设置为必填项。（操作如下图所示）
 
 ![image.png](https://img.alicdn.com/imgextra/i4/O1CN0119RcNJ24fUktwGDzs_!!6000000007418-2-tps-1046-518.png)
-​
-3. 添加下拉单选组件，命名为「是否DING通知」，自定义两个选项，分别为「显示值：是，选项值：true」及「显示值：否，选项值：false」。设置为必填项。（操作如下图所示）
+
+3. 添加下拉单选组件，命名为「是否 DING 通知」，自定义两个选项，分别为「显示值：是，选项值：true」及「显示值：否，选项值：false」。设置为必填项。（操作如下图所示）
 
 ![image.png](https://img.alicdn.com/imgextra/i1/O1CN015Qceht1lgtGLdLR9c_!!6000000004849-2-tps-1046-535.png)
 
@@ -49,8 +44,9 @@ order: 8
 
 ### 步骤二：配置连接器
 
-> 获取宜搭连接器详细介绍，请移步：[集成&自动化-连接器](https://www.yuque.com/yida/support/zevvr1?view=doc_embed)
-
+:::info
+获取宜搭连接器详细介绍，请移步：[集成&自动化-连接器](https://www.yuque.com/yida/support/zevvr1?view=doc_embed)
+:::
 给「创建公告」添加并配置连接器，以实现宜搭表单与钉钉公告应用进行数据集成。
 
 **操作步骤：**
@@ -78,6 +74,13 @@ order: 8
 6. 点击页面右上角「保存」按钮后，点击「发布」按钮，即可。
 
 ### 步骤三：提交表单
+
 提交「创建公告」表单数据，触发连接器。（操作如下图所示）
 
 ![image.png](https://img.alicdn.com/imgextra/i2/O1CN01JnmVRJ1CxMxoil0vT_!!6000000000147-2-tps-1920-950.png)
+
+## 效果展示
+
+查看路径：钉钉消息 >> 工作 >> 工作通知 >> 公告 >> 查看详情
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01nxX2ny1UulnZ6196e_!!6000000002578-2-tps-1920-1038.png)
