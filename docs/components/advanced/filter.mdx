@@ -1,9 +1,9 @@
 ---
-title: 查询
+title: Filter2 查询
 order: 8
 ---
 
-# 查询
+# Filter2 查询
 
 ## 何时使用
 
@@ -11,5 +11,54 @@ order: 8
 import Iframe from 'components/Iframe'
 
 <Iframe url="https://www.aliwork.com/developer/filter-v2?isRenderNav=false" />
-  
+
 ## 组件属性
+
+import AttrTable from 'components/AttrTable';
+
+<AttrTable
+  dataSource={[
+    {
+      code: 'config',
+      type: '[FilterConfig[]](/docs/components/interface#filterconfig)',
+      default: '[]',
+      desc: '筛选项配置',
+    },
+    {
+      code: 'labelAlign',
+      type: `'left' | 'top'`,
+      default: `'top'`,
+      desc: '标题位置',
+    },
+    {
+      code: 'labelColSpan',
+      type: 'number',
+      default: '4',
+      desc: '标题宽度，1代表1/24',
+    },
+    {
+      code: 'size',
+      type: '[Size](/docs/components/interface#size)',
+      default: `'medium'`,
+      desc: '表单组件尺寸',
+    },
+    {
+      code: 'rowColumn',
+      type: 'number',
+      default: '3',
+      desc: '每行列数',
+    },
+    {
+      code: 'showTag',
+      type: 'boolean',
+      default: 'true',
+      desc: '标签隔离模式，拖入的Pickable会自动另起单独的区域来呈现',
+    },
+    {
+      code: 'createForm',
+      type: 'boolean',
+      default: 'true',
+      desc: '创建节点',
+    },
+  ]}
+/>

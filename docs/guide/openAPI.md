@@ -807,6 +807,7 @@ interface IResponse {
 | 城市选择   | 字符串数组 | ["110000", "110100", "110101"]                                                                                        | 第一个必须为省份 ID，第二个为城市 ID，第三个为区 ID。                                                          |
 | 部门选择   | 字符串数组 | ["1123456"]                                                                                                           | ["xxx"] 里面是部门 id                                                                                          |
 | 级联选择   | 字符串数组 | ["part", "part_b"]                                                                                                    | 必须按照级联顺序，依次放到数组中                                                                               |
+| 图片上传   | 字符串数组 | [{"downloadUrl":"文件下载地址", "name": "文件名"}]                                                                    |                                                                                                                |
 | 附件组件   | 字符串数组 | [{"downloadUrl":"文件下载地址", "name": "文件名"}]                                                                    |                                                                                                                |
 | 超链接组件 | 字符串数组 | [{"link":"http://www.aliwork.com", "text":"宜搭"}]                                                                    |                                                                                                                |
 | 子表单     | JSONARRAY  | [{"textField_jcr0069m": "danhang1"}, {"textField_jcr0069m": "danhang2"}] (textField_jcr0069m 为子表单下单行的组件 ID) | 由于子表单下有多条记录，所以用 JSONARRAY。由于每条记录都是很多组件的值，因此用 JSONObject 来存每个组件对应的值 |
@@ -847,6 +848,15 @@ interface IResponse {
     "part",
     "part_b"
   ],
+  "imageField_l096bb9l": [
+    {
+      "name": "蜡笔小新.jpg",
+      "previewUrl": "https://img.alicdn.com/imgextra/i4/O1CN01DD8OQA1Lnay0fZRs3_!!6000000001344-0-tps-640-452.jpg",
+      "downloadUrl": "https://img.alicdn.com/imgextra/i4/O1CN01DD8OQA1Lnay0fZRs3_!!6000000001344-0-tps-640-452.jpg",
+      "size": 19039,
+      "url": "https://img.alicdn.com/imgextra/i4/O1CN01DD8OQA1Lnay0fZRs3_!!6000000001344-0-tps-640-452.jpg"
+    }
+  ],  
   "attachmentField_jna1lvyb": [
     {
       "downloadUrl": "https://www.aliwork.com/fileHandle?appType=default_tianshu_app&fileName=edd07ca9-1d2e-44b5-98fe-c1e16202f90d.txt&instId=&type=download",
@@ -855,8 +865,7 @@ interface IResponse {
       "url": "https://www.aliwork.com/fileHandle?appType=default_tianshu_app&fileName=edd07ca9-1d2e-44b5-98fe-c1e16202f90d.txt&instId=&type=download",
       "ext": "txt"
     }
-  ]
-},
+  ],
   "tableField_jcr006a1": [
     {
       "cascadeDate_jcr006aa": [

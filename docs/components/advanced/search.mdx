@@ -17,49 +17,55 @@ import Iframe from "components/Iframe";
 
 ## 组件属性
 
-import AttrTable from "components/AttrTable";
+import AttrTable from 'components/AttrTable';
 
 <AttrTable
   dataSource={[
     {
-      code: "type",
+      code: 'type',
       type: `'normal' | 'primary' | 'secondary' | 'dark'`,
       default: `'normal'`,
-      desc: "搜索类型",
+      desc: '搜索类型',
     },
     {
-      code: "defaultValue",
-      type: "string",
-      default: `'请输入'`,
-      desc: "搜索框默认值",
+      code: 'defaultValue',
+      type: 'string',
+      default: '-',
+      desc: '搜索框默认值',
     },
     {
-      code: "shape",
+      code: 'size',
+      type: `'medium' | 'large'`,
+      default: `'medium'`,
+      desc: '尺寸',
+    },
+    {
+      code: 'shape',
       type: `'normal' | 'simple'`,
       default: `'normal'`,
-      desc: "搜索形状",
+      desc: '搜索形状',
     },
     {
-      code: "autoFocus",
-      type: "boolean",
-      default: "false",
-      desc: "是否自动聚焦",
+      code: 'autoFocus',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否自动聚焦',
     },
     {
-      code: "isFilter",
-      type: "boolean",
-      default: "false",
-      desc: "是否开启选择器",
+      code: 'isFilter',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否开启选择器',
     },
     {
-      code: "defaultFilterValue",
-      type: "string",
+      code: 'defaultFilterValue',
+      type: 'string',
       default: `'one'`,
-      desc: "开启选择器按钮后，设置选择器默认值",
+      desc: '开启选择器按钮后，设置选择器默认值',
     },
     {
-      code: "filter",
-      type: "array",
+      code: 'filter',
+      type: '[SearchDataSource[]](/docs/components/interface#searchdatasource)',
       default: `~~~json
 [
   {
@@ -76,11 +82,11 @@ import AttrTable from "components/AttrTable";
   }
 ]
       `,
-      desc: "设置选择器的下拉列表值",
+      desc: '设置选择器的下拉列表值',
     },
     {
-      code: "dataSource",
-      type: "array",
+      code: 'dataSource',
+      type: '[SearchDataSource[]](/docs/components/interface#searchdatasource)',
       default: `~~~json
 [
   {
@@ -97,49 +103,49 @@ import AttrTable from "components/AttrTable";
   }
 ]
       `,
-      desc: "设置搜索框的下拉列表值",
+      desc: '设置搜索框的下拉列表值',
     },
     {
-      code: "placeholder",
-      type: "string",
+      code: 'placeholder',
+      type: 'string',
       default: `'请输入'`,
-      desc: "设置搜索框默认提示",
+      desc: '搜索框默认提示',
     },
     {
-      code: "searchText",
-      type: "string",
+      code: 'searchText',
+      type: 'string',
       default: `'搜索'`,
-      desc: "设置搜索按钮内容",
+      desc: '搜索按钮内容',
     },
     {
-      code: "hasClear",
-      type: "boolean",
-      default: "false",
-      desc: "是否显示清除按钮",
+      code: 'hasClear',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否显示清除按钮',
     },
     {
-      code: "disabled",
-      type: "boolean",
-      default: "false",
-      desc: "是否禁用",
+      code: 'disabled',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否禁用',
     },
     {
-      code: "onChange",
-      type: "(value: object) => void",
-      default: "-",
-      desc: "组件值发生改变事件",
+      code: 'onChange',
+      type: '(value: string) => void',
+      default: '-',
+      desc: '组件值发生改变事件',
     },
     {
-      code: "onSearch",
-      type: "(value: string) => void",
-      default: "-",
-      desc: "点击搜索按钮触发的事件",
+      code: 'onSearch',
+      type: '(value: string) => void',
+      default: '-',
+      desc: '点击搜索按钮触发的事件',
     },
     {
-      code: "onFilterChange",
-      type: "(filterValue: object) => void",
-      default: "-",
-      desc: "选择器发生变化时的事件",
+      code: 'onFilterChange',
+      type: '(filterValue: string) => void',
+      default: '-',
+      desc: '选择器发生变化时的事件',
     },
   ]}
 />

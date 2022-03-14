@@ -26,7 +26,7 @@ import AttrTable from "components/AttrTable";
   dataSource={[
     {
       code: "dataSource",
-      type: "array",
+      type: "[TimelineDataSource[]](/docs/components/interface#timelinedatasource)",
       default:`~~~json
 [
   {
@@ -62,11 +62,11 @@ import AttrTable from "components/AttrTable";
     time: "2016-12-08",
   },
 ]`,
-      desc: "用于配置时间轴数据",
+    desc: "用于配置时间轴数据",
     },
     {
       code: "fold",
-      type: "array",
+      type: "any[]",
       default: `~~~json 
 [
   {
@@ -80,7 +80,7 @@ import AttrTable from "components/AttrTable";
       code: "animation",
       type: "boolean",
       default: "true",
-      desc: "用于选择是否开启动画",
+      desc: "是否开启动画",
     },
   ]}
 />

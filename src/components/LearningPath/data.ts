@@ -142,38 +142,38 @@ export default [
         children: [
           {
             title: '数字输入框', 
-            path: '/docs/components/form/number', 
+            path: '/docs/components/form/numberField', 
           }, 
           {
             title: '单选', 
-            path: '/docs/components/form/radio', 
+            path: '/docs/components/form/radioField', 
           }, 
           {
             title: '下拉选择', 
-            path: '/docs/components/form/select', 
+            path: '/docs/components/form/selectField', 
           }, 
           {
             title: '多选', 
-            path: '/docs/components/form/checkbox', 
+            path: '/docs/components/form/checkboxField', 
           }, 
           {
             title: '下拉多选', 
-            path: '/docs/components/form/selects', 
+            path: '/docs/components/form/multiSelectField', 
           }, 
           {
             title: '日期选择', 
-            path: '/docs/components/form/dateSelect', 
+            path: '/docs/components/form/dateField', 
           }, 
           {
             title: '日期区间', 
-            path: '/docs/components/form/daterange', 
+            path: '/docs/components/form/cascadeDateField', 
           }, {
             title: '上传图片', 
-            path: '/docs/components/form/uploadImge', 
+            path: '/docs/components/form/imageField', 
           }, 
           {
             title: '上传附件', 
-            path: '/docs/components/form/uploadAppendix', 
+            path: '/docs/components/form/attachmentField', 
           }, 
           {
             title: '输入框', 
@@ -181,11 +181,11 @@ export default [
           }, 
           {
             title: '多行输入框', 
-            path: '/docs/components/form/textInputs', 
+            path: '/docs/components/form/textareaField', 
           }, 
           {
             title: '人员搜索框', 
-            path: '/docs/components/form/peopleSearch', 
+            path: '/docs/components/form/employeeField', 
           }, 
           {
             title: '评分', 
@@ -222,7 +222,7 @@ export default [
           }, 
           {
             title: '底部通栏', 
-            path: '/docs/components/advanced/bottomBanner', 
+            path: '/docs/components/advanced/bannerContainer', 
           }, 
           {
             title: '表格', 

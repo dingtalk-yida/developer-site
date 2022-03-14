@@ -1,26 +1,21 @@
 ---
-title: 选项卡
+title: TabsLayout 选项卡
 order: 1
 ---
 
-# 选项卡
+# TabsLayout 选项卡
 
-选项卡切换组件。
+让用户可以在不同子任务、视图、模式之间切换，它具有全局导航的作用，是全局功能的主要展示和切换区域。
+
 
 ## 何时使用
+- 当需要对页面内容进行分类或区隔时使用。
+- 当需要对页面控件进行压缩，提升页面空间利用率时。
 
-TAB(标签项) 让用户可以在不同子任务、视图、模式之间切换，它具有全局导航的作用，是全局功能的主要展示和切换区域，一个 TAB(标签项) 标记一个核心功能，TAB(标签项) 之间可以快速点击切换。该窗口包含 2 个以上的选项卡，所有选项卡可以排列在一行中，即使该用户界面被本地化后也是如此。提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
-
-宜搭提供了四种选项卡，分别用于不同的场景。
-
-- 普通选项卡，引领页面的内容，起导航的作用。
-- 文本型选项卡。
-- 包裹型选项卡，在页面结构中，只是局部展示，需要和其他内容结合出现。
-- 胶囊型选项卡。
 
 ## 组件示例
 
-import Iframe from 'components/Iframe';
+import Iframe from "components/Iframe";
 
 <Iframe url="https://www.aliwork.com/developer/tabs-layout-v2?isRenderNav=false" />
 
@@ -31,46 +26,70 @@ import AttrTable from 'components/AttrTable';
 <AttrTable
   dataSource={[
     {
-      attr: '选项',
       code: 'items',
-      type: 'Array',
-      demo: '[{ disabled: false, primaryKey: "2", title: "标签项 2" }]',
+      type: '[TabItem[]](/docs/components/interface#tabitem)',
+      default: '-',
       desc: '可以设置默认激活选项、禁用选项和标签名',
     },
     {
-      attr: '形态',
       code: 'shape',
-      type: 'String',
-      demo: '"wrapped"',
-      desc: '可选项为："pure" (普通型)，"wrapped" (包裹型)，"text" (文本型)，"capsule" (胶囊型)',
+      type: `'pure' | 'wrapped' | 'text' | 'capsule'`,
+      default: `'pure'`,
+      desc: '设置选项卡形态',
     },
     {
-      attr: '大小',
       code: 'size',
-      type: 'String',
-      demo: '"small"',
-      desc: '可选项为："small"（小号尺寸），"normal"（正常尺寸）',
+      type: `'small' | 'medium'`,
+      default: `'medium'`,
+      desc: '标签项大小',
     },
     {
-      attr: '选项卡过多时的滑动模式',
+      code: 'contentPadding',
+      type: `string`,
+      default: `'20px 20px'`,
+      desc: '设定内容区的内间距，请输入 CSS padding 值',
+    },
+    {
       code: 'excessMode',
-      type: 'String',
-      demo: '"slide"',
-      desc: '可选项为："slide" (滑动)、"dropdown" (下拉)',
+      type: `'slide' | 'dropdown'`,
+      default: `'slide'`,
+      desc: '选项卡过多时的滑动模式，slide：滑动、dropdown：下拉选择',
     },
     {
-      attr: '导航选项卡的位置',
       code: 'tabPosition',
-      type: 'String',
-      demo: '"top"',
-      desc: '可选项为："top"（上）、"bottom"（下）、"left"（左）、"right"（右）',
+      type: `'top' | 'bottom' | 'left' | 'right'`,
+      default: `'top'`,
+      desc: '导航选项卡的位置',
     },
     {
-      attr: '选项卡切换时',
-      code: 'onChange',
-      type: 'Function',
-      demo: 'function onChange(activeIndex, key){console.log(activeIndex, key); }',
-      desc: '',
+      code: 'needBadge',
+      type: 'boolean',
+      default: `false`,
+      desc: '开启徽标',
+    },
+    {
+      code: 'renderBadge',
+      type: `(tabItem: object) => ReactNode`,
+      default: `-`,
+      desc: '徽标渲染',
+    },
+    {
+      code: 'tabRender',
+      type: `(key: string, props: object) => ReactNode`,
+      default: `-`,
+      desc: '自定义渲染选项卡',
+    },
+    {
+      code: 'extraRender',
+      type: `() => ReactNode`,
+      default: `-`,
+      desc: '渲染导航栏附加内容',
+    },
+    {
+      code: 'onTabChange',
+      type: '(activeIndex: number, key: string) => void',
+      default: '-',
+      desc: '选项卡切换事件',
     },
   ]}
 />

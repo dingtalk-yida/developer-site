@@ -1,0 +1,104 @@
+---
+title: DateField 日期选择
+order: 6
+---
+
+# DateField 日期选择
+
+## 何时使用
+
+- 输入或选择具体时间，当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。
+
+## 组件示例
+
+import Iframe from "components/Iframe";
+
+<Iframe url="https://www.aliwork.com/developer/date-field-v2?isRenderNav=false" />
+
+## 组件属性
+
+import AttrTable from "components/AttrTable";
+
+<AttrTable
+  category="form"
+  dataSource={[
+    {
+      code: 'value',
+      type: 'number',
+      default: '-',
+      desc: '日期选择默认值',
+    },
+    {
+      code: 'placeholder',
+      type: 'string',
+      default: "'请选择'",
+      desc: '占位提示',
+    },
+    {
+      code: 'start',
+      type: 'number',
+      default: '-',
+      desc: '日期开始时间， 当**type**属性为duration时生效',
+    },
+    {
+      code: 'end',
+      type: 'number',
+      default: '-',
+      desc: '日期结束时间，当**type**属性为duration时生效',
+    },
+    {
+      code: 'returnType',
+      type: `'timestamp' | 'string' | 'moment' `,
+      default: `'timestamp'`,
+      desc: '日期返回类型',
+    },
+    {
+      code: 'type',
+      type: `'none' | 'beforeToday' | 'afterToday'| 'duration'| 'custom'`,
+      default: `'none'`,
+      desc: '时间限制范围',
+    },
+    {
+      code: 'disabledDate',
+      type: '(current: number)=> boolean',
+      default: '-',
+      desc: '自定义限制，当**type**属性为custom时生效',
+    },
+    {
+      code: 'format',
+      type: `'YYYY' | 'YYYY-MM' | 'YYYY-MM-DD'| 'YYYY-MM-DD HH:mm'| 'YYYY-MM-DD HH:mm:ss'`,
+      default: `'YYYY-MM-DD'`,
+      desc: '日期格式',
+    },
+    {
+      code: 'hasClear',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否有清除按钮',
+    },
+    {
+      code: 'resetTime',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否每次选择日期时重置时间',
+    },
+    {
+      code: 'onChange',
+      type: '({value: number})=> void',
+      default: '-',
+      desc: '组件值发生改变事件',
+    },
+    {
+      code: 'onOk',
+      type: '({value: number})=> void',
+      default: '-',
+      desc: '点击确认时触发事件',
+    },
+    {
+      code: 'onVisibleChange',
+      type: '(visible: boolean) => void',
+      default: '-',
+      desc: '弹层显示或隐藏时触发事件',
+    },
+  ]}
+/>

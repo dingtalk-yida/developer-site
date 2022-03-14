@@ -5,11 +5,11 @@ order: 1
 
 # JSX
 
-JSX 组件允许你通过 jsx 代码渲染一个完全自定义的组件。一般用于纯展示的场景。
+JSX 组件允许你通过 jsx 代码渲染一个完全自定义的组件，一般用于纯展示的场景。
 
 ## 何时使用
 
-- 用于通过 JSX 形式来自定义渲染内容；
+- 用于通过 JSX 形式来自定义渲染内容。
 
 ## 组件示例
 
@@ -27,13 +27,7 @@ import AttrTable from 'components/AttrTable';
       code: 'render',
       type: '() => ReactNode',
       default: '-',
-      desc: '可使用 JSX 代码',
-    },
-    {
-      code: '__style__',
-      type: 'object',
-      default: '{}',
-      desc: '样式设置',
+      desc: '展示内容，可直接返回JSX代码',
     },
   ]}
 />

@@ -19,78 +19,78 @@ import Iframe from "components/Iframe";
 
 ## 组件属性
 
-import AttrTable from "components/AttrTable";
+import AttrTable from 'components/AttrTable';
 
 <AttrTable
   dataSource={[
     {
-      code: "dataSource",
-      type: "	array",
+      code: 'dataSource',
+      type: '[StepsDataSource[]](/docs/components/interface#stepsdatasource)',
       default: `~~~json
 [
-    {
-        "title": "step1",
-        "content": "Open the refrigerator door"
-    },
-    {
-        "title": "step2",
-        "content": "Put the elephant in the refrigerator"
-    },
-    {
-        "title": "step3",
-        "content": "Close the refrigerator door"
-    }
+  {
+    "title": "step1",
+    "content": "Open the refrigerator door"
+  },
+  {
+    "title": "step2",
+    "content": "Put the elephant in the refrigerator"
+  },
+  {
+    "title": "step3",
+    "content": "Close the refrigerator door"
+  }
 ]
-      `,
-      desc: "步骤数据",
+~~~`,
+      desc: '步骤数据',
     },
     {
-      code: "current",
-      type: "number",
-      default: "1",
-      desc: "当前步骤",
+      code: 'current',
+      type: 'number',
+      default: '1',
+      desc: '当前步骤',
     },
     {
-      code: "shape",
+      code: 'shape',
       type: `'circle' | 'arrow' | 'dot'`,
       default: `'circle'`,
-      desc: '类型',
+      desc: '步骤条展示类型',
     },
     {
-      code: "direction",
+      code: 'direction',
       type: `'horizontal' | 'vertical'`,
       default: `'horizontal'`,
-      desc: "展示方向",
+      desc: '步骤条展示方向',
     },
     {
-      code: "labelPlacement",
+      code: 'labelPlacement',
       type: `'horizontal' | 'vertical'`,
       default: `'vertical'`,
-      desc: "内容排列方式",
+      desc: '内容排列方式',
     },
     {
-      code: "readOnly",
-      type: "boolean",
-      default: "false",
-      desc: "是否只读模式",
+      code: 'readOnly',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否只读模式',
     },
     {
-      code: "animation",
-      type: "boolean",
-      default: "true",
-      desc: "是否开启动效",
+      code: 'animation',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否开启动效',
     },
     {
-      code: "contentRender",
-      type: "(item:object,index:number)=>item.content",
+      code: 'contentRender',
+      type: '(item: StepsDataSource, index: number)=> ReactNode',
       default: '-',
-      desc: "内容自定义渲染",
+      desc: '内容自定义渲染',
     },
     {
-      code: "onClick",
-      type: "(index: number) => void",
+      code: 'onClick',
+      type: '(index: number) => void',
       default: '-',
-      desc: "点击步骤时触发事件",
+      desc: '点击步骤时触发事件',
     },
   ]}
 />

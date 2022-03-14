@@ -25,7 +25,7 @@ import AttrTable from 'components/AttrTable';
     {
       code: 'value',
       type: 'string',
-      default: 'part_b',
+      default: `'part_b'`,
       desc: '数据源中最后一个节点的 value',
     },
     {
@@ -42,8 +42,8 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'listStyle',
-      type: 'array',
-      default: {},
+      type: 'React.CSSProperties',
+      default: '{}',
       desc: '列表样式',
     },
     {
@@ -71,42 +71,46 @@ import AttrTable from 'components/AttrTable';
       desc: '是否显示搜索框',
     },
     {
-      code: 'showSearch',
+      code: 'hasClear',
       type: 'boolean',
       default: 'true',
       desc: '是否显示清除按钮',
     },
     {
       code: 'dataSource',
-      type: 'array',
-      default: [{
-        "value": "part",
-        "label": {
-          "type": "i18n",
-          "en_US": "dep",
-          "zh_CN": "部门"
-        },
-        "children": [{
-          "value": "part_a",
-          "label": "A部门"
-        },
-        {
-          "value": "part_b",
-          "label": "B部门"
-        }]
-      },
-      {
-        "value": "product",
-        "label": "产品",
-        "children": [{
-          "value": "product_a",
-          "label": "a产品"
-        },
-        {
-          "value": "product_b",
-          "label": "b产品"
-        }]
-      }],
+      type: '[CascadeDataSource[]](/docs/components/interface#cascadeDataSource)',
+      default: `~~~json
+[{
+		"value": "part",
+		"label": {
+			"type": "i18n",
+			"en_US": "dep",
+			"zh_CN": "部门"
+		},
+		"children": [{
+				"value": "part_a",
+				"label": "A部门"
+			},
+			{
+				"value": "part_b",
+				"label": "B部门"
+			}
+		]
+	},
+	{
+		"value": "product",
+		"label": "产品",
+		"children": [{
+				"value": "product_a",
+				"label": "a产品"
+			},
+			{
+				"value": "product_b",
+				"label": "b产品"
+			}
+		]
+	}
+]`,
       desc: '数据源',
     },
     {
@@ -117,7 +121,7 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'loadData',
-      type: '() => void',
+      type: '( node: object ) => Promise<CascadeDataSource[]>',
       default: '-',
       desc: 'loadData 函数',
     },
@@ -128,8 +132,14 @@ import AttrTable from 'components/AttrTable';
       desc: '无数据时显示内容',
     },
     {
+      code: 'optionAutoWidth',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否开启选项自动宽度，仅支持PC端',
+    },
+    {
       code: 'onChange',
-      type: '({ value : string / array, data : object / array , extra : object }) => void',
+      type: '({ value: string | array, data: object | array , extra: object }) => void',
       default: '-',
       desc: 'onChange 值发生变化',
     },

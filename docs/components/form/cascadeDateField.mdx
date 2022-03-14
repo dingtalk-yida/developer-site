@@ -1,0 +1,92 @@
+---
+title: CascadeDateField 日期区间
+order: 7
+---
+
+# CascadeDateField 日期区间
+
+## 何时使用
+
+- 输入或选择日期区间。当用户需要输入一个日期区间，可以点击标准输入框，弹出日期面板进行选择。
+
+## 组件示例
+
+import Iframe from "components/Iframe";
+
+<Iframe url="https://www.aliwork.com/developer/cascade-date-field-v2?isRenderNav=false" />
+
+## 组件属性
+
+import AttrTable from "components/AttrTable";
+
+<AttrTable
+  category="form"
+  dataSource={[
+    {
+      code: 'value',
+      type: 'number[]',
+      default: '-',
+      desc: '表单组件的默认值',
+    },
+    {
+      code: 'placeholder',
+      type: 'string',
+      default: `'请选择'`,
+      desc: '表单组件占位提示信息',
+    },
+    {
+      code: 'returnType',
+      type: `'timestamp' | 'string' | 'moment' `,
+      default: `'timestamp'`,
+      desc: '日期区间返回类型',
+    },
+    {
+      code: 'format',
+      type: `'YYYY' | 'YYYY-MM' | 'YYYY-MM-DD' | 'YYYY-MM-DD HH:mm' | 'YYYY-MM-DD HH:mm'YYY-MM-DD HH:mm:ss`,
+      default: `'YYY-MM-DD'`,
+      desc: '日期区间组件显示格式',
+    },
+    {
+      code: 'hasClear',
+      type: 'boolean',
+      default: 'true',
+      desc: '显示清除按钮',
+    },
+    {
+      code: 'ranges',
+      type: '()=> number[]',
+      default: '-',
+      desc: '快速区间选择',
+    },
+    {
+      code: 'resetTime',
+      type: 'boolean',
+      default: 'false',
+      desc: '每次选择日期时是否重置时间',
+    },
+    {
+      code: 'disabledDate',
+      type: '(current: number)=> boolean',
+      default: '-',
+      desc: '自定义限制，当**type**属性为custom时生效',
+    },
+    {
+      code: 'onChange',
+      type: '({value：object}) => void',
+      default: '-',
+      desc: '组件值发生改变事件',
+    },
+    {
+      code: 'onOk',
+      type: '(value: object) => void',
+      default: '-',
+      desc: '点击确认时触发事件',
+    },
+    {
+      code: 'onVisibleChange',
+      type: '(visible：boolean) => void',
+      default: '-',
+      desc: '弹层显示或隐藏时触发事件',
+    },
+  ]}
+/>

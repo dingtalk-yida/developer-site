@@ -30,17 +30,10 @@ export function getState() {
 ```js
 export function setStateValue() {
   // 设置页面全局变量的值并触发页面重新渲染
-  // 用法1，推荐：
   this.setState({
     status: 'loading',
     text: '加载中…'
   });
-
-  //用法2，当只更新一个变量时，推荐。
-  //this.setState('status', 'loading');
-
-  //用法3，非常不推荐，仅仅对部分文本类型站点生效。
-  //this.state.status = 'loading';
 }
 ```
 

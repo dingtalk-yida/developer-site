@@ -9,6 +9,17 @@ order: 16
 
 - 用于子表单提交场景；
 
+## 类型定义
+### 自定义操作项配置结构
+
+```ts
+interface Action {
+  content: string; // 操作项文案
+  callback: ({index: number, groupId: string, itemValue: any, actionKey: string }) => void; // 点击回调
+  render: ({index: number, groupId: string, itemValue: any, actionKey: string }) => ReactNode; // 自定义渲染
+}
+```
+
 ## 组件示例
 
 import Iframe from 'components/Iframe';
@@ -24,48 +35,48 @@ import AttrTable from 'components/AttrTable';
   dataSource={[
     {
       code: 'value',
-      type: 'array',
-      default: [],
+      type: 'any[]',
+      default: '[]',
       desc: '明细组件默认值',
     },
     {
-      code: 'layout',
+      code: 'layoutSetting.layout',
       type: `'TILED' | 'TABLE'`,
       default: `'TABLE'`,
-      desc: '排列方式（表格方式只在 PC 模式下有效）',
+      desc: '排列方式（表格方式只在 PC 模式下有效），TILED：平铺方式、TABLE：表格方式',
     },
     {
-      code: 'theme',
+      code: 'layoutSetting.theme',
       type: `'zebra' | 'split' | 'border'`,
       default: `'split'`,
       desc: '主题（只在 PC 表格方式下有效）',
     },
     {
-      code: 'showTableHead',
+      code: 'layoutSetting.showTableHead',
       type: 'boolean',
       default: 'true',
       desc: '是否显示表头（只在 PC 表格方式下有效）',
     },
     {
-      code: 'showIndex',
+      code: 'layoutSetting.showIndex',
       type: 'boolean',
       default: 'true',
       desc: '是否显示序号',
     },
     {
-      code: 'indexName',
+      code: 'layoutSetting.indexName',
       type: 'string',
       default: `'项目'`,
       desc: '序号名称',
     },
     {
-      code: 'pcFreezeColumnStartCounts',
+      code: 'layoutSetting.pcFreezeColumnStartCounts',
       type: `'0' | '1' | '2' | '3'`,
       default: '0',
-      desc: '左侧列冻结',
+      desc: '左侧列冻结，0表示不冻结',
     },
     {
-      code: 'isFreezeOperateColumn',
+      code: 'layoutSetting.isFreezeOperateColumn',
       type: 'boolean',
       default: 'true',
       desc: '是否冻结操作列',
@@ -125,28 +136,22 @@ import AttrTable from 'components/AttrTable';
       desc: '下移按钮名称',
     },
     {
-      code: 'content',
-      type: 'string',
-      default: `'操作'`,
-      desc: '自定义操作项名称',
+      code: 'actions',
+      type: 'Action[]',
+      default: '[]',
+      desc: '自定义操作项',
     },
     {
-      code: 'callback',
-      type: '({ index : number , groupId : string , itemValue : object , actionKey : object }) => void',
-      default: '-',
-      desc: '自定义操作项回调函数',
-    },
-    {
-      code: 'render',
-      type: '({ index : number , groupId : string , itemValue : object , actionKey : object }) => void',
-      default: '-',
-      desc: '自定义操作项定制渲染',
+      code: 'addButtonPosition',
+      type: `'bottom' | 'top'`,
+      default: `'bottom'`,
+      desc: '新增按钮位置',
     },
     {
       code: 'addButtonText',
       type: 'string',
       default: `'新增一项'`,
-      desc: '按钮名称',
+      desc: '新增按钮文案',
     },
     {
       code: 'addButtonBehavior',
@@ -176,61 +181,61 @@ import AttrTable from 'components/AttrTable';
       code: 'useCustomColumnsWidth',
       type: 'boolean',
       default: 'false',
-      desc: '是否自定义其它列',
+      desc: '是否自定义其它列宽度',
     },
     {
       code: 'columnsWidth',
-      type: 'number',
+      type: 'Record<string, string>',
       default: '-',
-      desc: '字段列宽',
+      desc: `字段列宽，例如： { node_ockzdxe6of1: '200px' }`,
     },
     {
       code: 'onChange',
-      type: '({ value : object , extra: object }) => void',
+      type: '({ value: any , extra: any }) => void',
       default: '-',
       desc: 'onChange 子表单值变化',
     },
     {
       code: 'beforeAddClick',
-      type: '() => void',
+      type: '() => boolean',
       default: '-',
-      desc: 'beforeAddClick 添加回调执行前',
+      desc: '添加按钮点击前回调，返回false阻止添加',
     },
     {
       code: 'onAddClick',
-      type: '( newGroupId : string ) => void',
+      type: '( newGroupId: string ) => void',
       default: '-',
-      desc: 'onAddClick 点击添加',
+      desc: '添加按钮点击事件',
     },
     {
       code: 'beforeCopyClick',
-      type: '( sourceGroupId : string , sourceItem : object ) => void',
+      type: '( sourceGroupId: string, sourceItem: any ) => boolean',
       default: '-',
-      desc: 'beforeCopyClick 复制回调执行前',
+      desc: '复制按钮点击前回调，返回false组织复制',
     },
     {
       code: 'onCopyClick',
-      type: '( newGroupId : string , copiedItem : object ) => void',
+      type: '( newGroupId: string , copiedItem: any ) => void',
       default: '-',
-      desc: 'onCopyClick 点击复制',
+      desc: '添加按钮点击事件',
     },
     {
       code: 'beforeDelClick',
-      type: '( groupId : string , item : object ) => void',
+      type: '( groupId: string , item: object ) => void',
       default: '-',
-      desc: 'beforeDelClick 删除回调执行前',
+      desc: '删除按钮点击前回调，返回false阻止删除',
     },
     {
       code: 'onDelClick',
-      type: '( newGroupId : string , copiedItem : object ) => void',
+      type: '( newGroupId: string , copiedItem: object ) => void',
       default: '-',
-      desc: 'onDelClick 点击删除',
+      desc: '删除按钮点击事件',
     },
     {
       code: 'beforeImportData',
-      type: '( data : array ) => void',
+      type: '( data: any[] ) => any[]',
       default: '-',
-      desc: 'beforeImportData 批量导入数据前执行',
+      desc: '批量导入数据前执行',
     },
   ]}
 />

@@ -31,7 +31,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./config/sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/dingtalk-yida/developer-site/edit/feat/init/',
+          editUrl: 'https://github.com/dingtalk-yida/developer-site/edit/master/',
         },
         blog: false,
         theme: {
