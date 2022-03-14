@@ -1,0 +1,37 @@
+---
+title: 如何在表单提交时发起流程
+order: 5
+---
+
+## 场景
+新员工在入职时，都需要申请并领取个人资产，那么我们如何在填写新员工信息后，自动发起个人资产的申领呢？
+连接器可以在表单提交时触发，并自动发起新流程，那么让我们来一起看一下如何实现吧！
+## 实现效果
+![提交表单发起新流程4实现效果.gif](https://img.alicdn.com/imgextra/i1/O1CN01j6MAmO1UK879e7ii6_!!6000000002498-1-tps-1381-743.gif)
+##  操作步骤
+### 步骤一： 创建表单
+设计以下两个表单：
+
+- 入职填表：记录新员工信息。
+- 入职设备申请表：填写员工信息及申请资产内容，设备清单为复选组件，可多选。
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01z2Bj7I1mPm50Gjohn_!!6000000004947-2-tps-2206-1276.png)
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01GM4UCK1gKNirfcK3J_!!6000000004123-2-tps-2232-1288.png)
+### 步骤二: 集成&自动化创建
+由于我们需要在新员工提交入职填报表后自动发起资产申请流程，因此在需要选择连接器触发类型为表单事件触发。
+连接器功能介绍可参考文档：[集成&自动化-连接器](https://img.alicdn.com/imgextra/i3/O1CN01xHp8ei1NWljdNklnr_!!6000000001578-1-tps-1894-863.gif)
+### 步骤三: 配置发起流程
+1. 配置触发类型
+进入连接器编辑页面中，选择事件触发类型为「创建成功」。
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN018Yiack1RKdhwWMdPn_!!6000000002093-2-tps-1940-872.png)
+2. 配置人工节点-发起流程
+3. 选择添加人工节点-发起流程
+![提交表单发起新流程2.gif](https://img.alicdn.com/imgextra/i1/O1CN01wusYq71KFsHKnNWfr_!!6000000001135-1-tps-1381-743.gif)
+4. 配置发起新流程内容
+点击发起审批节点 >> 选择需要发起的流程 >> 依次配置流程字段值及发起人 >> 保存并发布
+![提交表单发起新流程3.gif](https://img.alicdn.com/imgextra/i3/O1CN0138okrq1yPZIAwNzy4_!!6000000006571-1-tps-1381-743.gif)
+
+
+
+**--------------------获取宜搭最新信息，欢迎关注我们--------------------**
+![宜搭.jpg](https://img.alicdn.com/imgextra/i1/O1CN01gXIXhN1u9l9gl6LED_!!6000000005995-0-tps-1800-1012.jpg)
