@@ -6,6 +6,8 @@ GitHub Pages: [https://dingtalk-yida.github.io/developer-site/](https://dingtalk
 
 国内镜像：[https://yida-developer.alibaba-inc.com/](https://yida-developer.alibaba-inc.com/)
 
+## 常用命令
+
 ### 安装依赖
 
 ```
@@ -39,3 +41,11 @@ $ npm run deploy
 1. 添加本地仓库的remote： ```git remote add gitee https://gitee.com/yida-developer/yida-developer.git```;
 2. 推送静态站点代码到gitee：```npm run deploy:gitee```;
 3. 前往[gitee pages管理页](https://gitee.com/yida-developer/yida-developer/pages)执行更新操作；
+
+## FAQ
+
+### window下npm安装失败，本地无法启动？
+这是因为我们使用了[nodejieba](https://www.npmjs.com/package/nodejieba)来进行中文分词，在windows环境下需要手动安装node-pyp，否则nodejieba安装会报错（[详细问题描述](https://github.com/yanyiwu/nodejieba/issues/70)）解决方案如下所示：
+```
+$ npm install node-gyp nodejieba@2.5.2
+```
