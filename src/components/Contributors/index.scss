@@ -1,10 +1,14 @@
 .contributors {
   margin-top: 2rem;
-  &.large .avatar{
-    width: 48px;
-    height: 48px;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+  min-height: 50px;
+  &.large {
+    min-height: 80px;
+    .avatar{
+      width: 48px;
+      height: 48px;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
   }
   h3 {
     margin-bottom: 1rem;

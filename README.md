@@ -36,6 +36,6 @@ $ npm run deploy
 通过执行部署命令会自动执行文档构建，我们会将文档部分（即 build 文件夹下的内容）推送到 Github 的 docs 分支，从而触发部署到 gh-pages，接下来便可以通过 [https://dingtalk-yida.github.io/developer-site/docs/guide/about](https://dingtalk-yida.github.io/developer-site/docs/guide/about) 进行访问了。
 
 若要发布到国内gitee镜像上，需要进行以下三步操作：
-* 添加gitee仓库的remote： ```git remote add gitee https://gitee.com/yida-developer/yida-developer.git```;
-* 推送静态站点代码到gitee：```npm run deploy:gitee```;
-* 前往[gitee pages管理页](https://gitee.com/yida-developer/yida-developer/pages)执行更新操作；
+1. 添加本地仓库的remote： ```git remote add gitee https://gitee.com/yida-developer/yida-developer.git```;
+2. 推送静态站点代码到gitee：```npm run deploy:gitee```;
+3. 前往[gitee pages管理页](https://gitee.com/yida-developer/yida-developer/pages)执行更新操作；
