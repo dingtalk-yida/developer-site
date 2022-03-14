@@ -54,7 +54,7 @@ export default function Home(): JSX.Element {
           <h1 className={styles.title}>学习路径</h1>
           <LearningPath />
 
-          <h1 className={styles.title}>贡献者</h1>
+          <h1 className={styles.title}>内容贡献者</h1>
           <Contributors size="large"/>
         </div>
       </main>
