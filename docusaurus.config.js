@@ -12,8 +12,7 @@ const config = {
   title: '钉钉宜搭·开发者中心',
   tagline: '人人都是低代码应用开发工程师',
   url: 'https://www.aliwork.com',
-  // baseUrl: '/developer-site/',
-  baseUrl: '/',
+  baseUrl: '/developer-site/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'https://img.alicdn.com/imgextra/i3/O1CN01Bqjz5u1tuBe2IKv8V_!!6000000005961-73-tps-128-128.ico',
@@ -36,6 +35,10 @@ const config = {
         blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
         },
       }),
     ],

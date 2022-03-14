@@ -50,12 +50,12 @@ module.exports = {
       collapsed: false,
       items: getDocsFromDir('guide/concept')
     },
-    {
-      type: 'category',
-      label: '教程',
-      collapsed: false,
-      items: getDocsFromDir('guide/tutorial')
-    },
+    // {
+    //   type: 'category',
+    //   label: '教程',
+    //   collapsed: false,
+    //   items: getDocsFromDir('guide/tutorial')
+    // },
     {
       type: 'category',
       label: 'FAQ',

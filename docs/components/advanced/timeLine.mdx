@@ -20,14 +20,14 @@ import Iframe from "components/Iframe";
 
 ## 组件属性
 
-import AttrTable from "components/AttrTable";
+import AttrTable from 'components/AttrTable';
 
 <AttrTable
   dataSource={[
     {
-      code: "dataSource",
-      type: "[TimelineDataSource[]](/docs/components/interface#timelinedatasource)",
-      default:`~~~json
+      code: 'dataSource',
+      type: '[TimelineDataSource[]](/docs/components/interface#timelinedatasource)',
+      default: `~~~json
 [
   {
     title: {
@@ -62,11 +62,11 @@ import AttrTable from "components/AttrTable";
     time: "2016-12-08",
   },
 ]`,
-    desc: "用于配置时间轴数据",
+      desc: '用于配置时间轴数据',
     },
     {
-      code: "fold",
-      type: "any[]",
+      code: 'fold',
+      type: 'any[]',
       default: `~~~json 
 [
   {
@@ -74,13 +74,13 @@ import AttrTable from "components/AttrTable";
     foldShow: false,
   },
 ]`,
-      desc: "用于配置数据折叠",
+      desc: '用于配置数据折叠',
     },
     {
-      code: "animation",
-      type: "boolean",
-      default: "true",
-      desc: "是否开启动画",
+      code: 'animation',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否开启动画',
     },
   ]}
 />

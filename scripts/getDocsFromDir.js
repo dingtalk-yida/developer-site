@@ -29,7 +29,7 @@ module.exports = function getDocsFromDir(dir, cateList) {
     })
     .map((filepath) => {
       // /Users/xxx/site/docs/guide/basic/router.md => guide/basic/router
-      const id = path.relative(baseDir, filepath).replace(/\.mdx?/, '');
+      const id = path.relative(baseDir, filepath).replace(/\\/g, '/').replace(/\.mdx?/, '');
       return id;
     });
 

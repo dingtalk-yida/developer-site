@@ -6,6 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 // import HomepageFeatures from '../components/HomepageFeatures';
 import LearningPath from '../components/LearningPath';
+import Contributors from '../components/Contributors';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -47,10 +48,15 @@ export default function Home(): JSX.Element {
       description="钉钉宜搭开发者中心，让开发者更好使用钉钉宜搭。">
       <HomepageHeader />
       <main>
-        {/* <h1 className={styles.title}>产品特性</h1>
-        <HomepageFeatures /> */}
-        <h1 className={styles.title}>学习路径</h1>
-        <LearningPath />
+        <div className="homepage-content">
+          {/* <h1 className={styles.title}>产品特性</h1>
+          <HomepageFeatures /> */}
+          <h1 className={styles.title}>学习路径</h1>
+          <LearningPath />
+
+          <h1 className={styles.title}>贡献者</h1>
+          <Contributors size="large"/>
+        </div>
       </main>
     </Layout>
   );

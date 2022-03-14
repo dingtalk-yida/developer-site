@@ -46,6 +46,11 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   box-shadow: var(--ifm-navbar-shadow);
 }
 
+.homepage-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
