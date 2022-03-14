@@ -1,0 +1,129 @@
+---
+title: 自定义页面的查询组件
+order: 12
+---
+## 使用场景
+当自定义页面中使用自定义表格展示数据后，那么顶部操作的搜索只能搜索某一列数据，这时如果我们需要对我们的数据多列进行搜索，那么就可以使用查询组件来实现。
+## 视频展示
+<video width="100%" controls>
+  <source src="https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*NNs6TKOR3isAAAAAAAAAAABkARQnAQ" type="video/mp4"></source>
+</video>
+
+## 操作步骤
+### 调用接口处理数据展示到表格中
+**在数据源处增加远程数据源**
+参考文档：[宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=936pox)
+**（1）调用根据条件搜索表单实例详情列表接口**
+接口配置如图：
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01B09tXm1vxyBzl9k41_!!6000000006240-2-tps-2754-1246.png)
+添加数据源
+**（2）请求返回数据在 didFetch 函数中处理，处理后的格式可以参考表格右侧「编辑代码」里面的格式，需要的每一条数据都要是一个对象，统一放到一个数组里面，最后返回的是一个对象，对象中有三个属性，其中一个属性是 data ，对应的值是处理好的数组**
+**注：如果返回的数据是 proxy 形式，可以使用 JSON.parse(JSON.stringify(proxy 属性的数据 ))**
+```javascript
+function didFetch(content) {
+  // content.b = 1; 修改返回数据结构中的 b 字段为1
+  const value = [];
+  const data = content.data.map((item)=>{
+    let arr={
+      name: item.formData.textField_hr9o6eq,
+      sex: item.formData.textField_62lufhf,
+      age: item.formData.textField_0nibhpr,
+      study: item.formData.textField_97okczu,
+      work: item.formData.textField_456c4b7,
+      instid: item.formInstId
+    }
+    value.push(arr);
+    console.log(arr);
+  })
+
+  let result ={
+    "data" : value,
+    "currentPage" : content.currentPage,
+    "totalCount" : content.totalCount
+  }
+  return result; // 重要，需返回 content
+}
+```
+### 拖动查询组件，配置输入框
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01gtDMHL1IeUKRow8XB_!!6000000000918-2-tps-2878-1316.png)
+自定义页面添加查询组件
+### 给查询组件的搜索和重置按钮配置相应动作
+:::danger
+当查询条件对应组件的搜索类型为模糊搜索时，查询时该值可为空。
+当查询条件对应组件的搜索类型为精确搜索时，查询时该值不能为空。
+若需要精确搜索组件为空，则需在 js 中进行判断，当该值为空时，单独配置其他组件值为 searchFieldJson 参数。
+:::
+**配置搜索事件**
+使用`${'value.fileid'}`获取输入框的值，并配置 searchFieldJson 参数，重新加载数据源。
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01LlFBpc1uBajtL004W_!!6000000005999-2-tps-2878-1292.png)
+**参考代码如下：**
+```javascript
+export function onSubmit(value) {
+  console.log("value",value)
+  const work = `${value.textField_krbe9jrp}`;
+  const sex = `${value.textField_krc0uzre}`;
+  console.log("work", work)
+  const somejson = {
+    textField_456c4b7: work,
+    textField_62lufhf: sex
+
+  }
+  const param = {
+    formUuid: "FORM-HC9660C1TGFQ8927Y6905OPBO30Y1I9YOD3PKH",
+    searchFieldJson: JSON.stringify(somejson)
+  }
+  this.dataSourceMap['getDatas_copy'].load(param); 
+}
+```
+**配置重置事件**
+当我们点击重置按钮时，通过重置展示所有数据。
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN012qwHHo1SPxvgNklQG_!!6000000002240-2-tps-1575-733.png)
+**参考代码如下：**
+```javascript
+export function onReset(values) {
+  console.log('onFilterReset', values);
+  this.dataSourceMap['getDatas_copy'].load();
+}
+```
+### 分页设置
+**添加分页搜索动作事件**
+![查询.gif](https://img.alicdn.com/imgextra/i4/O1CN01iqZWa828c4FqudVLB_!!6000000007952-1-tps-1378-689.gif)
+**配置翻页事件**
+点击翻页时，返回的 params 数据中的 currentPage 为当前选择页码，通过「this.$('组件唯一标识').getValue()」获取查询组件中对应搜索输入框的值，然后将 params.currentPage ，formUuid 以及查询条件searchFieldJson 作为新的参数加载数据源 getDatas ，实现搜索后翻页功能。当不进行查询时，查询条件searchFieldJson为空，因此只实现原数据翻页功能。
+参考代码如下：
+```javascript
+export function onFetchData(params) {
+  // 如果是搜索的话翻页重置到 1
+  if (params.from  === 'search') {
+    params.currentPage = 1;
+  }
+  // 如果你需要把表格查询条件保存起来，可以取消下一行注释，并添加一个 params 的变量类型数据源
+  // this.setState({ tableParams: params });
+
+  // 如果使用远程接口作为表格数据源，理论上你只需要将下方的“dataSourceName”改为实际的数据源名称即可
+  const work = this.$('textField_krbe9jrp').getValue();
+  const sex = this.$('textField_krc0uzre').getValue();
+  const somejson ={
+    textField_456c4b7: work,
+    textField_62lufhf: sex
+  }
+  const newparam = {
+    formUuid: "FORM-HC9660C1TGFQ8927Y6905OPBO30Y1I9YOD3PKH",
+    currentPage : params.currentPage,
+    searchFieldJson: JSON.stringify(somejson)
+  }
+  this.dataSourceMap['getDatas'].load(newparam);
+}
+```
+## 在线试玩
+在线体验请移步开发者中心 👉 [**自定义页面的查询组件**](https://www.aliwork.com/developer/custom-search)
+​
+
+:::warning
+宜搭为了更好的优化宜搭使用手册内容和质量，占用您3-5分钟时间，辛苦填写一下文档反馈问卷。文档反馈问卷是匿名提交，同时问卷信息仅用于宜搭文档体验反馈收集，感谢您对宜搭的支持！
+[**点此填写调研问卷**](https://www.aliwork.com/o/cesqwekd?ddtab=true)
+:::
+
+
+**--------------------获取宜搭最新信息，欢迎关注我们--------------------**
+![宜搭.jpg](https://img.alicdn.com/imgextra/i4/O1CN018I99qN1O8mbby9YZr_!!6000000001661-0-tps-1800-1012.jpg)
