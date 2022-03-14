@@ -1,0 +1,64 @@
+---
+title: 自定义页面实现移动端底部导航
+order: 7
+---
+
+## 使用场景
+
+实现在移动端底部添加一个导航栏，满足客户快速切换页面的需求，使交互更便捷。
+
+## 效果演示
+
+<video width="100%" controls>
+  <source src="https://cloud.video.taobao.com/play/u/674585/p/1/d/hd/e/6/t/1/339302549383.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiOTQxZDliYjM1YTAxODM5OWQ0Njc2ZmZhNzQ0NjQ3YTQifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDcyNDUzMDc="></source>
+</video>
+
+## 实现步骤
+
+通过自定义页面及选项卡组件的配合，在页面下方实现导航栏效果。
+
+### 步骤一：页面设计
+
+新建自定义界面添加选项卡组件，并将选项卡组件「形态」设置为「包裹型」，导航选项卡的位置设置为「下」。（如下图所示）
+![选项卡配置](https://img.alicdn.com/imgextra/i3/O1CN013JtxL91tYCgK6FGfT_!!6000000005913-2-tps-1524-872.png)
+
+### 步骤二：设置选项卡样式
+
+在选型卡组件样式设置的「源码编辑」功能中添加以下代码。用于将组件定位在页面底部，并设置组件中各个部分的排列方式。（效果如下图所示）
+
+```css
+:root {
+  position: absolute;
+  bottom: 0;
+}
+.next-tabs-nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+```
+
+![选项卡固定](https://img.alicdn.com/imgextra/i2/O1CN01B7dFvd1smZULum631_!!6000000005809-2-tps-1524-864.png)
+
+### 步骤三：添加并配置容器组件
+
+在选项卡组件中添加容器组件并在容器组件样式设置中添加一下代码，用于设置容器组件的宽高。（如下图所示）
+
+```css
+:root {
+  width: 90vw;
+  height: 88vh;
+}
+```
+
+![设置容器组件宽高](https://img.alicdn.com/imgextra/i2/O1CN01XdOTeU1wfwDUxYlmz_!!6000000006336-2-tps-1524-871.png)
+
+> 说明：此步骤只针对选中标签项内部添加的容器组件生效，如有多个标签项，请重复此步骤！
+
+### 步骤四：配置选项卡组件与容器组件
+
+选项卡组件的名称及个数配置。（如下图所示）
+
+![选项卡名称及个数配置](https://img.alicdn.com/imgextra/i2/O1CN01xX7u9y1sNNhwBWphh_!!6000000005754-2-tps-1524-869.png)
+
+根据需求将每个页面需要展示的内容放置在容器组件中，即可。（如下图所示）
+![添加容器组件内容](https://img.alicdn.com/imgextra/i1/O1CN010Ay0zI1FvUBWJKcBB_!!6000000000549-2-tps-1524-874.png)

@@ -1,0 +1,122 @@
+---
+title: 使用自定义连接器解决跨域问题
+order: 2
+---
+:::warning
+本文档所涉及功能的使用需要您有一定的开发基础。
+:::
+## 功能介绍
+本文主要介绍通过**自定义连接器**完成**在宜搭页面调用外部数据源接口**的功能，如果不使用自定义连接器而直接调用外部数据源会报跨域错误，自定义连接器则可以规避该错误，解决前端 JS 直接调用外部接口存在的跨域、鉴权等问题。
+
+
+## 使用场景
+本文档通过实现**当用户切换下拉选项控制短信的发送**的案例，将自定义连接器与数据源功能结合。为大家讲述**如何通过自定义连使用接器解决宜搭页面调用外部数据源所遇到的跨域及鉴权问题**。
+## 效果演示
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01UF16kd1inoP1qQcbD_!!6000000004458-2-tps-762-1676.png)
+## 操作步骤
+### 步骤一：创建自定义页面
+**操作步骤：**
+
+1. 创建自定义页面，命名为「发送短信」。
+1. 添加单行文本组件，命名为「短信内容」，设置为必填项。用于填写您需要以短信形式发送的通知内容。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN0140JyHI1nP99LwE3Y6_!!6000000005081-2-tps-959-530.png)
+​
+
+
+3. 添加下拉单选组件，命名为「选择手机号」，组件选项填写为您需要接收短信通知的手机号码，并设置为必填项。用于选择您接收通知的手机号码。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN015rpbEW1vZEnomBbfp_!!6000000006186-2-tps-959-531.png)
+
+4. 点击页面右上角「保存」。
+### 步骤二：创建自定义连接器
+:::info
+**扩展阅读：**获取宜搭连接器相关介绍，请移步：[集成&自动化-连接器](https://www.yuque.com/yida/support/zevvr1?view=doc_embed)
+:::
+**操作步骤：**在[连接器工厂](https://www.aliwork.com/customConnectorFactory)根据[如何新建自定义连接器](https://www.yuque.com/yida/support/zevvr1#QgOGY)所述方式及步骤即可创建自定义连接器。
+### 步骤三：自定义页面内新建数据源
+**操作步骤：**
+
+1. 「发送短信」自定义页面>>数据源面板>>添加>>连接器。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01GovIZj1owrvimKJEl_!!6000000005290-2-tps-958-495.png)
+​
+
+
+2. 填写名称 >> 选择连接器 >> 填写数据源相关配置项 >> 选择连接器执行动作 >> 填写连接器执行动作参数。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01Pfdnyx1x0Y2PBiC62_!!6000000006381-2-tps-959-530.png)
+:::info
+**说明：**
+
+1. 在进行选择连接器操作时，连接器可以选择为钉钉官方连接器，也可选择宜搭自定义连接器，本案例为自定义「发送短信」连接器。
+1. 钉钉官方连接器无须鉴权，自定义连接器是否需要鉴权取决于连接器本身是否增加了鉴权能力。
+1. 一旦连接器和执行动作选择完毕之后，系统会自动给出出参和入参的解释，可以直接填入参默认值，也可以绑定变量。本案例为绑定默认值，后面事件中再去修改入参调用。本案例的入参有两个字段，分别为 mobile 数据格式为 string，content 数据格式也是 string，填写默认值。
+:::
+
+3. 动作设置 >> 新建动作 >> onChange 值发生变化 >> 确定（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN012urAaL1Td4ssb51hf_!!6000000002404-2-tps-959-530.png)
+​
+
+
+4. 将下述代码填写到`onChange()`函数中。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01BSUtPY1nr5JVLrMRj_!!6000000005142-2-tps-959-530.png)
+:::danger
+**特别提醒：**
+
+1. 在使用下述代码时应注意**数据源名称**的替换，**代码内数据源名称与您所创建的数据源名称应保持一致**。否则会因找不到数据源造成加载出错问题。
+1. 代码内涉及组件唯一标识的部分应**注意组件唯一标识的替换**，否则会因查询不到组件而取不到您输入的数据。
+:::
+```javascript
+//图3.3-4 所示代码，在进行使用时应注意数据源名称与组件唯一标识的替换！
+/**
+* selectField onChange
+* @param value: {mixed} 选中的值
+* @param actionType: {String} 触发的方式, 'itemClick', 'enter', 'change'
+* @param item: {mixed} 选中的值的对象数据
+*/
+export function onChange({ value, actionType, item }) {
+  console.log('onChange', value);
+  //------------以下为这个例子新增的代码-------------
+  const dataSource = this.dataSourceMap['sendSMS'];
+  // 数据源的fetchOption是指完整的请求体，包含data，method，url等信息。
+  // 其中，sendSMS为数据源名称，使用时应与您创建的连接器数据源名称保持一致！！！
+  const fetchOption = dataSource['fetchOptions'];
+
+  if (fetchOption) {
+    // 1. 这里取到了入参
+    const fetchInputs = fetchOption['data']['inputDefs'];
+    // 2. 获取电话号码
+    //其中，selectField_kywncwnm 为页面下拉单选组件的唯一标识，请注意替换！
+    var telMobile = this.$('selectField_kywncwnm').getValue();
+    // 3. 获取短信内容
+    //其中，textField_kywncwns 为页面输入框组件的唯一标识，请注意替换！
+    var smsContent = this.$('textField_kywncwns').getValue();
+    // 4. 开始修改数据源入参
+    var inputsObj = JSON.parse(fetchInputs);
+    inputsObj['Query'] = { "mobile": telMobile, "content": smsContent };
+    console.log("inputs:" + JSON.stringify(inputsObj));
+    // 5. 开始调用数据源
+    return dataSource.load({
+      //这里的inputs会覆盖数据源里定义的inputs
+      inputs: JSON.stringify(inputsObj),
+    }).then((content) => {
+      console.log('after send:' + content);
+    });
+  }
+  else {
+    console.log("no fetchOption found");
+  }
+}
+
+```
+### 步骤四：填写表单数据
+填写数据后，切换下拉单选组件的选项时就会触发连接器从而发出一条短信。（操作如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01SnmTf61RFbLfnTDal_!!6000000002082-2-tps-959-530.png)
+
+
+## 附录
+下方给出 fetchOptions 的典型结构，供参考。（如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01qOYcHK1TaKVTJJYO4_!!6000000002398-2-tps-2426-384.png)

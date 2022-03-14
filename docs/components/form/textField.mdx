@@ -17,212 +17,124 @@ import Iframe from "components/Iframe";
 
 ## 组件属性
 
-import AttrTable from "components/AttrTable";
+import AttrTable from 'components/AttrTable';
 
 <AttrTable
   category="form"
   dataSource={[
     {
-      code: "value",
-      type: "number | string",
-      default: "-",
-      desc: "设置输入框默认值",
+      code: 'value',
+      type: 'string',
+      default: '-',
+      desc: '设置输入框默认值',
     },
     {
-      code: "placeholder",
-      type: "string",
-      default: `'请选择'`,
-      desc: "占位提示",
+      code: 'placeholder',
+      type: 'string',
+      default: `'请输入'`,
+      desc: '占位提示',
     },
     {
-      code: "htmlType",
+      code: 'htmlType',
       type: `'input' | 'textarea' | 'password'`,
-      default: "input",
-      desc: '设置输入框的类型',
+      default: 'input',
+      desc: '设置输入框的类型，input：单行文案、 textarea：多行文案、 password：密码',
     },
     {
-      code:"validationType",
-      type:` 'text' | 'mobile' | 'email' | 'url' | 'chineseID' | 'password'`,
-      default: "-",
-      desc: '设置输入框的格式',
+      code: 'validationType',
+      type: ` 'text' | 'mobile' | 'email' | 'url' | 'chineseID' | 'password'`,
+      default: "'text'",
+      desc: '输入框的格式',
     },
     {
-      code: "state",
-      type: `'error' | 'loading' | 'success' | "" `,
-      default: ``,
+      code: 'state',
+      type: `'error' | 'loading' | 'success' | '' `,
+      default: `''`,
       desc: '设置输入框state状态',
     },
     {
-      code: "hasLimitHint",
-      type: "boolean",
-      default: "false",
-      desc: "是否开启计数器",
+      code: 'rows',
+      type: 'number',
+      default: `4`,
+      desc: '多行输入框高度，当 **htmlType** 属性为 textarea 时生效',
     },
     {
-      code: "hasClear",
-      type: "boolean",
-      default: "true",
-      desc: "是否显示清除按钮",
+      code: 'hasLimitHint',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否显示计数器',
     },
     {
-      code: "trim",
-      type: "boolean",
-      default: "false",
-      desc: "是否自动去除头尾空字符",
+      code: 'maxLength',
+      type: 'number',
+      default: '200',
+      desc: '设置字数上限',
     },
     {
-      code: "scanCode",
-      type: "array",
-      default: `~~~json
-[
-    {
-        "title": "启用",
-        "name": "enabled",
-        "initialValue": false,
-        "display": "inline",
-        "setter": {
-            "key": null,
-            "ref": null,
-            "props": {},
-            "_owner": null
-        }
+      code: 'autoHeight',
+      type: 'boolean',
+      default: 'false',
+      desc: '多行输入框自动高度，当 **htmlType** 属性为 textarea 时生效',
     },
     {
-        "title": "扫码类型",
-        "name": "type",
-        "initialValue": "all",
-        "display": "inline",
-        "setter": {
-            "key": null,
-            "ref": null,
-            "props": {
-                "options": [
-                    {
-                        "title": "全部",
-                        "value": "all"
-                    },
-                    {
-                        "title": "仅条形码",
-                        "value": "barCode"
-                    },
-                    {
-                        "title": "仅二维码",
-                        "value": "qrCode"
-                    }
-                ],
-                "placeholder": "请选择"
-            },
-            "_owner": null
-        }
+      code: 'hasClear',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否显示清除按钮',
     },
     {
-        "title": {
-            "type": "span",
-            "key": null,
-            "ref": null,
-            "props": {
-                "style": {
-                    "color": "var(--color-text)"
-                },
-                "children": [
-                    "允许修改",
-                    {
-                        "type": "br",
-                        "key": null,
-                        "ref": null,
-                        "props": {},
-                        "_owner": null
-                    },
-                    "扫码结果"
-                ]
-            },
-            "_owner": null
-        },
-        "name": "editable",
-        "initialValue": true,
-        "display": "inline",
-        "setter": {
-            "key": null,
-            "ref": null,
-            "props": {},
-            "_owner": null
-        }
-    }
-]      
-    `,
-    desc: "设置输入框的扫码模式",
+      code: 'trim',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否自动去除头尾空字符',
     },
     {
-      code: "autoFocus",
-      type: "boolean",
-      default: "false",
-      desc: "是否开启自动聚焦",
+      code: 'scanCode',
+      type: '[ScanCodeConfig](/docs/components/interface#scancodeconfig) | boolean',
+      default: 'false',
+      desc: '是否启用扫码模式（仅钉钉手机端内支持）',
     },
     {
-      code: "addonBefore",
-      type: "string",
+      code: 'autoFocus',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否开启自动聚焦',
+    },
+    {
+      code: 'addonBefore',
+      type: 'string',
       default: `-`,
-      desc: "输入框前附加内容",
+      desc: '输入框前附加内容',
     },
     {
-      code: "addonAfter",
-      type: "string",
+      code: 'addonAfter',
+      type: 'string',
       default: `-`,
-      desc: "输入框后附加内容",
+      desc: '输入框后附加内容',
     },
     {
-      code: "onChange",
-      type: "({ value: string }) => void",
-      default: "",
-      desc: "输入框组件值发生改变时触发的事件",
+      code: 'onChange',
+      type: '({ value: string }) => void',
+      default: '',
+      desc: '输入框组件值发生改变时触发的事件',
     },
     {
-      code: "onFocus",
-      type: "() => void",
-      default: "",
-      desc: "输入框获取焦点时触发的事件",
-    },
-     {
-      code: "onBlur",
-      type: "() => void",
-      default: "",
-      desc: "输入框失去焦点触发的事件",
-    },
-     {
-      code: "onPaste",
-      type: "(e: event) => void",
-      default: "",
-      desc: "输入框粘贴时触发的事件",
-    },
-     {
-      code: "onKeyDown",
-      type: "() => void",
-      default: "",
-      desc: "输入框键盘按下时触发的事件",
-    },
-      {
-      code: "onPressEnter",
-      type: "() => void",
-      default: "",
-      desc: "输入框按下回车键时触发的事件",
-    },
-     {
-      code: "onScanCodeSuccess",
-      type: "(text: string) => void",
-      default: "",
-      desc: "输入框扫码成功后触发的事件",
-    },
-    { 
-      code: "onScanCodeSuccess",
-      type: "(errorMsg: string) => void",
-      default: "",
-      desc: "输入框扫码失败后触发的事件",
+      code: 'onPressEnter',
+      type: '() => void',
+      default: '',
+      desc: '输入框按下回车键时触发的事件',
     },
     {
-      code: "maxLength",
-      type："number",
-      default: "200",
-      desc: "设置字数上限"
-    }
+      code: 'onScanCodeSuccess',
+      type: '(text: string) => void',
+      default: '',
+      desc: '输入框扫码成功后触发的事件',
+    },
+    {
+      code: 'onScanCodeError',
+      type: '(errorMsg: string) => void',
+      default: '',
+      desc: '输入框扫码失败后触发的事件',
+    },
   ]}
 />

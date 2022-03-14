@@ -37,6 +37,60 @@ import AttrTable from 'components/AttrTable';
       desc: '占位提示',
     },
     {
+      code: 'config',
+      type: 'object',
+      default: `~~~json
+{
+  "statusbar": false,
+  "menubar": false,
+  "toolbar1": "undo redo bold italic underline strikethrough | fontselect fontsizeselect forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | table link image media upload | code | fullscreen | variable | removeformat",
+  "toolbar2": false,
+  "height": 300,
+  "fontsize_formats": "8px 10px 12px 14px 16px 18px 24px 36px 48px",
+  "visual": true,
+  "keep_values": false,
+  "forced_root_block": "div",
+  "plugins": [
+    "advlist autolink lists link image charmap print preview anchor",
+    "searchreplace visualblocks code fullscreen",
+    "insertdatetime media table contextmenu paste code",
+    "colorpicker",
+    "upload",
+    "placeholder",
+    "variable",
+    "noneditable"
+  ]
+} {
+  "statusbar": false,
+  "menubar": false,
+  "toolbar1": "undo redo bold italic underline strikethrough | fontselect fontsizeselect forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | table link image media upload | code | fullscreen | variable | removeformat",
+  "toolbar2": false,
+  "height": 300,
+  "fontsize_formats": "8px 10px 12px 14px 16px 18px 24px 36px 48px",
+  "visual": true,
+  "keep_values": false,
+  "forced_root_block": "div",
+  "plugins": [
+    "advlist autolink lists link image charmap print preview anchor",
+    "searchreplace visualblocks code fullscreen",
+    "insertdatetime media table contextmenu paste code",
+    "colorpicker",
+    "upload",
+    "placeholder",
+    "variable",
+    "noneditable"
+  ]
+}
+~~~`,
+      desc: '通用配置',
+    },
+    {
+      code: 'uploadConfig',
+      type: '[UploadConfig](/docs/components/interface#uploadconfig)',
+      default: '{}',
+      desc: '图片上传配置',
+    },
+    {
       code: 'onChange',
       type: '({ value : string }) => void',
       default: '-',

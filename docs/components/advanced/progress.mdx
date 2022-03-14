@@ -26,38 +26,37 @@ import AttrTable from 'components/AttrTable';
   dataSource={[
     {
       code: 'size',
-      type: 'string',
+      type: `'small' | 'medium' | 'large'`,
       default: `'medium'`,
-      desc: "设置尺寸",
+      desc: '尺寸',
     },
     {
       code: 'shape',
-      type: 'string',
+      type: `'circle' | 'line'`,
       default: `'line'`,
-      desc: "设置形态",
+      desc: '进度条形态',
     },
     {
-   
       code: 'percent',
       type: 'number',
       default: '0',
-      desc: "设置百分比",
+      desc: '设置百分比',
     },
     {
       code: 'state',
-      type: 'string',
+      type: `'normal' | 'success' | 'error'`,
       default: `'normal'`,
-      desc: "设置状态",
+      desc: '当前状态',
     },
     {
       code: 'hasBorder',
-      type: 'Boolean',
+      type: 'boolean',
       default: 'false',
-      desc: "设置边框",
+      desc: '是否显示边框',
     },
     {
       code: 'progressive',
-      type: 'Boolean',
+      type: 'boolean',
       default: 'false',
       desc: '设置色彩阶段变化模式',
     },

@@ -20,11 +20,11 @@ import Iframe from 'components/Iframe';
 import AttrTable from 'components/AttrTable';
 
 <AttrTable
-category="form"
+  category="form"
   dataSource={[
     {
       code: 'value',
-      type: 'string | array',
+      type: 'string[]',
       default: '-',
       desc: '当前组件默认值',
     },
@@ -41,12 +41,6 @@ category="form"
       desc: '设置是否有下拉箭头',
     },
     {
-      code: 'multiple',
-      type: 'boolean',
-      default: 'true',
-      desc: '设置是否多选',
-    },
-    {
       code: 'showSearch',
       type: 'boolean',
       default: 'true',
@@ -58,9 +52,9 @@ category="form"
       default: '-',
       desc: '弹层显示或隐藏时触发事件',
     },
-      {
-      code: "dataSource",
-      type: "array",
+    {
+      code: 'dataSource',
+      type: '[DataSource[]](/docs/components/interface#datasource)',
       default: `~~~json
 [
   {
@@ -89,19 +83,13 @@ category="form"
   }
 ]
       `,
-      desc: "设置选项",
+      desc: '设置选项',
     },
     {
       code: 'hasSelectAll',
       type: 'boolean',
-      default: 'true',
+      default: 'false',
       desc: '是否有全选功能',
-    },
-    {
-      code: 'useDetailValue',
-      type: 'boolean',
-      default: 'true',
-      desc: '设置value 使用对象类型{label, value}',
     },
     {
       code: 'autoWidth',
@@ -117,7 +105,7 @@ category="form"
     },
     {
       code: 'filter',
-      type: '(value: string, data: object) => boolean',
+      type: '(value: string[], data: DataSource) => boolean',
       default: '-',
       desc: '本地过滤方法，开启本地过滤时才有',
     },
@@ -136,14 +124,14 @@ category="form"
     {
       code: 'notFoundContent',
       type: 'string',
-      default: `'请输入'`,
+      default: '-',
       desc: '为空文案',
     },
     {
       code: 'searchDelay',
       type: 'number',
       default: '300',
-      desc: '设置搜索延时时间',
+      desc: '搜索延时时间，单位ms',
     },
     {
       code: 'hasBorder',
@@ -153,9 +141,9 @@ category="form"
     },
     {
       code: 'onChange',
-      type: '(value: string, actionType:string, item:object) => void',
+      type: '({value: string, actionType:string, item:Data}) => void',
       default: '-',
-      desc: '组件值发生改变事件',
+      desc: `组件值发生改变事件，actionType为触发方式，可用值有： 'itemClick', 'enter', 'change'`,
     },
     {
       code: 'onVisibleChange',
@@ -165,7 +153,7 @@ category="form"
     },
     {
       code: 'onRemove',
-      type: '(item: object) => void',
+      type: '(item: DataSource) => void',
       default: '-',
       desc: '值删除时事件',
     },

@@ -37,25 +37,25 @@ import AttrTable from 'components/AttrTable';
     },
     {
       code: 'itemDirection',
-      type: `'hozt' | 'ver'`,
-      default: `'hozt'`,
-      desc: '排列方式',
+      type: `'hoz' | 'ver'`,
+      default: `'hoz'`,
+      desc: 'PC端选项排列方式',
     },
     {
       code: 'useDrawerInMobile',
-      type: `'hozt' | 'ver'`,
-      default: `'hozt'`,
-      desc: '移动端排列方式，仅移动端生效',
+      type: 'boolean',
+      default: 'false',
+      desc: '手机端排列方式，为true则直接平铺，为false则底部弹层',
     },
     {
       code: 'iconPosition',
       type: `'left' | 'right'`,
       default: `'left'`,
-      desc: '移动端Icon位置，仅移动端生效',
+      desc: '手机端Icon位置，仅手机端生效',
     },
     {
-      code: "dataSource",
-      type: "array",
+      code: 'dataSource',
+      type: '[DataSource[]](/docs/components/interface#datasource)',
       default: `~~~json
 [
   {
@@ -84,7 +84,7 @@ import AttrTable from 'components/AttrTable';
   }
 ]
       `,
-      desc: "设置选项",
+      desc: '待选项',
     },
     {
       code: 'supportInverse',
@@ -92,9 +92,9 @@ import AttrTable from 'components/AttrTable';
       default: 'false',
       desc: '是否支持反选，再次点击选项可取消选择',
     },
-     {
+    {
       code: 'customRender',
-      type: '(item: object) => ReactNode',
+      type: '(item: DataSource) => ReactNode',
       default: '-',
       desc: '定制渲染',
     },
@@ -102,7 +102,7 @@ import AttrTable from 'components/AttrTable';
       code: 'onChange',
       type: '(value: string) => void',
       default: '-',
-      desc: "组件值发生改变事件",
+      desc: '组件值发生改变事件',
     },
   ]}
 />

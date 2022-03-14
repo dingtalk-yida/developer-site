@@ -33,6 +33,12 @@ import AttrTable from 'components/AttrTable';
       desc: '当前页码',
     },
     {
+      code: 'size',
+      type: `'small' | 'medium' | 'large'`,
+      default: `'medium'`,
+      desc: '分页尺寸',
+    },
+    {
       code: 'type',
       type: `'normal' | 'simple' | 'mini'`,
       default: `'normal'`,
@@ -47,13 +53,13 @@ import AttrTable from 'components/AttrTable';
     {
       code: 'pageSizeSelector',
       type: `false | 'filter' | 'dropdown'`,
-      default: "false",
+      default: 'false',
       desc: '每页显示选择器类型',
     },
     {
       code: 'pageSizeList',
       type: `string`,
-      default: "5 , 10 , 20",
+      default: "'5,10,20'",
       desc: '每页显示选择器可选值',
     },
     {
@@ -66,19 +72,19 @@ import AttrTable from 'components/AttrTable';
       code: 'pageSizePosition',
       type: `'start' | 'end'`,
       default: `'end'`,
-      desc: "每页显示选择器在组件中的位置",
+      desc: '每页显示选择器在组件中的位置',
     },
     {
       code: 'hideOnlyOnePage',
       type: 'boolean',
       default: 'false',
-      desc: "当分页数为 1 时，是否隐藏分页器",
+      desc: '当分页数为 1 时，是否隐藏分页器',
     },
     {
-      code: "showJump",
-      type: "boolean",
-      default: "true",
-      desc: "显示跳转输入框与按钮",
+      code: 'showJump',
+      type: 'boolean',
+      default: 'true',
+      desc: '显示跳转输入框与按钮，当**type**为normal时，且在页码数超过5页后起作用',
     },
     {
       code: 'onPageSizeChange',

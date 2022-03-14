@@ -1,0 +1,200 @@
+---
+title: ImageField 上传图片
+order: 8
+---
+
+# ImageField 上传图片
+
+## 何时使用
+
+- 用于进行图片素材上传并提交场景；
+
+## 组件示例
+
+import Iframe from "components/Iframe";
+
+<Iframe url="https://www.aliwork.com/developer/image-field-v2?isRenderNav=false" />
+
+## 组件属性
+
+import AttrTable from "components/AttrTable";
+
+<AttrTable
+  category="form"
+  dataSource={[
+    {
+      code: 'value',
+      type: 'array',
+      default: `-`,
+      desc: '默认值',
+    },
+    {
+      code: 'type',
+      type: `'normal' | 'drag' | 'card'`,
+      default: `'normal'`,
+      desc: '设置上传类型，仅 PC 端有效',
+    },
+    {
+      code: 'normalListType',
+      type: `'text' | 'image'`,
+      default: `'image'`,
+      desc: '设置列表样式',
+    },
+    {
+      code: 'buttonText',
+      type: 'string',
+      default: `'上传文件'`,
+      desc: '设置按钮内容，仅 PC 端有效',
+    },
+    {
+      code: 'customUploadPane',
+      type: '() => ReactNode',
+      default: '-',
+      desc: '定制面板',
+    },
+    {
+      code: 'buttonSize',
+      type: `'small' | 'medium' | 'large'`,
+      default: `'medium'`,
+      desc: '上传按钮尺寸',
+    },
+    {
+      code: 'buttonType',
+      type: `'primary' | 'secondary' | 'normal'`,
+      default: `'primary'`,
+      desc: '上传按钮类型',
+    },
+    {
+      code: 'onlyCameraUpload',
+      type: 'boolean',
+      default: 'false',
+      desc: '仅允许拍照上传，该功能目前仅支持钉钉手机端，开启后「非钉钉手机端」会自动禁用上传功能。',
+    },
+    {
+      code: 'multiple',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否支持上传多个图片',
+    },
+    {
+      code: 'timeout',
+      type: 'number',
+      default: '0',
+      desc: '设置上传超时，单位 ms',
+    },
+    {
+      code: 'name',
+      type: 'string',
+      default: `-`,
+      desc: '上传时发送给服务端的 name',
+    },
+    {
+      code: 'data',
+      type: 'object',
+      default: `{}`,
+      desc: '设置上传可附带的额外参数',
+    },
+    {
+      code: 'beforeUpload',
+      type: '(file: object, options: object) => void',
+      default: `-`,
+      desc: '上传前处理事件',
+    },
+    {
+      code: 'formatter',
+      type: '(response: any) => any',
+      default: `-`,
+      desc: '数据处理事件',
+    },
+    {
+      code: 'limit',
+      type: 'number',
+      default: '9',
+      desc: '设置最大上传文件个数',
+    },
+    {
+      code: 'maxFileSize',
+      type: 'number',
+      default: '50',
+      desc: '设置单文件最大上传大小(MB)',
+    },
+    {
+      code: 'withCredentials',
+      type: 'boolean',
+      default: 'false',
+      desc: '设置是否允许请求携带 cookie',
+    },
+    {
+      code: 'autoUpload',
+      type: 'boolean',
+      default: 'true',
+      desc: "是否自动上传，关闭后，需要手动调用 this.$('fieldId').startUpload() 开始上传",
+    },
+    {
+      code: 'accept',
+      type: 'string',
+      default: `'image/*'`,
+      desc: '设置上传图片类型(多个以英文逗号,分隔)',
+    },
+    {
+      code: 'onChange',
+      type: '({ value: object }) => void',
+      default: `-`,
+      desc: '组件值发生改变事件',
+    },
+    {
+      code: 'onProgress',
+      type: '() => void',
+      default: `-`,
+      desc: '组件上传中事件',
+    },
+    {
+      code: 'onSuccess',
+      type: '(file: object, value: array) => void',
+      default: `-`,
+      desc: '组件值上传成功事件',
+    },
+    {
+      code: 'onError',
+      type: '(file: object, value: array) => void',
+      default: '',
+      desc: '组件值上传失败事件',
+    },
+    {
+      code: 'onSelect',
+      type: '(file: object) => void',
+      default: `-`,
+      desc: '组件值选择的事件',
+    },
+    {
+      code: 'onRemove',
+      type: '(file: object) => void',
+      default: `-`,
+      desc: '组件值点击移除的事件',
+    },
+    {
+      code: 'onCancel',
+      type: '() => void',
+      default: `-`,
+      desc: '组件值点击取消上传的事件',
+    },
+    {
+      code: 'onDragOver',
+      type: '() => void',
+      default: `-`,
+      desc: '组件值拖拽经过的事件',
+    },
+    {
+      code: 'onDragLeave',
+      type: '() => void',
+      default: `-`,
+      desc: '组件值拖拽离开的事件',
+    },
+    {
+      code: 'onDrop',
+      type: '() => void',
+      default: `-`,
+      desc: '组件值拖拽完成的事件',
+    },
+  ]}
+/>
