@@ -71,9 +71,12 @@ function didFetch(content) {
 1. 在数据源处添加远程数据源，调用新增表单实例接口 接口配置如图： ![image.png](https://img.alicdn.com/imgextra/i3/O1CN011bDI4R1S1EXeadxCK_!!6000000002186-2-tps-2878-1320.png)
 2. 添加弹窗组件，配置新增内容的组件到弹窗中 配置如图： ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01VwHloU1mqnRoRZyIi_!!6000000005006-2-tps-2878-1302.png)
 添加对话框组件 3. 在「顶部操作 >> 操作条」添加新增的操作按钮，给按钮添加弹窗事件，其中使用
-this.$(fieldId).show() 来展示对话框，括号中填入的为对话框的唯一标识符 ```javascript
+this.$(fieldId).show() 来展示对话框，括号中填入的为对话框的唯一标识符 
+
+```javascript
 export function onActionBarItemClick() {this.$("dialog_kp3mxni9").show()}
-``` ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01tOBOas1SdhoNmyPhM_!!6000000002270-2-tps-2876-1302.png)
+``` 
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01tOBOas1SdhoNmyPhM_!!6000000002270-2-tps-2876-1302.png)
 4. 添加对话框点击确认时执行函数，点击确认后，执行 Insert 远程数据源调用接口在表单中插入数据，由于自定义页面本身不具备存储数据功能，因此需要做延时操作重新加载获取表单实例接口的远程数据源，使得插入数据后直接将新数据展示出来
 ![image.png](https://img.alicdn.com/imgextra/i4/O1CN0182W3cu1rKLSoCOevX_!!6000000005612-2-tps-2874-1310.png)
 
