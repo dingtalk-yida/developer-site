@@ -1,0 +1,95 @@
+---
+title: 集成&自动化 — 集成智能人事
+order: 19
+---
+
+:::danger
+**注意：**
+
+- 本连接器并不同步员工详细档案信息。
+- 本连接器只能添加非本企业员工（手机号为准），否则报错系统繁忙。
+- 本连接器需要具有组织管理员权限的相关人员进行操作，否则在选择执行动作时会提示：您暂无权限选择执行动作。
+  :::
+
+## 使用场景
+
+在宜搭的表单上填写待入职员工的信息，包括姓名、手机号、预计入职时间。提交表单后，通过连接器实现与智能人事系统进行集成，将提交的信息同步到智能人事上。
+
+## 操作步骤
+
+### 步骤一：创建并配置表单
+
+**操作步骤：**
+
+1. 新建普通表单，命名为「待入职员工信息登记表」。
+1. 添加单行文本组件，命名为「待入职员工姓名」，设置为必填项。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01kNG26s1YJRzSYmEmM_!!6000000003038-2-tps-1919-893.png)
+​
+
+3. 添加日期组件，命名为「预计入职时间」，设置为必填项。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01UrkmO31QOTPUiJPOs_!!6000000001966-2-tps-1914-898.png)
+​
+
+4. 添加单行文本组件，命名为「待入职员工手机号」，设置为必填项，组件格式设置为手机。（操作如下图所示）
+   ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01jlde0R1FmKGKA6ITr_!!6000000000529-2-tps-1918-892.png)
+   ​
+
+5. 添加成员组件，命名为「操作人」，组件默认值设置为公式编辑并选择 `USER()` 公式。（操作如下图所示）
+   ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01T6SrOh1gvwCS4jbv2_!!6000000004205-2-tps-1917-896.png)
+   ​
+
+6. 点击页面右上角「保存」按钮，即可。
+
+### 步骤二：添加并配置连接器
+
+:::info
+获取详细连接器介绍，请移步：[集成&自动化-连接器](https://www.yuque.com/yida/support/zevvr1?view=doc_embed)
+:::
+**操作步骤：**
+
+1. 后台管理界面>>选择「待入职员工信息登记表」表单>>选择「集成&自动化」>>点击「新建集成&自动化」。（操作如下图所示）
+   ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01oM3DVy1pwF0IhaI2r_!!6000000005424-2-tps-1904-887.png)
+   ​
+
+2. 将连接器命名为「添加待入职员工」，触发类型选择「表单事件触发」，点击「确定按钮」。（操作如下图所示）
+   ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01He7uKR1rTxmfFdFp1_!!6000000005633-2-tps-1916-884.png)
+   ​
+
+3. 配置表单事件触发：触发事件选择「创建成功」，数据过滤选择「全部数据」，点击「保存」按钮。（操作如下图所示）
+   ![image.png](https://img.alicdn.com/imgextra/i4/O1CN01leThUT27kwJVmWMcA_!!6000000007836-2-tps-1920-950.png)
+   ​
+
+4. 选择连接器应用：在钉钉官方应用中选择「智能人事」，点击「下一步」按钮。（操作如下图所示）
+   ![image.png](https://img.alicdn.com/imgextra/i4/O1CN01fAjqYg1hVf5tccnlZ_!!6000000004283-2-tps-1920-950.png)
+   ​
+
+5. 选择执行动作：选择「添加待入职员工」动作，点击「下一步」按钮。（操作如下图所示）
+   ![image.png](https://img.alicdn.com/imgextra/i2/O1CN01fNE1BB1r0C2KzM9WT_!!6000000005568-2-tps-1920-948.png)
+   ​
+
+6. 配置执行动作：将 param 中各项值设置为「字段」并选择「待入职员工信息登记表」中对应的组件，点击「保存」按钮。（操作如下图所示）
+   ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01fMMVVW1D2PJxF4qCv_!!6000000000158-2-tps-1920-950.png)
+   ​
+
+7. 点击页面右上角「保存」按钮后，点击「发布」按钮，即可。
+
+### 步骤三：提交「待入职员工信息登记表」表单
+
+通过前两个步骤，完成了对「待入职员工信息登记表」的设计以及对连接器的配置，接下来，只需要提交表单即可触发连接器，实现提交表单时向智能人事中添加待入职员工的需求。（如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01phPhzv1o0hdGT1qgE_!!6000000005163-2-tps-1920-951.png)
+
+## 效果展示
+
+**电脑端：**
+查看路径：电脑端钉钉 >> 工作台 >> 智能人事 >> 人事 >> 员工关系 >> 入职管理（如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01AYTEv01PwXFSWGtdp_!!6000000001905-2-tps-1920-1039.png)
+**移动端：**
+待入职员工会收到钉钉小秘书发来的填写入职登记表的消息通知。（如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01kP1Lvn1zxI4UCM2wz_!!6000000006780-2-tps-462-963.png)
+点击会跳转到入职申请表。（如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01wU5Jo31uoyo0myp6m_!!6000000006085-2-tps-450-926.png)
+
+**--------------------获取宜搭最新信息，欢迎关注我们--------------------**
+![宜搭.jpg](https://img.alicdn.com/imgextra/i4/O1CN012bGuj21tYf4rMahxw_!!6000000005914-0-tps-1800-1012.jpg)
