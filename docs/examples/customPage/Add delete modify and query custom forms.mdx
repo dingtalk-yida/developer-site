@@ -4,262 +4,240 @@ order: 5
 ---
 
 ## 使用场景
+
 在用户方收集了一批用户信息表，填写表单后，希望可以直观的对数据进行管理，以往我们可以使用创建数据管理页来实现，然而数据管理页会稍微有一些局限性，不能直接对数据进行修改新增等操作，那么这时，我们可以使用自定义页面中的表格组件来实现，将数据进行展示后，可以对其操作列进行编辑，从而实现增删改查的效果
+
 ## 操作步骤
 
 ### 示例演示一
+
 <video width="100%" controls>
   <source
     src="https://cloud.video.taobao.com/play/u/12803658/p/1/d/hd/e/6/t/1/311308873433.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiYzY3NTA4NzA3NTFjYzc3MjQ1ZTQ3ZTYzMDk3NmI3YjMifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDYxMjAyNjc="
     type="video/mp4"
   ></source>
 </video>
-### 步骤一：调用接口处理数据展示到表格中
-1. 在数据源处增加远程数据源 
-参考文档：[宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=936pox)
-(1). 调用根据条件搜索表单实例详情列表接口
-接口配置如图：
-![image.png](https://img.alicdn.com/imgextra/i2/O1CN01hE5r281Gvm2wvKVPD_!!6000000000685-2-tps-2754-1246.png)
-(2). 请求返回数据在 didFetch 函数中处理，处理后的格式可以参考表格右侧「编辑代码」里面的格式，需要的每一条数据都要是一个对象，统一放到一个数组里面，最后返回的是一个对象，对象中有三个属性，其中一个属性是 data ，对应的值是处理好的数组
-PS: 如果返回的数据是 proxy 形式，可以使用 JSON.parse(JSON.stringify(proxy 属性的数据 ))
+### 步骤一：调用接口处理数据展示到表格中 1. 在数据源处增加远程数据源 参考文档：[宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=936pox)
+(1). 调用根据条件搜索表单实例详情列表接口 接口配置如图： ![image.png](https://img.alicdn.com/imgextra/i2/O1CN01hE5r281Gvm2wvKVPD_!!6000000000685-2-tps-2754-1246.png)
+(2). 请求返回数据在 didFetch 函数中处理，处理后的格式可以参考表格右侧「编辑代码」里面的格式，需要的每一条数据都要是一个对象，统一放到一个数组里面，最后返回的是一个对象，对象中有三个属性，其中一个属性是
+data ，对应的值是处理好的数组 PS: 如果返回的数据是 proxy 形式，可以使用 JSON.parse(JSON.stringify(proxy
+属性的数据 ))
+
 ```javascript
 function didFetch(content) {
   // content.b = 1; 修改返回数据结构中的 b 字段为1
   // const value = [];
 
-  
-  const data = content.data.map((item)=>{
-    let arr={
+  const data = content.data.map((item) => {
+    let arr = {
       name: item.formData.textField_hr9o6eq,
       sex: item.formData.textField_62lufhf,
       age: item.formData.textField_0nibhpr,
       study: item.formData.textField_97okczu,
       work: item.formData.textField_456c4b7,
       instid: item.formInstId,
-    }
+    };
     value.push(arr);
     console.log(arr);
-  })
-  let result ={
-    "data" : value,
-    "currentPage" : content.currentPage,
-    "totalCount" : content.totalCount
-  }
+  });
+  let result = {
+    data: value,
+    currentPage: content.currentPage,
+    totalCount: content.totalCount,
+  };
   return result; // 重要，需返回 content
 }
 ```
 
 2. 在表格数据源中绑定远程数据源
-配置如图：
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01oMVSF4294vCsuS1Vt_!!6000000008015-2-tps-2854-1316.png)
+   配置如图：
+   ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01oMVSF4294vCsuS1Vt_!!6000000008015-2-tps-2854-1316.png)
 3. 修改数据主键值
- 表格中每行数据唯一，因此配置实例 id 作为唯一标识，将数据主键值配置为获取的实例 id 
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN01bb68GW1gLIVcwNwRN_!!6000000004125-2-tps-2782-1308.png)
+   表格中每行数据唯一，因此配置实例 id 作为唯一标识，将数据主键值配置为获取的实例 id
+   ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01bb68GW1gLIVcwNwRN_!!6000000004125-2-tps-2782-1308.png)
 
 4. 绑定数据源后，需配置分页功能，在表格属性中添加动作事件，加载数据源
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN019MLDXI1qjhm8BqgH9_!!6000000005532-2-tps-2870-1310.png)
-
+   ![image.png](https://img.alicdn.com/imgextra/i1/O1CN019MLDXI1qjhm8BqgH9_!!6000000005532-2-tps-2870-1310.png)
 
 ### 示例演示二
+
 <video width="100%" controls>
   <source
     src="https://cloud.video.taobao.com/play/u/12803658/p/1/d/hd/e/6/t/1/311643446551.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiYmZiYjVmZTVhNDM2N2E2YWRmMDhmMjgzZWY5MDllNGMifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDYxMjAyNjg="
     type="video/mp4"
   ></source>
 </video>
-### 步骤二：新增数据
-参考文档： [宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=oi5tzg)
-1. 在数据源处添加远程数据源，调用新增表单实例接口
-接口配置如图：
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN011bDI4R1S1EXeadxCK_!!6000000002186-2-tps-2878-1320.png)
-2. 添加弹窗组件，配置新增内容的组件到弹窗中
-配置如图：
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN01VwHloU1mqnRoRZyIi_!!6000000005006-2-tps-2878-1302.png)
-添加对话框组件
-3. 在「顶部操作 >> 操作条」添加新增的操作按钮，给按钮添加弹窗事件，其中使用 this.$(fieldId).show() 来展示对话框，括号中填入的为对话框的唯一标识符
-```javascript
-export function onActionBarItemClick() {
-   this.$('dialog_kp3mxni9').show()
-  }
-```
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN01tOBOas1SdhoNmyPhM_!!6000000002270-2-tps-2876-1302.png)
+### 步骤二：新增数据 参考文档： [宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=oi5tzg)
+1. 在数据源处添加远程数据源，调用新增表单实例接口 接口配置如图： ![image.png](https://img.alicdn.com/imgextra/i3/O1CN011bDI4R1S1EXeadxCK_!!6000000002186-2-tps-2878-1320.png)
+2. 添加弹窗组件，配置新增内容的组件到弹窗中 配置如图： ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01VwHloU1mqnRoRZyIi_!!6000000005006-2-tps-2878-1302.png)
+添加对话框组件 3. 在「顶部操作 >> 操作条」添加新增的操作按钮，给按钮添加弹窗事件，其中使用
+this.$(fieldId).show() 来展示对话框，括号中填入的为对话框的唯一标识符 ```javascript
+export function onActionBarItemClick() {this.$("dialog_kp3mxni9").show()}
+``` ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01tOBOas1SdhoNmyPhM_!!6000000002270-2-tps-2876-1302.png)
 4. 添加对话框点击确认时执行函数，点击确认后，执行 Insert 远程数据源调用接口在表单中插入数据，由于自定义页面本身不具备存储数据功能，因此需要做延时操作重新加载获取表单实例接口的远程数据源，使得插入数据后直接将新数据展示出来
 ![image.png](https://img.alicdn.com/imgextra/i4/O1CN0182W3cu1rKLSoCOevX_!!6000000005612-2-tps-2874-1310.png)
+
 ```javascript
 export function onOk() {
   const data1 = {
-    "textField_hr9o6eq" : this.$('textField_kp3mxnia').getValue(),
-    "textField_62lufhf" : this.$('textField_kp3mxnib').getValue(),
-    "textField_0nibhpr" : this.$('textField_kp3mxnic').getValue(),
-    "textField_97okczu" : this.$('textField_kp3mxnie').getValue(),
-    "textField_456c4b7" : this.$('textField_kp3mxnid').getValue()
-  }
+    textField_hr9o6eq: this.$("textField_kp3mxnia").getValue(),
+    textField_62lufhf: this.$("textField_kp3mxnib").getValue(),
+    textField_0nibhpr: this.$("textField_kp3mxnic").getValue(),
+    textField_97okczu: this.$("textField_kp3mxnie").getValue(),
+    textField_456c4b7: this.$("textField_kp3mxnid").getValue(),
+  };
   const param = {
-    formUuid :"FORM-HC9660C1TGFQ8927Y6905OPBO30Y1I9YOD3PKH",
-    appType :"APP_J587XYX1VEUP7XTTIJVV",
-    formDataJson : JSON.stringify(data1)
-  }
-  this.dataSourceMap["insert"].load(param).then(res => {
+    formUuid: "FORM-HC9660C1TGFQ8927Y6905OPBO30Y1I9YOD3PKH",
+    appType: "APP_J587XYX1VEUP7XTTIJVV",
+    formDataJson: JSON.stringify(data1),
+  };
+  this.dataSourceMap["insert"].load(param).then((res) => {
     this.utils.toast({
-      title: '新增成功',
-      type: 'success',
-      size:'large',
+      title: "新增成功",
+      type: "success",
+      size: "large",
     });
-  }) 
-  this.$('dialog_kp3mxni9').hide();
-  setTimeout(()=>{
-    this.dataSourceMap['getDatas'].load();
-  },2000);
+  });
+  this.$("dialog_kp3mxni9").hide();
+  setTimeout(() => {
+    this.dataSourceMap["getDatas"].load();
+  }, 2000);
 
-  console.log('onOk');
+  console.log("onOk");
 }
 ```
 
-
-
-
 ### 示例演示三
+
 <video width="100%" controls>
   <source
     src="https://cloud.video.taobao.com/play/u/12803658/p/1/d/hd/e/6/t/1/311302569779.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiYmZiYjVmZTVhNDM2N2E2YWRmMDhmMjgzZWY5MDllNGMifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDYxMjAyNjg="
     type="video/mp4"
   ></source>
 </video>
-### 步骤三：跳转详情页面查看详情
-1. 配置操作列中的详情操作项
-如图所示：
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN011dwyq91xYtjxVXcdM_!!6000000006456-2-tps-2768-1192.png)
+### 步骤三：跳转详情页面查看详情 1. 配置操作列中的详情操作项 如图所示： ![image.png](https://img.alicdn.com/imgextra/i3/O1CN011dwyq91xYtjxVXcdM_!!6000000006456-2-tps-2768-1192.png)
 ![image.png](https://img.alicdn.com/imgextra/i2/O1CN01Fo7C2l1DPlW8dkqTw_!!6000000000209-2-tps-2876-1304.png)
 2. 使用 this.utils.router.push(path, params?, blank?, isUrl?) 配置参数，跳转到详情页中，参考代码如下：
+
 ```javascript
 export function onActionClick(rowData) {
-   const id = rowData.instid;
-   this.utils.router.push('https://www.aliwork.com/APP_J587XYX1VEUP7XTTIJVV/formDetail/FORM-HC9660C1TGFQ8927Y6905OPBO30Y1I9YOD3PKH',{formInstId: id},true,true)
-    console.log(rowData);
-  }
+  const id = rowData.instid;
+  this.utils.router.push(
+    "https://www.aliwork.com/APP_J587XYX1VEUP7XTTIJVV/formDetail/FORM-HC9660C1TGFQ8927Y6905OPBO30Y1I9YOD3PKH",
+    { formInstId: id },
+    true,
+    true
+  );
+  console.log(rowData);
+}
 ```
 
-
-
-
 ### 示例演示四
+
 <video width="100%" controls>
   <source
     src="https://cloud.video.taobao.com/play/u/12803658/p/1/d/hd/e/6/t/1/311311221399.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiYmZiYjVmZTVhNDM2N2E2YWRmMDhmMjgzZWY5MDllNGMifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDYxMjAyNjg="
     type="video/mp4"
   ></source>
 </video>
- ### 步骤四：删除数据 
- 参考文档：[宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=9026sb)
-1. 数据源处加远程数据源，调用删除表单实例接口
-接口配置如图：
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN01MS8mzk22jxNw95kdf_!!6000000007157-2-tps-2878-1318.png)
-2. 添加删除操作列
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01XpXn3C1QYY7ZJumEU_!!6000000001988-2-tps-2780-1260.png)
+### 步骤四：删除数据 参考文档：[宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=9026sb)
+1. 数据源处加远程数据源，调用删除表单实例接口 接口配置如图： ![image.png](https://img.alicdn.com/imgextra/i4/O1CN01MS8mzk22jxNw95kdf_!!6000000007157-2-tps-2878-1318.png)
+2. 添加删除操作列 ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01XpXn3C1QYY7ZJumEU_!!6000000001988-2-tps-2780-1260.png)
 3. 配置动作事件，需加载 Delete 数据源，调用删除表单实例接口，并配置延时在删除后重新调用查询表单实例接口，将数据加载展示，参考代码如下：
+
 ```javascript
 export function onDeleteClick(rowData) {
-    const id = rowData.instid;
-    const param2 = {
-      formInstId : id ,
-    }
-    this.dataSourceMap['Delete'].load(param2).then(res =>{
-      this.utils.toast({
-        title: "删除成功",
-        type : "success",
-        size:"large"
-      });
-      setTimeout(() =>{
-        this.dataSourceMap['getDatas'].load();
-      },2000);
-    })
-    console.log(rowData);
-  }
+  const id = rowData.instid;
+  const param2 = {
+    formInstId: id,
+  };
+  this.dataSourceMap["Delete"].load(param2).then((res) => {
+    this.utils.toast({
+      title: "删除成功",
+      type: "success",
+      size: "large",
+    });
+    setTimeout(() => {
+      this.dataSourceMap["getDatas"].load();
+    }, 2000);
+  });
+  console.log(rowData);
+}
 ```
+
 ![image.png](https://img.alicdn.com/imgextra/i4/O1CN014Az0wX26ehITnjeXV_!!6000000007687-2-tps-2866-1318.png)
 
-
-
-
-
-
 ### 示例演示五
+
 <video width="100%" controls>
   <source
     src="https://cloud.video.taobao.com/play/u/12803658/p/1/d/hd/e/6/t/1/311317093769.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiYmZiYjVmZTVhNDM2N2E2YWRmMDhmMjgzZWY5MDllNGMifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDYxMjAyNjg="
     type="video/mp4"
   ></source>
 </video>
-### 步骤五：编辑修改数据
-参考文档：[宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=9026sb)
-1. 在数据源处添加远程数据源，调用修改表单组件值的接口
-接口配置如图：
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01gvwJUe1hwgSSSu3P4_!!6000000004342-2-tps-2878-1312.png)
+### 步骤五：编辑修改数据 参考文档：[宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=9026sb)
+1. 在数据源处添加远程数据源，调用修改表单组件值的接口 接口配置如图： ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01gvwJUe1hwgSSSu3P4_!!6000000004342-2-tps-2878-1312.png)
 2. 新增编辑操作列以及保存操作列，由于编辑后会进入编辑态，因此需要将保存按钮放置在编辑态中
-配置如图：
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN018lhHQr1MDFEOMOjxO_!!6000000001400-2-tps-2772-1296.png)
+配置如图： ![image.png](https://img.alicdn.com/imgextra/i3/O1CN018lhHQr1MDFEOMOjxO_!!6000000001400-2-tps-2772-1296.png)
 ![image.png](https://img.alicdn.com/imgextra/i2/O1CN01wnMtoi1GL8MUhloyd_!!6000000000605-2-tps-2868-1248.png)
 3. 添加编辑事件，参考代码如下
+
 ```javascript
 export function onTableRowEdit(rowData, action, table) {
   console.log(rowData);
   return table.editRow(rowData);
 }
 ```
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN01EKWt0T1JKclWOFQWW_!!6000000001010-2-tps-2870-1272.png)
-4. 添加保存事件，在保存事件中加载 Update 数据源，调用接口，并配置延时在修改后重新调用查询表单实例接口，将新数据加载展示，参考代码如下：
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01EKWt0T1JKclWOFQWW_!!6000000001010-2-tps-2870-1272.png) 4. 添加保存事件，在保存事件中加载 Update 数据源，调用接口，并配置延时在修改后重新调用查询表单实例接口，将新数据加载展示，参考代码如下：
 ![image.png](https://img.alicdn.com/imgextra/i4/O1CN01gSNmPS27cEmsAcSnz_!!6000000007817-2-tps-2878-1312.png)
+
 ```javascript
 export function onTabeRowSave(rowData, action, table) {
   console.log(rowData, action, table);
   return table.saveRow(rowData).then((...args) => {
     console.log(args);
-    const id =  rowData.instid;
+    const id = rowData.instid;
     const somejson = {
-      "textField_hr9o6eq" : args[0].name,
-      "textField_62lufhf": args[0].sex,
-      "textField_0nibhpr": args[0].age,
-      "textField_97okczu": args[0].study,
-      "textField_456c4b7": args[0].work
-    }
-  const param3 = {
-    formInstId :args[0].instid,
-    updateFormDataJson: JSON.stringify(somejson)
-  }
-    this.dataSourceMap['Update'].load(param3).then(res => {
+      textField_hr9o6eq: args[0].name,
+      textField_62lufhf: args[0].sex,
+      textField_0nibhpr: args[0].age,
+      textField_97okczu: args[0].study,
+      textField_456c4b7: args[0].work,
+    };
+    const param3 = {
+      formInstId: args[0].instid,
+      updateFormDataJson: JSON.stringify(somejson),
+    };
+    this.dataSourceMap["Update"].load(param3).then((res) => {
       this.utils.toast({
         title: "修改成功",
         type: "success",
-        size: "large"
+        size: "large",
       });
       setTimeout(() => {
-        this.dataSourceMap['getDatas'].load();
+        this.dataSourceMap["getDatas"].load();
       }, 2000);
-    })
+    });
   });
 }
 ```
 
-
-
-
-
-
 ### 示例演示六
+
 <video width="100%" controls>
   <source
     src="https://cloud.video.taobao.com/play/u/12803658/p/1/d/hd/e/6/t/1/313025628706.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiYmZiYjVmZTVhNDM2N2E2YWRmMDhmMjgzZWY5MDllNGMifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDYxMjAyNjg="
     type="video/mp4"
   ></source>
 </video>
-### 步骤六
-1. 在数据源处增加变量数据源，并在远程数据源 getDatas 配置变量参数
-(1)配置变量数据源 page 及 searchKey
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01RZdzU61xTrNtHf7L8_!!6000000006445-2-tps-1608-1068.png)
+### 步骤六 1. 在数据源处增加变量数据源，并在远程数据源 getDatas 配置变量参数 (1)配置变量数据源
+page 及 searchKey ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01RZdzU61xTrNtHf7L8_!!6000000006445-2-tps-1608-1068.png)
 ![image.png](https://img.alicdn.com/imgextra/i2/O1CN019qaVUb1ycONW3W7YI_!!6000000006599-2-tps-1543-837.png)
-(2)在远程数据源 getDatas 配置变量参数；并将变量数据源 searchKey 作为查询数据的参数 searchFieldJson
-![image.png](https://img.alicdn.com/imgextra/i2/O1CN01yBKfBf1hYrrdtFoOc_!!6000000004290-2-tps-1562-816.png)
+(2)在远程数据源 getDatas 配置变量参数；并将变量数据源 searchKey 作为查询数据的参数
+searchFieldJson ![image.png](https://img.alicdn.com/imgextra/i2/O1CN01yBKfBf1hYrrdtFoOc_!!6000000004290-2-tps-1562-816.png)
 ![image.png](https://img.alicdn.com/imgextra/i4/O1CN01RJNQWa1tQPwRS8585_!!6000000005896-2-tps-1622-1172.png)
+
 ```javascript
 {
   searchFieldJson: JSON.stringify({
@@ -270,12 +248,14 @@ export function onTabeRowSave(rowData, action, table) {
   pageSize: 10
 }
 ```
+
 2. 在配置的分页动作事件中，给变量数据源赋值，当搜索时触发，变量数据源赋值后，搜索符合 searchFieldJson 条件的数据
-![image.png](https://img.alicdn.com/imgextra/i2/O1CN01jTLTH31RWY0IRR7Kq_!!6000000002119-2-tps-2864-1260.png)
+   ![image.png](https://img.alicdn.com/imgextra/i2/O1CN01jTLTH31RWY0IRR7Kq_!!6000000002119-2-tps-2864-1260.png)
+
 ```javascript
 export function onFetchData(params) {
   // 如果是搜索的话翻页重置到 1
-  if (params.from  === 'search') {
+  if (params.from === "search") {
     params.currentPage = 1;
   }
 
@@ -285,16 +265,17 @@ export function onFetchData(params) {
   // this.dataSourceMap['getDatas'].load(params);
   this.setState({
     searchKey: params.searchKey,
-    page: params.currentPage
-  })
-} 
+    page: params.currentPage,
+  });
+}
 ```
 
+## 常见问题
 
-##  常见问题
-###  当页面加载完成时，控制台报 “500” 错误，提示 “参数校验失败 formUuid 或 formInstId ”，是什么原因导致的？
+### 当页面加载完成时，控制台报 “500” 错误，提示 “参数校验失败 formUuid 或 formInstId ”，是什么原因导致的？
+
 ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01sEYnO128hZ0aYvCeg_!!6000000007964-2-tps-2876-1412.png)
-答：由于insert，update等数据源是在点击操作列按钮时进行加载，而创建数据源后，未关闭自动加载，导致页面打开后自动加载数据源时参数校验失败。
+答：由于 insert，update 等数据源是在点击操作列按钮时进行加载，而创建数据源后，未关闭自动加载，导致页面打开后自动加载数据源时参数校验失败。
 ![image.png](https://img.alicdn.com/imgextra/i3/O1CN017ta4MH1LuSzcJqSWM_!!6000000001359-2-tps-2876-1328.png)
 **​**
 
