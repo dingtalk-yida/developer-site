@@ -3,19 +3,16 @@ title: 集成&自动化 — AI翻译
 order: 7
 ---
 
-## 示例说明
+## 使用场景
 
 输入一段文本，得到指定语种的译文，支持**中、英、日**三种语言的互译。
-
-## 示例演示
-
-![image.png](https://img.alicdn.com/imgextra/i2/O1CN01R5cAua28FAS733etW_!!6000000007902-2-tps-1920-951.png)
 
 ## 操作步骤
 
 ### 步骤一：表单设计
 
 分别创建用于输入需要翻译文本的以及接收翻译结果的两个表单。
+
 **(1) 创建输入表单**
 
 1. 创建表单，命名为「翻译文档」。
@@ -48,8 +45,9 @@ order: 7
 
 ### 步骤二：配置连接器
 
-> **拓展阅读：** 获取宜搭连接器详细介绍，请移步：[集成&自动化-连接器](https://www.yuque.com/yida/support/zevvr1?view=doc_embed)
-
+:::info
+**拓展阅读：** 获取宜搭连接器详细介绍，请移步：[集成&自动化-连接器](https://www.yuque.com/yida/support/zevvr1?view=doc_embed)
+:::
 **操作步骤：**
 
 1. 后台管理页 >>集成&自动化 >>「新建集成&自动化」>>将连接器命名为「AI 翻译」>>触发类型选择「表单事件触发」>>指定触发表单为「翻译文档」，点击「确定」。（操作如下图所示）
@@ -82,3 +80,7 @@ order: 7
 
 提交「翻译文档」表单数据，触发连接器。在「AI 翻译结果」表单中可以查看翻译结果。（操作如下图所示）
 ![image.png](https://img.alicdn.com/imgextra/i4/O1CN010x6BvP27qtSglFsoC_!!6000000007849-2-tps-1920-951.png)
+
+## 效果展示
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01R5cAua28FAS733etW_!!6000000007902-2-tps-1920-951.png)
