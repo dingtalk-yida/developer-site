@@ -3,7 +3,6 @@ import { Table, TableProps } from 'antd';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import formProps from './formProps';
-import 'antd/lib/table/style/index.css';
 import './index.scss';
 
 const COLUMNS = [

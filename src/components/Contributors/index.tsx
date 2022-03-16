@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Tooltip } from 'antd';
 import Axios from 'axios';
-import 'antd/lib/Tooltip/style/index.css';
 import './index.scss';
 
 export interface IContributorsProps {

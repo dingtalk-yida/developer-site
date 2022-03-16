@@ -4,6 +4,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
+import 'antd/dist/antd.css';
 // import HomepageFeatures from '../components/HomepageFeatures';
 import LearningPath from '../components/LearningPath';
 import Contributors from '../components/Contributors';
