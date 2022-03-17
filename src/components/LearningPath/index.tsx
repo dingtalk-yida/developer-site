@@ -2,7 +2,7 @@ import React from 'react';
 import { Steps } from 'antd';
 import Link from '@docusaurus/Link';
 import data from './data';
-import 'antd/lib/steps/style/index.css'
+import 'antd/lib/steps/style/index.css';
 import './index.scss';
 
 const { Step } = Steps;
