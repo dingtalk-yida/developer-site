@@ -31,6 +31,8 @@ const config = {
           sidebarPath: require.resolve('./config/sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/dingtalk-yida/developer-site/edit/master/',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         blog: false,
         theme: {
