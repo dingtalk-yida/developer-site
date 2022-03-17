@@ -31,17 +31,22 @@ order: 15
 
 ## 开启 schema 工作台
 在宜搭表单设计器的左下角隐藏着开启 schema 工作台入口的按钮，我们可以在 schema 工作台中通过导入 schema 来快速生成页面；同时也支持用户在工作台内编辑 schema，通过修改 schema 来快速定义表单定义。
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN01hjzzpf299xYxgp7pn_!!6000000008026-2-tps-2824-1544.png_.webp)
+![](https://img.alicdn.com/imgextra/i3/O1CN01hjzzpf299xYxgp7pn_!!6000000008026-2-tps-2824-1544.png_.webp)
+
+用户可以打开设计器的控制台，执行下面代码：
+
+```javascript
+document.querySelector('.lc-left-area-bottom div:last-child').style.display = 'block';
+```
+![](https://img.alicdn.com/imgextra/i4/O1CN01WsI8gn1nRR8Ubes42_!!6000000005086-2-tps-1706-910.png_.webp)
 
 
-下述内容将为大家介绍开启 schema 工作台入口的方法，只需简单几步即可实现。
+如果经常需要使用schema 工作台，我们更建议使用油猴脚本来控制打开Schema工作台，只需简单几步即可实现：
 ​
-
-
 1. 安装浏览器插件——tampermonkey（油猴）
 
 安装地址：[https://www.tampermonkey.net/](https://www.tampermonkey.net/)
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN01Xos7mS1eUnUeGNHsD_!!6000000003875-2-tps-2824-1548.png._webp)
+![](https://img.alicdn.com/imgextra/i3/O1CN01Xos7mS1eUnUeGNHsD_!!6000000003875-2-tps-2824-1548.png._webp)
 
 
 2. 访问插件 - 实用工具 ，下载<a href="https://files.alicdn.com/tpsservice/8a115a7888ade7b9e896844bac37b5d6.zip" target="_blank">此文件</a>，解压后导入油猴，文件具体内容如下所示：
@@ -91,7 +96,7 @@ order: 15
 }
 ```
 
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01UKa3MH23BR8zLZbk7_!!6000000007217-2-tps-5116-1226.png_.webp)
+![](https://img.alicdn.com/imgextra/i1/O1CN01UKa3MH23BR8zLZbk7_!!6000000007217-2-tps-5116-1226.png_.webp)
 
 
 3. 安装成功后，重新访问宜搭表单设计器即可。

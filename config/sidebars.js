@@ -21,16 +21,16 @@ module.exports = {
       items: getDocsFromDir("guide/concept"),
     },
     {
-      type: "category",
-      label: "FAQ",
-      collapsed: false,
-      items: getDocsFromDir("guide/FAQ"),
-    },
-    {
       type: 'category',
       label: '自定义组件',
       collapsed: false,
       items: getDocsFromDir('guide/customComponent')
+    },
+    {
+      type: "category",
+      label: "FAQ",
+      collapsed: false,
+      items: getDocsFromDir("guide/FAQ"),
     },
     "guide/contributing",
   ],
@@ -54,22 +54,22 @@ module.exports = {
     },
   ]),
   examples: getDocsFromDir("examples", 
-  // [
-  //   {
-  //     label: "集成&自动化",
-  //     dir: "examples/connector",
-  //     collapsed: true,
-  //   },
-  //   {
-  //     label: "自定义组件",
-  //     dir: "examples/customComponent",
-  //     collapsed: true,
-  //   },
-  //   {
-  //     label: "自定义页面",
-  //     dir: "examples/customPage",
-  //     collapsed: true,
-  //   },
-  // ]
+  [
+    {
+      label: "集成&自动化",
+      dir: "examples/connector",
+      collapsed: true,
+    },
+    {
+      label: "自定义组件",
+      dir: "examples/customComponent",
+      collapsed: true,
+    },
+    {
+      label: "自定义页面",
+      dir: "examples/customPage",
+      collapsed: true,
+    },
+  ]
   ),
 };

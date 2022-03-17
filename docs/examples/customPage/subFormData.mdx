@@ -1,0 +1,89 @@
+---
+title: 提交表单子表单数据
+order: 3
+---
+
+## 案例背景
+
+在特定的场景下我们需要使用自定义页面的子表单组件填写数据后提交数据到表单的子表单组件进行数据存储。
+
+## 实现效果
+
+💡 实现自定义页面提交表单子表单数据
+![自定义页面提交子表单2.gif](https://img.alicdn.com/imgextra/i2/O1CN018E3aZQ1fK5rBFaP1h_!!6000000003987-1-tps-1898-815.gif)
+
+## 实现步骤
+
+### 步骤 1：创建自定义页面及配置
+
+1. 创建自定义表单
+   ![](https://img.alicdn.com/imgextra/i4/O1CN01ED1wTt1MK7AtjVeKw_!!6000000001415-2-tps-1919-898.png_.webp)
+
+2. 自定义页面组件配置
+   ![](https://img.alicdn.com/imgextra/i4/O1CN01iMCpx31V6g633uc06_!!6000000002604-2-tps-1823-842.png_.webp)
+
+### 步骤 2：创建表单页面及配置
+
+1. 创建表单页面
+   ![](https://img.alicdn.com/imgextra/i3/O1CN01PKtsef22nA9dbV6rl_!!6000000007164-2-tps-1820-838.png_.webp)
+2. 表单页面组件配置
+   ![](https://img.alicdn.com/imgextra/i3/O1CN01qIOkzE1EDEIAcy1yT_!!6000000000317-2-tps-1819-845.png_.webp)
+
+### 步骤 3： 自定页面数据源及 JS 面板配置
+
+1. 自定义页面数据源配置
+   名称：dp2
+   自动加载：关闭
+   请求地址：/dingtalk/web/应用编码/v1/form/saveFormData.json
+   请求方式：POST
+   ![](https://img.alicdn.com/imgextra/i1/O1CN01bFsLaG1zUR79gLx7D_!!6000000006717-2-tps-1824-844.png_.webp)
+
+2. 创建按钮点击动作
+   ![](https://img.alicdn.com/imgextra/i3/O1CN01AGttYS1GMVXzOIAlV_!!6000000000608-2-tps-1812-832.png_.webp)
+   ![](https://img.alicdn.com/imgextra/i4/O1CN017fX0kM25juBcTqLvG_!!6000000007563-2-tps-1824-844.png_.webp)
+
+3. JS 面板配置,代码示例如下，注意：需要替换对应唯一标识 ​
+   ![](https://img.alicdn.com/imgextra/i2/O1CN01bCtBn11yP6tV5ZHxS_!!6000000006570-2-tps-1919-1072.png_.webp)
+
+```javascript
+const a = this.$('明细组件唯一标识').getValue();
+console.log(a);
+
+let n = [];
+for (let i = 0; i < a.length; i++) {
+  n.push({
+    表单页面单行文本1: a[i].输入框1,
+    表单页面单行文本2: a[i].输入框2,
+  });
+}
+console.log(n);
+var judge = false;
+n.map((dd) => {
+  judge = dd.表单页面单行文本1 != '' || dd.表单页面单行文本2 != '' ? true : false;
+});
+if (judge == true) {
+  const b = { 表单页面子表单组件唯一标识: n };
+  const params = {
+    formUuid: '表单页面表单id',
+    appType: '应用编码',
+    formDataJson: JSON.stringify(b),
+  };
+  this.dataSourceMap.dp2.load(params).then((response) => {
+    this.utils.dialog({
+      method: 'alert', // 或confirm
+      title: '添加数据成功',
+      onOk: () => {
+        location.reload();
+      },
+    });
+  });
+} else {
+  this.utils.dialog({
+    method: 'alert', // 或confirm
+    title: '数据不允许为空',
+    onOk: () => {
+      location.reload();
+    },
+  });
+}
+```

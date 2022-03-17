@@ -284,7 +284,7 @@ export function onModeChange({ value }) {
 }
 ```
 
-- 大家还记得我们在步骤三中给任务列表绑定的循环数据吧，在这一步我们需要重新绑定任务列表的循环数据，将之前的 `state.todoList` 改为 `getShowList()` 用于根据当前筛选值返回符合条件的任务列表：
+- 大家还记得我们在步骤3中给任务列表绑定的循环数据吧，在这一步我们需要重新绑定任务列表的循环数据，将之前的 `state.todoList` 改为 `getShowList()` 用于根据当前筛选值返回符合条件的任务列表：
 
 ![](https://img.alicdn.com/imgextra/i1/O1CN01xhVTEp1rQIbdLJU9i_!!6000000005625-2-tps-3582-1896.png_.webp)
 

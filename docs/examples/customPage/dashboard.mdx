@@ -1,0 +1,53 @@
+---
+title: 数据看板
+order: 11
+---
+
+## 使用场景
+
+当想获取以及展示待处理或者已处理或者抄送的数据的时候
+
+![](https://img.alicdn.com/imgextra/i3/O1CN01dfgNKa1lVRMgdaDLm_!!6000000004824-2-tps-1391-910.png_.webp)
+
+## 视频展示
+
+<video width="100%" controls>
+  <source
+    src="https://cloud.video.taobao.com/play/u/21588855/p/1/d/hd/e/6/t/1/312431885171.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiMDFlNzBmYTViOTIyYjcyZGEwNmRjZDM4OTVjMjE0YzQifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDc1MjA2MDA="
+    type="video/mp4"
+  ></source>
+</video>
+
+## 操作步骤
+
+### 步骤 1：创建一个自定义页面
+
+在自定义页面里面放入一个容器，在容器里放入两个单行文本，左边有个大纲树可以查看组件的排版，右边的样式可以调整组件的展示效果
+如图所示：
+![](https://img.alicdn.com/imgextra/i1/O1CN013tsiuu1WFfULsyixG_!!6000000002759-2-tps-1767-922.png_.webp)
+
+### 步骤 2：新建数据源
+
+关闭左侧的大纲树，找到数据源，选择快速新建远程 API，名称可以随意取，例如图中的 getTodoTasks
+![](https://img.alicdn.com/imgextra/i1/O1CN0199BdOz1mDPO30SYDL_!!6000000004920-2-tps-1807-906.png_.webp)
+把请求地址里的网址给删掉，点击后面的使用变量，查看接口文档的任务中心
+[宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=Z6LX4)
+![](https://img.alicdn.com/imgextra/i2/O1CN01V6aCSX1F19T8M3KQA_!!6000000000426-2-tps-1764-913.png_.webp)
+在接口这块需要做一个改变，如果是创建已提交的就在变量绑定最后改成已提交的，如果创建代办就换成代办任务的接口
+![](https://img.alicdn.com/imgextra/i2/O1CN01LjJ5V01b0A9rQItYW_!!6000000003402-2-tps-1035-714.png_.webp)
+![](https://img.alicdn.com/imgextra/i4/O1CN01qg6eSk28QcMFEvZ75_!!6000000007927-2-tps-1822-956.png_.webp)
+在请求参数那里也需要点击变量，通过变量绑定去获取数据，下图里的参数是上图文档中的参数，有两项为必填项，pagesize 的最大值为 100，currentpage 的默认值可以写 1，返回，点击保存
+![](https://img.alicdn.com/imgextra/i1/O1CN01ydVpKC1cdNgvzF9XB_!!6000000003623-2-tps-1037-713.png_.webp)
+
+### 步骤 3：变量绑定
+
+返回编辑页面后，选中单行文本，内容可以先写个 0，同样点击右边的变量绑定，会有个变量绑定的弹框
+![](https://img.alicdn.com/imgextra/i4/O1CN01wEoCT31tO7y5b2KmS_!!6000000005891-2-tps-1758-906.png_.webp)
+选择左边的接口名称，在文档里找到成功的代码，里面有一个 total count，之后再变量绑定接口名称后加上 .totalCount | | 0，total count 意识是总数 ，|| 是 JS 中逻辑运算符的一种
+![](https://img.alicdn.com/imgextra/i4/O1CN01rHpJ4L1W0YQ92caa1_!!6000000002726-2-tps-1031-705.png_.webp)
+![](https://img.alicdn.com/imgextra/i2/O1CN01YbEeyv23FYiJaUCjC_!!6000000007226-2-tps-1022-863.png_.webp)
+返回首页，这个时候就可以获取数据了
+
+## 在线试玩
+
+在线体验请移步开发者中心 👉 [自定义页面数据看板](https://www.aliwork.com/developer/custom-lookPage)

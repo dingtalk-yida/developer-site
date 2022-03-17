@@ -1,5 +1,5 @@
 ---
-title: 自定义页面查看流程效率
+title: 查看流程效率
 order: 23
 ---
 
@@ -9,7 +9,7 @@ order: 23
 
 ## 演示效果及视频教程
 
-![演示效果](https://img.alicdn.com/imgextra/i3/O1CN01k7arqk1d31s1gmvEL_!!6000000003679-2-tps-1524-714.png)
+![演示效果](https://img.alicdn.com/imgextra/i3/O1CN01k7arqk1d31s1gmvEL_!!6000000003679-2-tps-1524-714.png_.webp)
 
 <video width="100%" controls>
   <source src="https://cloud.video.taobao.com/play/u/1775663/p/1/d/hd/e/6/t/1/327773283657.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiNTViMGVhYTE5Mzk1YzE4MGM1MDhhZjU0YTA2N2NiMTEifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDcyNTQ5ODE="></source>
@@ -19,29 +19,29 @@ order: 23
 
 通过数据源将流程表单数据传递给自定义页面进行展示。
 
-### 步骤一：创建并配置流程页面
+### 步骤 1：创建并配置流程页面
 
 流程设计及数据填充（如下图所示）
-![流程页面设置](https://img.alicdn.com/imgextra/i4/O1CN01Si2iDN1sL5ixAdKY9_!!6000000005749-2-tps-1439-805.png)
+![流程页面设置](https://img.alicdn.com/imgextra/i4/O1CN01Si2iDN1sL5ixAdKY9_!!6000000005749-2-tps-1439-805.png_.webp)
 
-### 步骤二：创建并配置自定义页面
+### 步骤 2：创建并配置自定义页面
 
 自定义页面用于实时查看审批节点、审批人、审批时间等信息。
 
-> 说明：
-> 此处用到的接口详细信息请参考
->
-> - [根据条件搜索流程实例](https://www.yuque.com/yida/support/aql605#qonkdk)
-> - [获取审批记录](https://www.yuque.com/yida/support/aql605#wcgmuz)
+:::tip
+此处用到的接口详细信息请参考
+ - [根据条件搜索流程实例](https://www.yuque.com/yida/support/aql605#qonkdk)
+ - [获取审批记录](https://www.yuque.com/yida/support/aql605#wcgmuz)
+:::
 
 ** (1) 定义远程数据源 **
 为了实时获取流程的监控情况，会先调用搜索实例 ID 的接口，筛选完成对应的流程后通过获取审批记录的接口将数据审批节点的动作和审批时间等数据获取出来，在自定义页面进行展示。（如下图所示）
-![定义数据源](https://img.alicdn.com/imgextra/i1/O1CN01mGNNeD1yq8GNF63uT_!!6000000006629-2-tps-1439-803.png)
+![定义数据源](https://img.alicdn.com/imgextra/i1/O1CN01mGNNeD1yq8GNF63uT_!!6000000006629-2-tps-1439-803.png_.webp)
 数据源关闭自动加载，后续为了实现分页和总计的效果，在调用数据源后使用了数据处理，返回实例 ID，总条数和当前页码。
 
 > 说明：下述代码可直接复制在获取实例 ID 接口的 didfetch 数据处理内。
 
-```JavaScript
+```js
 function didFetch(content) {
   //返回实例ID,总条数和当前页码
   let result = {
@@ -55,18 +55,18 @@ function didFetch(content) {
 
 ** （2） 定义变量数据源 **
 由于对返回的数据做了较为复杂的格式处理，所以定义变量数据源 time 和 datas，表格组件绑定 datas 变量数据源。（如下图所示）
-![表格组件绑定变量数据源](https://img.alicdn.com/imgextra/i1/O1CN01zuRP341haF3VaMjlP_!!6000000004293-2-tps-1439-767.png)
+![表格组件绑定变量数据源](https://img.alicdn.com/imgextra/i1/O1CN01zuRP341haF3VaMjlP_!!6000000004293-2-tps-1439-767.png_.webp)
 
 ** (3) JS 面板调用远程数据源并进行数据处理 **
-![调用远程数据源并进行数据处理](https://img.alicdn.com/imgextra/i2/O1CN01mTZyHc1gzbMyKz9MS_!!6000000004213-2-tps-1167-404.png)
+![调用远程数据源并进行数据处理](https://img.alicdn.com/imgextra/i2/O1CN01mTZyHc1gzbMyKz9MS_!!6000000004213-2-tps-1167-404.png_.webp)
 因为自定义页面默认不绑定初始化函数 didmount，所以先绑定再将代码复制到 JS 面板中。
 将数据处理完成后，赋值给 datas 变量数据源，并设置表格数据列字段。
-![变量数据源](https://img.alicdn.com/imgextra/i3/O1CN01GwkM2H1P8c4qnLTgf_!!6000000001796-2-tps-1439-742.png)
-![更改字段名称](https://img.alicdn.com/imgextra/i3/O1CN010jrSRt1O9F0Ptra0i_!!6000000001662-2-tps-1436-737.png)
+![变量数据源](https://img.alicdn.com/imgextra/i3/O1CN01GwkM2H1P8c4qnLTgf_!!6000000001796-2-tps-1439-742.png_.webp)
+![更改字段名称](https://img.alicdn.com/imgextra/i3/O1CN010jrSRt1O9F0Ptra0i_!!6000000001662-2-tps-1436-737.png_.webp)
 
-> 说明：下方代码可直接复制使用
+说明：下方代码可直接复制使用
 
-```JavaScript
+```js
 export function didMount() {
   //用作汇总每条审批记录的数据
   let value = [];
@@ -171,9 +171,9 @@ export function timeshow(num_end,num_start){
 通过表格的树形结构展示各个节点的审批时长。
 在表格中开启「树形表格」，注意：开启「树形表格」后，数据中需要包含 children 字段才会显示树形表格。
 
-> 说明：下述代码可直接复制在 JS 面板内，12 ～ 56 行代码配置 children 内数据
+说明：下述代码可直接复制在 JS 面板内，12 ～ 56 行代码配置 children 内数据
 
-```JavaScript
+```js       
 export function didMount() {
   let value = [];
   this.dataSourceMap.getInstanceIds.load().then((response) => {
@@ -319,15 +319,15 @@ export function timeshow(num_end,num_start){
 
 ** (5) 实现分页展示数据 **
 ![效果](https://img.alicdn.com/imgextra/i3/O1CN01psDFth1QtcLGZuvoa_!!6000000002034-1-tps-1425-673.gif)
-![表格组件绑定动作](https://img.alicdn.com/imgextra/i3/O1CN01Zk3X3D1wmo9mgi9JN_!!6000000006351-2-tps-1437-736.png)
-![更改分页设置](https://img.alicdn.com/imgextra/i4/O1CN01A4I8nn20XvkmTjnlv_!!6000000006860-2-tps-1199-808.png)
+![表格组件绑定动作](https://img.alicdn.com/imgextra/i3/O1CN01Zk3X3D1wmo9mgi9JN_!!6000000006351-2-tps-1437-736.png_.webp)
+![更改分页设置](https://img.alicdn.com/imgextra/i4/O1CN01A4I8nn20XvkmTjnlv_!!6000000006860-2-tps-1199-808.png_.webp)
 
-> 说明：
->
-> - 获取流程实例 ID 的远程数据源内做 didfetch 数据处理，已在 JS 面板内定义 timeshow 方法。
-> - 下述代码可直接复制在 JS 面板内，注意：替换流程的 formUuid
+:::tip
+ - 获取流程实例 ID 的远程数据源内做 didfetch 数据处理，已在 JS 面板内定义 timeshow 方法。
+ - 下述代码可直接复制在 JS 面板内，注意：替换流程的 formUuid
+:::
 
-```JavaScript
+```js
 export function onFetchData(params) {
   //清空datas变量数据源，不清空有可能会造成翻页时数据展示错误
   this.setState({
@@ -451,11 +451,11 @@ export function onFetchData(params) {
 
 ** (6) 设置详情跳转 **
 路径：设置表格的操作列 >> 添加名为详情的操作项 >> 点击编辑 >> 绑定回调动作（如下图所示）
-![绑定回调函数](https://img.alicdn.com/imgextra/i4/O1CN01AyFdkM1PvA3rddwZf_!!6000000001902-2-tps-1439-724.png)
+![绑定回调函数](https://img.alicdn.com/imgextra/i4/O1CN01AyFdkM1PvA3rddwZf_!!6000000001902-2-tps-1439-724.png_.webp)
 
 > 说明：下述代码可直接复制编辑 JS 面板内，注意：替换链接为目标流程详情页链接。
 
-```JavaScript
+```js
 export function onActionClick(rowData) {
   console.log(rowData);
   this.utils.router.push("https://www.aliwork.com/APP_JKH50FL33A0H8GJBQEHL/processDetail?formInstId=" + rowData.onlyid, {}, true, true);

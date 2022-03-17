@@ -1,0 +1,94 @@
+---
+title: 双端适配
+order: 13
+---
+
+## 使用场景
+
+自定义在使用过程中可能会出现 PC 端与移动端无法适配的情况，那么该如何解决呢~
+
+## 视频教程
+
+<video width="100%" controls>
+  <source
+    src="https://lark-video.oss-cn-hangzhou.aliyuncs.com/outputs/prod/yuque/2021/1293044/mov/1629704711740-7ec3c4e4-078b-477a-9b27-95ea8f0fe132.mp4?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1647528139&Signature=0%2FwRcfKcysSUnWNj0XO68%2BnU8o8%3D"
+    type="video/mp4"
+  ></source>
+</video>
+
+## 操作步骤
+
+### 步骤 1：创建自定义页面
+在自定义页面添加三个按钮组件，分别命名为这是 PC 端、这是移动端、按钮，效果如图：
+![](https://gw.alicdn.com/imgextra/i3/O1CN01wZKekX1XryEEFiXfI_!!6000000002978-2-tps-1914-881.png_.webp)
+自定义页面
+
+### 步骤 2：添加页面加载完成时的动作
+自定义页面 >> 点击页面 >> 页面设置 >> 生命周期 >> 加载完成时 >> didMount
+注意：因为自定义页面不会自动加载 didMount 所以需要配置进行加载
+![](https://gw.alicdn.com/imgextra/i3/O1CN01W9BdlV23dphonMZ0A_!!6000000007279-2-tps-1919-886.png_.webp)
+绑定页面加载完成时的动作（1）
+![](https://img.alicdn.com/imgextra/i1/O1CN01Ogu68Z1mJovuxyzNX_!!6000000004934-2-tps-1912-893.png_.webp)
+绑定页面加载完成时的动作（2）
+
+### 步骤 3：赋值代码，didMount 里面调用
+把下面的函数代码放在页面 JS 内，然后在 didMount 中调用这个函数；
+![](https://img.alicdn.com/imgextra/i1/O1CN01X833g51yhQjnmf4fX_!!6000000006610-2-tps-1907-895.png_.webp)
+JS 面板调用函数
+参考代码如下（可直接复制）：
+
+```javascript
+export function browserRedirect() {
+  //判断当前浏览器环境
+  var sUserAgent = navigator.userAgent.toLowerCase();
+  var bIsIpad = sUserAgent.match(/ipad/i) == 'ipad';
+  var bIsIphoneOs = sUserAgent.match(/iphone os/i) == 'iphone os';
+  var bIsMidp = sUserAgent.match(/midp/i) == 'midp';
+  var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == 'rv:1.2.3.4';
+  var bIsUc = sUserAgent.match(/ucweb/i) == 'ucweb';
+  var bIsAndroid = sUserAgent.match(/android/i) == 'android';
+  var bIsCE = sUserAgent.match(/windows ce/i) == 'windows ce';
+  var bIsWM = sUserAgent.match(/windows mobile/i) == 'windows mobile';
+  if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+    //这是移动端
+    this.setState({
+      //移动端状态
+      mobile: true,
+    });
+    this.setState({
+      //PC端状态
+      pc: false,
+    });
+  } else {
+    this.setState({
+      mobile: false,
+    });
+    this.setState({
+      pc: true,
+    });
+  }
+}
+```
+
+### 步骤 4：创建两个变量 PC 、mobile
+添加两个变量，直接命名为 PC、mobile 即可；
+![](https://img.alicdn.com/imgextra/i1/O1CN01nK9Ggy1QpUmIXyNpI_!!6000000002025-2-tps-810-522.png_.webp)
+数据源创建变量（1）
+![](https://img.alicdn.com/imgextra/i3/O1CN01Pu2ICC1RGyXh5ZfT9_!!6000000002085-2-tps-763-520.png_.webp)
+数据源创建变量（2）
+### 步骤 5：高级设置
+需要显隐的组件，高级，是否渲染，PC 显示绑定 `state.pc`，移动显示绑定 `state.mobile`。
+![](https://img.alicdn.com/imgextra/i2/O1CN01ZfapgH1zRgk0AJPTz_!!6000000006711-2-tps-1113-628.png_.webp)
+给按钮组件绑定变量
+注意：三个按钮一样的操作绑定即可，第三个按钮组件一样的绑定 `state.mobile`
+
+## 效果演示
+
+![](https://img.alicdn.com/imgextra/i4/O1CN01OrEyKe1hczQoAU3vn_!!6000000004299-2-tps-1898-882.png_.webp)
+![](https://img.alicdn.com/imgextra/i1/O1CN01bmDwV228mbMoSfwQz_!!6000000007975-2-tps-670-539.png_.webp)
+
+效果演示
+
+## 在线试玩
+
+在线体验请移步开发者中心 👉 [自定义页面双端适配](https://www.aliwork.com/developer/double-side-adaptation)

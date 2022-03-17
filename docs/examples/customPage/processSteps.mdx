@@ -1,0 +1,394 @@
+---
+title: 步骤条展示流程工序
+order: 26
+---
+
+## 使用场景
+
+在[自定义页面查看流程效率](https://www.yuque.com/yida/subject/rl2bye#rRoPN)文档中，完成了在宜搭内使用表格的树形结构展示节点信息，用于查看流程的审批效率。本文档将在宜搭内使用步骤条组件来展示流程的工序信息。
+
+## 效果展示
+
+![实现效果](https://img.alicdn.com/imgextra/i1/O1CN01Y1Dtsi1ISa2FCNZpc_!!6000000000892-2-tps-1524-714.png_.webp)
+
+## 操作步骤
+
+### 步骤 1：创建流程页面并添加数据
+
+创建一个流程页面 >> 完成流程审批节点设置 >> 创建测试数据（如下图所示）
+![流程](https://img.alicdn.com/imgextra/i3/O1CN01QJ7UyW1QrKMUfI80C_!!6000000002029-2-tps-1437-807.png_.webp)
+
+### 步骤 2：床架并配置自定义页面
+
+自定义页面用于实现实时查看审批节点、审批人、审批时间等信息，需要使用两个数据源。这里分别使用了[根据条件搜索流程实例 ID](https://www.yuque.com/yida/support/aql605#qonkdk)和[获取审批记录接口数据](https://www.yuque.com/yida/support/aql605#wcgmuz)作为数据源。
+** (1) 定义远程数据源 **
+
+为了实时获取流程的监控情况，要先调用搜索实例 ID 的接口，完成对相关的流程的筛选后，通过获取审批记录的接口将数据审批节点的动作和审批时间等数据获取出来，在自定义页面进行展示。（如下图所示）
+![远程数据源](https://img.alicdn.com/imgextra/i2/O1CN01SVNMTX1IhEi5ZMbOJ_!!6000000000924-2-tps-1439-808.png_.webp)
+在数据源编辑页面将数据源自动加载选项关闭。后续为了实现分页和总计的效果，在调用数据源后进行了数据处理，用于返回实例 ID，总条数和当前页码的数据。数据处理代码如下：
+
+> **说明：**下述代码可直接复制在获取实例 ID 接口的 didfetch 数据处理内
+
+```javascript
+function didFetch(content) {
+  //返回实例ID,总条数和当前页码
+  let result = {
+    processInstanceId: content.data,
+    totalCount: content.totalCount,
+    currentPage: content.currentPage,
+  };
+  return result; // 重要，需返回 result
+}
+```
+
+**(2) 定义变量数据源 **
+定义变量数据源 time 和 datas，其中 datas 数据源用于表格组件的绑定，time 数据源用于存储总的审批时长。（如下图所示）
+![定义变量数据源](https://img.alicdn.com/imgextra/i3/O1CN01e7mN3U1v1LUqyTmhr_!!6000000006112-2-tps-1439-777.png_.webp)
+![绑定表格](https://img.alicdn.com/imgextra/i3/O1CN01As6zfi20HRUkH6rMa_!!6000000006824-1-tps-1362-736.gif)
+实现步骤条与审批数据进行联动。
+定义步骤条相关变量数据源（如下图所示）。
+![定义](https://img.alicdn.com/imgextra/i2/O1CN015YSkrF1Z5zyVQjRsM_!!6000000003144-2-tps-1359-807.png_.webp)
+进行变量数据源的绑定（如下图所示）。
+![绑定](https://img.alicdn.com/imgextra/i3/O1CN01OoIW721jUPExDyw3v_!!6000000004551-1-tps-1358-736.gif)
+
+**（3） JS 面板处理数据 **
+首先，在自定义页面绑定初始化函数 didmount，绑定时将代码下述复制到 JS 面板中。（如下图所示）
+![绑定](https://img.alicdn.com/imgextra/i3/O1CN01pvYITw1NERtX971V1_!!6000000001538-2-tps-1439-762.png_.webp)
+将数据处理完成后，赋值给 datas 变量数据源，并更改表格数据字段名称。（如下图所示）
+![处理](https://img.alicdn.com/imgextra/i2/O1CN01qRvARf1ibu6lFjkjD_!!6000000004432-2-tps-1439-709.png_.webp)
+
+> **说明：** 下述代码可直接复制在 JS 面板内
+
+```javascript
+export function didMount() {
+  //用作汇总每条审批记录的数据
+  let value = [];
+  //调用getInstanceIds远程数据源获取实例ID，并循环将实例ID
+  this.dataSourceMap.getInstanceIds.load().then((response) => {
+    //console.log("response", response)//[实例ID,实例ID,...]
+    let res = response.processInstanceId;
+    //循环将每条实例ID用作参数调用一次接口
+    for (let i = 0; i < res.length; i++) {
+      const params = {
+        processInstanceId: res[i],
+      };
+      //调用getOperationRecords接口获取每条流程的审批记录
+      this.dataSourceMap.getOperationRecords.load(params).then((content) => {
+        const children = [];
+        for (let item = 0; item < content.length; item++) {
+          if (
+            content[item].actionExt === 'next' ||
+            content[item].actionExt === 'submit' ||
+            content[item].actionExt === 'doing'
+          ) {
+            if (content[item].showName === '重新提交') {
+              this.setState({
+                time: timeshow(content[item].operateTime, content[item - 1].operateTime),
+              });
+              let children_data = {
+                actionExt: content[item].actionExt,
+                active: content[item].showName,
+                active_name: content[item].operatorName,
+                active_time: content[item].operateTime,
+                time: state.time,
+                onlyid: params.processInstanceId,
+              };
+              children.push(children_data);
+            } else {
+              let children_data = {
+                actionExt: content[item].actionExt,
+                active: content[item].showName,
+                active_name: content[item].operatorName,
+                active_time: content[item].operateTime,
+                onlyid: params.processInstanceId,
+              };
+              children.push(children_data);
+            }
+          } else {
+            this.setState({
+              time: timeshow(content[item].operateTime, content[item - 1].operateTime),
+            });
+            let children_data = {
+              actionExt: content[item].actionExt,
+              active: content[item].showName,
+              active_name: content[item].operatorName,
+              active_time: content[item].operateTime,
+              time: state.time,
+              onlyid: params.processInstanceId,
+            };
+            children.push(children_data);
+          }
+        }
+
+        //判断是HISTORY类型时，计算总审批时长，最终审批时间-提交时间
+        if (content[content.length - 1].type === 'HISTORY') {
+          const num_end = content[content.length - 1].operateTime;
+          const num_start = content[0].operateTime;
+
+          this.setState({
+            time: timeshow(num_end, num_start),
+          });
+
+          let data = {
+            //发起人和发起时间是content[0]里的数据，其余是获取的最后一条数据
+            create_name: content[0].operatorName,
+            create_time: content[0].operateTime,
+            actionExt: 'Completed',
+            active: content[content.length - 1].showName + '(已完成)',
+            active_name: content[content.length - 1].operatorName + '(已完成)',
+            active_time: content[content.length - 1].operateTime,
+            action: content[content.length - 1].actionExt,
+            children: children,
+            time: state.time,
+            onlyid: params.processInstanceId,
+          };
+          value.push(data);
+        }
+        //如果不是HISTORY类型，那就是没有结束的审批流程
+        //需要循环获取数据列的数据，将当前的审批节点数据push在数据列中
+        for (let j = 0; j < content.length; j++) {
+          // console.log("content[j]", content[j])
+          if (content[j].type === 'TODO') {
+            let data = {
+              //发起人和发起时间是content[0]里的数据，其余变成TODO类型时的数据也就是进行中的那条数据
+              create_name: content[0].operatorName,
+              create_time: content[0].operateTime,
+              actionExt: content[j].actionExt,
+              active: content[j].showName + '（当前）',
+              active_name: content[j].operatorName + '（当前）',
+              active_time: content[j].activeTime,
+              children: children,
+              onlyid: params.processInstanceId,
+            };
+            value.push(data);
+          }
+        }
+        //携带总计条数和数据列的值赋值给datas变量数据源
+        let result = {
+          data: value,
+          totalCount: response.totalCount,
+        };
+        this.setState({
+          datas: result,
+        });
+      });
+    }
+  });
+}
+```
+
+** (4) 设置表格的操作列 **
+设置表格操作列的字段，绑定处理函数。实现用户点击“查看步骤”操作按钮，获取并展示当前审批单审批状态，即工序状态。（如下图所示）
+![表格列](https://img.alicdn.com/imgextra/i3/O1CN01isnx0o1HTfM3MPsBg_!!6000000000759-2-tps-1439-791.png_.webp)
+
+> **说明：** 下述代码可直接复制编辑 JS 面板内
+
+```javascript
+export function onActionClick(rowData) {
+  //清空变量status，防止累计push多条数据到status中
+  status = [];
+  //点击操作列时步骤条渲染
+  this.setState({
+    condition: true,
+  });
+  //如果审批状态完成了，那么遍历该流程所有节点的步骤数据status值为finish
+  //如果审批状态未完成，那么遍历该流程所有节点，doing类型的审批状态status值为process，next类型的status值为wait，其余类型的status值为finish
+  //status_chilrden里面的数据参考步骤条数据格式，最终push到status中：https://www.yuque.com/yida/support/gzllee#Z8nrr
+  if (rowData.actionExt == 'Completed') {
+    let child = rowData.children;
+    for (let i = 0; i <= child.length - 1; i++) {
+      let status_chilrden = {
+        title: '工序' + (i + 1),
+        content: child[i].active,
+        status: 'finish',
+      };
+      status.push(status_chilrden);
+    }
+  } else {
+    let child = rowData.children;
+    for (let i = 0; i < child.length - 1; i++) {
+      if (child[i].actionExt == 'doing') {
+        this.setState({
+          status: 'process',
+        });
+      } else if (child[i].actionExt == 'next') {
+        this.setState({
+          status: 'wait',
+        });
+      } else {
+        this.setState({
+          status: 'finish',
+        });
+      }
+      let status_chilrden = {
+        title: '工序' + (i + 1),
+        content: child[i].active,
+        status: state.status,
+      };
+      status.push(status_chilrden);
+    }
+  }
+  this.setState({
+    demoData: status,
+  });
+}
+```
+
+** (5) 设置新增 **
+在表格顶部增加"新增"按钮，点击按钮，页面跳转到流程发起页面，填写内容后，实现发起新的审批流程。（如下图所示）
+![新增](https://img.alicdn.com/imgextra/i1/O1CN01Zc7Y6L1R0wg41rTZi_!!6000000002050-2-tps-1395-807.png_.webp)
+
+> **说明：**下述代码可直接复制编辑 JS 面板内，注意：链接替换成流程页面的访问链接。
+
+```javascript
+export function onActionBarItemClick() {
+  this.utils.router.push(
+    'https://www.aliwork.com/APP_JKH50FL33A0H8GJBQEHL/submission/FORM-N796637187UTSDMX1NVMJ4EYCAHL2GQPCKWTKY3?processCode=TPROC--N796637187UTSDMX1NVMJ4EYCAHL2ORPCKWTKZ3&' +
+      {},
+    {},
+    true,
+    true
+  );
+}
+```
+
+**(6) 设置分页 **
+实现表格分页样式的设定。
+首先，在"属性-高级-动作设置-分页、搜索、排序时触发处绑定函数"onFetchData"，并将下述代码复制到页面 JS 中;（如下图所示）
+![绑定函数](https://img.alicdn.com/imgextra/i1/O1CN01Zc7Y6L1R0wg41rTZi_!!6000000002050-2-tps-1395-807.png_.webp)
+然后，在"属性-分页设置"中进行页面"pageSize"的设置中"请求参数-pageSize-参数值"相同，否则会造成展示问题。（如下图所示）
+![设置](https://img.alicdn.com/imgextra/i2/O1CN01t1NGgM1zIzDLM8yGZ_!!6000000006692-2-tps-1199-808.png_.webp)
+
+> **说明：**下述代码可直接复制编辑 JS 面板内，注意：注意：替换流程的 formUuid。
+
+```javascript
+export function onFetchData(params) {
+  //清空datas变量数据源，不清空有可能会造成翻页时数据展示错误
+  //点击操作翻页时步骤条不渲染
+  this.setState({
+    datas: [],
+    condition: false,
+  });
+
+  // 如果是搜索的话翻页重置到 1
+  if (params.from === 'search') {
+    params.currentPage = 1;
+  }
+
+  //定义newvalue数组，存放表格数据
+  const newvalue = [];
+  //配置获取实例id数据源参数，获取翻页后的第params.currentPage页数据
+  const param_1 = {
+    formUuid: 'FORM-N796637187UTSDMX1NVMJ4EYCAHL2GQPCKWTKY3',
+    pageSize: 5,
+    currentPage: params.currentPage,
+  };
+  this.dataSourceMap.getInstanceIds.load(param_1).then((response) => {
+    let res = response.processInstanceId;
+    for (let i = 0; i < res.length; i++) {
+      const params = {
+        processInstanceId: res[i],
+      };
+      this.dataSourceMap.getOperationRecords.load(params).then((content) => {
+        const children = [];
+        for (let item = 0; item < content.length; item++) {
+          if (
+            content[item].actionExt === 'next' ||
+            content[item].actionExt === 'submit' ||
+            content[item].actionExt === 'doing'
+          ) {
+            if (content[item].showName === '重新提交') {
+              this.setState({
+                time: timeshow(content[item].operateTime, content[item - 1].operateTime),
+              });
+              let children_data = {
+                actionExt: content[item].actionExt,
+                active: content[item].showName,
+                active_name: content[item].operatorName,
+                active_time: content[item].operateTime,
+                time: state.time,
+                onlyid: params.processInstanceId,
+              };
+              children.push(children_data);
+            } else {
+              let children_data = {
+                actionExt: content[item].actionExt,
+                active: content[item].showName,
+                active_name: content[item].operatorName,
+                active_time: content[item].operateTime,
+                onlyid: params.processInstanceId,
+              };
+              children.push(children_data);
+            }
+          } else {
+            this.setState({
+              time: timeshow(content[item].operateTime, content[item - 1].operateTime),
+            });
+            let children_data = {
+              actionExt: content[item].actionExt,
+              active: content[item].showName,
+              active_name: content[item].operatorName,
+              active_time: content[item].operateTime,
+              time: state.time,
+              onlyid: params.processInstanceId,
+            };
+            children.push(children_data);
+          }
+        }
+
+        for (let j = 0; j < content.length; j++) {
+          if (content[j].type === 'TODO') {
+            let data = {
+              create_name: content[0].operatorName,
+              create_time: content[0].operateTime,
+              actionExt: content[j].actionExt,
+              active: content[j].showName + '（当前）',
+              active_name: content[j].operatorName + '（当前）',
+              active_time: content[j].activeTime,
+              children: children,
+              onlyid: params.processInstanceId,
+            };
+            newvalue.push(data);
+          }
+        }
+
+        if (content[content.length - 1].type === 'HISTORY') {
+          const num_end = content[content.length - 1].operateTime;
+          const num_start = content[0].operateTime;
+
+          this.setState({
+            time: timeshow(num_end, num_start),
+          });
+
+          let data = {
+            create_name: content[0].operatorName,
+            create_time: content[0].operateTime,
+            actionExt: 'Completed',
+            active: content[content.length - 1].showName + '(已完成)',
+            active_name: content[content.length - 1].operatorName + '(已完成)',
+            active_time: content[content.length - 1].operateTime,
+            action: content[content.length - 1].actionExt,
+            time: state.time,
+            children: children,
+            onlyid: params.processInstanceId,
+          };
+          newvalue.push(data);
+        }
+        //currentPage控制页码选中，totalCount控制总计条数，data是控制数据
+        let result = {
+          data: newvalue,
+          totalCount: response.totalCount,
+          currentPage: response.currentPage,
+        };
+        this.setState({
+          datas: result,
+        });
+      });
+    }
+  });
+}
+```
+
+## 在线试玩
+
+在线体验请移步开发者中心 👉 [步骤条展示流程工序](https://www.aliwork.com/developer/show-step)

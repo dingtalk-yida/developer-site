@@ -1,0 +1,93 @@
+---
+title: 表单&流程表单跳转传参
+order: 17
+---
+
+## 使用场景
+
+可能会用到在自定义页面调取数据源后进行组件赋值，在普通表单填写时默认进行赋值，而不需要再次进行手动的输入。
+
+### 效果演示
+
+![](https://img.alicdn.com/imgextra/i3/O1CN01B9Kcte1UUCpY1ib9X_!!6000000002520-2-tps-1332-619.png_.webp)
+效果演示
+
+## 视频教程
+
+<video width="100%" controls>
+  <source
+    src="https://cloud.video.taobao.com/play/u/12803658/p/1/d/hd/e/6/t/1/315801656671.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiNGQ1YmQwNDkyYzZmNGFhZjhlNDRkMjE5N2I2ZTZmZDkifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDc1MjE1MzA="
+    type="video/mp4"
+  ></source>
+</video>
+
+## 操作步骤
+
+### 步骤 1：创建自定义页面
+
+1. 在页面中拉入两个输入框和按钮组件
+   ![](https://img.alicdn.com/imgextra/i2/O1CN01RAD8ee1hHvD5AEIFt_!!6000000004253-2-tps-1074-545.png_.webp)
+   自定义编辑页面
+2. 在按钮上添加 onClick 事件
+   ![](https://img.alicdn.com/imgextra/i1/O1CN01oRDjDu1Ye3oTFnLyZ_!!6000000003083-2-tps-1114-707.png_.webp)
+   新建动作
+   ![](https://img.alicdn.com/imgextra/i4/O1CN01LsnsSo1miYJqZQidZ_!!6000000004988-2-tps-1025-658.png_.webp)
+   点击确定
+3. JS 面板
+   ![](https://img.alicdn.com/imgextra/i1/O1CN01JbdjjU1WvnvZw6D4H_!!6000000002851-2-tps-1908-878.png_.webp)
+   JS 面板
+
+   下述代码可直接复制在 JS 面板内，注意：需要替换组件的唯一标识。
+- 路由跳转参考链接: [https://www.aliwork.com/developer/API#router](https://www.aliwork.com/developer/API#router)
+- 弹出消息框参考链接: [https://www.aliwork.com/developer/API#toast](https://www.aliwork.com/developer/API#toast)
+
+```javascript
+export function onClick() {
+  //name 和 sex 为上面输入框组件取值
+  const name = this.$('textField_kq6ccx2b').getValue();
+  const sex = this.$('textField_kq6ccx2c').getValue();
+  //判断如果 name 和 sex 的值存在时执行下面跳转语句
+  if (name && sex) {
+    //路由跳转
+    //下面这个 url 为表单提交页面的url，将获取到的 name 和 sex 值以携带参数的形式传给表单页面，后面两个参数传true即可。
+    this.utils.router.push(
+      'https://www.aliwork.com/APP_HQP0HX4ISBM4NV6RZR8T/submission/FORM-4A9667B1JA6RJCIO2XG4X5HBAVIH32CE4C6QKC4',
+      { name, sex },
+      true,
+      true
+    );
+  } else {
+    //弹出消息窗
+    this.utils.toast({
+      title: '姓名和性别字段不能为空',
+      type: 'error',
+      size: 'large',
+    });
+  }
+}
+```
+
+### 步骤 2：创建表单页面
+
+1. 在表单页面拉入单行文本组件（根据个人需求拉入需要的组件）
+   ![](https://img.alicdn.com/imgextra/i3/O1CN01d5y4Hf1NBF7Km4160_!!6000000001531-2-tps-1907-888.png_.webp)
+   普通表单编辑页面
+2. 打开数据源点击一下 urlParams
+   ![](https://img.alicdn.com/imgextra/i3/O1CN01TD44dq1ezU2IpytzN_!!6000000003942-2-tps-1882-867.png_.webp)
+   添加数据源
+3. 组件绑定默认值
+
+:::caution
+- 如果 url 中存在参数就为参数的值,否则将默认值设置为:「请输入姓名」
+- 如果 url 中存在参数就为参数的值,否则将默认值设置为:「请输入性别」
+:::
+
+  ![](https://img.alicdn.com/imgextra/i2/O1CN01TCPxyB1HJ8FPlHSSx_!!6000000000736-2-tps-1268-753.png_.webp)
+  设置姓名的默认值属性
+  ![](https://img.alicdn.com/imgextra/i2/O1CN01WnJyIw1HzGgPY2Ncd_!!6000000000828-2-tps-1256-681.png_.webp)
+  设置性别的默认值属性
+
+### 在线试玩
+
+在线体验请移步开发者中心 👉 [自定义页面向表单/流程表单跳转传参](https://www.aliwork.com/developer/link-form)
+​

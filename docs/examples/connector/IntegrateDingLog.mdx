@@ -1,0 +1,100 @@
+---
+title: 集成钉钉日志
+order: 3
+---
+
+## 使用场景
+
+在宜搭表单内选择成员提交后即可查询该员工在钉钉日志内的未读条数，便于统计。
+
+## 操作步骤
+
+### 步骤1：表单设计
+
+**创建并配置「未读日志查询表」表单**
+用于提交数据时，触发连接器动作，发起查询。
+**操作步骤：**
+
+1. 新建表单，命名为「未读日志查询表」。
+2. 添加成员组件，命名为「选择员工」，设置为必填项。
+
+如下所示：
+
+![](https://img.alicdn.com/imgextra/i4/O1CN01N8RsgV1x6xa9pj5AN_!!6000000006395-2-tps-2872-1576.png_.webp)
+​
+
+3. 点击页面右上角「保存」按钮，即可。
+   **创建并配置「日志查询记录」表单**
+   用于接收连接器返回的数据，并进行展示。
+   **操作步骤：**
+
+1. 新建表单，命名为「日志查询记录」。
+1. 添加单行文本组件，命名为「未读条数」，状态设置为「只读」。如下所示：
+
+![](https://img.alicdn.com/imgextra/i4/O1CN01ytQwMp1YhiypPXI2J_!!6000000003091-2-tps-2876-1584.png_.webp)
+​
+
+3. 点击页面右上角「保存」按钮，即可。
+
+### 步骤2：配置连接器
+
+:::info
+宜搭连接器详细介绍，请参见：[集成&自动化-连接器](/docs/guide/concept/connector)
+:::
+用于集成钉钉日志数据。
+**操作步骤：**
+
+1. 后台管理页面「集成&自动化」>>「新建集成&自动化」。如下所示：
+
+![](https://img.alicdn.com/imgextra/i4/O1CN01UIxIuk1OJJiRl2SGl_!!6000000001684-2-tps-2872-1584.png_.webp)
+​
+
+2. 将连接器命名为「查询员工未读日志条数」，选择「表单事件触发」类型并指定表单为「未读日志查询表」>>点击「确定」按钮。如下所示：
+
+![](https://img.alicdn.com/imgextra/i3/O1CN01XUVoqr27z8aixN37m_!!6000000007867-2-tps-2876-1578.png_.webp)
+​
+
+3. 配置表单事件触发：触发条件设置为「创建成功」，数据过滤设置为「全部数据」。如下所示：
+
+![](https://img.alicdn.com/imgextra/i3/O1CN01GrsfUt1KyIgtWuHBG_!!6000000001232-2-tps-2864-1582.png_.webp)
+​
+
+4. 选择连接器应用：选择连接器应用为「日志」，点击「下一步」按钮。如下所示：
+
+![](https://img.alicdn.com/imgextra/i4/O1CN019gRdA826aZjXKkite_!!6000000007678-2-tps-2872-1588.png_.webp)
+​
+
+5. 选择连接器执行动作：选择「获取未读日志数」执行动作，点击「下一步」按钮。如下所示：
+
+![](https://img.alicdn.com/imgextra/i1/O1CN011rQcNa1Ihh6BRhMd8_!!6000000000925-2-tps-2862-1582.png_.webp)
+​
+
+6. 配置连接器执行动作，点击「保存」按钮。如下所示：
+
+![](https://img.alicdn.com/imgextra/i4/O1CN01z7oIxq1Eh02JKraMn_!!6000000000382-2-tps-2866-1576.png_.webp)
+​
+
+7. 添加「新增数据」数据节点。如下所示：
+
+![](https://img.alicdn.com/imgextra/i4/O1CN01kTdJ4d1JTmgmDJAAo_!!6000000001030-2-tps-2868-1586.png_.webp)
+
+​
+
+8. 配置「新增数据」数据节点。如下所示：
+
+![](https://img.alicdn.com/imgextra/i4/O1CN018ZEVqk1E3byf3d2Oc_!!6000000000296-2-tps-2870-1588.png_.webp)
+
+​
+
+9. 点击页面右上角「保存」按钮后，点击「发布」按钮，即可。
+
+### 步骤3：提交表单数据
+
+用于触发连接器，并接收连接器返回结果。
+**操作步骤：**
+填写「未读日志查询表」表单数据，并提交。如下所示：
+![](https://img.alicdn.com/imgextra/i4/O1CN01isE3uJ21ZanzEswVG_!!6000000006999-2-tps-1920-950.png_.webp)
+
+## 效果展示
+
+![](https://img.alicdn.com/imgextra/i4/O1CN011Scmot1XvdORDR1Sp_!!6000000002986-2-tps-1920-951.png_.webp)

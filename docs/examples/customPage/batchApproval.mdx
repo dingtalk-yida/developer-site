@@ -1,5 +1,5 @@
 ---
-title: 自定义页面实现批量审批
+title: 批量审批
 order: 19
 ---
 
@@ -19,29 +19,34 @@ order: 19
 
 ## 视频演示
 
-![自定义页面-批量审批.mov](https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*NNs6TKOR3isAAAAAAAAAAABkARQnAQ)]()# 5. 在线试玩
-在线体验请移步开发者中心 👉 [自定义页面实现批量审批](https://www.aliwork.com/developer/batch-approval)
+<video width="100%" controls>
+  <source
+    src="https://cloud.video.taobao.com/play/u/12803658/p/1/d/hd/e/6/t/1/327995844204.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiMzU5MjExZWU0OTdmODkyNmMzZmZlZmZlNzc3ZTRhMjQifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDc1MjE4Mjc="
+    type="video/mp4"
+  ></source>
+</video>
+
 
 ## 操作步骤
 
-### 步骤一: 创建表单
+### 步骤 1: 创建表单
 
 **「流程表单」：**流程表单，配置 A 节点直接审批。
 ![1.gif](https://img.alicdn.com/imgextra/i1/O1CN01I7XJqK1Sru5i56mey_!!6000000002301-1-tps-1894-863.gif)
 **「审批节点必填页面」页面：**流程表单，设置隐藏字段，提交时不可见，A 节点可见，且在 A 节点设置校验规则，审批时隐藏字段不能为空。
 ![2.gif](https://img.alicdn.com/imgextra/i2/O1CN01d1TOns29QRp1ZlU9w_!!6000000008062-1-tps-1894-863.gif)
 **「流程批量审批」页面：**自定义页面，自定义表格获取当前登录人当前应用内所有未审批流程，顶部操作按钮添加批量同意及批量拒绝，用来执行批量审批。
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN012gZYDe1W7sksDUZYP_!!6000000002742-2-tps-2326-544.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN012gZYDe1W7sksDUZYP_!!6000000002742-2-tps-2326-544.png_.webp)
 
-### 步骤二: 远程数据源获取待办展示在表格中
+### 步骤 2: 远程数据源获取待办展示在表格中
 
 1. 增加远程数据源，调用「待办任务」接口
    参考文档：[宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=k0ehye)
-   ![image.png](https://img.alicdn.com/imgextra/i2/O1CN01irnSlx289DItumvz9_!!6000000007889-2-tps-2060-1170.png)
+   ![](https://img.alicdn.com/imgextra/i2/O1CN01irnSlx289DItumvz9_!!6000000007889-2-tps-2060-1170.png_.webp)
 2. 将返回数据处理成表格格式
-   ![image.png](https://img.alicdn.com/imgextra/i2/O1CN014J2AWX1WiWRRFNyEs_!!6000000002822-2-tps-2682-1422.png)
+   ![](https://img.alicdn.com/imgextra/i2/O1CN014J2AWX1WiWRRFNyEs_!!6000000002822-2-tps-2682-1422.png_.webp)
    添加请求完成时回调函数（didFench）
-   ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01DNgDu81UFY9XyGmSC_!!6000000002488-2-tps-2778-1544.png)
+   ![](https://img.alicdn.com/imgextra/i1/O1CN01DNgDu81UFY9XyGmSC_!!6000000002488-2-tps-2778-1544.png_.webp)
    控制台查看数据
    :::info
    在执行审批任务时需要使用到「taskId」，同时需要给表格的数据主键配置唯一值，因此将「processInstanceId」，即流程实例 ID 作为主键。
@@ -58,19 +63,19 @@ function didFetch(content) {
    给表格绑定数据源，并配置 processInstanceId 为数据主键。
    ![自定义页面实现批量审批2.gif](https://img.alicdn.com/imgextra/i1/O1CN01tXHPUl24cHzAZl0qr_!!6000000007411-1-tps-1380-749.gif)
 4. 配置表格分页
-   ![image.png](https://img.alicdn.com/imgextra/i4/O1CN01vcKKld1ryeJiWMNoH_!!6000000005700-2-tps-2694-1420.png)
+   ![](https://img.alicdn.com/imgextra/i4/O1CN01vcKKld1ryeJiWMNoH_!!6000000005700-2-tps-2694-1420.png_.webp)
 
-### 步骤三: 开启行选择获取选中流程
+### 步骤 3: 开启行选择获取选中流程
 
 1. 打开行选择器
-   ![image.png](https://img.alicdn.com/imgextra/i3/O1CN012dAEnO1m0aIN1q9J7_!!6000000004892-2-tps-1902-880.png)
-   ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01ntRteE1tVuhUnjTdB_!!6000000005908-2-tps-1910-875.png)
+   ![](https://img.alicdn.com/imgextra/i3/O1CN012dAEnO1m0aIN1q9J7_!!6000000004892-2-tps-1902-880.png_.webp)
+   ![](https://img.alicdn.com/imgextra/i1/O1CN01ntRteE1tVuhUnjTdB_!!6000000005908-2-tps-1910-875.png_.webp)
 2. 添加变量数据源「arr*id」
    在数据源中添加变量数据源「arr_id」，当选择行数据时，获取该行数据的「processInstanceId」和「taskId」并 push 到数组中，然后将数组赋值给变量数据源中。
-   ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01UfO01P29btj9CH91B*!!6000000008087-2-tps-2060-1018.png)
+   ![](https://img.alicdn.com/imgextra/i1/O1CN01UfO01P29btj9CH91B*!!6000000008087-2-tps-2060-1018.png_.webp)
 3. 添加单行选择回调动作事件
    添加单行选择回调动作事件，由于执行审批任务时需要使用到「processInstanceId」和「taskId」两个参数，因此在每选择一行时，将每行数据中的「processInstanceId」和「taskId」添加到数组，选择多行时，通过循环将多行数据中的「processInstanceId」和「taskId」添加到数组中，最后将处理好的数组数据赋值给变量数据源。
-   ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01Wqniki1gI5k09LrnF_!!6000000004118-2-tps-2666-1222.png)
+   ![](https://img.alicdn.com/imgextra/i3/O1CN01Wqniki1gI5k09LrnF_!!6000000004118-2-tps-2666-1222.png_.webp)
    代码参考如下：
 
 ```javascript
@@ -83,26 +88,26 @@ export function onSelect(selected, rowData, selectedRows) {
     };
     arr_id.push(id);
   });
-  console.log("arr_id", arr_id);
+  console.log('arr_id', arr_id);
   this.setState({
     arr_id: arr_id,
   });
 }
 ```
 
-### 步骤四 远程数据源执行审批任务
+### 步骤 4 远程数据源执行审批任务
 
 增加远程数据源，调用「执行单个任务接口」接口
 参考文档：[宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=icdzds)
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01f0xeQu1y7FRtDrX3X_!!6000000006531-2-tps-1730-934.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN01f0xeQu1y7FRtDrX3X_!!6000000006531-2-tps-1730-934.png_.webp)
 
-### 步骤五: 配置批量同意审批
+### 步骤 5: 配置批量同意审批
 
 1. 添加批量同意按钮
-   ![image.png](https://img.alicdn.com/imgextra/i2/O1CN01p2Jwd91HzGgbgucVA_!!6000000000828-2-tps-1914-885.png)
+   ![](https://img.alicdn.com/imgextra/i2/O1CN01p2Jwd91HzGgbgucVA_!!6000000000828-2-tps-1914-885.png_.webp)
 2. 添加批量同意动作事件
    在批量同意按钮添加回调函数，绑定动作事件，在动作事件中，获取变量数据源 arr*id，将数据源中的数组循环，从而获取行选择时选择所有流程的「processInstanceId」和「taskId」，将获取到的 id 值，审批意见（确认同意）及审批结果（AGREE）作为参数，调用数据源，执行流程审批，执行成功后，重新加载获取待办数据源，刷新当前登录人的待办，并弹出成功对话框。
-   ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01utFfmy1cTIyXpk2DA*!!6000000003601-2-tps-2696-1072.png)
+   ![](https://img.alicdn.com/imgextra/i1/O1CN01utFfmy1cTIyXpk2DA*!!6000000003601-2-tps-2696-1072.png_.webp)
    代码参考如下：
 
 ```javascript
@@ -111,28 +116,28 @@ export function onActionBarItemClick_agree() {
     const param = {
       taskId: this.state.arr_id[i].taskId,
       procInstId: this.state.arr_id[i].processInstanceId,
-      outResult: "AGREE",
-      remark: "确认同意",
+      outResult: 'AGREE',
+      remark: '确认同意',
     };
-    this.dataSourceMap["executeTask"].load(param).then((res) => {
-      this.dataSourceMap["getTodoTasks"].load();
+    this.dataSourceMap['executeTask'].load(param).then((res) => {
+      this.dataSourceMap['getTodoTasks'].load();
       this.utils.toast({
-        title: "success",
-        type: "success",
-        size: "medium",
+        title: 'success',
+        type: 'success',
+        size: 'medium',
       });
     });
   }
 }
 ```
 
-### 步骤六: 配置批量拒绝审批
+### 步骤 6: 配置批量拒绝审批
 
 1. 添加批量拒绝按钮
-   ![](https://img.alicdn.com/imgextra/i3/O1CN01pqU0OG1uOPpU1n6Bn_!!6000000006027-2-tps-1914-885.png)
+   ![](https://img.alicdn.com/imgextra/i3/O1CN01pqU0OG1uOPpU1n6Bn_!!6000000006027-2-tps-1914-885.png_.webp)
 2. 添加批量拒绝动作事件
    在批量拒绝按钮添加回调函数，绑定动作事件，在动作事件中，获取变量数据源 arr*id，将数据源中的数组循环，从而获取行选择时选择所有流程的「processInstanceId」和「taskId」，将获取到的 id 值，审批意见（确认拒绝）及审批结果（DISAGREE）作为参数，调用数据源，执行流程审批，执行成功后，重新加载获取待办数据源，刷新当前登录人的待办，并弹出成功对话框。
-   ![image.png](https://img.alicdn.com/imgextra/i4/O1CN017ykGgT1xBzwGyiWgJ*!!6000000006406-2-tps-2604-1064.png)
+   ![](https://img.alicdn.com/imgextra/i4/O1CN017ykGgT1xBzwGyiWgJ*!!6000000006406-2-tps-2604-1064.png_.webp)
    代码参考如下：
 
 ```javascript
@@ -141,26 +146,26 @@ export function onActionBarItemClick_disagree() {
     const param = {
       taskId: this.state.arr_id[i].taskId,
       procInstId: this.state.arr_id[i].processInstanceId,
-      outResult: "DISAGREE",
-      remark: "确认拒绝",
+      outResult: 'DISAGREE',
+      remark: '确认拒绝',
     };
-    this.dataSourceMap["executeTask"].load(param).then((res) => {
-      this.dataSourceMap["getTodoTasks"].load();
+    this.dataSourceMap['executeTask'].load(param).then((res) => {
+      this.dataSourceMap['getTodoTasks'].load();
       this.utils.toast({
-        title: "success",
-        type: "success",
-        size: "medium",
+        title: 'success',
+        type: 'success',
+        size: 'medium',
       });
     });
   }
 }
 ```
 
-### 步骤七: 执行失败时弹出失败原因
+### 步骤 7: 执行失败时弹出失败原因
 
 当审批时，若当前审批人需要填写必填内容或者需要由当前审批人来指定下一个审批人时，则审批无法执行成功，因此可以在这里获取执行失败原因，并弹出提示框。
 在执行审批任务数据源添加请求错误处理函数，弹出报错信息对话框
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN017qoo7Y1oocnkCpr2f_!!6000000005272-2-tps-2026-1074.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN017qoo7Y1oocnkCpr2f_!!6000000005272-2-tps-2026-1074.png_.webp)
 参考代码如下：
 
 ```javascript
@@ -169,17 +174,17 @@ function onError(error) {
   // 可以在这里做弹框提示等操作
   this.utils.toast({
     title: error.message,
-    type: "error",
-    size: "medium",
+    type: 'error',
+    size: 'medium',
   });
 }
 ```
 
-### 步骤八: 点击详情跳转详情页
+### 步骤 8: 点击详情跳转详情页
 
 当弹出报错信息后可点击详情跳转到详情页中。
-![image.png](https://img.alicdn.com/imgextra/i2/O1CN01fzEmkY1FpzQXIp3NS_!!6000000000537-2-tps-1917-882.png)点击详情跳转到详情页
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01hsIMcp1kCpertpzEJ_!!6000000004648-2-tps-2058-72.png)
+![](https://img.alicdn.com/imgextra/i2/O1CN01fzEmkY1FpzQXIp3NS_!!6000000000537-2-tps-1917-882.png_.webp)点击详情跳转到详情页
+![](https://img.alicdn.com/imgextra/i1/O1CN01hsIMcp1kCpertpzEJ_!!6000000004648-2-tps-2058-72.png_.webp)
 参考代码如下：
 
 ```javascript
@@ -188,7 +193,5 @@ export function onActionClick(rowData) {、
 }
 ```
 
-​
-
-**--------------------获取宜搭最新信息，欢迎关注我们--------------------**
-![宜搭.jpg](https://img.alicdn.com/imgextra/i3/O1CN01gx02aw1GwERXmOFvv_!!6000000000686-0-tps-1800-1012.jpg)
+## 在线试玩
+在线体验请移步开发者中心 👉 [自定义页面实现批量审批](https://www.aliwork.com/developer/batch-approval)

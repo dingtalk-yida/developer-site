@@ -8,9 +8,10 @@ order: 14
 企业的项目信息往往包含项目名，项目类型，项目图等信息，那么我们可以直接将数据在自定义页面进行展示，并且可以直接根据项目类型进行筛选，我们也在展示模块中添加一个点赞的功能，并且实现点击会叠加
 
 ## 信息展示并筛选的视频展示
+
 <video width="100%" controls>
   <source
-    src="https://cloud.video.taobao.com/play/u/12803658/p/1/d/hd/e/6/t/1/312840702324.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiZmZkNDBhNWM5ZDIxZDRlMjQzNWU1NTM3NmUyNmRmNTkifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDczMDgzOTE="
+    src="https://cloud.video.taobao.com/play/u/12803658/p/1/d/hd/e/6/t/1/312840702324.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiZTg4ODdmOGE4NGY5YTc1MzFlMWIwMGFmOTc3MzZmMjQifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDc1MjEwODg="
     type="video/mp4"
   ></source>
 </video>
@@ -21,7 +22,7 @@ order: 14
 **在数据源处增加远程数据源，调用根据条件搜索表单实例详情列表接口**
 参考文档：[宜搭平台接口（页面数据源可直接调用）](https://www.yuque.com/yida/support/aql605?view=doc_embed&inner=936pox)
 接口配置如图：
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01hmQ7c71rOT1mAheas_!!6000000005621-2-tps-2874-1316.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN01hmQ7c71rOT1mAheas_!!6000000005621-2-tps-2874-1316.png_.webp)
 
 **请求返回数据在 didFetch 函数中处理，直接将 content 值 return 出来**
 
@@ -34,34 +35,34 @@ function didFetch(content) {
 
 **接口返回数据如图，打开控制台，进入 network 页面，搜索 searchFormDatas.json，可以看到返回了 content 以及 success：true，success：true 证明我们调用接口成功，而 data 值则是我们返回的数据，其中 forminstid 为实例 ID，formdata 为数据内容**
 
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN01ACWz7k1kCNGBEpgXp_!!6000000004647-2-tps-2878-1404.png)
-![image.png](https://img.alicdn.com/imgextra/i2/O1CN01DbnChU1opXatIeZ2E_!!6000000005274-2-tps-2878-1044.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN01ACWz7k1kCNGBEpgXp_!!6000000004647-2-tps-2878-1404.png_.webp)
+![](https://img.alicdn.com/imgextra/i2/O1CN01DbnChU1opXatIeZ2E_!!6000000005274-2-tps-2878-1044.png_.webp)
 
 **在自定义页面中拖动链接块，并在链接块中配置图片以及文字信息格式，并将对应内容绑定数据源**
 
 **配置链接块以及文字格式，我们可以看到 data 中是有多条数据，我们需要将数据一条一条拿出来展示到对应位置，在这里我们可以使用我们的一个迭代用法，那么我们就可以使用链接块进行循环，将链接块中的内容一个一个进行循环**
 
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN01JzEzSm1SHGPC8PdXB_!!6000000002221-2-tps-2122-940.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN01JzEzSm1SHGPC8PdXB_!!6000000002221-2-tps-2122-940.png_.webp)
 
 **循环数据可以通过绑定数据源来实现，我们要将 data 数据循环展示出来，那么我们可以直接使用 state.getdatas.data 直接将数据绑定到链接块上，那么当我们拿到数据时，就会自动在链接块进行循环并将所有数据按照链接块格式展示出来**
 
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN01y667tv1Ug77wWJLsi_!!6000000002546-2-tps-2864-1296.png)
+![](https://img.alicdn.com/imgextra/i3/O1CN01y667tv1Ug77wWJLsi_!!6000000002546-2-tps-2864-1296.png_.webp)
 
 **由于标题等项目信息都处在链接块内，因此我们只需要在属性内容直接绑定数据源拿到 item.formData.name 的值，将所有文本组件依次绑定对应变量值**
 
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN016QUxMM1IEq9K1ENmz_!!6000000000862-2-tps-2794-1256.png)
+![](https://img.alicdn.com/imgextra/i3/O1CN016QUxMM1IEq9K1ENmz_!!6000000000862-2-tps-2794-1256.png_.webp)
 
 **对图片组件进行绑定值时，需要对返回的图片格式进行处理**
 
 图片我们在系统返回的是一个数组类型，我们可以使用 json.parse 方法将当前的值拿过来，是一个数组和一个对象，我们可以看到对象中有一个 previewUrl ，那么这个就是我们图片的地址
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN015YWx8U2A9n2DMrMv4_!!6000000008161-2-tps-2868-960.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN015YWx8U2A9n2DMrMv4_!!6000000008161-2-tps-2868-960.png_.webp)
 因此我们在使用这个地址时，可以直接使用 item.formdata.photo 拿到我们的图片返回值，然后使用 json.parse 方法进行处理，并返回数组第一个中的 previewUrl
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN01T9o0yo1yuFpWbvbQ4_!!6000000006638-2-tps-2876-1274.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN01T9o0yo1yuFpWbvbQ4_!!6000000006638-2-tps-2876-1274.png_.webp)
 
 **配置好后，就可以直接展示数据了**
 
 效果如图：
-![image.png](https://img.alicdn.com/imgextra/i2/O1CN019kuEB31XxSyekjYIv_!!6000000002990-2-tps-2866-1300.png)
+![](https://img.alicdn.com/imgextra/i2/O1CN019kuEB31XxSyekjYIv_!!6000000002990-2-tps-2866-1300.png_.webp)
 
 ### 筛选功能操作步骤
 
@@ -69,16 +70,16 @@ function didFetch(content) {
 
 **拖动选项卡到页面中，并配置三个选项**
 
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN01FyEinY28dRRjZqGFS_!!6000000007955-2-tps-2876-1280.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN01FyEinY28dRRjZqGFS_!!6000000007955-2-tps-2876-1280.png_.webp)
 
 **选择全部时，触发点击动作 onClickall，由于选择全部时，展示全部数据，因此只需重新加载数据源获取数据**
 
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01m9GcWl1DGbbNQBNea_!!6000000000189-2-tps-2716-900.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN01m9GcWl1DGbbNQBNea_!!6000000000189-2-tps-2716-900.png_.webp)
 
 ```javascript
 export function onClickall() {
   const params = {
-    formUuid: "FORM-VFYJ1FGVKZYP49FP075B4BA6VCV931W935HOK31",
+    formUuid: 'FORM-VFYJ1FGVKZYP49FP075B4BA6VCV931W935HOK31',
   };
   this.dataSourceMap.getDatas.load(params).then((response) => {
     // this.utils.dialog({
@@ -94,14 +95,14 @@ export function onClickall() {
 **选择科研项目时，则触发动作 onClicka，由于只筛选出科研项目的数据，因此需要加载数据源时，需要添加参数在调用接口获取数据**
 
 首先使用 this.$('fliedid').get('content'); 获取文本的内容值“科研项目”，然后将内容作为参数，调用 getDatas 接口，加载数据源，从而实现点击科研项目时筛选科研项目的需求
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01J9kBny1daSmgQjPZq_!!6000000003752-2-tps-2796-1268.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN01J9kBny1daSmgQjPZq_!!6000000003752-2-tps-2796-1268.png_.webp)
 
 ```javascript
 export function onClicka() {
-  const a = this.$("科研项目文本唯一标识").get("content");
+  const a = this.$('科研项目文本唯一标识').get('content');
   const obj = { selectField_koh53g2m: a };
   const params = {
-    formUuid: "FORM-VFYJ1FGVKZYP49FP075B4BA6VCV931W935HOK31",
+    formUuid: 'FORM-VFYJ1FGVKZYP49FP075B4BA6VCV931W935HOK31',
     searchFieldJson: JSON.stringify(obj),
   };
   this.dataSourceMap.getDatas.load(params).then((response) => {
@@ -117,20 +118,20 @@ export function onClicka() {
 
 **实现效果**
 
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01JClLIG1WFfUPOQC6F_!!6000000002759-2-tps-2390-1214.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN01JClLIG1WFfUPOQC6F_!!6000000002759-2-tps-2390-1214.png_.webp)
 
 **选择商业项目时，则触发动作 onClickb，由于只筛选出商业项目的数据，因此需要加载数据源时，需要添加参数在调用接口获取数据**
 
 首先使用 this.$('fliedid').get('content'); 获取文本的内容值“商业项目”，然后将内容作为参数，调用 getDatas 接口，加载数据源，从而实现点击科研项目时筛选商业项目的需求
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN011kEdNF1cMtQmi1ON5_!!6000000003587-2-tps-2782-1290.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN011kEdNF1cMtQmi1ON5_!!6000000003587-2-tps-2782-1290.png_.webp)
 
 ```javascript
 export function onClickb() {
-  const b = this.$("商业项目文本唯一标识").get("content");
+  const b = this.$('商业项目文本唯一标识').get('content');
   console.log(b);
   let obj = { selectField_koh53g2m: b };
   const params = {
-    formUuid: "FORM-VFYJ1FGVKZYP49FP075B4BA6VCV931W935HOK31",
+    formUuid: 'FORM-VFYJ1FGVKZYP49FP075B4BA6VCV931W935HOK31',
     searchFieldJson: JSON.stringify(obj),
   };
   this.dataSourceMap.getDatas.load(params).then((response) => {
@@ -146,13 +147,13 @@ export function onClickb() {
 
 **实现效果**
 
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN01KxtXTg1h0W9vjKCZo_!!6000000004215-2-tps-2252-1180.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN01KxtXTg1h0W9vjKCZo_!!6000000004215-2-tps-2252-1180.png_.webp)
 
 ## 点赞功能的视频展示
 
 <video width="100%" controls>
   <source
-    src="https://cloud.video.taobao.com/play/u/12803658/p/1/d/hd/e/6/t/1/312963098426.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiYWMxODllYmVlMjFkYjhjNDg0YjM5M2RlMGU0MWJhOTAifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDczMDg2NDA="
+    src="https://cloud.video.taobao.com/play/u/12803658/p/1/d/hd/e/6/t/1/312963098426.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiZTg4ODdmOGE4NGY5YTc1MzFlMWIwMGFmOTc3MzZmMjQifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDc1MjEwODg="
     type="video/mp4"
   ></source>
 </video>
@@ -160,48 +161,40 @@ export function onClickb() {
 
 **项目提交时会填入点赞数为 0 ，而我们在点击点赞时，会自动修改表单中的点赞数值，从而实现点赞效果**
 
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01ins5sJ1POBXrGXK0z_!!6000000001830-2-tps-1630-884.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN01ins5sJ1POBXrGXK0z_!!6000000001830-2-tps-1630-884.png_.webp)
 
 **配置点赞图标，并且给图表后的文字赋值，将点赞数赋值到文字内容中**
 
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01T7X2zh1Vyipo1WGVu_!!6000000002722-2-tps-2878-1322.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN01T7X2zh1Vyipo1WGVu_!!6000000002722-2-tps-2878-1322.png_.webp)
 
 **新建远程数据源 getDatas_copy，点赞时，获取到当前点击的项目信息，将项目信息作为参数搜索项目实例并搜索到该条项目实例详情并返回回来**
 
 **新增远程数据源 getDatas_copy 及变量数据源**
 
 配置如图：
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN01rxypkQ1DAeS2OlEoi_!!6000000000176-2-tps-2368-1290.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN01rxypkQ1DAeS2OlEoi_!!6000000000176-2-tps-2368-1290.png_.webp)
 
 **给点赞添加点击 onclick 事件**
 
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN01jfHCWa283iYHwrkFl_!!6000000007877-2-tps-2878-1332.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN01jfHCWa283iYHwrkFl_!!6000000007877-2-tps-2878-1332.png_.webp)
 
 **使用 this.$('text_koc9j5ys').get('content') 获取点击到的项目的信息，并将该信息作为参数加载 getDatas_copy 数据源，且将返回数据中的值赋值给变量数据源 dianzannum 及 formInstId**
 
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01FWY1y41W7QMOoQkls_!!6000000002741-2-tps-2750-1246.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN01FWY1y41W7QMOoQkls_!!6000000002741-2-tps-2750-1246.png_.webp)
 
 **点赞后，修改表单中的点赞数组件值，需要使用修改表单实例接口**
 
 配置如图：
-![image.png](https://img.alicdn.com/imgextra/i2/O1CN01Yz94Ly230RdvmhxGq_!!6000000007193-2-tps-1810-1284.png)
+![](https://img.alicdn.com/imgextra/i2/O1CN01Yz94Ly230RdvmhxGq_!!6000000007193-2-tps-1810-1284.png_.webp)
 
 **点击点赞时，执行点赞数加一，使用变量数据源 dianzanmum 的值加 1，并且将该数据作为参数值 updateFormDataJson 加载远程数据源 updateDatas**
 
-![image.png](https://img.alicdn.com/imgextra/i4/O1CN01WVAIYS1Yv0TBBBxhE_!!6000000003120-2-tps-2832-1280.png)
+![](https://img.alicdn.com/imgextra/i4/O1CN01WVAIYS1Yv0TBBBxhE_!!6000000003120-2-tps-2832-1280.png_.webp)
 
 **修改成功后，将修改的点赞数赋值给自定义页面点赞的文本内容**
 
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01GfGrjf27Al1kHFFvy_!!6000000007757-2-tps-2764-1120.png)
+![](https://img.alicdn.com/imgextra/i1/O1CN01GfGrjf27Al1kHFFvy_!!6000000007757-2-tps-2764-1120.png_.webp)
 
 ## 在线试玩
 
 在线体验请移步开发者中心 👉\*\* **[**怎么展示项目信息，筛选功能及点赞功能\*\*](https://www.aliwork.com/developer/show-message)
-
-:::warning
-宜搭为了更好的优化宜搭使用手册内容和质量，占用您 3-5 分钟时间，辛苦填写一下文档反馈问卷。文档反馈问卷是匿名提交，同时问卷信息仅用于宜搭文档体验反馈收集，感谢您对宜搭的支持！
-[**点此填写调研问卷**](https://www.aliwork.com/o/cesqwekd?ddtab=true)
-:::
-
-**--------------------获取宜搭最新信息，欢迎关注我们--------------------**
-![宜搭.jpg](https://img.alicdn.com/imgextra/i1/O1CN01P9Mtbg1tGndDzux3p_!!6000000005875-0-tps-1800-1012.jpg)

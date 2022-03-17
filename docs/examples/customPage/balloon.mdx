@@ -1,0 +1,90 @@
+---
+title: 使用起泡提示完整内容
+order: 8
+---
+
+## 场景
+
+在自定义页面循环展示数据时，当数据内容过长时，就会发生显示不完整的情况，这时我们可以使用气泡提示，当鼠标划过时可自动展示完整内容。
+
+## 视频展示
+
+更新中，敬请期待～
+
+## 实现步骤
+
+### 步骤1：配置气泡提示组件
+
+**添加容器，放入并配置气泡提示组件**
+![](https://img.alicdn.com/imgextra/i3/O1CN01O191Vl1YAI4LlZIkK_!!6000000003018-2-tps-2020-1094.png_.webp)
+​
+
+这时打开大纲树，可以看到在气泡提示下有触发元素层以及弹层，触发元素层用于放置显示在页面中的触发内容，弹层则是用于显示弹出框内容。
+![](https://img.alicdn.com/imgextra/i4/O1CN01qJntf21crZy2QgH5E_!!6000000003654-2-tps-2778-1012.png_.webp)
+**配置气泡提示组件**
+需将触发行为修改为 「Hover」，在鼠标划过时即可弹出气泡。
+![](https://img.alicdn.com/imgextra/i3/O1CN013Z5KN927VpFIu4fhm_!!6000000007803-2-tps-1916-877.png_.webp)
+
+### 步骤2：配置在触发元素层循环展示数据
+
+**拖入文本组件并放置于触发元素中**
+拖动文本组件到页面中，需在大纲树中找到文本组件，并在大纲树中将文本组件拖动到触发元素下。
+![](https://img.alicdn.com/imgextra/i1/O1CN01oCZyxj1nE9eElDTUe_!!6000000005057-2-tps-1532-826.png_.webp)
+调整文本组件的样式，样式可自由调整。
+![](https://img.alicdn.com/imgextra/i4/O1CN01YvEEvg23bXj3vpIU3_!!6000000007274-2-tps-2678-1396.png_.webp)
+**创建变量数据源，添加测试数据**
+![](https://img.alicdn.com/imgextra/i3/O1CN015CubFw1ZVBl6MJ9Nd_!!6000000003199-2-tps-2198-1156.png_.webp)
+测试数据可参考如下：
+
+```javascript
+[
+  {
+    name: '测试AAAAAAAAAAAA',
+  },
+  {
+    name: '测试BBBBBBBBBBBB',
+  },
+  {
+    name: '测试CCCCCCCCCCCC',
+  },
+  {
+    name: '测试DDDDDDDDDDDDD',
+  },
+  {
+    name: '测试EEEEEEEEEEEEE',
+  },
+  {
+    name: '测试FFFFFFFFFFFFF',
+  },
+];
+```
+
+**将容器绑定变量数据源**
+将创建好的变量数据源绑定在最外侧容器中，变量数据源中的数据会在容器中的组件循环展示。
+![](https://img.alicdn.com/imgextra/i3/O1CN01e4xpo41UuJPEtpSGf_!!6000000002577-2-tps-2212-1182.png_.webp)
+**将触发元素中的文字组件绑定循环数据内容**
+容器绑定变量数据源 data 后，迭代变量名为 item，文本需要绑定变量数据源中的 name 值，因此将文本绑定 item.name 。
+![](https://img.alicdn.com/imgextra/i4/O1CN01Rz9VOB1z0fN8dM3ZV_!!6000000006652-2-tps-2204-1248.png_.webp)
+**循环数据展示效果如下**
+![](https://img.alicdn.com/imgextra/i4/O1CN01U9l2TY22gkbyrAfRH_!!6000000007150-2-tps-1314-520.png_.webp)
+
+### 步骤3：配置气泡弹出层内容
+
+**拖入文本组件并放置于触发元素中**
+拖动文本组件到页面中，需在大纲树中找到文本组件，并在大纲树中将文本组件拖动到弹层下。
+![](https://img.alicdn.com/imgextra/i1/O1CN01Ul0fge1mjvVYDCQYv_!!6000000004991-2-tps-1422-830.png_.webp)
+调整文本组件的样式，样式可自由调整。
+![](https://img.alicdn.com/imgextra/i3/O1CN01DAuPl01gmmHKx4ANc_!!6000000004185-2-tps-2694-1372.png_.webp)
+**将弹层中的文字组件绑定循环数据内容**
+容器绑定变量数据源 data 后，迭代变量名为 item，文本需要绑定变量数据源中的 name 值，因此将文本绑定 item.name 。
+![](https://img.alicdn.com/imgextra/i2/O1CN017MFrZJ1q9WUUSAeRy_!!6000000005453-2-tps-2108-1210.png_.webp)
+
+## 效果展示
+
+![](https://img.alicdn.com/imgextra/i2/O1CN01bt7h701NoAmiZVIhw_!!6000000001616-2-tps-1670-582.png_.webp)
+图 4-1 展示效果
+
+## 在线试玩
+
+在线体验请移步开发者中心 👉 [如何使用气泡提示完整内容](https://www.aliwork.com/developer/offer-content)
+​
