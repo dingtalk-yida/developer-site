@@ -1,0 +1,72 @@
+---
+title: 新建钉盘空间
+order: 6
+---
+## 使用场景
+钉盘作为钉钉的协同办公产品之一，是企业文件管理的底座，可以帮助企业更高效地管理文件。调用本连接器可以在钉盘内**新建企业共享空间**。
+## 操作步骤
+### 步骤一：表单设计
+创建普通表单，用于录入钉盘连接器所需的必要数据。
+**操作步骤：**
+
+1. 创建普通表单，命名为「新建空间」。
+1. 添加单行文本组件，命名为「空间名称」，设置为必填项。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN011hwogl1sVARI7uVEt_!!6000000005771-2-tps-1918-975.png)
+
+3. 添加成员组件，命名为「空间所有者」，设置为必填项。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01dxiFj8205XCPmtPgk_!!6000000006798-2-tps-1918-970.png)
+
+4. 点击页面右上角「保存」按钮，即可。
+### 步骤二：配置连接器
+:::info
+获取宜搭连接器详细介绍，请移步：[集成&自动化-连接器](https://www.yuque.com/yida/support/zevvr1?view=doc_embed)。
+:::
+新建连接器并进行配置，用于宜搭应用与钉钉云盘进行数据集成。
+**操作步骤：**
+
+1. 后台管理页>>集成&自动化>>新建集成&自动化>>填写连接器名称>>选择连接器触发类型及指定连接器触发表单>>确认。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01K41CA61W9FwbthPsu_!!6000000002745-2-tps-1915-975.png)
+​
+
+
+2. 配置表单事件触发：创建成功>>全部数据>>保存。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01xVYFQz1QbktWd6XA6_!!6000000001995-2-tps-1917-975.png)
+​
+
+
+3. 选择连接器应用：选择「钉盘」应用，点击「下一步」。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01Kl7NQq1DgFmIQ5jTY_!!6000000000245-2-tps-1918-976.png)
+​
+
+
+4. 选择连接器执行动作：选择「新建空间」执行动作，点击「下一步」。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01NYSwYk1HpByOWCmtO_!!6000000000806-2-tps-1918-976.png)
+​
+
+
+5. 配置连接器执行动作，点击「保存」按钮。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01wLfEgK1EaaUgMNSZa_!!6000000000368-2-tps-1918-975.png)
+
+6. 点击页面右上角「保存」按钮后，点击「发布」按钮，即可。
+### 步骤三：提交表单
+填写并提交「新建空间」表单，触发连接器，实现在钉盘上新建空间的需求。如下所示：
+![](https://img.alicdn.com/imgextra/i4/O1CN01hV9n0A1vBsbkMXy5X_!!6000000006135-2-tps-1920-950.png)
+图2.3-1 提交表单
+## 效果展示
+**查看路径：**
+
+- 电脑端：钉钉云盘 >> 团队文件 如下所示：
+
+![](https://img.alicdn.com/imgextra/i4/O1CN01HW3w4C1tMINj0LizW_!!6000000005887-2-tps-1920-1039.png)
+图3.1-1 电脑端效果展示
+
+- 移动端：工作台 >> 云盘 >> 团队文件 如下所示：
+
+![](https://img.alicdn.com/imgextra/i1/O1CN01JXIjsx1Qaq6MJveJy_!!6000000001993-2-tps-857-992.png)

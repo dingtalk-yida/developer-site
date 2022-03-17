@@ -1,0 +1,114 @@
+---
+title: 自定义页面引入 ECharts
+order: 25
+---
+
+## 使用场景
+
+通过在自定义页面引入 ECharts.js，实现宜搭内部数据的可视化展示的案例，来介绍如何在自定义页面引入外部 JS,实现复杂场景需求。
+
+## 效果展示
+
+![ECharts](https://img.alicdn.com/imgextra/i4/O1CN01Rs4j8G1lXGwudhPxk_!!6000000004828-2-tps-480-428.png)
+
+## 操作步骤
+
+### 步骤一：配置 JSX 组件相关属性
+
+创建一个自定义页面并在组件库中拖动一个 JSX 组件到页面中间画布，设置 id 属性和样式。
+**操作方法**
+
+1. 页面点击选择 jsx 组件，在右侧属性栏中，点击编辑 JSX 代码按钮。
+2. 在 `div` 后添加`id="main"`字段。
+3. 点击右侧样式栏，点击源码编辑，输入`#main { height: 400px } `字段。(如下图所示)
+   ![JSX组件](https://img.alicdn.com/imgextra/i4/O1CN019cOhGm1sQ854qGdnF_!!6000000005760-2-tps-1439-717.png)
+
+### 步骤二：编写自定义页面逻辑
+
+选中页面后，在右侧属性栏添加页面加载完成是的绑定动作，将下述代码复制到页面 JS 面板`didMount`处。（如下图所示）
+![didmount事件](https://img.alicdn.com/imgextra/i4/O1CN01i0ZNZI25Jnc1gW1g4_!!6000000007506-2-tps-1439-808.png)
+
+> **说明：**
+> 下述代码可直接复制使用
+
+```javascript
+export function didMount() {
+  loadScript();
+}
+
+//loadScript方法，创建一个script标签并引入外部JS，执行成功后配合代码快速开发
+export function loadScript() {
+  //创建script标签并引入echarts.js
+  ////当异步代码执行成功时，我们才会调用resolve(...), 当异步代码失败时就会调用reject(...)
+  new Promise((resolve, reject) => {
+    const src =
+      "https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.min.js";
+    const script = document.createElement("script");
+    script.setAttribute("type", "text/javascript");
+    script.src = src;
+    document.body.appendChild(script);
+    //script标签的onload事件都是在外部js文件被加载完成并执行完成后才被触发的。
+    script.onload = () => {
+      resolve("成功");
+    };
+    script.onerror = reject;
+  }).then(() => {
+    //引用成功后加载雷达图js
+    radar();
+  });
+}
+
+//雷达图js方法
+export function radar() {
+  //雷达图js
+  var chartDom = document.getElementById("main");
+  //为ECharts准备一个具备大小（宽高）的Dom，在JSX组件的样式中自定义设置宽高度
+  // 基于准备好的dom，初始化echarts实例
+  var myChart = echarts.init(chartDom);
+  // 指定图表的配置项和数据
+  var option;
+  option = {
+    //data使用了变量数据源，也可以直接写入
+    title: {
+      text: "员工综合能力",
+    },
+    legend: {
+      data: state.nameArr,
+      // data: ["宜搭-ly"]
+    },
+    radar: {
+      // shape: 'circle',
+      indicator: [
+        { name: "业绩绩效", max: 100 },
+        { name: "综合能力", max: 100 },
+        { name: "反应能力", max: 100 },
+        { name: "专业能力", max: 100 },
+        { name: "判断能力", max: 100 },
+        { name: "服务能力", max: 100 },
+      ],
+    },
+    series: [
+      {
+        name: "员工综合能力",
+        type: "radar",
+        data: state.dataArr,
+        // data: [
+        //   {
+        //     value: [80, 85, 90, 90, 88, 92],
+        //     name: '宜搭-ly'
+        //   }
+        // ]
+      },
+    ],
+  };
+  // 使用刚指定的配置项和数据显示图表。
+  option && myChart.setOption(option);
+}
+```
+
+### 步骤三：配置变量数据源
+分别创建名为`nameArr`与`dataArr`的变量数据源，按照下图所示方法进行配置。
+![配置变量数据源](https://img.alicdn.com/imgextra/i4/O1CN01lTBxkP1ehcaTbZ25C_!!6000000003903-2-tps-1340-808.png)
+
+## 在线试玩
+在线体验请移步开发者中心 👉 [自定义页面引入ECharts](https://www.aliwork.com/developer/introduct-echarts)

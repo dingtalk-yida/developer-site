@@ -1,0 +1,198 @@
+---
+title: 创建并更新会话群
+order: 17
+---
+
+## 使用场景
+
+在宜搭内提交表单，即可创建钉钉会话群，并且可对创建的群聊群名、群成员进行更改。
+
+## 操作步骤
+
+### 步骤一：创建基础表单
+
+**搭建并配置「创建会话群」表单**
+创建表单，用于录入创建会话群所需的群名、群主、群成员数据。
+**操作步骤：**
+
+1. 新建普通表单，命名为「创建会话群」。
+1. 添加单行文本组件，命名为「群聊名称」，设置为必填。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01VIIbwk21ohsK8SiPR_!!6000000007032-2-tps-1920-951.png)
+​
+
+3. 添加成员组件，命名为「选择群主」，设置为必填项。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN015EGqfC1a0KgsIQTpa_!!6000000003267-2-tps-1920-948.png)
+​
+
+4. 添加另一个成员组件，命名为「选择群成员」，设置为必填项，并开启多选模式。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01ZBCsvJ1X0NtDWYrXA_!!6000000002861-2-tps-1920-951.png)
+​
+
+5. 点击页面右上角「保存」按钮即可。
+
+**搭建并配置「会话群数据汇总」表单**
+
+创建表单，用于记录「创建会话群」表单所创建的群聊的信息。包括群名以及群聊 ID，其中群聊 ID 需要从创建会话群的连接器返回的数据中获取。
+**操作步骤：**
+
+1. 新建普通表单，命名为「会话群数据汇总」。
+1. 添加两个单行文本组件，分别命名为「群聊名称」及「群聊 ID」。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01z1FSt61EyP5msHrV6_!!6000000000420-2-tps-1920-951.png)
+
+​
+
+3. 点击右上角保存按钮即可。
+
+**搭建并配置「更新会话群」表单**
+
+创建表单，用于录入对通过连接器创建成功的群聊更新所需的数据。
+**操作步骤：**
+
+1. 新建普通表单，命名为「更新会话群」。
+1. 添加下拉单选组件，命名为「选择群聊」，设为必填项，选项关联自「会话群数据汇总」表单中「群聊名称」组件。（操作下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01lgoU1p1mJMXHJjFCn_!!6000000004933-2-tps-1920-950.png)
+
+​
+
+3. 添加单行文本组件，命名为「群聊 ID」，设置数据联动，关联「会话群数据汇总」表单，当「选择群聊」组件的值等于「群聊名称」组件值时，「群聊 ID」的值等于「群聊 ID」组件的值。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01o5dGRp1ZjqQfdqlfX_!!6000000003231-2-tps-1920-950.png)
+
+​
+
+4. 添加两个成员组件，分别命名为「添加群成员」及「删除群成员」，开启多选模式。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01XD8XAF1DWdSeoOdWl_!!6000000000224-2-tps-1920-951.png)
+​
+
+5. 添加单行文本组件，命名为「更改后群聊名称」。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01P9nkSX1TKIeAngUT9_!!6000000002363-2-tps-1920-950.png)
+​
+
+6. 点击页面右上角「保存」按钮即可。
+
+**步骤二：添加并配置连接器**
+
+:::info
+宜搭连接器介绍，请参见[集成&自动化-连接器](https://www.yuque.com/yida/support/zevvr1?view=doc_embed)
+:::
+通过上述步骤，调用连接器所需的基础表单已经搭建完毕。接下来，「创建会话群」表单及「更新会话群」表单进行连接器的添加与配置，为实现需求做逻辑层面的准备。
+
+**给「创建群会话」表单添加并配置连接器**
+
+该连接器用于实现提交「创建会话群」表单时，系统自动在钉钉上创建会话群。
+**操作步骤：**
+
+1. 后台管理页>>「创建会话群」>>「集成&自动化」>>「新建集成&自动化」（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01gHETOo1zxI4UIJl3R_!!6000000006780-2-tps-1920-951.png)
+
+​
+
+2. 填写连接器名称为「创建会话群」，触发类型选择「表单事件触发」，点击「确认」按钮。
+
+（操作如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01xqxalz1THYGtJPkKG_!!6000000002357-2-tps-1920-948.png)
+
+​
+
+3. 配置表单触发事件：触发事件为「创建成功」，数据过滤选择「全部数据」，点击保存。
+
+（操作如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01SD72Qr21FRNjrGBNv_!!6000000006955-2-tps-1920-955.png)
+
+​
+
+4. 选择连接器应用：应用选择为「会话群」，点击「下一步」按钮。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01n5QGyb1EkCoOnLQ63_!!6000000000389-2-tps-1920-955.png)
+​
+
+5. 选择执行动作：执行动作选择为「创建会话群」，点击「下一步」按钮。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01EEW12W1iCiKDe6Mt9_!!6000000004377-2-tps-1920-955.png)
+​
+
+6. 配置执行动作，点击「保存」按钮。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01uLOnP71Sjexlyk3wu_!!6000000002283-2-tps-1920-955.png)
+​
+
+7. 点击页面右上角「保存」按钮后，点击「发布」按钮，即可。
+8. 在「连接器」节点下方添加「新增数据」节点，并进行配置。用于将群会话 ID 返回到「群会话数据汇总」表单中。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01jWR7eY1j4IfDcm6Qk_!!6000000004494-2-tps-1920-955.png)
+​
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01opSvzB1j2vTQpF4MH_!!6000000004491-2-tps-1920-955.png)
+​
+
+**给「更新群会话」表单添加并配置连接器**
+
+该连接器用于实现提交「更新会话群」表单时，系统自动在钉钉上更新通过连接器创建的会话群。
+**操作步骤：**
+
+1. 后台管理页>>「创建会话群」>>「设置」>>「页面设置」>>「集成&自动化」>>「新建集成&自动化」（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01KqNsQu29LPSy3HW5P_!!6000000008051-2-tps-1920-950.png)
+​
+
+2. 填写连接器名称为「创建会话群」，触发类型选择「表单事件触发」，点击「确认」按钮。
+
+（操作如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01DRswhf1wlQy83q8eu_!!6000000006348-2-tps-1920-955.png)
+​
+
+3. 配置表单触发事件：触发事件为「创建成功」，数据过滤选择「全部数据」，点击保存。
+
+（操作如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN0197SMCL1Wut8TvJkKE_!!6000000002849-2-tps-1920-955.png)
+​
+
+4. 选择连接器应用：应用选择为「会话群」，点击「下一步」按钮。
+
+（操作如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01oSXywM1xc6Vuonx3e_!!6000000006463-2-tps-1920-955.png)
+
+​
+
+5. 选择执行动作：执行动作选择为「创建会话群」，点击「下一步」按钮。
+
+（操作如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01pZ2Gve1lkYR6ecQJB_!!6000000004857-2-tps-1920-955.png)
+
+​
+
+6. 配置执行动作，点击「保存」按钮。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01ChhrY91PTDtwY8cEX_!!6000000001841-2-tps-1920-955.png)
+​
+
+7. 点击页面右上角「保存」按钮后，点击「发布」按钮，即可。
+
+### 步骤三：提交表单，触发连接器
+
+**提交「创建群会话」表单，触发创建群聊连接器**
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01XOqEie1n9ZgiOOjaT_!!6000000005047-2-tps-1920-955.png)
+图 2.3-1 提交创建群会话表单
+​
+
+**提交「更新群会话」表单，触发更新群聊连接器**
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01AOovBH1DDOpLAYnnh_!!6000000000182-2-tps-1920-955.png)
+图 2.3-2 提交更新群会话表单
+
+## 3. 实现效果
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01a1PMyS1ik9EpFDMJg_!!6000000004450-2-tps-1839-993.png)
+
+​
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01wE7Xgf1yJc8tOhMjK_!!6000000006558-2-tps-1839-993.png)

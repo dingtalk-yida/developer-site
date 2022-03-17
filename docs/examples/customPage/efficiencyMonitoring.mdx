@@ -1,0 +1,474 @@
+---
+title: 自定义页面实现应用全流程效率监控
+order: 24
+---
+
+## 使用背景
+
+在[自定义页面查看流程效率](https://www.yuque.com/yida/subject/rl2bye)文档中实现了将一个流程内的审批数据展示在表格组件当中，那么如何实现当前应用所有流程的效率监控呢。此文档介绍如何实现单应用全流程效率监控。
+
+## 效果展示
+
+![实现效果](https://img.alicdn.com/imgextra/i3/O1CN015eMR6a1GgCaCZbNmK_!!6000000000651-1-tps-1385-717.gif)
+
+## 视频教程
+
+<video width="100%" controls>
+  <source src="https://cloud.video.taobao.com/play/u/1775663/p/1/d/hd/e/6/t/1/332142170749.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiODU5ZmUwN2RkY2ZmNDRkMGQ5MDgzN2JmMzQ1YTU4NzUifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDczMTA0OTA="></source>
+</video>
+
+## 操作步骤
+
+### 步骤一：创建流程页面
+
+创建 2 个流程页面，分别配置页面所需组件和流程审批节点信息，并录入一些测试数据。（如下图所示）
+![流程](https://img.alicdn.com/imgextra/i1/O1CN016VFSFk28CQ4mTvy3g_!!6000000007896-2-tps-1439-806.png)
+![流程2](https://img.alicdn.com/imgextra/i2/O1CN01b8DVc31X1l4rNB1qt_!!6000000002864-2-tps-1386-701.png)
+
+### 步骤二：创建数据底表
+
+作用：存储应用内所需查看的流程表单名称和流程表单 formUuid，后续会将表单内的数据在自定义页面获取，放在下拉单选中用作选择查看流程页面审批数据。（如下图所示）
+![底表](https://img.alicdn.com/imgextra/i2/O1CN01LCoSPY1Dbfovjxl0u_!!6000000000235-2-tps-1267-806.png)
+
+### 步骤三：创建并配置自定义页面
+
+** (1) 页面设计 **
+
+- 「下拉单选」：配置选项，显示值配置流程表单名称，选项值配置流程表单 formUuid。
+- 「表格组件」：主要配置操作列中的操作进度选项，控制进度指示器的进度百分比，其余配置可以参考文档 自定义页面查看流程效率。
+- 「进度指示器组件」：百分比属性绑定变量数据源，并关闭自动渲染，根据变量数据源控制渲染和百分比。
+  ![自定义页面](https://img.alicdn.com/imgextra/i3/O1CN01I5P7Qm1kIKPSgJkDS_!!6000000004660-2-tps-1331-563.png)
+
+** （2） 定义远程数据源 **
+
+为了实时获取流程的监控情况，会先调用 [搜索实例 ID](https://www.yuque.com/yida/support/aql605#HML0n) 的接口，筛选完成对应的流程后通过 [获取审批记录](https://www.yuque.com/yida/support/aql605#g72uF) 的接口 将数据审批节点的动作和审批时间等数据获取出来，在自定义页面进行展示。（如下图所示）
+![远程数据源](https://img.alicdn.com/imgextra/i1/O1CN01zvoSn022jUzY0bAy4_!!6000000007156-2-tps-1439-803.png)
+
+> ** 说明：**
+>
+> - 数据源关闭自动加载，后续为了实现分页和总计的效果，在调用数据源后使用了数据处理，返回实例 ID，总条数和当前页码。
+> - 下述代码可直接复制在获取实例 ID 接口的 didfetch 数据处理内。
+
+```JavaScript
+function didFetch(content) {
+  //返回实例ID,总条数和当前页码
+  let result = {
+    processInstanceId: content.data,
+    totalCount: content.totalCount,
+    currentPage: content.currentPage,
+  }
+  return result; // 重要，需返回 result
+}
+```
+
+> ** 扩展阅读 ** ：给下拉组件选项赋值的两种方法
+>
+> ** 方法一：** 配置远程数据源 [搜索表单实例详情列表] 获取底表内的数据(底表的数据参考 3.2 步骤)，打开自动加载，在 didfetch 数据处理中处理成下拉单选的选项格式返回，下拉单选的选项属性绑定远程数据源（如下图所示）。
+> ![方法一](https://img.alicdn.com/imgextra/i3/O1CN011BstTw1LGA8lNVh7X_!!6000000001271-2-tps-1438-806.png)
+> 下述代码可直接复制 didfetch 数据处理内，** 注意：需要替换组件的唯一标识。 **
+>
+> ```JavaScript
+> function didFetch(content) {
+>  //处理成下拉单选的选项属性数据格式
+> const datasource = [];
+> content.data.map((item) => {
+>  let arr = {
+>     //text存储表单名称，value存储表单formUuid，唯一标识更改成底表内相对应的唯一标识
+>     text: item.formData.textField_kto1kwz0,
+>     value: item.formData.textField_kto1kwz2
+>   }
+>   datasource.push(arr)
+> })
+> return datasource; // 重要，需返回 datasource
+> }
+> ```
+>
+> ** 方法二：**
+> 可以直接在下拉单选的自定义选项中配置显示值和选项值为流程表单名称和流程表单 formUuid 。（如下图所示）
+> ![方法二](https://img.alicdn.com/imgextra/i1/O1CN01IVqcQI1FxmA8Kr5JJ_!!6000000000554-2-tps-1251-437.png)
+
+** （3） 定义变量数据源 **
+
+由于对返回的数据做了较为复杂的格式处理，所以定义变量数据源 time 和 datas，表格组件绑定 datas 变量数据源。（如下图所示）
+![变量数据源](https://img.alicdn.com/imgextra/i1/O1CN01yVaAPp1WtyLMeBpgA_!!6000000002847-2-tps-1439-767.png)
+percent 和 condition 分别控制进度指示器组件的百分比和是否渲染属性。（如下图所示）
+![数据源](https://img.alicdn.com/imgextra/i2/O1CN01bYCUFN1alVU5NEPAk_!!6000000003370-2-tps-1120-686.png)
+** （4） 下拉组件绑定动作触发调用 **
+![绑定动作](https://img.alicdn.com/imgextra/i4/O1CN01OXh36H1opzzS9ATxm_!!6000000005275-2-tps-1438-807.png)
+![更改数据字段名称](https://img.alicdn.com/imgextra/i4/O1CN01mWZoMU1gHdLSsKJuT_!!6000000004117-2-tps-1392-806.png)
+通过 API 方法获取到下拉组件的 value 值，定义请求参数，将 value 值也就是表单的 formUuid 当请求参数定义，最终在 getInstanceIds 远程数据源中传入参数得到该页面的审批信息。
+
+> ** 说明： **下述代码可直接复制 JS 面板内，注意：需要替换下拉组件的唯一标识。
+
+```JavaScript
+export function onChange({value, actionType, item}) {
+  //控制切换时进度条组件不渲染，进度百分比为0
+  this.setState({
+    condition: false,
+    percent: 0
+  })
+   //清空datas变量数据源
+  this.setState({
+    datas : []
+  })
+  //通过API方法获取到下拉组件的value值，也就是formUuid
+  const uuid = this.$('select_kto1v6f2').getValue();
+  let newvalue = [];
+  //定义请求参数
+  const param_uuid = {
+    formUuid: uuid
+  }
+  //在getInstanceIds远程数据源中携带参数计算出选择到的页面审批信息
+  this.dataSourceMap.getInstanceIds.load(param_uuid).then((response) => {
+    let res = response.processInstanceId
+    for (let i = 0; i < res.length; i++) {
+      const params = {
+        processInstanceId: res[i],
+      }
+      this.dataSourceMap.getOperationRecords.load(params).then((content) => {
+        //存储树形表格内的children格式，详情表格格式可以点击查看表格数据源属性中的编辑代码或参考文档：https://www.aliwork.com/developer/table-pc#tree
+        const children = [];
+        //循环一个流程中的所有节点的审批记录，最终将判断好的数据格式push到children中
+        for (let item = 0; item < content.length; item++) {
+          //判断当审批状态是next或submit或doing时没有本节点的审批时间，所以不计算本节点到上一个节点所用审批时长
+          if (content[item].actionExt === "next" || content[item].actionExt === "submit" || content[item].actionExt === "doing") {
+            //重新提交的审批状态是submit，这里对它作判断计算了审批时长
+            if (content[item].showName === "重新提交") {
+              this.setState({
+                time: timeshow(content[item].operateTime, content[item - 1].operateTime)
+              })
+              let children_data = {
+                actionExt: content[item].actionExt,
+                active: content[item].showName,
+                active_name: content[item].operatorName,
+                active_time: content[item].operateTime,
+                time: state.time,
+                onlyid: params.processInstanceId
+              }
+              children.push(children_data);
+            } else {
+              //没有本节点审批时间的不加time
+              let children_data = {
+                actionExt: content[item].actionExt,
+                active: content[item].showName,
+                active_name: content[item].operatorName,
+                active_time: content[item].operateTime,
+                onlyid: params.processInstanceId
+              }
+              children.push(children_data);
+            }
+          } else {
+            this.setState({
+              time: timeshow(content[item].operateTime, content[item - 1].operateTime)
+            })
+            let children_data = {
+              actionExt: content[item].actionExt,
+              active: content[item].showName,
+              active_name: content[item].operatorName,
+              active_time: content[item].operateTime,
+              time: state.time,
+              onlyid: params.processInstanceId
+            }
+            children.push(children_data);
+          }
+        }
+
+        //判断是HISTORY类型时，计算总审批时长，最终审批时间-提交时间
+        if (content[content.length - 1].type === "HISTORY") {
+          const num_end = content[content.length - 1].operateTime;
+          const num_start = content[0].operateTime;
+
+          this.setState({
+            time: timeshow(num_end, num_start)
+          })
+
+          let data = {
+            //发起人和发起时间是content[0]里的数据，其余是获取的最后一条数据
+            create_name: content[0].operatorName,
+            create_time: content[0].operateTime,
+            actionExt: "Completed",
+            active: content[content.length - 1].showName + "(已完成)",
+            active_name: content[content.length - 1].operatorName + "(已完成)",
+            active_time: content[content.length - 1].operateTime,
+            action: content[content.length - 1].actionExt,
+            time: state.time,
+            children: children,
+            onlyid: params.processInstanceId
+          }
+          newvalue.push(data);
+        }
+        //循环获取数据列的数据，当前的审批节点数据push在数据列中
+        for (let j = 0; j < content.length; j++) {
+          if (content[j].type === "TODO") {
+            let data = {
+              //发起人和发起时间是content[0]里的数据，其余变成TODO类型时的数据也就是进行中的那条数据
+              create_name: content[0].operatorName,
+              create_time: content[0].operateTime,
+              actionExt: content[j].actionExt,
+              active: content[j].showName + "（当前）",
+              active_name: content[j].operatorName + "（当前）",
+              active_time: content[j].activeTime,
+              children: children,
+              onlyid: params.processInstanceId,
+            }
+            newvalue.push(data);
+          }
+        }
+
+        //携带总计条数和数据列的值赋值给datas变量数据源
+        let result = {
+          data: newvalue,
+          totalCount: response.totalCount,
+        }
+        this.setState({
+          datas: result
+        })
+
+      })
+    }
+  })
+}
+
+//timeshow方法，传入结束时间和开始时间计算时间差
+export function timeshow(num_end, num_start) {
+  const num = (num_end - num_start) / 1000;
+  const day = Math.floor(num / 86400) + "d ";
+  const hour = Math.floor((num % 86400) / 3600) + "h ";
+  const min = Math.floor(((num % 86400) % 3600) / 60) + "min ";
+  const s = Math.floor(((num % 86400) % 3600) % 60) + "s ";
+  if (day == "0d ") {
+    //判断当天数等于0d时
+    if (hour == "0h ") {
+      //在当天数等于0d时，继续判断当小时等于0h时
+      if (min == "0min ") {
+        //在当天数等于0d时,当小时等于0h时,继续判断分等于0时
+        //返回秒
+        return `${s}`
+      } else {
+        //min不等于0时，则将分钟和秒返回
+        return `${min}${s}`
+      }
+    } else {
+      //天数等于0d，小时不等于0h时，返回小时分钟
+      return `${hour}${min}${s}`
+    }
+  } else {
+    //当天数不等于0d时，将天数小时分钟拼接一起返回
+    return `${day}${hour}${min}${s}`
+  }
+}
+```
+
+![效果演示](https://img.alicdn.com/imgextra/i2/O1CN01qy7JxR1cx4ijY7Okk_!!6000000003666-1-tps-1256-729.gif)
+
+** （5） 设置操作列的查看进度 **
+
+设置表格的操作列 >> 添加名为查看进度的操作项 >> 点击编辑 >> 绑定回调动作 >> 绑定定制渲染（如下图所示）
+
+![设置操作列](https://img.alicdn.com/imgextra/i3/O1CN01dx4iDl24RksN8YVpE_!!6000000007388-2-tps-1439-791.png)
+
+> ** 说明：**
+>
+> 下述代码可直接复制 JS 面板内，绑定的名称可以自行配置，这里定义名称为：
+>
+> - 绑定的回调函数名称是 onActionClick2。
+> - 定制渲染名称是 actionRender1。
+
+```JavaScript
+export function onActionClick2(rowData) {
+  //如果审批完成了，进度条渲染并且百分比为100
+  if (rowData.actionExt == "Completed"){
+    this.setState({
+      condition:true,
+      percent: 100
+    })
+  }else{
+    //审批未完成，遍历审批节点信息，如果审批节点已完成 num 加一，最终用 num 和审批节点的总长度计算出百分比
+    let child = rowData.children;
+    let num = 0;
+    for (let p = 0; p < child.length;p++){
+      console.log(child)
+      if (child[p].actionExt != "next" && child[p].actionExt !="doing" ){
+        num ++;
+      }
+      console.log(num, child.length)
+      this.setState({
+        condition: true,
+        percent: (num / child.length)*100
+      })
+    }
+  }
+}
+//点击箭头展开审批节点信息时，不在操作列中出现查看进度的操作
+export function actionRender1(title, rowData) {
+  if(!rowData.children){
+    return false;
+  }
+  return title;  // return false 则不显示
+ }
+```
+
+![效果演示](https://img.alicdn.com/imgextra/i4/O1CN01FwO3zm1Dhcy4fSFx5_!!6000000000248-2-tps-1524-706.png)
+
+** （6） 实现分页展示数据 **
+
+![表格组件绑定动作](https://img.alicdn.com/imgextra/i2/O1CN01ikr8Gd1z4mwEQNQMF_!!6000000006661-2-tps-1439-707.png)
+
+> **说明：**
+>
+> - 前置条件：获取流程实例 ID 的远程数据源内做 didfetch 数据处理，已在 JS 面板内定义 timeshow 方法。
+> - 下述代码可直接复制在 JS 面板内，注意：需要替换下拉单选组件的唯一标识.
+
+```javascript
+export function onFetchData(params) {
+  //清空datas变量数据源，不清空有可能会造成翻页时数据展示错误
+  this.setState({
+    datas: [],
+  });
+
+  // 如果是搜索的话翻页重置到 1
+  if (params.from === "search") {
+    params.currentPage = 1;
+  }
+
+  //定义newvalue数组，存放表格数据
+  const newvalue = [];
+  //通过API方法获取到下拉组件的value值，也就是formUuid
+  const uuid = this.$("select_kto1v6f2").getValue();
+  //配置获取实例id数据源参数，获取翻页后的第params.currentPage页数据
+  const param_1 = {
+    formUuid: uuid,
+    pageSize: 5,
+    currentPage: params.currentPage,
+  };
+  this.dataSourceMap.getInstanceIds.load(param_1).then((response) => {
+    let res = response.processInstanceId;
+    for (let i = 0; i < res.length; i++) {
+      const params = {
+        processInstanceId: res[i],
+      };
+      this.dataSourceMap.getOperationRecords.load(params).then((content) => {
+        const children = [];
+        for (let item = 0; item < content.length; item++) {
+          if (
+            content[item].actionExt === "next" ||
+            content[item].actionExt === "submit" ||
+            content[item].actionExt === "doing"
+          ) {
+            if (content[item].showName === "重新提交") {
+              this.setState({
+                time: timeshow(
+                  content[item].operateTime,
+                  content[item - 1].operateTime
+                ),
+              });
+              let children_data = {
+                actionExt: content[item].actionExt,
+                active: content[item].showName,
+                active_name: content[item].operatorName,
+                active_time: content[item].operateTime,
+                time: state.time,
+                onlyid: params.processInstanceId,
+              };
+              children.push(children_data);
+            } else {
+              let children_data = {
+                actionExt: content[item].actionExt,
+                active: content[item].showName,
+                active_name: content[item].operatorName,
+                active_time: content[item].operateTime,
+                onlyid: params.processInstanceId,
+              };
+              children.push(children_data);
+            }
+          } else {
+            this.setState({
+              time: timeshow(
+                content[item].operateTime,
+                content[item - 1].operateTime
+              ),
+            });
+            let children_data = {
+              actionExt: content[item].actionExt,
+              active: content[item].showName,
+              active_name: content[item].operatorName,
+              active_time: content[item].operateTime,
+              time: state.time,
+              onlyid: params.processInstanceId,
+            };
+            children.push(children_data);
+          }
+        }
+
+        for (let j = 0; j < content.length; j++) {
+          if (content[j].type === "TODO") {
+            let data = {
+              create_name: content[0].operatorName,
+              create_time: content[0].operateTime,
+              actionExt: content[j].actionExt,
+              active: content[j].showName + "（当前）",
+              active_name: content[j].operatorName + "（当前）",
+              active_time: content[j].activeTime,
+              children: children,
+              onlyid: params.processInstanceId,
+            };
+            newvalue.push(data);
+          }
+        }
+
+        if (content[content.length - 1].type === "HISTORY") {
+          const num_end = content[content.length - 1].operateTime;
+          const num_start = content[0].operateTime;
+
+          this.setState({
+            time: timeshow(num_end, num_start),
+          });
+
+          let data = {
+            create_name: content[0].operatorName,
+            create_time: content[0].operateTime,
+            actionExt: "Completed",
+            active: content[content.length - 1].showName + "(已完成)",
+            active_name: content[content.length - 1].operatorName + "(已完成)",
+            active_time: content[content.length - 1].operateTime,
+            action: content[content.length - 1].actionExt,
+            time: state.time,
+            children: children,
+            onlyid: params.processInstanceId,
+          };
+          newvalue.push(data);
+        }
+        //currentPage控制页码选中，totalCount控制总计条数，data是控制数据
+        let result = {
+          data: newvalue,
+          totalCount: response.totalCount,
+          currentPage: response.currentPage,
+        };
+        this.setState({
+          datas: result,
+        });
+      });
+    }
+  });
+}
+```
+
+![效果演示](https://img.alicdn.com/imgextra/i4/O1CN01ihK2v128lgZo3DRqk_!!6000000007973-1-tps-1256-729.gif)
+
+** (6) 配置初始化时表格提示 **
+![效果演示](https://img.alicdn.com/imgextra/i4/O1CN01wAXsgn1hKfaTWa1s9_!!6000000004259-2-tps-1439-434.png)
+
+> **说明：**
+>
+> 下述代码可直接复制在 JS 面板内.
+
+```javascript
+export function didMount() {
+  document.getElementsByClassName("next-table-empty")[0].innerHTML =
+    "请选择流程页面名称";
+}
+```
+
+## 在线试玩
+
+在线体验请移步开发者中心 👉 [单应用全流程效率监控](https://www.aliwork.com/developer/total-process)

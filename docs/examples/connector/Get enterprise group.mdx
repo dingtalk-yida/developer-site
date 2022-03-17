@@ -1,0 +1,154 @@
+---
+title: 获取企业群聊统计数据
+order: 5
+---
+:::danger
+**注意：**
+本功能仅能查询到**当前日期之前**的数据。
+例如：今天是2021年12月1日，该功能仅可查询12月1日之前的数据。
+:::
+## 使用场景
+通过宜搭内置的「数据目录」连接器，可获取企业即时沟通中群聊的统计数据。包括：
+
+- **群聊用户数**：指企业内发送群聊消息用户数。
+- **新增群数**：指企业内部群新增数量。
+- **活跃群数**：指有群聊消息发生的企业内部群数量。
+- **群聊消息数**：指企业内部群消息数。
+- **内部群数量**：指当前存在的企业内部群数量。
+- **部门群数量**：指当前存在的部门群数量。
+## 操作步骤
+### 步骤一：表单设计
+创建两个表单，分别用于触发连接器以及接收并展示连接器返回的数据。
+**创建「查询企业群聊统计数据」表单**
+**操作步骤：**
+
+1. 创建普通表单，命名为「查询企业群聊统计数据」。
+1. 添加日期组件，命名为「查询日期」，并设置为必填项。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01s35y941WLcdgdpijx_!!6000000002772-2-tps-1914-971.png)
+​
+
+
+3. 点击页面右上角「保存」按钮，即可。
+**创建「企业群聊数据明细」表单**
+**操作步骤：**
+
+1. 创建普通表单，命名为「企业群聊数据明细」。
+1. 添加多行文本组件，命名为「返回数据」，状态设置为「隐藏」。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01pfAifo1v8DR9EI5lJ_!!6000000006127-2-tps-1912-971.png)
+​
+
+
+3. 添加子表单组件，命名为「企业群聊统计明细表」，状态设置为「只读」。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01cKCmD01HJadvEGKKK_!!6000000000737-2-tps-1913-973.png)
+​
+
+
+5. 在JS面板内添加下述代码，进行数据处理。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01uv1wGU1NGjs9mE925_!!6000000001543-2-tps-1914-975.png)
+​
+
+:::danger
+上述代码如下所示,可直接复制使用。**注意进行组件唯一标识的替换，否则会无法达到预期效果！**
+:::
+```javascript
+export function didMount() {
+  // 获取连接器返回数据，其中「textareaField_ky16z248」为多行文本组件唯一标识，请注意替换，否则会失效哦！！！
+  const str = this.$("textareaField_ky16z248").getValue();
+  //进行数据处理
+  const obj = JSON.parse(str);
+  const val = obj.dataList;
+  let arr = [];
+  const valList = val.map(item => {
+    let valObject = {};
+    //查询日期      
+    //需将 textField_ky16z24k 替换为您创建的组件的唯一标识
+    valObject.textField_ky16z24k = item["stat_date"];
+    //用户群聊数      
+    //需将 textField_ky16z24l 替换为您创建的组件的唯一标识
+    valObject.textField_ky16z24l = item["4030_DAY"];
+    //新增群数      
+    //需将 textField_ky16z24j 替换为您创建的组件的唯一标识
+    valObject.textField_ky16z24j = item["4031_DAY"];
+    //活跃群数      
+    //需将 textField_ky16z24i 替换为您创建的组件的唯一标识
+    valObject.textField_ky16z24i = item["4032_DAY"];
+    //群聊信息数      
+    //需将 textField_ky16z24h 替换为您创建的组件的唯一标识
+    valObject.textField_ky16z24h = item["4033_DAY"];
+    //内部群数量      
+    //需将 textField_ky16z24g 替换为您创建的组件的唯一标识
+    valObject.textField_ky16z24g = item["4034_DAY"];
+    //部门群数量      
+    //需将 textField_ky16z24f 替换为您创建的组件的唯一标识
+    valObject.textField_ky16z24f = item["4035_DAY"];
+    arr.push(valObject);
+  })
+  //将处理好的数据赋值给子表单组件   
+  //需将 tableField_ky16z24a 替换为您创建的单行文本组件的唯一标识
+  this.$("tableField_ky16z24a").setValue(arr); 
+}
+```
+
+6. 点击页面右上角「保存」按钮，即可。
+### 步骤二：添加连接器
+:::info
+获取宜搭连接器详细介绍，请移步：[集成&自动化-连接器](https://www.yuque.com/yida/support/zevvr1?view=doc_embed)
+:::
+给「查询企业群聊统计数据」表单添加连接器，用于与钉钉数据目录连接器进行数据集成。
+**操作步骤：**
+
+1. 后台管理页面>>「集成&自动化」>>点击「新建集成&自动化」按钮。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN018psdgl1VMFZAkKxUN_!!6000000002638-2-tps-1918-969.png)
+​
+
+
+2. 新建名为「查询企业统计数据」的连接器，触发类型选择「表单事件触发」，点击「确定」按钮。
+
+如下所示：
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN011UPBGd1wQMkRy200I_!!6000000006302-2-tps-1916-976.png)
+​
+
+
+3. 配置表单事件触发>>「创建成功」>>「全部数据」>>「保存」。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01DVSKUP1OG6weHoWij_!!6000000001677-2-tps-1918-975.png)
+​
+
+
+4. 选择应用>>「数据目录」>>「下一步」。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01u6mSFp1t33kPAziza_!!6000000005845-2-tps-1918-976.png)
+​
+
+
+5. 选择执行动作>>「获取企业群聊统计数据」>>「下一步」。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01aRLktB1h6vhiAw4da_!!6000000004229-2-tps-1918-976.png)
+​
+
+
+6. 配置执行动作>>查询时间>>「字段」>>「查询日期」>>「保存」。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01ZQGdty1iRpOXiosVb_!!6000000004410-2-tps-1917-976.png)
+​
+
+
+7. 添加新增数据节点，在「接收企业群聊统计数据」表单中，新增单条数据，将「连接器返回数据」的值设置为「业务返回结果」「字段」。如下所示：
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01jgGMXN1sSsSMs2ntA_!!6000000005766-2-tps-1918-976.png)
+​
+
+
+8. 点击页面右上角「保存」按钮后，点击「发布」按钮，即可。
+### 步骤三：提交表单数据
+**操作步骤：**
+提交「查询企业群聊统计数据」表单，用于触发连接器。连接器的返回结果可以在「企业群聊统计数据明细」表单中进行查看。如下所示：
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01Hx1q2a1vBQDDo8yZI_!!6000000006134-2-tps-1918-976.png)
+## 效果展示
+**操作路径：**后台管理页面 >>「企业群聊数据明细」>> 数据管理 >> 查看详情 如下所示：
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01GdvGe31TmEnzSuhrA_!!6000000002424-2-tps-1918-976.png)

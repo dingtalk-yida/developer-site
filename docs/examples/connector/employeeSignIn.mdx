@@ -1,0 +1,143 @@
+---
+title: 查询员工签到情况
+order: 18
+---
+
+## 使用场景
+在宜搭内实现提交表单即可查询员工签到情况，包括是否签到，签到时间，签到地点等信息。
+## 操作步骤
+### 步骤一：创建表单
+创建两个普通表单，其中，「签到查询表」用于触发连接器，进行查询；「查询结果记录」用于接收连接器返回的结果，便于查看。
+**创建查询表单**
+**操作步骤：**
+
+1. 创建普通表单，命名为「签到查询表」。
+1. 添加两个日期组件，分别命名为「查询起始日期」及「查询截止日期」，格式设置为「年-月-日 时:分」，设置为必填项。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN0160YUq81lP1oyz9Sq5_!!6000000004810-2-tps-1912-898.png)
+
+
+3. 添加成员组件，命名为「待查询员工」，设置为必填项。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01AZhG691MCKRUe9AtZ_!!6000000001398-2-tps-1917-885.png)
+​
+
+
+4. 点击页面右上角「保存」按钮，即可。
+**创建结果记录表单**
+**操作步骤：**
+
+1. 新建普通表单，命名为「查询结果记录」。
+1. 添加 一个多行文本组件，命名为「连接器返回结果接收」，设置为隐藏状态，用于接收连接器返回的初始数据。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01rIJA1T1xX49z4ii4d_!!6000000006452-2-tps-2878-1642.png)
+​
+
+
+3. 添加子表单组件，命名为「签到结果」，并在子表单内添加名为「签到时间」、「签到地点」、「签到备注」三个单行文本组件，用于展示连接器返回数据的处理结果。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01iJX3uA24eZxrGWAlZ_!!6000000007416-2-tps-2878-1642.png)
+​
+
+
+3. 点击右上角「保存」按钮，即可。
+### 步骤二：配置「签到查询表」表单连接器
+:::info
+连接器相关介绍请参考[集成&自动化-连接器](https://www.yuque.com/yida/support/zevvr1?view=doc_embed)
+:::
+通过对「签到查询表」表单连接器的配置，实现签到查询功能，并且将查询结果自动添加到「查询结果记录」表单中。
+**操作步骤：**
+
+1. 后台管理界面>>「集成与&自动化」>>点击页面中「新建集成&自动化」按钮。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01qPpZqJ28fH23qZHy2_!!6000000007959-2-tps-2876-1640.png)
+​
+
+
+2. 将连接器命名为「签到查询」>>触发类型选择为「表单事件触发」并指定触发表单为「签到查询表」>>点击「确定」按钮。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01ffgJUI1Jle8dVEKgP_!!6000000001069-2-tps-1912-886.png)
+​
+
+
+3. 点击「表单事件触发」节点，并将触发事件选择为「创建成功」，数据过滤选择为「全部数据」。
+
+（操作如下图所示）
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01qKoV5m1ui6rSGWaah_!!6000000006070-2-tps-1920-955.png)
+​
+
+
+4. 点击「连接器」节点，选择「签到」应用，点击「下一步」按钮。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01zw1rMm24tEdrJchen_!!6000000007448-2-tps-1920-955.png)
+​
+
+
+5. 选择执行动作为「获取个人签到记录」，点击「下一步」按钮。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN012KOkzT1slehJVfKOp_!!6000000005807-2-tps-1920-955.png)
+​
+
+
+6. 配置执行动作，点击「保存」按钮。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01JDWqlr1bS6JqMxKsg_!!6000000003463-2-tps-1920-955.png)
+​
+
+
+7. 将光标悬停到「连接器」节点下方，点击「＋」，选择「新增数据」节点。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01m9regJ1MnQWWZjYUy_!!6000000001479-2-tps-1920-955.png)
+​
+
+
+8. 配置「新增数据」节点。新增方式：选择为「在表单中新增」，并将表单选择为「查询结果记录」；新增数据：选择为「新增单条数据」；进行字段设置；点击保存。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01cMI6h81o6CNwIzJkd_!!6000000005175-2-tps-2878-1642.png)
+​
+
+​
+
+
+9. 编辑「查询结果记录」表单的JS面板，并按照图示方法将JS代码放入`didMount()`函数中。（操作如下图所示）
+
+![image.png](https://img.alicdn.com/imgextra/i3/O1CN01HbjFlJ1TbFIkSk1ft_!!6000000002400-2-tps-2878-1640.png)
+:::danger
+**注意：**上图所示代码如下，可直接复制使用。但要**注意各个组件唯一标识的替换**！
+:::
+```javascript
+export function didMount() {
+  // 获取连接器返回数据，其中「textareaField_kyiduf87」为多行文本组件唯一标识，请注意替换，否则会失效哦！！！
+  const str = this.$("textareaField_kyiduf87").getValue();
+  //进行数据处理
+  const obj = JSON.parse(str);
+  let arr = [];
+  const valList = obj.map(item => {
+    console.log("123",item);
+    let valObject = {};
+    //签到时间    
+    //需将 textField_kyie87xz 替换为您创建的组件的唯一标识，由于连接器返回的数据为时间戳，需要使用Date toLocaleString()方法进行转换。
+    valObject.textField_kyie87xz = new Date(item.checkin_time).toLocaleString().replace(/:\d{1,2}$/, ' ');
+
+    //签到地点  
+    //需将 textField_kyifrc1q 替换为您创建的组件的唯一标识
+    valObject.textField_kyifrc1q = item.detail_place;
+
+    //签到备注 
+    //需将 textField_kyie87y1 替换为您创建的组件的唯一标识
+    valObject.textField_kyie87y1 = item.remark;
+    arr.push(valObject);
+  })
+  //将处理好的数据赋值给子表单组件   
+  //需将 tableField_kyiezna8 替换为您创建的单行文本组件的唯一标识
+  this.$("tableField_kyiezna8").setValue(arr);
+}
+```
+
+10. 点击页面右上角「保存」按钮后点击「发布」按钮，即可。
+### 步骤三：提交「签到查询表」表单，触发连接器
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01Ptnk7K1nzKRUmCcqc_!!6000000005160-2-tps-2880-1640.png)
+图2.3-1 提交表单
+## 效果展示
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01YhsPYH20OJRCuulJz_!!6000000006839-2-tps-2880-1640.png)
+
