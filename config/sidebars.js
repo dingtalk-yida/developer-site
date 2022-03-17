@@ -62,6 +62,12 @@ module.exports = {
       collapsed: false,
       items: getDocsFromDir("guide/FAQ"),
     },
+    {
+      type: 'category',
+      label: '自定义组件',
+      collapsed: false,
+      items: getDocsFromDir('guide/customComponent')
+    },
     "guide/contributing",
   ],
   tutorila: ["tutorial/todoMVC"],
