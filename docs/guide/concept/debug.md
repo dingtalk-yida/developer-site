@@ -13,6 +13,21 @@ order: 15
 * 在预览页面命中断点并开始单点调试：
 ![](https://img.alicdn.com/imgextra/i1/O1CN01yyRtgc1FdAKbpk52T_!!6000000000509-2-tps-3582-2012.png_.webp)
 
+## 打开调试面板
+开发者也可以在页面的URL中增加一个```__showDevtools```参数，开启调试面板，例如：[https://www.aliwork.com/bench/feedback?__showDevtools](https://www.aliwork.com/bench/feedback?__showDevtools)。
+
+![](https://img.alicdn.com/imgextra/i4/O1CN01FeqWe01K3VaGYsziL_!!6000000001108-2-tps-1704-876.png_.webp)
+
+通过调试面板，开发者可以进行以下操作：
+* 查看数据源变量；
+* 查看表单数据；
+* 查看错误请求；
+* 上报错误日志；
+
+最关键的是调试面板让移动端调试变得非常方便。
+<img src="https://img.alicdn.com/imgextra/i1/O1CN01AbbW3t1CHEWgEdqz1_!!6000000000055-2-tps-296-640.png_.webp" width="300"/>
+
+
 
 ## 开启 schema 工作台
 在宜搭表单设计器的左下角隐藏着开启 schema 工作台入口的按钮，我们可以在 schema 工作台中通过导入 schema 来快速生成页面；同时也支持用户在工作台内编辑 schema，通过修改 schema 来快速定义表单定义。
@@ -29,7 +44,7 @@ order: 15
 ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01Xos7mS1eUnUeGNHsD_!!6000000003875-2-tps-2824-1548.png._webp)
 
 
-2. 访问插件 - 实用工具 ， 导入<a href="/file/schemaButton.zip" target="_blank">此文件</a>
+2. 访问插件 - 实用工具 ，下载<a href="https://files.alicdn.com/tpsservice/8a115a7888ade7b9e896844bac37b5d6.zip" target="_blank">此文件</a>，解压后导入油猴，文件具体内容如下所示：
 ```json
 {
   "created_by": "Tampermonkey", 
