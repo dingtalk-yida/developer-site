@@ -64,6 +64,11 @@ module.exports = {
         collapsed: true,
       },
       {
+        label: "普通组件",
+        dir: "examples/components",
+        collapsed: true,
+      },
+      {
         label: "自定义组件",
         dir: "examples/customComponent",
         collapsed: true,
