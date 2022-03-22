@@ -41,13 +41,13 @@ title: 上传文件重命名
 :::
 
 
-### 步骤2：在图片组件的onSelect方法中写入代码
+### 步骤2：在图片组件的 onSelect 方法中写入代码
 
-选中图片组件，在右侧“高级”选项卡中新建动作，选择onSelect
+选中图片组件，在右侧“高级”选项卡中新建动作，选择 onSelect
 
 ![](../../static/img/%E6%96%B0%E5%BB%BAonselect.png)
 
-在JS面板中输入如下代码
+在 JS 面板中输入如下代码
 ```js
 export function onSelect(files, array) {
     // 获取人名
@@ -76,12 +76,12 @@ export function timestamp_trans(timestamp) {
 }
 ```
 :::tip
-记得替换代码中的组件id
+记得替换代码中的组件 id
 :::
 
 :::caution
 在示例代码中，因数据结构是对象列表`[{},{}]`所以直接修改对象的属性可以生效  
-如果不是这种数据结构，需要setValue方法来设置值
+如果不是这种数据结构，需要 setValue 方法来设置值
 :::
 
 ## 验证
