@@ -1,0 +1,61 @@
+---
+title: TextField 输入框
+order: 1
+---
+
+## 自定义校验
+
+### 校验银行卡
+
+#### 卡号长度校验
+
+卡号为 16 位数或 19 位数
+
+```js
+function validateRule(value) {
+    var regExp = /^([0-9]{16}|[0-9]{19})$/;
+    return regExp.test(value);
+}
+```
+
+#### 卡号校验
+
+使用 **Luhn 算法** 校验
+
+```js
+function validateRule(value) {
+    const regExp = /^([0-9]{16}|[0-9]{19})$/;
+    if (value && regExp.test(value)) {
+        value = value.split("").reverse();
+        let total = 0;
+        for (i in value) {
+            const j = parseInt(value[i], 10);
+            total += i % 2 ? 2 * j - (j > 4 ? 9 : 0) : j;
+        }
+        if (total === 0) {
+            return false;
+        }
+        return total % 10 === 0;
+    }
+    return false;
+}
+```
+
+### 校验身份证
+
+```js
+function validateRule(value) {
+    if (value && value.length === 18) {
+        const coeff = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+        const laststr = ["1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"];
+        const idstr = value.substring(0, 17);
+        const idlaststr = value.substring(17, 18);
+        let total = 0;
+        for (i in idstr) {
+            total += parseInt(idstr[i], 10) * coeff[i];
+        }
+        return idlaststr === laststr[total % 11];
+    }
+    return false;
+}
+```

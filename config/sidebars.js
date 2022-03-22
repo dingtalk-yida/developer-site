@@ -34,7 +34,10 @@ module.exports = {
     },
     "guide/contributing",
   ],
-  tutorial: ["tutorial/todoMVC"],
+  tutorial: [
+    "tutorial/todoMVC",
+    "tutorial/fileRename",
+  ],
   components: getDocsFromDir("components", [
     {
       label: "布局组件",
@@ -53,23 +56,28 @@ module.exports = {
       dir: "components/advanced",
     },
   ]),
-  examples: getDocsFromDir("examples", 
-  [
-    {
-      label: "集成&自动化",
-      dir: "examples/connector",
-      collapsed: true,
-    },
-    {
-      label: "自定义组件",
-      dir: "examples/customComponent",
-      collapsed: true,
-    },
-    {
-      label: "自定义页面",
-      dir: "examples/customPage",
-      collapsed: true,
-    },
-  ]
+  examples: getDocsFromDir("examples",
+    [
+      {
+        label: "集成&自动化",
+        dir: "examples/connector",
+        collapsed: true,
+      },
+      {
+        label: "普通组件",
+        dir: "examples/components",
+        collapsed: true,
+      },
+      {
+        label: "自定义组件",
+        dir: "examples/customComponent",
+        collapsed: true,
+      },
+      {
+        label: "自定义页面",
+        dir: "examples/customPage",
+        collapsed: true,
+      },
+    ]
   ),
 };
