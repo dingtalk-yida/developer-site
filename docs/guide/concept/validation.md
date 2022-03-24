@@ -52,3 +52,52 @@ export function validate() {
   });
 }
 ```
+
+## 常用自定义校验
+### 银行卡号校验
+#### 卡号长度校验
+卡号为 16 位数或 19 位数
+
+```js
+function validateRule(value) {
+  return value && /^([0-9]{16}|[0-9]{19})$/.test(value);
+}
+```
+
+#### 卡号校验
+使用 [**Luhn 算法**](https://baike.baidu.com/item/Luhn%E7%AE%97%E6%B3%95/22799984) 校验
+
+```js
+function validateRule(value) {
+  if (value && /^([0-9]{16}|[0-9]{19})$/.test(value)) {
+    let total = 0;
+    value.split('').reverse().forEach((item, idx) => {
+      const num = parseInt(item, 10);
+      total += idx % 2 ? 2 * num - (num > 4 ? 9 : 0) : num;
+    });
+    if (total === 0) {
+      return false;
+    }
+    return total % 10 === 0;
+  }
+  return false;
+}
+```
+
+### 身份证号校验
+
+```js
+function validateRule(value) {
+  if (value && value.length === 18) {
+    const coeff = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+    const laststr = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'];
+    let total = 0;
+    for(let i = 0; i < 17; ++ i) {
+      total+= parseInt(value[i], 10) * coeff[i];
+    }
+    return value[17] === laststr[total % 11];
+  }
+  return false;
+}
+```
+

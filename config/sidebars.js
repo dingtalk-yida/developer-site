@@ -34,10 +34,7 @@ module.exports = {
     },
     "guide/contributing",
   ],
-  tutorial: [
-    "tutorial/todoMVC",
-    "tutorial/fileRename",
-  ],
+  tutorial: getDocsFromDir("tutorial"),
   components: getDocsFromDir("components", [
     {
       label: "布局组件",
@@ -61,11 +58,6 @@ module.exports = {
       {
         label: "集成&自动化",
         dir: "examples/connector",
-        collapsed: true,
-      },
-      {
-        label: "普通组件",
-        dir: "examples/components",
         collapsed: true,
       },
       {

@@ -59,7 +59,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .hero__title{
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   background: -webkit-linear-gradient(315deg,#0089ff 25%,#30e724);
   background-clip: text;
   -webkit-background-clip: text;

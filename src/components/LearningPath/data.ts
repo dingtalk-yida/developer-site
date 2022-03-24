@@ -57,6 +57,15 @@ export default [
           title: '自定义样式', 
           path: '/docs/guide/concept/style'
         }, {
+          title: '表单校验', 
+          path: '/docs/guide/concept/validation'
+        }, {
+          title: '集成&自动化 - 连接器', 
+          path: '/docs/guide/concept/connector'
+        }, {
+          title: '自定义组件', 
+          path: 'docs/guide/concept/customComponent'
+        }, {
           title: '调试', 
           path: '/docs/guide/concept/debug'
         }]
