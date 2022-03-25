@@ -3,7 +3,7 @@
 宜搭提供远程 API 调用的能力可以通过 HTTP 请求异步接口（详细使用请参考 [远程 API 文档](guide/concept/datasource.md)），于此同时宜搭平台还提供了一些内置的远程 API 用于进行宜搭数据的操作。
 
 :::caution
-由于宜搭提供的 Open API 调用需要进行鉴权，因此在免登页面中无法使用远程 Open API。
+由于宜搭提供的 Open API 调用需要进行鉴权，因此在免登页面中无法直接使用远程 Open API，可以自行通过 FaaS 或者自建服务中转调用。
 :::
 
 ## API 调用说明
