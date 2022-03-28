@@ -73,10 +73,10 @@ export default [
       {
         title: 'API 文档', 
         children: [{
-          title: '前端 API', 
+          title: '宜搭JS-API', 
           path: '/docs/guide/api'
         }, {
-          title: '远程开放 API', 
+          title: '跨应用数据源', 
           path: '/docs/guide/openAPI'
         }]
       }, 
@@ -296,6 +296,14 @@ export default [
       title: '调用钉钉 JS API', 
       path: '/docs/guide/FAQ/q3', 
       width: '25%', 
+    }, {
+      title: '上传附件重命名', 
+      path: '/docs/examples/fileRename', 
+      width: '25%', 
+    }, {
+      title: '组织外用户查询免登提交数据',
+      path: '/docs/examples/queryPublicData',
+      width: '25%'
     }]
   }
 ];
