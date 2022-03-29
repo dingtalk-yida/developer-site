@@ -73,11 +73,20 @@ export default [
       {
         title: 'API 文档', 
         children: [{
+          title: '概述', 
+          path: '/docs/api/about'
+        }, {
           title: '宜搭JS-API', 
-          path: '/docs/guide/api'
+          path: '/docs/api/yidaAPI'
         }, {
           title: '跨应用数据源', 
-          path: '/docs/guide/openAPI'
+          path: '/docs/api/openAPI'
+        }, {
+          title: '钉钉JS-API', 
+          path: '/docs/api/dingAPI'
+        }, {
+          title: '服务端开放API', 
+          path: '/docs/api/serverAPI'
         }]
       }, 
       {
@@ -291,10 +300,6 @@ export default [
     }, {
       title: '加载 Apache ECharts', 
       path: '/docs/guide/FAQ/q2', 
-      width: '25%', 
-    }, {
-      title: '调用钉钉 JS API', 
-      path: '/docs/guide/FAQ/q3', 
       width: '25%', 
     }, {
       title: '上传附件重命名', 

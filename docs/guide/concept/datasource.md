@@ -193,6 +193,6 @@ export function onDelete(rowData) {
 ![](https://img.alicdn.com/imgextra/i2/O1CN01D3pi3y23c07BVq93d_!!6000000007275-2-tps-3582-1278.png_.webp)
 
 :::tip
-上面的例子中用到了几个宜搭平台提供的开放接口，用于进行数据的查询及删除操作，更多宜搭开放接口可以查看 [OpenAPI 文档](guide/openAPI.md)。
+上面的例子中用到了几个宜搭平台提供的开放接口，用于进行数据的查询及删除操作，更多宜搭开放接口可以查看 [OpenAPI 文档](docs/api/openAPI)。
 
 :::

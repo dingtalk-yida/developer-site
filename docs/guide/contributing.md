@@ -7,7 +7,7 @@
 我们使用 [GitHub Issues](https://github.com/dingtalk-yida/developer-site/issues) 来做开发者中心的问题追踪，如果你发现文档中存在的问题，可以通过以下模板来提交 issue，我们会定期 Review 并进行文档更正：
 
 ```
-- 问题文档链接：https://yida-developer.gitee.io/docs/guide/api；
+- 问题文档链接：https://yida-developer.gitee.io/docs/api/yidaAPI；
 - 问题描述：this.setState() 描述有误，setState 不支持回调函数；
 - 推荐修复方案：将 setState API 中的 callback 用法去除；
 ```

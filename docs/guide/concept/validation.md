@@ -42,7 +42,7 @@ function validateRule(value) {
 ```
 
 ## API
-表单校验除了在表单提交的时候进行校验，还能够通过[前端API](/docs/guide/api#thisfieldidvalidate)进行手动触发，如下所示：
+表单校验除了在表单提交的时候进行校验，还能够通过[前端API](/docs/api/yidaAPI#thisfieldidvalidate)进行手动触发，如下所示：
 
 ```js
 export function validate() {

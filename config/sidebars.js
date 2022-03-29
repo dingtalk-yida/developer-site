@@ -12,8 +12,6 @@ module.exports = {
     "guide/start",
     "guide/keywords",
     "guide/designer",
-    "guide/api",
-    "guide/openAPI",
     {
       type: "category",
       label: "核心概念",
@@ -34,6 +32,7 @@ module.exports = {
     },
     "guide/contributing",
   ],
+  api: getDocsFromDir('api'),
   tutorial: getDocsFromDir("tutorial"),
   components: getDocsFromDir("components", [
     {

@@ -1,4 +1,7 @@
-# 跨应用数据源
+---
+title: 跨应用数据源API
+order: 3
+---
 
 宜搭提供远程 API 调用的能力可以通过 HTTP 请求异步接口（详细使用请参考 [远程 API 文档](guide/concept/datasource.md)），于此同时宜搭平台还提供了一些内置的远程 API 用于进行宜搭数据的操作。
 

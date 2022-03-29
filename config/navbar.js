@@ -19,6 +19,12 @@ module.exports = {
       activeBasePath: '/docs/guide/'
     },
     {
+      to: '/docs/API/about',
+      position: 'left',
+      label: 'API',
+      activeBasePath: '/docs/API/'
+    },
+    {
       to: '/docs/tutorial/todoMVC',
       position: 'left',
       label: '教程',

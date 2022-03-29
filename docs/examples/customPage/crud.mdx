@@ -152,7 +152,7 @@ export function onActionClick(rowData) {
 </video>
 
 ### 步骤4：删除数据 
-参考文档：[宜搭平台接口（页面数据源可直接调用）](/docs/guide/openAPI)
+参考文档：[宜搭平台接口（页面数据源可直接调用）](/docs/api/openAPI)
 1. 数据源处加远程数据源，调用删除表单实例接口 接口配置如图： ![](https://img.alicdn.com/imgextra/i4/O1CN01MS8mzk22jxNw95kdf_!!6000000007157-2-tps-2878-1318.png_.webp)
 2. 添加删除操作列 ![](https://img.alicdn.com/imgextra/i1/O1CN01XpXn3C1QYY7ZJumEU_!!6000000001988-2-tps-2780-1260.png_.webp)
 3. 配置动作事件，需加载 Delete 数据源，调用删除表单实例接口，并配置延时在删除后重新调用查询表单实例接口，将数据加载展示，参考代码如下：
@@ -189,7 +189,7 @@ export function onDeleteClick(rowData) {
 </video>
 
 ### 步骤5：编辑修改数据
-参考文档：[宜搭平台接口（页面数据源可直接调用）](/docs/guide/openAPI)
+参考文档：[宜搭平台接口（页面数据源可直接调用）](/docs/api/openAPI)
 1. 在数据源处添加远程数据源，调用修改表单组件值的接口 接口配置如图： ![](https://img.alicdn.com/imgextra/i1/O1CN01gvwJUe1hwgSSSu3P4_!!6000000004342-2-tps-2878-1312.png_.webp)
 2. 新增编辑操作列以及保存操作列，由于编辑后会进入编辑态，因此需要将保存按钮放置在编辑态中 配置如图： ![](https://img.alicdn.com/imgextra/i3/O1CN018lhHQr1MDFEOMOjxO_!!6000000001400-2-tps-2772-1296.png_.webp)
 ![](https://img.alicdn.com/imgextra/i2/O1CN01wnMtoi1GL8MUhloyd_!!6000000000605-2-tps-2868-1248.png_.webp) 3. 添加编辑事件，参考代码如下

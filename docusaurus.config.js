@@ -11,7 +11,7 @@ const plugin = require('./config/plugin');
 const config = {
   title: '钉钉宜搭·开发者中心',
   tagline: '人人都是低代码应用开发工程师',
-  url: 'https://www.aliwork.com',
+  url: 'https://yida-developer.gitee.io',
   baseUrl: '/developer-site/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

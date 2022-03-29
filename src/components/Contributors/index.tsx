@@ -44,7 +44,7 @@ function Contributors({filePath, showTitle, size}: IContributorsProps) {
     <div className={`contributors ${size || 'medium'}`}>
       {showTitle && <h3>文档贡献者</h3>}
       {(list || []).map((item) => (
-        <Tooltip title={`${item.username}`}>
+        <Tooltip title={`${item.username}`} key={item.username}>
           <a
             className="avatar"
             href={`https://github.com/${item.username}`}
