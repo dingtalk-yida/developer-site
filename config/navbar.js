@@ -6,12 +6,6 @@ module.exports = {
     srcDark: 'https://img.alicdn.com/imgextra/i4/O1CN01Xcsimv1KYeVd2eKND_!!6000000001176-55-tps-298-86.svg'
   },
   items: [
-    // {
-    //   to: '/docs/usage/changeLog',
-    //   position: 'right',
-    //   label: '使用指南',
-    //   activeBasePath: '/docs/usage/'
-    // },
     {
       to: '/docs/guide/about',
       position: 'left',
@@ -19,10 +13,10 @@ module.exports = {
       activeBasePath: '/docs/guide/'
     },
     {
-      to: '/docs/API/about',
+      to: '/docs/api/about',
       position: 'left',
       label: 'API',
-      activeBasePath: '/docs/API/'
+      activeBasePath: '/docs/api/'
     },
     {
       to: '/docs/tutorial/todoMVC',
