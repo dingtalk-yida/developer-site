@@ -524,8 +524,8 @@ interface IResponse {
 
 ### 流程实例更新
 
-- 接口路径： `/v1/process/getOperationRecords.json`
-- 请求类型： `GET`
+- 接口路径： `/v1/process/updateInstance.json`
+- 请求类型： `POST`
 - 参数：
 
 | 参数名             | 描述           | 是否必填 | 示例 | 备注                                                                  |
