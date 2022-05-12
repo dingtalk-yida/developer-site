@@ -10,6 +10,48 @@ export function someFunctionName() {
 }
 ```
 
+## 开始之前
+
+以下 API 要求你具备一定的 `JavaScript` 基础知识，了解一些常见的数据类型、变量和函数的声明和使用，同时知道并能绕开一些常见的 JavaScript 陷阱。
+
+以下面的 API 中常见的 `this.state`、`this.setState`、`this.$()` 为例，当 `this` 出现在事件函数的最外层时，`this` 会指向正确的执行上下文，从而能够很好的完成读取数据源、设置数据源以及获取其他表单数据：
+```js
+export function setSomeValue() {
+  const status = this.state.status;
+  const newStatus = status + 1;
+  this.setState({ status: newStatus });
+  this.$('numberField_xxx').setValue(newStatus);
+}
+```
+
+但如果 `this` 出现在嵌套函数中，就需要注意 `this` 指向是否正确了：
+```js
+export function setSomeValue(value) {
+  // 这里保存了一个 this 的引用
+  const that = this;
+
+  this.dataSourceMap.xxx.load(function (ret) {
+    // 错误 ！！！function 创建了新的上下文环境
+    // 这里的 this 已经改变，无法读取数据源或获取到其他字段
+    this.$('numberField_xxx').setValue(ret);
+
+    // 替代方案，使用外部保存的正确引用来替代
+    that.$('numberField_xxx').setValue(ret);
+  });
+
+  // 或者使用箭头函数避免 this 值改变
+  this.dataSourceMap.xxx.load((ret) => {
+    // 箭头函数不会创建一份新的上下文，this 也不会被改变
+    this.$('numberField_xxx').setValue(ret);
+  });
+}
+```
+
+
+推荐一些 `JavaScript` 入门指南：
+* [MDN 上的 JavaScript 入门](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
+* [JavaScript 参考 - 表达式和运算符 - this](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this)
+
 ## 全局变量 API
 宜搭的设计模式主要参考 React 的方案，因此我们提供全局变量来进行页面级状态管理并提供相应的 API 来触发页面的重新刷新（具体使用参考 [全局变量文档](guide/concept/state.md)）。
 
