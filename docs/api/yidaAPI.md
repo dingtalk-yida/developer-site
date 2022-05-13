@@ -109,31 +109,6 @@ export function onClickInvoke(){
 ## 工具类相关 API
 宜搭提供了很多内置的工具类函数，帮助用户更好地实现一些常用功能。
 
-### this.utils.toast()
-信息提醒，会比 Dialog 对话框更加轻量，弹出后过一段时间会自动消失，效果如下图所示：
-
-![](https://img.alicdn.com/imgextra/i4/O1CN01eU0Tni23AykRPbQ45_!!6000000007216-2-tps-1410-231.png_.webp)
-
-参数配置：
-
-| 参数 | 属性 | 默认值 | 说明 |
-| :--- | :--- | :--- | :--- |
-| type |'success', 'warning', 'error', 'notice', 'help', 'loading' | 'notice'| - |
-| title | (String) | - | - |
-| size | 'medium', 'large' | 'medium' | - |
-| duration | (Number)  | - | type 为 loding 时无效 |
-
-示例：
-```js
-export function popToast(){
-  this.utils.toast({
-    title: 'success', 
-    type: 'success', 
-    size: 'large', 
-  })
-}
-```
-
 ### this.utils.dialog()
 弹出对话框，效果如下图所示，用户需要手动关闭：
 
@@ -166,6 +141,7 @@ export function popDialog(){
   });
 }
 ```
+
 ### this.utils.formatter()
 常用的 formatter 函数用于进行事件、金额、手机号等 format。
 
@@ -191,6 +167,30 @@ export function format() {
   const formatCardNumber = this.utils.formatter('card', '1565298828212233');
 }
 ```
+
+### this.utils.getDateTimeRange(when, type)
+获取当前或指定日期的开始结束区间时间戳。
+
+`when` 和 `type` 都可选，默认返回当天的开始结束区间，可以指定日期和区间类型。
+
+| 参数 | 属性 | 默认值 | 说明 |
+| :--- | :--- | :--- | :--- |
+| when | 支持时间戳、Date 日期类型 | 当前时间 `new Date()` | 指定日期 |
+| type | 'year', 'month', 'week', 'day', 'date', 'hour', 'minute', 'second' | 'day'| 获取的区间类型 |
+
+示例：
+```js
+export function search() {
+  const [dayStart, dayEnd] = this.utils.getDateTimeRange();
+  console.log( `dayStart: ${dayStart}, dayEnd: ${dayEnd}` );
+  // 输出当天的开始结束时间戳
+
+  const [monthStart, monthEnd] = this.utils.getDateTimeRange(new Date(), 'month');
+  console.log( `monthStart: ${monthStart}, dayEnd: ${monthEnd}` );
+  // 输出当月的开始结束时间戳
+}
+```
+
 ### this.utils.getLocale()
 获取当前页面的语言环境。
 
@@ -228,6 +228,67 @@ export function getUserInfo() {
 }
 ```
 
+### this.utils.isMobile()
+判断当前访问环境是否是移动端。
+
+示例：
+```js
+export function someFunctionName() {
+  console.log('isMobile', this.utils.isMobile());
+}
+```
+
+### this.utils.isSubmissionPage()
+判断当前页面是否是数据提交页面。
+
+示例：
+```js
+export function someFunctionName() {
+  console.log('isSubmissionPage', this.utils.isSubmissionPage());
+}
+```
+
+### this.utils.isViewPage()
+判断当前页面是否是数据查看页面。
+
+示例：
+```js
+export function someFunctionName() {
+  console.log('isViewPage', this.utils.isViewPage());
+}
+```
+
+### this.utils.loadScript()
+动态加载远程脚本。
+
+示例：
+```js
+export function didMount() {
+  this.utils.loadScript('https://g.alicdn.com/code/lib/qrcodejs/1.0.0/qrcode.min.js').then(() => {
+    var qrcode = new QRCode(document.getElementById('qrcode'), {
+      text: "http://jindo.dev.naver.com/collie",
+      width: 128,
+      height: 128,
+      colorDark : "#000000",
+      colorLight : "#ffffff",
+      correctLevel : QRCode.CorrectLevel.H
+    });
+  });
+}
+```
+
+### this.utils.openPage()
+打开新页面。
+
+如果在钉钉环境下，会使用钉钉 API 打开新页面，体验会更友好一些。
+
+示例：
+```js
+export function someFunctionName() {
+  this.utils.openPage('/workbench');
+}
+```
+
 ### this.utils.previewImage()
 图片预览，通过这个 API 我们可以实现一个简洁的图片预览效果，如下所示：
 ![](https://img.alicdn.com/imgextra/i2/O1CN01YksnrI21hNXGdPAov_!!6000000007016-2-tps-1423-863.png_.webp)
@@ -236,6 +297,31 @@ export function getUserInfo() {
 ```js
 export function previewImg() {
   this.utils.previewImage({ current: 'https://img.alicdn.com/tfs/TB1JUnZ2GL7gK0jSZFBXXXZZpXa-260-192.png_.webp' });
+}
+```
+
+### this.utils.toast()
+信息提醒，会比 Dialog 对话框更加轻量，弹出后过一段时间会自动消失，效果如下图所示：
+
+![](https://img.alicdn.com/imgextra/i4/O1CN01eU0Tni23AykRPbQ45_!!6000000007216-2-tps-1410-231.png_.webp)
+
+参数配置：
+
+| 参数 | 属性 | 默认值 | 说明 |
+| :--- | :--- | :--- | :--- |
+| type |'success', 'warning', 'error', 'notice', 'help', 'loading' | 'notice'| - |
+| title | (String) | - | - |
+| size | 'medium', 'large' | 'medium' | - |
+| duration | (Number)  | - | type 为 loding 时无效 |
+
+示例：
+```js
+export function popToast(){
+  this.utils.toast({
+    title: 'success', 
+    type: 'success', 
+    size: 'large', 
+  })
 }
 ```
 
