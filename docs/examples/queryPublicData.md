@@ -81,10 +81,11 @@ order: 4
 ## 5.场景案例
 <video width="100%" controls>
   <source
-    src="http://cloud.video.taobao.com/play/u/2554592263/p/1/e/6/t/1/353554115289.mp4"
+    src="https://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/d/ud/361174877928.mp4"
     type="video/mp4"
   ></source>
 </video>
+
 ### 5.1 场景
 
 &nbsp;&nbsp;&nbsp;&nbsp;《访客申请》
