@@ -101,3 +101,5 @@ document.querySelector('.lc-left-area-bottom div:last-child').style.display = 'b
 
 3. 安装成功后，重新访问宜搭表单设计器即可。
 
+## 搜索page.js
+
