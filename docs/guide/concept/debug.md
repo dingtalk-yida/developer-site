@@ -102,4 +102,10 @@ document.querySelector('.lc-left-area-bottom div:last-child').style.display = 'b
 3. 安装成功后，重新访问宜搭表单设计器即可。
 
 ## 搜索page.js
+1.打开页面的源代码然后 cmd/ctrl+p 搜索，点击行数进行断点 如图:
+![](https://img.alicdn.com/imgextra/i1/O1CN0185hoJe1EIj41bx3ji_!!6000000000329-2-tps-2206-886.png_.webp)
+
+2. 在搜到要调试的代码点击行数，进行断点
+
+
 
