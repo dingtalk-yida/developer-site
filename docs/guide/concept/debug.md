@@ -50,14 +50,5 @@ order: 15
     window.vConsole = new window.VConsole();
   };
 ```
-![](https://img.alicdn.com/imgextra/i4/O1CN01WsI8gn1nRR8Ubes42_!!6000000005086-2-tps-1706-910.png_.webp)
-
-## 搜索page.js
-1.打开页面的源代码然后 cmd/ctrl+p 搜索，点击行数进行断点 如图:
-![](https://img.alicdn.com/imgextra/i1/O1CN0185hoJe1EIj41bx3ji_!!6000000000329-2-tps-2206-886.png_.webp)
-
-2. 在搜到要调试的代码点击行数，进行断点
-
 ![](https://img.alicdn.com/imgextra/i2/O1CN013NSTWL1azFO3tZm8u_!!6000000003400-2-tps-1420-866.png)
 ![](https://img.alicdn.com/imgextra/i2/O1CN01l807TE1d6h3UsIyRr_!!6000000003687-2-tps-1676-1662.png)
-
