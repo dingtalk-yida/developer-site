@@ -51,5 +51,5 @@ order: 10
 ## 功能演示
 
 <video width="100%" controls>
-  <source src="https://cloud.video.taobao.com/play/u/1293044/p/1/d/hd/e/6/t/1/325233824692.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiNThlNzY2ZWI0ZjUzOWJiZGFiZjJjYTBkNGY3ZjU1ODcifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDc0ODQ1MjM=" type="video/mp4"></source>
+  <source src="https://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/d/ud/364735056580.mp4" type="video/mp4"></source>
 </video>

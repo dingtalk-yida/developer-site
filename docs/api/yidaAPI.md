@@ -72,6 +72,8 @@ export function getState() {
 ### this.setState()
 设置全局变量的值并触发页面重新渲染（和 React 的 API 基本一致）。
 
+**注意：禁止使用 `this.state.a = b` 的方式修改变量的值，后续升级将不能保证兼容性，相关代码将不能正常运行。**
+
 示例：
 ```js
 export function setStateValue() {
@@ -456,6 +458,8 @@ export function stringifyQuery() {
 ### this.$(fieldId).get(prop)
 通过 fieldId 找到组件并获取组件的属性值，fieldId 为组件标识，prop 为组件的属性名称。
 
+**注意：禁止使用 `this.$(fieldId).xxx` 的方式读取属性值，后续升级将不能保证兼容性，相关代码将不能正常运行。**
+
 示例：
 ```js
 export function getAttribute(){
@@ -467,6 +471,8 @@ export function getAttribute(){
 
 ### this.$(fieldId).set(prop, value)
 通过 fieldId 找到组件并设置组件的属性值，fieldId 为组件标识，prop 为组件属性名称，value 为要设置的属性值。
+
+**注意：禁止使用 `this.$(fieldId).xxx = xxx` 的方式设置属性值，后续升级将不能保证兼容性，相关代码将不能正常运行。**
 
 示例：
 ```js
@@ -481,6 +487,8 @@ export function setAttribute(){
 
 ### this.$(fieldId)
 获取组件实例，fieldId 为组件唯一标识，在调用组件 API 之前，通常我们需要通过 `this.$(fieldId)` 先获取组件实例再进行 API 调用。
+
+**注意：禁止使用 `this.$(fieldId).xxx` 的方式获取一些不在文档中说明的 API 和属性来使用，文档中未注明的 API 和属性为私有内部实现，后续升级将不能保证兼容性，相关代码将不能正常运行。**
 
 ### this.$(fieldId).getValue()
 获取指定表单组件的输入值。
