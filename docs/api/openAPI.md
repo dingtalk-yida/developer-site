@@ -117,7 +117,7 @@ interface IResponse {
 
 | 参数名     | 描述                | 是否必填 | 示例                                         | 备注 |
 | :--------- | :------------------ | :------- | :------------------------------------------- | :--- |
-| formInstId | 要删除的表单数据 ID | 是       | FINST-NJYJZELVVYZRVGJHR7M6FJW3ESJN1P1TCNPCJ9 |      |
+| formInstId | 要查询的表单数据 ID | 是       | FINST-NJYJZELVVYZRVGJHR7M6FJW3ESJN1P1TCNPCJ9 |      |
 
 - 返回值示例：
 
