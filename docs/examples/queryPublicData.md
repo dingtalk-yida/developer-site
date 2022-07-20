@@ -1,10 +1,11 @@
 ---
-title: 组织外用户查询免登提交数据
-order: 4
+title: 组织外用户查询免登提交数据（dingTalkOpenApi）
+order: 5
 ---
 
 :::warning
 **特别声明：该方案可能存在数据安全风险，需要在云服务端做好数据查询限制及过滤 ！**
+**使用接口均为钉钉开放平台接口：https://open.dingtalk.com/document/orgapp-server/querying-form-instance-data**
 :::
 
 ## 1. 案例背景
@@ -16,7 +17,7 @@ order: 4
 
 ## 2. 实现效果
 
-&nbsp;&nbsp;&nbsp;&nbsp;用户可以通过访问宜搭自定义页面，通过自定义页面的表格组件来查询数据。<br />![](https://img.alicdn.com/imgextra/i4/O1CN01uTpoYY1ocG6xGYVDe_!!6000000005245-2-tps-1350-490.png_.webp)
+&nbsp;&nbsp;&nbsp;&nbsp;用户可以通过访问宜搭自定义页面，通过自定义页面的组件来实现一套增删改查。<br />![](https://img.alicdn.com/imgextra/i3/O1CN010DMpCB222Rlz6mZFa_!!6000000007062-2-tps-1918-758.png)
 
 ## 3. 实现原理
 
@@ -42,31 +43,27 @@ order: 4
 
 &nbsp;&nbsp;&nbsp;&nbsp;1. 此处以「阿里云函数计算」举例，访问云函数平台。
 
-![](https://img.alicdn.com/imgextra/i1/O1CN01gM0lyA1qxu3nd6cGt_!!6000000005563-2-tps-1350-707.png_.webp)
+![](https://img.alicdn.com/imgextra/i1/O1CN01Owh1ln1M5uufL3WMy_!!6000000001384-2-tps-1125-589.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;2. 创建服务
 
-![](https://img.alicdn.com/imgextra/i2/O1CN01OT3KVo1cYnjUtiuUz_!!6000000003613-2-tps-1350-711.png_.webp)
+![](https://img.alicdn.com/imgextra/i4/O1CN01UydJNL22QilXJ7aVG_!!6000000007115-2-tps-1125-593.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;3. 在服务中创建函数。
 
-![](https://img.alicdn.com/imgextra/i4/O1CN01hY8fY724eZyERctJW_!!6000000007416-2-tps-1350-659.png_.webp)
+![](https://img.alicdn.com/imgextra/i4/O1CN01DdzwKl20CrY1K1f6Y_!!6000000006814-2-tps-1845-686.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;4. 函数配置，定义函数触发方式（通过 HTTP 请求触发）及函数环境（此处以 node.js 举例）。
 
-![](https://img.alicdn.com/imgextra/i2/O1CN01v5cjF025NvBFi6bjg_!!6000000007515-2-tps-1350-788.png_.webp)
+![](https://img.alicdn.com/imgextra/i2/O1CN01fsS0sc1WON1kIGshB_!!6000000002778-2-tps-1125-657.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;5. 导入代码包（可在附录 6.1 下载）。
+&nbsp;&nbsp;&nbsp;&nbsp;5. 按需导入代码包，getToken 函数必须创建，后续其余函数调用需使用此函数（可在附录 6.1 下载）。
 
-![](https://img.alicdn.com/imgextra/i2/O1CN01dSvwn21V5IucA3U9U_!!6000000002601-2-tps-1350-708.png_.webp)
+![](https://img.alicdn.com/imgextra/i1/O1CN01oTNV2y1zH9dnfAaFj_!!6000000006688-2-tps-1125-476.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;6. 访问触发器管理，获取请求链接。该请求链接可以直接配置在宜搭远程数据源中请求。
 
-![](https://img.alicdn.com/imgextra/i3/O1CN01NQjyKE1Q69ZPDgWbT_!!6000000001926-2-tps-1350-746.png_.webp)
-
-&nbsp;&nbsp;&nbsp;&nbsp;7. 验证函数，在浏览器中以 get 请求的方式调用并触发该函数，会自动下载一个 json。
-
-![](https://img.alicdn.com/imgextra/i2/O1CN01JdgvNP1KT9lTpR5Sx_!!6000000001164-2-tps-1350-827.png_.webp)
+![](https://img.alicdn.com/imgextra/i1/O1CN01fpgE2e1ociW5cw3YN_!!6000000005246-2-tps-1837-669.png)
 
 ### 4.2 于自定义页面配置远程数据源
 
@@ -76,52 +73,691 @@ order: 4
 
 &nbsp;&nbsp;&nbsp;&nbsp;2. 使用远程数据源请求拿到的数据对自定义页面的表格组件进行渲染，可参考文档[《自定义页面表格实现数据管理页功能》](https://www.yuque.com/yida/subject/vswqzz)
 
-![](https://img.alicdn.com/imgextra/i4/O1CN01Dr8j3z1SdhoOrx5I9_!!6000000002270-2-tps-1350-633.png_.webp)
+![](https://img.alicdn.com/imgextra/i4/O1CN018HQT2E1qXnUhNVBo5_!!6000000005506-2-tps-1850-699.png)
 
 ## 5.场景案例
-<video width="100%" controls>
-  <source
-    src="https://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/d/ud/361174877928.mp4"
-    type="video/mp4"
-  ></source>
-</video>
 
 ### 5.1 场景
 
-&nbsp;&nbsp;&nbsp;&nbsp;《访客申请》
+&nbsp;&nbsp;&nbsp;&nbsp;《自定义页面数据管理页（综合应用）》
 
 ### 5.2 场景描述
 
-&nbsp;&nbsp;&nbsp;&nbsp;组织外人员在使用宜搭免登表单提交访客申请后，需要实时查询其访客申请状态
+&nbsp;&nbsp;&nbsp;&nbsp;免登态的数据管理页。
 
 ### 5.3 实现方式
 
-#### 5.3.1 新建访客申请流程表单，并开启免登
+#### 5.3.1 新建数据表表单（用于留存数据）
 
-1. 新建免登流程表单
+1. 新建表单
 
-![](https://img.alicdn.com/imgextra/i3/O1CN01aAYqaJ20x7XfRs0jW_!!6000000006915-2-tps-1350-712.png_.webp)
+![](https://img.alicdn.com/imgextra/i4/O1CN01NugevF1LhBWUIAV2C_!!6000000001330-2-tps-1397-774.png)
 
 #### 5.3.2 参考文档 「4.1 访问云函数平台，新建函数及服务」，新建 faas 服务
 
 1. 配置完服务后，导入附录 6.1 的代码包。
 
-![](https://img.alicdn.com/imgextra/i3/O1CN01T3xICp1jD0Bw9gJyO_!!6000000004513-2-tps-1350-660.png_.webp)
+![](https://img.alicdn.com/imgextra/i4/O1CN01MREwRc264W1gOjS0B_!!6000000007608-2-tps-1125-476.png)
 
-#### 5.3.3 新建访客查询页面，配置远程数据源
+#### 5.3.3 新建数据操作页面，配置远程数据源
 
 1. 该页面为自定义页面，注意要开启免登。
 
-![](https://img.alicdn.com/imgextra/i4/O1CN01AdsYRm1vCL0IiPKaW_!!6000000006136-2-tps-1350-393.png_.webp)
+![](https://img.alicdn.com/imgextra/i4/O1CN01cz3Bgi1EAwKSOKI2K_!!6000000000312-2-tps-1894-866.png)
 
-2. 配置远程数据源
+2. 配置远程数据源，均使用 get 请求，saveData、updateData、deleteData 关闭自动加载。
 
-![](https://img.alicdn.com/imgextra/i1/O1CN01mt3j801lSEasheHjn_!!6000000004817-2-tps-1350-709.png_.webp)
+![](https://img.alicdn.com/imgextra/i1/O1CN01q8ZHQI1ZoQPI0PQ9Z_!!6000000003241-2-tps-1066-788.png)
 
-3. 配置搜索按钮的点击事件，触发远程数据源请求。 **注：请求过滤参数需设置必填校验，否则存在被拖库风险**
+注意：初次加载页面时，数据源顺序应 getToken -> getYiDaData ，故要设置自动加载且加载方式为串行。
+searchQuery 可以配置一些 getYiDaData 必须的参数，如：appType，formUuid，pageSize，currentPage，并将其绑定在 getYiDaData 的请求参数中，便于后续搜索、分页的参数设置。
+getToken 不允许频繁调用，建议首次调用后，存储在浏览器 cookie 中，有效期为 7200 秒。
 
-![](https://img.alicdn.com/imgextra/i1/O1CN01C3Rgol1kTJuvHbL0T_!!6000000004684-2-tps-1350-710.png_.webp)
+```js
+export function setCookie(name, value, time) {
+  // 存储cookie
+  let d = new Date();
+  d.setTime(d.getTime() + time * 1000);
+  let expires = 'expires=' + d.toGMTString();
+  document.cookie = `${name}=${value}; ${expires}; path=/`;
+}
+
+export function getCookie(name) {
+  // 获取cookie
+  let newName = name + '=';
+  let ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i].trim();
+    if (c.indexOf(newName) == 0) {
+      return c.substring(newName.length, c.length);
+    }
+  }
+  return '';
+}
+```
+
+此例中使用方式
+
+![](https://img.alicdn.com/imgextra/i1/O1CN01wm7sHx1yjGKsRtxFC_!!6000000006614-2-tps-1062-782.png)
+
+```js
+function didFetch(content) {
+  if (content.expireIn) {
+    this.setCookie('accessToken', content.accessToken, content.expireIn);
+  } else {
+    this.utils.toast({
+      title: 'accessToken获取失败！',
+      type: 'error',
+    });
+  }
+}
+```
+
+3. 配置表格相关设置。
+
+![](https://img.alicdn.com/imgextra/i4/O1CN01GvnZ3Z1jIUx56uA5c_!!6000000004525-2-tps-1829-737.png)
+
+设置好顶部按钮、操作列，分别配置如下回调（新增可使用跳转方式，数据表需开启免登），此例使用弹窗方式。
+弹窗配置（新增、编辑二合一）：
+
+![](https://img.alicdn.com/imgextra/i3/O1CN012WzvtM1lLp3pfYUr7_!!6000000004803-2-tps-1806-747.png)
+
+删除提醒：
+
+![](https://img.alicdn.com/imgextra/i2/O1CN01rGzdED1cXswpGukjL_!!6000000003611-2-tps-1402-703.png)
+
+```js
+export function onAdd() {
+  // 新增顶部操作回调
+  this.$('dialog_l2sp5w6j').show(() => {
+    this.$('dialog_l2sp5w6j').set('title', '新增数据');
+    this.$('textField_l2sp5w6o').reset();
+    this.$('textField_l2sp5w6k').reset();
+    this.$('radioField_l2sp5w6m').reset();
+    this.$('numberField_l2sp5w6n').reset();
+  });
+}
+
+export function onEdit(rowData) {
+  // 编辑操作列回调
+  this.$('dialog_l2sp5w6j').show(() => {
+    this.$('dialog_l2sp5w6j').set('title', '编辑数据');
+    this.$('textField_l2sp5w6o').setValue(rowData.formInstanceId);
+    this.$('textField_l2sp5w6k').setValue(rowData.formData.textField_l2sl88eh);
+    this.$('radioField_l2sp5w6m').setValue(
+      rowData.formData.radioField_l2sl88ei
+    );
+    this.$('numberField_l2sp5w6n').setValue(
+      rowData.formData.numberField_l2sl88ej
+    );
+  });
+}
+
+export async function onOk() {
+  // 新增、编辑弹窗确定事件
+  this.$('textField_l2sp5w6k').validate();
+  this.$('radioField_l2sp5w6m').validate();
+  this.$('numberField_l2sp5w6n').validate();
+  if (
+    !this.$('textField_l2sp5w6k').getValue() ||
+    !this.$('radioField_l2sp5w6m').getValue() ||
+    !this.$('numberField_l2sp5w6n').getValue()
+  ) {
+    return;
+  }
+  this.$('dialog_l2sp5w6j').set('confirmState', 'LOADING');
+  if (this.$('textField_l2sp5w6o').getValue()) {
+    //编辑
+    if (!this.getCookie('accessToken')) {
+      await this.dataSourceMap.getToken.load();
+    }
+    this.dataSourceMap.updateData
+      .load({
+        accessToken: this.getCookie('accessToken'),
+        formUuid: 'FORM-XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        appType: 'APP_XXXXXXXXXXXXX',
+        formInstanceId: this.$('textField_l2sp5w6o').getValue(),
+        updateFormDataJson: JSON.stringify({
+          textField_l2sl88eh: this.$('textField_l2sp5w6k').getValue(),
+          radioField_l2sl88ei: this.$('radioField_l2sp5w6m').getValue(),
+          numberField_l2sl88ej: this.$('numberField_l2sp5w6n').getValue(),
+        }),
+      })
+      .then((res) => {
+        this.utils.toast({
+          title: '编辑成功！',
+          type: 'success',
+        });
+        this.$('dialog_l2sp5w6j').set('confirmState', 'NORMAL');
+        this.$('dialog_l2sp5w6j').hide();
+        this.dataSourceMap.getData.load();
+      });
+  } else {
+    //新增
+    if (!this.getCookie('accessToken')) {
+      await this.dataSourceMap.getToken.load();
+    }
+    this.dataSourceMap.saveData
+      .load({
+        accessToken: this.getCookie('accessToken'),
+        formUuid: 'FORM-XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        appType: 'APP_XXXXXXXXXXXXX',
+        formDataJson: JSON.stringify({
+          textField_l2sl88eh: this.$('textField_l2sp5w6k').getValue(),
+          radioField_l2sl88ei: this.$('radioField_l2sp5w6m').getValue(),
+          numberField_l2sl88ej: this.$('numberField_l2sp5w6n').getValue(),
+        }),
+      })
+      .then((res) => {
+        this.utils.toast({
+          title: '新增成功！',
+          type: 'success',
+        });
+        this.$('dialog_l2sp5w6j').set('confirmState', 'NORMAL');
+        this.$('dialog_l2sp5w6j').hide();
+        this.dataSourceMap.getData.load();
+      });
+  }
+}
+
+export function onDelete(rowData) {
+  // 删除操作列回调
+  this.$('dialog_l2sp5w6p').show(() => {
+    this.$('textField_l2sp5w6q').setValue(rowData.formInstanceId);
+  });
+}
+
+export async function onOk2() {
+  // 删除弹窗确定事件
+  if (!this.$('textField_l2sp5w6q').getValue()) {
+    this.utils.toast({
+      title: '系统错误',
+      type: 'error',
+    });
+    return;
+  }
+  if (!this.getCookie('accessToken')) {
+    await this.dataSourceMap.getToken.load();
+  }
+  this.dataSourceMap.deleteData
+    .load({
+      accessToken: this.getCookie('accessToken'),
+      formUuid: 'FORM-XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+      appType: 'APP_XXXXXXXXXXXXX',
+      formInstanceIdList: JSON.stringify([
+        this.$('textField_l2sp5w6q').getValue(),
+      ]),
+    })
+    .then((res) => {
+      this.utils.toast({
+        title: '删除成功！',
+        type: 'success',
+      });
+      this.$('dialog_l2sp5w6p').hide();
+      this.dataSourceMap.getData.load();
+    });
+}
+```
+
+表格分页配置：
+
+![](https://img.alicdn.com/imgextra/i3/O1CN01LA2qzu1fWuxfuOGMt_!!6000000004015-2-tps-1835-744.png)
+
+分页回调配置：
+
+```js
+export async function onFetchData(params) {
+  // 如果是搜索的话翻页重置到 1
+  if (params.from === 'search') {
+    params.currentPage = 1;
+  }
+  if (!this.getCookie('accessToken')) {
+    await this.dataSourceMap.getToken.load();
+  }
+  const { searchQuery } = this.state;
+  searchQuery.pageSize = params.pageSize;
+  searchQuery.currentPage = params.currentPage;
+  this.setState({
+    searchQuery,
+  });
+  this.dataSourceMap.getData.load();
+}
+```
+
+4. 查询配置。
+
+![](https://img.alicdn.com/imgextra/i2/O1CN01cspiW51GG61FYFbqK_!!6000000000594-2-tps-1816-728.png)
+
+查询回调配置:
+
+```js
+export async function onSubmit(values) {
+  //查询
+  if (JSON.stringify(values) === '{}') {
+    return;
+  }
+  if (!this.getCookie('accessToken')) {
+    await this.dataSourceMap.getToken.load();
+  }
+  const { searchQuery } = this.state;
+  searchQuery.searchFieldJson = JSON.stringify({
+    textField_l2sl88eh: values.textField_l2sldmh6 || '',
+    radioField_l2sl88ei: values.selectField_l2sldmhc || '',
+  });
+  this.setState({
+    searchQuery,
+  });
+  this.dataSourceMap.getData.load();
+}
+
+export async function onReset(values) {
+  //初始化
+  const { searchQuery } = this.state;
+  if (!this.getCookie('accessToken')) {
+    await this.dataSourceMap.getToken.load();
+  }
+  searchQuery.searchFieldJson = {};
+  searchQuery.pageSize = 10;
+  searchQuery.currentPage = 1;
+  this.setState({
+    searchQuery,
+  });
+  this.dataSourceMap.getData.load();
+}
+```
 
 #### 5.3.4 效果验证
 
-![](https://img.alicdn.com/imgextra/i1/O1CN01vx22D71HP5OhwA210_!!6000000000749-2-tps-1350-490.png_.webp)
+![](https://img.alicdn.com/imgextra/i3/O1CN010DMpCB222Rlz6mZFa_!!6000000007062-2-tps-1918-758.png)
+
+## 6. 附录
+
+### 6.1 代码包
+
+注意修改除 getToken 外代码里面的 systemToken 值，调用 Api 时不会显示在 network 和 console 中，getToken 获取到的 accessToken 要用于其余四个接口。
+
+getToken：
+
+```js
+var getRawBody = require('raw-body');
+const Url = require('url');
+const API_SERVER = 'https://api.dingtalk.com';
+const API_VERSION = 'v1.0';
+
+exports.handler = (req, resp, context) => {
+  resp.setHeader('Content-type', 'application/json');
+  getRawBody(req, function (err, body) {
+    post(
+      `${API_SERVER}/${API_VERSION}/oauth2/accessToken`,
+      {
+        appKey: req.queries.appKey,
+        appSecret: req.queries.appSecret,
+      },
+      function (data) {
+        data = JSON.parse(data);
+        if (data.expireIn) {
+          var respBody = new Buffer.from(JSON.stringify(data));
+          resp.setStatusCode(200);
+          resp.send(respBody);
+        } else {
+          var respBody = new Buffer.from(
+            JSON.stringify({
+              success: 'false',
+              errMsg: '获取失败',
+              errCode: '400',
+            })
+          );
+          resp.setStatusCode(200);
+          resp.send(respBody);
+        }
+      }
+    );
+  });
+};
+
+function post(url, data, fn) {
+  data = data || {};
+  let parse_u = Url.parse(url, true);
+  let isHttp = parse_u.protocol == 'http:';
+  let options;
+  options = {
+    host: parse_u.hostname,
+    port: parse_u.port || (isHttp ? 80 : 443),
+    path: parse_u.path,
+    method: 'POST',
+    json: true,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  let req = require(isHttp ? 'http' : 'https').request(options, function (res) {
+    let _data = '';
+    res.on('data', function (chunk) {
+      _data += chunk;
+    });
+    res.on('end', function () {
+      fn != undefined && fn(_data);
+    });
+  });
+  req.write(JSON.stringify(data));
+  req.end();
+}
+```
+getYiDaData：
+
+```js
+var getRawBody = require('raw-body');
+const Url = require('url');
+const API_SERVER = 'https://api.dingtalk.com';
+const API_VERSION = 'v1.0';
+const systemToken = 'xxxxxxxxxxx'; //应用秘钥
+const userId = 'yida_pub_account'; //以宜搭平台的身份访问接口
+
+exports.handler = (req, resp, context) => {
+    resp.setHeader('Content-type', 'application/json');
+    getRawBody(req, function (err, body) {
+        let pageSize = req.queries.pageSize ? req.queries.pageSize : 10;
+        let currentPage = req.queries.currentPage ? req.queries.currentPage : 1;
+        post(
+            `${API_SERVER}/${API_VERSION}/yida/forms/instances/search`,
+            {
+                appType: req.queries.appType,
+                formUuid: req.queries.formUuid,
+                searchFieldJson: req.queries.searchFieldJson,
+                systemToken: systemToken,
+                userId: userId,
+                currentPage: currentPage,
+                pageSize: pageSize
+            },
+            function (data) {
+                data = JSON.parse(data);
+                //将searchFormDatas接口的返回值直接塞到response中。
+                var respBody = new Buffer.from(JSON.stringify(data));
+                resp.setStatusCode(200);
+                resp.send(respBody);
+            },
+            req.queries.accessToken
+        );
+    });
+}
+
+function post(url, data, fn, accessToken) {
+    data = data || {};
+    let parse_u = Url.parse(url, true);
+    let isHttp = parse_u.protocol == 'http:';
+    let options;
+    options = {
+        host: parse_u.hostname,
+        port: parse_u.port || (isHttp ? 80 : 443),
+        path: parse_u.path,
+        method: 'POST',
+        json: true,
+        headers: {
+            'Content-Type': 'application/json',
+            'x-acs-dingtalk-access-token': accessToken
+        },
+    };
+    let req = require(isHttp ? 'http' : 'https').request(options, function (res) {
+        let _data = '';
+        res.on('data', function (chunk) {
+            _data += chunk;
+        });
+        res.on('end', function () {
+            fn != undefined && fn(_data);
+        });
+    });
+    req.write(JSON.stringify(data));
+    req.end();
+}
+```
+saveYiDaData：
+
+```js
+var getRawBody = require('raw-body');
+const Url = require('url');
+const API_SERVER = 'https://api.dingtalk.com';
+const API_VERSION = 'v1.0';
+const systemToken = 'xxxxxxxxxxx'; //应用秘钥
+const userId = 'yida_pub_account'; //以宜搭平台的身份访问接口
+
+exports.handler = (req, resp, context) => {
+    resp.setHeader('Content-type', 'application/json');
+    getRawBody(req, function (err, body) {
+        post(
+            `${API_SERVER}/${API_VERSION}/yida/forms/instances`,
+            {
+                appType: req.queries.appType,
+                formUuid: req.queries.formUuid,
+                formDataJson: req.queries.formDataJson,
+                systemToken: systemToken,
+                userId: userId,
+            },
+            function (data) {
+                data = JSON.parse(data);
+                //将saveFormDatas接口的返回值直接塞到response中。
+                var respBody = new Buffer.from(JSON.stringify(data));
+                resp.setStatusCode(200);
+                resp.send(respBody);
+            },
+            req.queries.accessToken
+        );
+    });
+}
+
+function post(url, data, fn, accessToken) {
+    data = data || {};
+    let parse_u = Url.parse(url, true);
+    let isHttp = parse_u.protocol == 'http:';
+    let options;
+    options = {
+        host: parse_u.hostname,
+        port: parse_u.port || (isHttp ? 80 : 443),
+        path: parse_u.path,
+        method: 'POST',
+        json: true,
+        headers: {
+            'Content-Type': 'application/json',
+            'x-acs-dingtalk-access-token': accessToken
+        },
+    };
+    let req = require(isHttp ? 'http' : 'https').request(options, function (res) {
+        let _data = '';
+        res.on('data', function (chunk) {
+            _data += chunk;
+        });
+        res.on('end', function () {
+            fn != undefined && fn(_data);
+        });
+    });
+    req.write(JSON.stringify(data));
+    req.end();
+}
+```
+updateYiDaData：
+
+```js
+var getRawBody = require('raw-body');
+const Url = require('url');
+const API_SERVER = 'https://api.dingtalk.com';
+const API_VERSION = 'v1.0';
+const systemToken = 'xxxxxxxxxxx'; //应用秘钥
+const userId = 'yida_pub_account'; //以宜搭平台的身份访问接口
+
+exports.handler = (req, resp, context) => {
+    resp.setHeader('Content-type', 'application/json');
+    getRawBody(req, function (err, body) {
+        post(
+            `${API_SERVER}/${API_VERSION}/yida/forms/instances`,
+            {
+                appType: req.queries.appType,
+                formUuid: req.queries.formUuid,
+                formInstanceId: req.queries.formInstanceId,
+                updateFormDataJson: req.queries.updateFormDataJson,
+                systemToken: systemToken,
+                userId: userId,
+            },
+            function (data) {
+                data = JSON.parse(data);
+                //将updateFormDataJson接口的返回值直接塞到response中。
+                var respBody = new Buffer.from(JSON.stringify(data));
+                resp.setStatusCode(200);
+                resp.send(respBody);
+            },
+            req.queries.accessToken
+        );
+    });
+}
+
+function post(url, data, fn, accessToken) {
+    data = data || {};
+    let parse_u = Url.parse(url, true);
+    let isHttp = parse_u.protocol == 'http:';
+    let options;
+    options = {
+        host: parse_u.hostname,
+        port: parse_u.port || (isHttp ? 80 : 443),
+        path: parse_u.path,
+        method: 'PUT',
+        json: true,
+        headers: {
+            'Content-Type': 'application/json',
+            'x-acs-dingtalk-access-token': accessToken
+        },
+    };
+    let req = require(isHttp ? 'http' : 'https').request(options, function (res) {
+        let _data = '';
+        res.on('data', function (chunk) {
+            _data += chunk;
+        });
+        res.on('end', function () {
+            fn != undefined && fn(_data);
+        });
+    });
+    req.write(JSON.stringify(data));
+    req.end();
+}
+```
+deleteYiDaData：
+
+```js
+var getRawBody = require('raw-body');
+const Url = require('url');
+const API_SERVER = 'https://api.dingtalk.com';
+const API_VERSION = 'v1.0';
+const systemToken = 'xxxxxxxxxxx'; //应用秘钥
+const userId = 'yida_pub_account'; //以宜搭平台的身份访问接口
+
+exports.handler = (req, resp, context) => {
+    resp.setHeader('Content-type', 'application/json');
+    getRawBody(req, function (err, body) {
+        post(
+            `${API_SERVER}/${API_VERSION}/yida/forms/instances/batchRemove`,
+            {
+                appType: req.queries.appType,
+                formUuid: req.queries.formUuid,
+                formInstanceIdList: JSON.parse(req.queries.formInstanceIdList),
+                systemToken: systemToken,
+                userId: userId,
+            },
+            function (data) {
+                data = JSON.parse(data);
+                var respBody = new Buffer.from(JSON.stringify(data));
+                resp.setStatusCode(200);
+                resp.send(respBody);
+            },
+            req.queries.accessToken
+        );
+    });
+}
+
+function post(url, data, fn, accessToken) {
+    data = data || {};
+    let parse_u = Url.parse(url, true);
+    let isHttp = parse_u.protocol == 'http:';
+    let options;
+    options = {
+        host: parse_u.hostname,
+        port: parse_u.port || (isHttp ? 80 : 443),
+        path: parse_u.path,
+        method: 'POST',
+        json: true,
+        headers: {
+            'Content-Type': 'application/json',
+            'x-acs-dingtalk-access-token': accessToken
+        },
+    };
+    let req = require(isHttp ? 'http' : 'https').request(options, function (res) {
+        let _data = '';
+        res.on('data', function (chunk) {
+            _data += chunk;
+        });
+        res.on('end', function () {
+            fn != undefined && fn(_data);
+        });
+    });
+    req.write(JSON.stringify(data));
+    req.end();
+}
+```
+
+### 6.2 入参格式
+
+#### getToken
+
+钉钉开放平台获取，详见：https://open.dingtalk.com/document/orgapp-server/obtain-the-access_token-of-an-internal-app
+
+```js
+{
+  appKey: "xxxxxxx",
+  appSecret: "xxxxxxxxxxxx"
+}
+```
+
+#### getYiDaData
+
+```js
+{
+  accessToken: "xxxx",
+  formUuid: "FORM-XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  appType: "APP_XXXXXXXXXXXXX",
+  searchFieldJson: JSON.stringify({}),
+  pageSize: 10,
+  currentPage: 1,
+}
+```
+
+#### saveYiDaData
+
+```js
+{
+  accessToken: "xxxx",
+  formUuid: "FORM-XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  appType: "APP_XXXXXXXXXXXXX",
+  formDataJson: JSON.stringify({})
+}
+```
+
+#### updateYiDaData
+
+```js
+{
+  accessToken: "xxxx",
+  formUuid: "FORM-XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  appType: "APP_XXXXXXXXXXXXX",
+  formInstanceId: this.$('textField_l2sp5w6o').getValue(),
+  updateFormDataJson: JSON.stringify({})
+}
+```
+
+#### deleteYiDaData
+
+可传多个 id，可批量删除。
+
+```js
+{
+  accessToken: "xxxx",
+  formUuid: "FORM-XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  appType: "APP_XXXXXXXXXXXXX",
+  formInstanceIdList: JSON.stringify(["xxxx","xxxx"])
+}
+```
