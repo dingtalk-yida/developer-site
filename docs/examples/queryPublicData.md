@@ -1,5 +1,5 @@
 ---
-title: 组织外用户查询免登提交数据（dingTalkOpenApi）
+title: 组织外用户查询免登提交数据
 order: 5
 ---
 
