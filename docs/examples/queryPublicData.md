@@ -4,7 +4,7 @@ order: 5
 ---
 
 :::warning
-**特别声明：该方案可能存在数据安全风险，需要在云服务端做好数据查询限制及过滤 ！**
+**特别声明：该方案存在数据安全风险，仅供 demo 演示。如果实际使用建议使用短信验证码做校验，且在服务端发送 token ！**
 **使用接口均为钉钉开放平台接口：https://open.dingtalk.com/document/orgapp-server/querying-form-instance-data**
 :::
 
