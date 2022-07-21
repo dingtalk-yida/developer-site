@@ -53,3 +53,91 @@ order: 10
 <video width="100%" controls>
   <source src="https://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/d/ud/364735056580.mp4" type="video/mp4"></source>
 </video>
+
+## 阿里云云市场印刷文字识别-通用文字识别
+
+[连接器配置阿里云文字识别文档.docx](https://github.com/dingtalk-yida/developer-site/files/9082422/default.docx)
+
+
+阿里云云市场印刷文字识别-通用文字识别
+1商品链接及参数配置
+https://market.aliyun.com/products/57124001/cmapi020020.html?spm=5176.2020520132.101.9.2b6b7218D2BOtf#sku=yuncode1402000000
+
+![image](https://user-images.githubusercontent.com/24987640/178228361-e090f1f9-255e-4f8e-ace1-96209daa1739.png)
+
+2连接器配置
+Http连接器即可
+![image](https://user-images.githubusercontent.com/24987640/178228457-c63cf127-21aa-42c2-b3ee-2688244f243c.png)
+![image](https://user-images.githubusercontent.com/24987640/178228468-8bcea4c0-2dde-4ad2-b618-193c67a8e5bf.png)
+![image](https://user-images.githubusercontent.com/24987640/178228477-a88042ff-c82a-455c-8ecd-b63ff8ba037b.png)
+
+请务必配置headers
+![image](https://user-images.githubusercontent.com/24987640/178228500-85f1e008-2777-4e52-8dc4-28d39c1678fd.png)
+
+
+选择url为图片并设置临时可访问图片链接
+![image](https://user-images.githubusercontent.com/24987640/178228517-b683ed27-106a-4813-bca8-dfa61ea812a2.png)
+
+
+保存后进行测试
+App Code在云市场中，查找方式参照低代码高级认证课程《Faas行程卡实战》视频。
+![image](https://user-images.githubusercontent.com/24987640/178228540-4dab48fc-f4ea-4b03-830a-b750755bec50.png)
+ 
+给一个阿里云的图片链接进行测试
+https://gw.alicdn.com/tfs/TB1QTk0nAPoK1RjSZKbXXX1IXXa-1160-400.jpg
+
+![image](https://user-images.githubusercontent.com/24987640/178228585-e6020114-3a03-4e3c-adad-83d36b4c4e23.png)
+
+然后配置表单页面连接器
+![image](https://user-images.githubusercontent.com/24987640/178228599-6fbd0980-d921-4e93-a915-b9647b1338bd.png)
+
+然后配置图片上传按钮，上传成功后的动作
+ ![image](https://user-images.githubusercontent.com/24987640/178228609-34624fc6-e239-4ee6-944c-5640e5bec0ae.png)
+
+然后书写JS，第一段定义接口参数，第二段将返回值绑定到文本当中。
+![image](https://user-images.githubusercontent.com/24987640/178228621-180e3ca4-8bb5-44b9-ab7f-c72e17f33a9a.png)
+ 
+export function onSuccess(file, value) {
+  const image = file["downloadURL"]
+  console.log(image)
+  const inputs = JSON.stringify({
+    "Headers": {
+      "Content-Type": "application/json; charset=UTF-8"
+    },
+    "Body": {
+      "image": image,
+      "configure": {
+        "without_predicting_direction": false,
+        "output_prob": true,
+        "min_size": 16,
+        "language": "sx",
+        "output_keypoints": false,
+        "skip_detection": false
+      }
+    }
+  })
+
+  this.dataSourceMap.tuxiangshibieaili.load({
+      "inputs":inputs
+  }).then((content)=>{
+
+    this.$('textField_l5at5w31').setValue(content.ret[0].word)
+  })
+} 
+
+如果要进行所有识别到的文本都留存，可以替换第2部分绑定内容为
+
+this.dataSourceMap.tuxiangshibieaili.load({
+    "inputs":inputs
+}).then((content)=>{
+
+  var ret = content.ret,
+    newStr = [];
+  for (var i = 0; i < ret.length; i++) {
+    newStr.push(ret[i].word);
+  }
+
+  this.$('textField_l5at5w31').setValue(newStr.join(','))
+})
+
+
