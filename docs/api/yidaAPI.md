@@ -184,6 +184,15 @@ export function popDialog(){
     onCancel: () => { }, 
   });
 }
+
+// 支持手动关闭对话框
+export function closeDialog() {
+  // 接受 dialog 返回值，该值是一个对象
+  const dialog = this.utils.dialog({});
+
+  // 在合适的时机调用对象的 close 方法关闭对话框
+  dialog.close();
+}
 ```
 
 ### this.utils.formatter()
@@ -366,6 +375,19 @@ export function popToast(){
     type: 'success', 
     size: 'large', 
   })
+}
+
+// 支持手动调用关闭方法
+export function showLoadingToast() {
+  // 拿到返回值，该返回值是一个关闭方法
+  const close = this.utils.toast({
+    title: '加载中', 
+    type: 'loading', 
+    size: 'large', 
+  });
+  
+  // 在合适的时候调用关闭方法
+  setTimeout(close, 3000);
 }
 ```
 
