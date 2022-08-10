@@ -34,12 +34,17 @@ module.exports = () => ({
             charset: 'utf-8',
           },
           innerHTML: `
+          // 埋点逻辑
           window.AES_CONFIG = window.AES_CONFIG || {};
           window.AES_CONFIG.pid = 'yida-developer2.0';
           window.AES_CONFIG.user_type = '20';
           window.AES_CONFIG.plugin_pv = {
             autoPV: false,
             autoLeave: false
+          };
+          // 重定向逻辑
+          if (location.host === 'yida-developer.gitee.io') {
+            location.href = location.href.replace('yida-developer.gitee.io', 'developers.aliwork.com');
           }
           `,
         },
