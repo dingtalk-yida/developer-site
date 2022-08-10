@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import 'core-js/features/object/from-entries';
 import Layout from '@theme/Layout';
@@ -11,6 +11,25 @@ import LearningPath from '../components/LearningPath';
 import Contributors from '../components/Contributors';
 
 function HomepageHeader() {
+  useEffect(() => {
+    const search = new URLSearchParams(location.search);
+    const from = search.get('from');
+    
+    if (from === 'appCreate') {
+      const corpId = search.get('corpId');
+      const userId = search.get('userId');
+      if (corpId && userId) {
+        try {
+          window.goldlog.record(
+            '/YIDA.growth.creater2DevCenter',
+            'EXP',
+            `corpId=${encodeURIComponent(corpId)}&userId=${encodeURIComponent(userId)}`
+          );
+        } catch (e) {}
+      }
+    }
+  }, []);
+  
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero', styles.heroBanner)}>
