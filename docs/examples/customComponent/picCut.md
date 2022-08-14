@@ -16,7 +16,7 @@ order: 2
 ## 效果演示
 
 <video width="100%" controls>
-  <source src="https://cloud.video.taobao.com/play/u/143109/p/1/d/hd/e/6/t/1/348970090686.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTImYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiNWY5ZDgzOTc1ZmEzMmI1ODljYTc1NTVkYjBiY2JlZjYifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDc0OTY2Njg=" type="video/mp4"></source>
+  <source src="https://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/d/ud/366306815280.mp4" type="video/mp4"></source>
 </video>
 
 ## 组件Schema

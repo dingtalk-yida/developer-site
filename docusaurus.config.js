@@ -67,6 +67,26 @@ const config = {
           keywords:
             '宜搭,钉钉宜搭,开发者中心,aPaaS,低代码,可视化搭建,SaaS,可视化搭建,表单,在线表单,流程,流程审批,报表,数据收集,工作协同,流程引擎,数据分析,可视化图表展示小应用,小程序',
         },
+        {
+          property: 'og:type',
+          content: 'website'
+        },
+        {
+          property: 'og:site_name',
+          content: '宜搭'
+        },
+        {
+          property: 'og:title',
+          content: '钉钉宜搭·开发者中心'
+        },
+        {
+          property: 'og:description',
+          content: '让企业自建专属应用更简单，持续创新，一搭就行。'
+        },
+        {
+          property: 'og:image',
+          content: 'https://img.alicdn.com/tfs/TB1Ctzd3VP7gK0jSZFjXXc5aXXa-152-152.png'
+        }
       ],
     }),
   plugins: [

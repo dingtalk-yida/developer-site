@@ -41,6 +41,10 @@
 我们维护的主干分支为master，因此请提交 Pull Request 到 master。
 :::
 
+:::tip
+如果开发者需要提交新增文档内容，需要在 Pull Request 中简单描述背景及使用场景，以便我们进行Check及添加。
+:::
+
 ## 本地开发流程
 
 宜搭开发者中心是通过 [Docusaurus 2](https://docusaurus.io/) 构建的一个开发者平台，在你 clone 了 开发者中心 的代码并且使用 npm install 安装完依赖后，你还可以运行下面几个常用的命令：
