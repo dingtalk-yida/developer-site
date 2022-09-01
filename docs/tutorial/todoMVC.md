@@ -60,7 +60,7 @@ title: TodoMVC
   - Completed - 显示已完成的任务列表；
 - **清空完成状态的待办任务**- 用户通过点击页面右下角的 `Clear completed` 按钮批量删除所有已完成的任务；
 
-基本功能已经梳理完成，我们现在就一步一步来实现 TodoMVC 的基础功能，最终效果详见 [Demo 示例](https://www.aliwork.com/o/demo/todoMVC-2)，通过 [设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1) 可以查看具体实现，展示效果如下所示：
+基本功能已经梳理完成，我们现在就一步一步来实现 TodoMVC 的基础功能，最终效果详见 [Demo 示例](https://www.aliwork.com/o/demo/todoMVC-2)，通过 [设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-2) 可以查看具体实现，展示效果如下所示：
 
 ![](https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/71d8896f-62e1-4c7e-9c7b-a7fc57703c23.gif)
 
