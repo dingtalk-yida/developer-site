@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import 'core-js/features/object/from-entries';
 import Footer from '@theme-original/Footer';
 import { useHistory } from '@docusaurus/router';
 
