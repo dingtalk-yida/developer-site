@@ -37,6 +37,11 @@ module.exports = {
       activeBasePath: '/docs/examples/'
     },
     {
+      to: 'https://developer.aliyun.com/group/yida',
+      position: 'left',
+      label: '社区'
+    },
+    {
       type: 'search',
       position: 'right',
     },

@@ -13,12 +13,12 @@ module.exports = {
           label: '版本',
         },
         {
-          to: 'https://www.yuque.com/yida/topics',
+          to: 'https://developer.aliyun.com/group/yida',
           label: '社区',
         },
         {
-          to: 'https://yida-developer.gitee.io/',
-          label: '开发者中心',
+          to: 'https://demo.aliwork.com/o/join_yida_experience_center',
+          label: '体验中心',
         },
       ],
     },
