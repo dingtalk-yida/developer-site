@@ -20,11 +20,14 @@ function HomepageHeader() {
       const userId = search.get('userId');
       if (corpId && userId) {
         try {
+          const ec = encodeURIComponent(corpId);
+          const eu = encodeURIComponent(userId);
           window.goldlog.record(
             '/YIDA.growth.creater2DevCenter',
             'EXP',
-            `corpId=${encodeURIComponent(corpId)}&userId=${encodeURIComponent(userId)}`
+            `corpId=${ec}&userId=${eu}`
           );
+          fetch(`/query/commodity/pushBizMsg?corpId=${ec}&userId=${eu}&leadsFrom=createAppReact`)
         } catch (e) {}
       }
     }
