@@ -725,12 +725,7 @@ export function setValidation() {
 
       return rule.message;
     }, 
-    message: {
-      type: 'i18n', 
-      use: 'zh_CN', 
-      en_US: 'only support number', 
-      zh_CN: '只能输入数字'
-    }
+    message: '只能输入数字'
   }]);
 }
 ```
