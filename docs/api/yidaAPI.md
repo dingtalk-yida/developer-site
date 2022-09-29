@@ -683,14 +683,7 @@ export function enableValid() {
 interface IRule {
   type: string; // 校验类型
   param: any; // 校验类型对应的参数
-  message: II18nMessage; // 错误信息，按照国际化的格式
-}
-
-interface II18nMessage {
-  type: 'i18n'; // 声明国际化类型
-  use: 'zh_CN' | 'en_US'; // 当前使用的 Locale
-  en_US: string; // 英文文案
-  zh_CN: sting; // 中文文案
+  message: string; // 错误信息
 }
 
 /**
