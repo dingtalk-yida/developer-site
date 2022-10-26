@@ -1,0 +1,70 @@
+---
+title: 修改样式
+order: 27
+---
+
+## 功能介绍
+本文主要介绍如何通过代码或样式修改页面自带按钮的样式。
+
+:::danger
+**注意：**样式修改属黑盒操作，需要修改样式的功能模块对应的标签标记可能会随着版本迭代而更改，存在风险，慎用！！！
+:::
+
+## 使用场景
+### 场景一.隐藏头部信息
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01xFLLKC1UWUqzBFdur_!!6000000002525-2-tps-750-551.png)
+
+### 场景二.隐藏流程进度
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01z0892n1fDgM54ZW2V_!!6000000003973-2-tps-750-552.png)
+
+### 场景三.修改提交按钮布局， 名称等场景
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01OYB4Wr2AN4YwzdHC1_!!6000000008190-2-tps-750-552.png)
+
+## 操作步骤
+:::danger
+**注意：**以下都以提交按钮为示例，其他按钮的修改方式是相同的，只有样式类名及具体的样式代码存在区别。
+:::
+### 方法一：通过代码修改样式
+**操作步骤：**
+1.访问提交页面，通过【F12】按键或着【鼠标右键】选择【检查】的方式打开控制台，选择【Element】。
+
+![截屏2022-09-27 下午4.04.09.png](https://img.alicdn.com/imgextra/i2/O1CN01w9yGgm1KbOw7AEpz3_!!6000000001182-2-tps-750-550.png)
+
+2.点击【箭头】图标，然后将鼠标选择【提交】按钮，找到右侧相对应组件的DOM元素的样式类名。提交按钮的类名为：【deep-form-submit】
+
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01RR4rmV29zFyBWQTYQ_!!6000000008138-2-tps-750-551.png)
+
+3.在didmount中写入以下代码控制提交按钮的隐藏。
+```javascript
+//设置隐藏
+document.getElementsByClassName("deep-form-submit")[0].style.display = "none" 
+//修改内容
+document.getElementsByClassName("deep-form-submit")[0].innerText = "编辑"
+
+```
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01PG4JqT1MWTupS7X4n_!!6000000001442-2-tps-750-552.png)
+
+### 方法二：通过样式覆盖修改
+**操作步骤：**
+1.表单内新增一个【分组】组件，然后将状态设置为隐藏。
+
+![image.png](https://img.alicdn.com/imgextra/i1/O1CN01FiP6rm1j8sfLVxxH2_!!6000000004504-2-tps-750-552.png)
+
+2.找到对应想要操作的按钮的样式类名，参考上面【方法一】的步骤1和步骤2。
+3.在分组组件的【样式】中，通过【源码编辑】去覆盖原本的样式。
+
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN01W4UQ4e1H0M3OQUwhj_!!6000000000695-2-tps-750-551.png)
+
+```javascript
+.deep-form-submit{
+  /* 设置隐藏 */
+  display: none; 
+  /* 修改字体颜色 */
+  color: yellow!important;
+}
+```
+注：通过【方法一】设置样式可能部分情况下会出现样式不生效的现象，所以更建议使用【方法二】来更改样式
+## 效果演示
+![image.png](https://img.alicdn.com/imgextra/i2/O1CN01lSLJ8Z1QgKtl1Dm2A_!!6000000002005-2-tps-750-552.png)
+
+
