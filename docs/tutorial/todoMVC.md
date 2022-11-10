@@ -488,7 +488,7 @@ function willFetch(vars, config) {
     // 如果需要修改 content 信息，则拼接该参数
     data.textField_kymq5pdi = content;
   }
-  if (done) {
+  if (typeof done === 'boolean') {
     // 如果修改状态信息，则拼接该参数
     data.radioField_kymq5pdj = done ? '已完成' : '未完成';
   }
