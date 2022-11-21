@@ -14,7 +14,7 @@ order: 15
 ![](https://img.alicdn.com/imgextra/i1/O1CN01yyRtgc1FdAKbpk52T_!!6000000000509-2-tps-3582-2012.png_.webp)
 
 
-## 在浏览器控制台输入 cmd/ctrl + p，搜人 page.js，直接添加断点调试
+## 在浏览器控制台输入 cmd/ctrl + p，输入 page.js，直接添加断点调试
 ![](https://img.alicdn.com/imgextra/i3/O1CN01giXDwN1KgRGdcPB53_!!6000000001193-2-tps-5116-1040.png_.webp)
 
 ![](https://img.alicdn.com/imgextra/i1/O1CN013Xe57e1YO1yK1ZSzK_!!6000000003048-2-tps-5112-1044.png_.webp)
