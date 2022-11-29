@@ -104,18 +104,13 @@ export function fetchData() {
 ```
 
 ### this.reloadDataSource()
-重新请求所有自动加载设置为 true 的远程 API，该方法也返回一个 Promise。
+重新请求所有自动加载设置为 true 的远程 API。
 
 示例：
 ```js
 export function reload() {
-  // 重新请求所有初始请求，在请求成功后弹框提醒
-  this.reloadDataSource().then(res => {
-    this.utils.toast({
-      type: 'success', 
-      title: '刷新成功！'
-    })；
-  });
+  // 重新请求所有初始的数据源请求
+  this.reloadDataSource();
 }
 
 ```
