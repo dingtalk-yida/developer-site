@@ -9,6 +9,10 @@ module.exports = {
           label: '帮助中心',
         },
         {
+          to: 'https://www.aliwork.com/bench/coe',
+          label: '示例体验中心',
+        },
+        {
           to: 'https://www.aliwork.com/price.html',
           label: '版本',
         },

@@ -37,6 +37,12 @@ module.exports = {
       activeBasePath: '/docs/examples/'
     },
     {
+      to: 'https://www.aliwork.com/bench/coe',
+      position: 'left',
+      label: '示例体验中心',
+      activeBasePath: '/'
+    },
+    {
       to: 'https://developer.aliyun.com/group/yida',
       position: 'left',
       label: '社区'
