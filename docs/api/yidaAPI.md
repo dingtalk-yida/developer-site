@@ -195,8 +195,8 @@ export function closeDialog() {
   // 接受 dialog 返回值，该值是一个对象
   const dialog = this.utils.dialog({});
 
-  // 在合适的时机调用对象的 close 方法关闭对话框
-  dialog.close();
+  // 在合适的时机调用对象的 hide 方法关闭对话框
+  dialog.hide();
 }
 ```
 
