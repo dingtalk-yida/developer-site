@@ -90,6 +90,19 @@ export default [
         }]
       }, 
       {
+        title: '示例体验中心',
+        children: [{
+          title: '自定义数据管理页',
+          path: 'https://www.aliwork.com/bench/coe?tplUuid=TPL_QQL3XOV4R4XKHNL5RCU7',
+        },{
+          title: '查看/创建钉钉日程',
+          path: 'https://www.aliwork.com/bench/coe?tplUuid=TPL_WMNNKBR5RLR68EMSI6W2',
+        },{
+          title: '更多',
+          path: 'https://www.aliwork.com/bench/coe',
+        }]
+      },
+      {
         title: '高阶教程', 
         children: [{
           title: 'TodoMVC', 
