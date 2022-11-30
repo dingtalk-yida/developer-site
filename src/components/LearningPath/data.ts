@@ -7,10 +7,6 @@ export default [
       title: '产品简介', 
       children: [
         {
-          title: '钉钉宜搭介绍', 
-          path: 'https://www.yuque.com/yida/support/ytzzua', 
-        }, 
-        {
           title: '开发者中心介绍', 
           path: '/docs/guide/about', 
         }, 
@@ -25,6 +21,10 @@ export default [
         {
           title: '设计器功能介绍', 
           path: '/docs/guide/designer', 
+        }, 
+        {
+          title: '关于钉钉宜搭', 
+          path: 'https://www.yuque.com/yida/support/ytzzua', 
         }, 
       ], 
     }]
