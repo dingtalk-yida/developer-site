@@ -21,7 +21,7 @@ title: TodoMVC
 - 远程 API 使用；
 - 宜搭 OpenAPI 使用；
 
-本文不详细介绍在宜搭中创建并部署自定义页面的具体流程，如果对创建流程不了解，请移步至 [快速开始](guide/start.md) 文档，下面让我们一步一步来实现上面的效果吧。
+本文不详细介绍在宜搭中创建并部署自定义页面的具体流程，如果对创建流程不了解，请移步至 [快速开始](/docs/guide/start.md) 文档，下面让我们一步一步来实现上面的效果吧。
 
 ## 基础 UI——赋予 TodoMVC 基础的骨架
 
@@ -66,7 +66,7 @@ title: TodoMVC
 
 ### 步骤 1：创建页面全局变量
 
-宜搭的设计理念和 React 类似都是 MVVM 模式，因此我们在进行功能开发前需要先定义页面中需要使用的数据模型，即全局状态（具体使用详见 [页面状态文档](guide/concept/state.md)），我们定义以下全局变量：
+宜搭的设计理念和 React 类似都是 MVVM 模式，因此我们在进行功能开发前需要先定义页面中需要使用的数据模型，即全局状态（具体使用详见 [页面状态文档](/docs/guide/concept/state.md)），我们定义以下全局变量：
 
 ![](https://img.alicdn.com/imgextra/i1/O1CN01AyKG4O1RjpU3B7iD6_!!6000000002148-2-tps-3582-1904.png_.webp)
 
@@ -90,7 +90,7 @@ title: TodoMVC
 
 ### 步骤 2：实现创建待办任务功能
 
-现在我们就可以开始实现第一个功能了，在这一步我们希望用户再输入框中输入任务内容，并点击回车键创建一条待办任务（事件绑定使用详见 [事件处理文档](guide/concept/event.md)）。
+现在我们就可以开始实现第一个功能了，在这一步我们希望用户再输入框中输入任务内容，并点击回车键创建一条待办任务（事件绑定使用详见 [事件处理文档](/docs/guide/concept/event.md)）。
 
 ![](https://img.alicdn.com/imgextra/i1/O1CN011Qu4iZ1Ij4Heyxf3I_!!6000000000928-2-tps-3582-1900.png_.webp)
 如上图所示，我们在这一步主要做 3 件事情：
@@ -123,7 +123,7 @@ export function onRowAdd(e) {
 
 ### 步骤 3：实现任务列表循环展示
 
-通过上一步，我们已经可以将用户输入的内容生成待办任务并添加到全局变量 todoList 中，接下来我们就需要在输入框的下方展示待办列表了，这一步会用到 [循环渲染](guide/concept/loop.md) 的相关知识。
+通过上一步，我们已经可以将用户输入的内容生成待办任务并添加到全局变量 todoList 中，接下来我们就需要在输入框的下方展示待办列表了，这一步会用到 [循环渲染](/docs/guide/concept/loop.md) 的相关知识。
 
 - 首先选中待办任务信息外层的容器组件，然后在高级属性中通过变量绑定方式将 state.todoList 绑定到容器的**循环数据**上；
 
@@ -154,7 +154,7 @@ export function onRowAdd(e) {
 通过分析 TodoMVC 的功能，我们发现任务列表中的任务内容有 3 种不同的展示形态：
 ![](https://img.alicdn.com/imgextra/i1/O1CN01HCBldB1M8Cs3n3lGx_!!6000000001389-2-tps-2224-1182.png_.webp)
 
-我们决定用 3 个组件（2 个文本组件+1 个输入框组件）来实现不同展示效果，并通过 [条件渲染](guide/concept/condition.md) 绑定是否渲染属性来实现展示切换：
+我们决定用 3 个组件（2 个文本组件+1 个输入框组件）来实现不同展示效果，并通过 [条件渲染](/docs/guide/concept/condition.md) 绑定是否渲染属性来实现展示切换：
 
 ![](https://img.alicdn.com/imgextra/i2/O1CN01eH9lP31xwiKZo0Ezj_!!6000000006508-2-tps-3582-1910.png_.webp)
 
@@ -365,7 +365,7 @@ export function getTodoData() {
 
 ## 样式完善——赋予 TodoMVC 好看的皮囊
 
-上一步我们完成的 TodoMVC 的基础功能实现，但是给人的第一感觉就是丑，对于一个产品好看的皮囊不是最重要的，但是如果没有一副好的皮囊，它一定不是一个好的产品，宜搭提供了自定义样式能力，详见 [样式定制文档](guide/concept/style.md)，通过定制样式，我们将得到下效果，（用户也可以通过访问 [示例页面](https://www.aliwork.com/o/demo/todoMVC-3) 进行试用，通过 [设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1) 查看具体实现）：
+上一步我们完成的 TodoMVC 的基础功能实现，但是给人的第一感觉就是丑，对于一个产品好看的皮囊不是最重要的，但是如果没有一副好的皮囊，它一定不是一个好的产品，宜搭提供了自定义样式能力，详见 [样式定制文档](/docs/guide/concept/style.md)，通过定制样式，我们将得到下效果，（用户也可以通过访问 [示例页面](https://www.aliwork.com/o/demo/todoMVC-3) 进行试用，通过 [设计器](https://www.aliwork.com/developer/designer?formUuid=todoMVC-1) 查看具体实现）：
 
 ![](https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/cdf788c7-a571-414a-b326-c1873e809760.gif)
 
@@ -398,7 +398,7 @@ export function getTodoData() {
 
 ### 步骤 2：使用远程 API，实现任务的增删改查
 
-有了存储任务数据的地方，我们就需要在 TodoMVC 中创建异步 API 用户实现任务的增删改查，宜搭设计器提供了远程 API 配置用于请求远程 http 接口（详见 [远程 API 文档](guide/concept/datasource.md)），同时宜搭也提供了常用的 OpenAPI 接口来实现数据的基本操作（详见 [OpenAPI 文档](/docs/api/openAPI)），我们在搭建页面中创建以下远程 API 配置：
+有了存储任务数据的地方，我们就需要在 TodoMVC 中创建异步 API 用户实现任务的增删改查，宜搭设计器提供了远程 API 配置用于请求远程 http 接口（详见 [远程 API 文档](/docs/guide/concept/datasource.md)），同时宜搭也提供了常用的 OpenAPI 接口来实现数据的基本操作（详见 [OpenAPI 文档](/docs/api/openAPI)），我们在搭建页面中创建以下远程 API 配置：
 ![](https://img.alicdn.com/imgextra/i2/O1CN01Ak0sVG22zzEpdzInA_!!6000000007192-2-tps-3582-1904.png_.webp)
 
 #### todoList

@@ -58,7 +58,7 @@ export function setSomeValue(value) {
 * [Stack Overflow](https://stackoverflow.com/)
 
 ## 全局变量 API
-宜搭的设计模式主要参考 React 的方案，因此我们提供全局变量来进行页面级状态管理并提供相应的 API 来触发页面的重新刷新（具体使用参考 [全局变量文档](guide/concept/state.md)）。
+宜搭的设计模式主要参考 React 的方案，因此我们提供全局变量来进行页面级状态管理并提供相应的 API 来触发页面的重新刷新（具体使用参考 [全局变量文档](/docs/guide/concept/state.md)）。
 
 ### this.state.xxx
 获取全局变量的值（和 React 的 API 一致）。
@@ -91,7 +91,7 @@ export function setStateValue() {
 ```
 
 ## 远程数据 API
-宜搭支持配置远程数据源，并提供通过 js 触发远程数据源调用的 API（具体使用参考 [远程 API 文档](guide/concept/datasource.md)）。
+宜搭支持配置远程数据源，并提供通过 js 触发远程数据源调用的 API（具体使用参考 [远程 API 文档](/docs/guide/concept/datasource.md)）。
 
 ### this.dataSourceMap.xxx.load()
 手动调用指定的远程 API，xxx 为在数据源面板设置的数据源名称，同时支持传入请求参数，API 调用传入的请求参数将于数据源配置中的请求参数进行 merge 并发送请求，load 方法返回一个 Promise。
@@ -475,7 +475,7 @@ export function stringifyQuery() {
 ```
 
 ## 组件通用 API
-在讲解组件相关的 API 之前需要提前介绍几个[概念](guide/keywords.md)：
+在讲解组件相关的 API 之前需要提前介绍几个[概念](/docs/guide/keywords.md)：
 * 组件唯一标识（fieldId）- 宜搭会为每个组件设置一个唯一标识，用于识别组件实例，组件唯一标识可以通过组件属性面板进行查看；
 * 组件属性（prop）- 在宜搭中每个组件都可以通过设置组件属性来实现不同功能（类似 React 的 props），我们可以通过 hover 组件属性面板查看配置项对应的属性名称；
 
