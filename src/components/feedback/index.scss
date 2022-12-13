@@ -1,0 +1,88 @@
+.feedback {
+  font-size: 16px;
+  line-height: 28px;
+  &-header {
+    font-weight: 500;
+    margin: 12px 0;
+    .use-icon {
+      display: inline-block;
+      height: 32px;
+      width: 76px;
+      background-color: #F1F2F3;
+      border-radius: 6px;
+      line-height: 32px;
+      text-align: center;
+      margin-left: 12px;
+      font-weight: 400;
+      cursor: pointer;
+      .anticon {
+        color: #A9AEB3;
+      }
+      &:hover {
+        background-color: rgba(0,137,255,0.12);
+        color: #0089FF;
+        .anticon {
+          color: #0089FF;
+        }
+      }
+    }
+  }
+  &-form {
+    margin: 12px 0;
+    .label {
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .ant-checkbox-group {
+      margin-bottom: 16px;
+    }
+
+    .ant-input {
+      margin-bottom: 16px;
+    }
+
+  }
+
+  &-result {
+    font-weight: 500;
+    margin: 12px 0;
+    .success-message {
+      display: flex;
+      align-items: center;
+      margin-top: 12px;
+      .anticon {
+        font-size: 24px;
+        color: #18B754;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &-footer {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 996px) {
+  .feedback {
+    font-size: 14px;
+    line-height: 24px;
+    &-header {
+      .use-icon {
+        height: 28px;
+        width: 64px;
+        line-height: 28px;
+      }
+    }
+    &-result {
+      .success-message {
+        .anticon {
+          font-size: 20px;
+        }
+      }
+    }
+    &-footer {
+      font-size: 12px;
+    }
+  }
+}
