@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Checkbox, Input, Button } from 'antd';
 import { LikeFilled, DislikeFilled, CheckCircleFilled } from '@ant-design/icons';
-import { sendAESEvent } from '@site/src/utils';
+import { sendAESEvent } from '../../utils';
 import 'antd/lib/icon/style/index.css';
 import 'antd/lib/checkbox/style/index.css';
 import 'antd/lib/input/style/index.css';
