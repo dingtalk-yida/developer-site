@@ -104,7 +104,7 @@ function Feedback() {
       {mode === 'useless' && renderuselessForm()}
       {['uselessResult', 'usefulResult'].includes(mode) && renderResult(mode === 'usefulResult')}
       <div className="feedback-footer">
-        如需获取即时以及更多帮助，请&nbsp;<a target="blank" href='//wwww.aliwork.com/help'>请联系技术支持</a>。
+        如需获取即时以及更多帮助，请&nbsp;<a target="blank" href='dingtalk://dingtalkclient/page/link?url=https%3A%2F%2Fwww.aliwork.com%2Fquery%2Fding%2Fxiaome%2Fhome%3Fddtab%3Dtrue'>请联系技术支持</a>。
       </div>
     </div>
   );
