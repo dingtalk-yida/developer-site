@@ -1,7 +1,16 @@
+:root {
+  --feedback-background-color: #ffffff;
+}
+html[data-theme="dark"] {
+  --feedback-background-color: #1b1b1d;
+}
+
 .feedback {
   font-size: 16px;
   line-height: 28px;
-  margin: 40px 0;
+  padding: 10px 10px;
+  margin: 30px 0;
+  background-color: var(--feedback-background-color);
   &-header {
     font-weight: 500;
     margin: 12px 0;
@@ -15,6 +24,7 @@
       text-align: center;
       margin-left: 12px;
       font-weight: 400;
+      color: #1c1e21;
       cursor: pointer;
       .anticon {
         color: #A9AEB3;
@@ -62,12 +72,16 @@
   &-footer {
     font-size: 14px;
   }
+  a {
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 996px) {
   .feedback {
     font-size: 14px;
     line-height: 24px;
+    padding: 10px 5px;
     &-header {
       .use-icon {
         height: 28px;

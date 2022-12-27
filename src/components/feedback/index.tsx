@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Checkbox, Input, Button } from 'antd';
+import { Checkbox, Input, Button, Affix } from 'antd';
 import { LikeFilled, DislikeFilled, CheckCircleFilled } from '@ant-design/icons';
 import { sendAESEvent } from '../../utils';
 import 'antd/lib/icon/style/index.css';
@@ -49,7 +49,7 @@ function Feedback() {
       });
     }
     setMode(mode);
-  }
+  };
 
   const renderHeader = () => {
     return (
@@ -99,14 +99,25 @@ function Feedback() {
   };
 
   return (
-    <div className="feedback">
-      {mode === 'normal' && renderHeader()}
-      {mode === 'useless' && renderuselessForm()}
-      {['uselessResult', 'usefulResult'].includes(mode) && renderResult(mode === 'usefulResult')}
-      <div className="feedback-footer">
-        如需获取即时以及更多帮助，请&nbsp;<a target="blank" href='dingtalk://dingtalkclient/page/link?url=https%3A%2F%2Fwww.aliwork.com%2Fquery%2Fding%2Fxiaome%2Fhome%3Fddtab%3Dtrue'>请联系技术支持</a>。
+    <Affix offsetBottom={0}>
+      <div className="feedback">
+        {mode === 'normal' && renderHeader()}
+        {mode === 'useless' && renderuselessForm()}
+        {['uselessResult', 'usefulResult'].includes(mode) && renderResult(mode === 'usefulResult')}
+        <div className="feedback-footer">
+          如需获取帮助，欢迎前往&nbsp;
+          <a
+            onClick={() => {
+              sendAESEvent('feedback', 'aliyun');
+              window.open('https://developer.aliyun.com/group/yida#/?_k=4qgqh5');
+            }}
+          >
+            宜搭社区
+          </a>
+          &nbsp; 交流。
+        </div>
       </div>
-    </div>
+    </Affix>
   );
 }
 
