@@ -46,6 +46,10 @@ module.exports = () => ({
           if (location.host === 'yida-developer.gitee.io') {
             location.href = location.href.replace('yida-developer.gitee.io', 'developers.aliwork.com');
           }
+          // 切换mode
+          if (/mode=simple/.test(location.search) && document.documentElement) {
+            document.documentElement.setAttribute('mode', 'simple');
+          }
           `,
         },
         {
