@@ -36,7 +36,15 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-html[mode='simple'] #__docusaurus>.navbar,.theme-doc-breadcrumbs,footer {
+html[mode='simple'] #__docusaurus>.navbar {
+  display: none;
+}
+
+html[mode='simple'] .theme-doc-breadcrumbs {
+  display: none;
+}
+
+html[mode='simple'] footer {
   display: none;
 }
 
