@@ -37,7 +37,7 @@ module.exports = {
       activeBasePath: '/docs/examples/'
     },
     {
-      to: 'https://www.aliwork.com/bench/coe',
+      to: 'https://www.aliwork.com/o/coc?from=developers_navbar',
       position: 'left',
       label: '示例体验中心',
       activeBasePath: '/'

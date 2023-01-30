@@ -9,7 +9,7 @@ module.exports = {
           label: '帮助中心',
         },
         {
-          to: 'https://www.aliwork.com/bench/coe',
+          to: 'https://www.aliwork.com/o/coc?from=developers_footer',
           label: '示例体验中心',
         },
         {
