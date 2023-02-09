@@ -7,7 +7,7 @@ title: TodoMVC
 
 ## 概述
 
-本篇教程属于宜搭的高级使用教程，我们会参考 [TodoMVC](https://todomvc.com/) 的功能，从零开始搭建一个简易的 TodoMVC 页面，最终的效果如下所示（用户也可以通过访问 [示例页面](https://www.aliwork.com/o/demo/todoMVC-3) 进行试用）：
+本篇教程属于宜搭的高级使用教程，我们会参考 [TodoMVC](https://todomvc.com/) 的功能，从零开始搭建一个简易的 TodoMVC 页面，最终的效果如下所示（用户也可以通过访问 [示例页面](https://www.aliwork.com/o/demo/todoMVC-3) 查看效果或 [启用该应用试玩](https://www.aliwork.com/o/coc?from=developers_todomvc) ）：
 
 ![](https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/cdf788c7-a571-414a-b326-c1873e809760.gif)
 
