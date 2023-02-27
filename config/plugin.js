@@ -55,14 +55,6 @@ module.exports = () => ({
         {
           tagName: 'script',
           attributes: {
-            src: '//g.alicdn.com/alilog/mlog/aplus_v2.js',
-            id: 'beacon-aplus',
-            exparams: 'clog=o&aplus&sidx=aplusSidx&ckx=aplusCkx',
-          },
-        },
-        {
-          tagName: 'script',
-          attributes: {
             src: '//g.alicdn.com/aes/??tracker/1.0.34/index.js,tracker-plugin-jserror/1.0.13/index.js,tracker-plugin-api/1.1.11/index.js,tracker-plugin-perf/1.1.6/index.js,tracker-plugin-longtask/1.0.1/index.js,tracker-plugin-pv/2.4.4/index.js,tracker-plugin-event/1.2.5/index.js',
           },
         },
