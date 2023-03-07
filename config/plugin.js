@@ -34,6 +34,10 @@ module.exports = () => ({
             charset: 'utf-8',
           },
           innerHTML: `
+          // 钉钉android web容器兼容问题
+          if (!this.globalThis) {
+            this.globalThis = this;
+          }
           // 埋点逻辑
           window.AES_CONFIG = window.AES_CONFIG || {};
           window.AES_CONFIG.pid = 'yida-developer2.0';
@@ -51,6 +55,14 @@ module.exports = () => ({
             document.documentElement.setAttribute('mode', 'simple');
           }
           `,
+        },
+        {
+          tagName: 'script',
+          attributes: {
+            src: '//g.alicdn.com/alilog/mlog/aplus_v2.js',
+            id: 'beacon-aplus',
+            exparams: 'clog=o&aplus&sidx=aplusSidx&ckx=aplusCkx',
+          },
         },
         {
           tagName: 'script',
