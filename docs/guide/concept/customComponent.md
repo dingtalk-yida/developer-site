@@ -33,7 +33,7 @@ order: 11
 
 ## 导入自定义组件 Schema
 
-在示例部分，我们提供了多个[自定义组件示例](/docs/examples/customComponent/pageBottom)，开发者可以通过以下步骤将示例中的 Schema 导入到自己创建的自定义组件中并在业务中使用：
+在示例部分，我们提供了多个[自定义组件示例](https://docs.aliwork.com/docs/yida_support/wtwabe/oupunp/gdi5p8/sg47d6/zas20t)，开发者可以通过以下步骤将示例中的 Schema 导入到自己创建的自定义组件中并在业务中使用：
 
 ### 步骤 1：创建自定组件
 
