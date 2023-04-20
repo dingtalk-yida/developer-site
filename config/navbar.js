@@ -31,12 +31,6 @@ module.exports = {
       activeBasePath: '/docs/components/'
     },
     {
-      to: '/docs/examples/form',
-      position: 'left',
-      label: '示例',
-      activeBasePath: '/docs/examples/'
-    },
-    {
       to: 'https://www.aliwork.com/o/coc?from=developers_navbar',
       position: 'left',
       label: '示例体验中心',
