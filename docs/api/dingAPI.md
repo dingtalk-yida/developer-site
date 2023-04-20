@@ -62,8 +62,6 @@ export function isDingTalk() {
 ```
 :::
 
-用户可以访问官方提供的[使用钉钉JSAPI](/docs/examples/dingTalkAPI)来查看效果及具体实现。
-
 ## API列表
 
 ### 容器

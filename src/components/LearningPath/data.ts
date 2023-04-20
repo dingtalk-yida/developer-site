@@ -315,12 +315,12 @@ export default [
       path: '/docs/guide/FAQ/q2', 
       width: '25%', 
     }, {
-      title: '上传附件重命名', 
-      path: '/docs/examples/fileRename', 
+      title: '导入HAR包', 
+      path: '/docs/guide/FAQ/q3', 
       width: '25%', 
     }, {
-      title: '组织外用户查询免登提交数据',
-      path: '/docs/examples/queryPublicData',
+      title: '打通宜搭数据和三方系统数据',
+      path: '/docs/guide/FAQ/q4',
       width: '25%'
     }]
   }
