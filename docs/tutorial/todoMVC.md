@@ -390,7 +390,7 @@ export function getTodoData() {
 
 ### 步骤 1：创建普通表单，构建任务数据存储结构
 
-首先，我们在当前应用下创建一个普通表单用于存储待办任务的信息，具体创建普通表单的方案详见 [宜搭使用文档](https://www.yuque.com/yida/support/ybuoxl)，这里不展开描述，如下所示：
+首先，我们在当前应用下创建一个普通表单用于存储待办任务的信息，具体创建普通表单的方案详见 [宜搭使用文档](https://docs.aliwork.com/docs/yida_support/wtwabe/oupunp/ybuoxl)，这里不展开描述，如下所示：
 
 ![](https://img.alicdn.com/imgextra/i1/O1CN01kmmof91CgshQRc516_!!6000000000111-2-tps-3582-2042.png_.webp)
 
