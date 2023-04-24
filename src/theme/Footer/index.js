@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import { Popover } from 'antd';
 import 'core-js/features/object/from-entries';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
+import { useHistory } from '@docusaurus/router';
+import { sendPV } from '../../utils';
 
 function QrCodeTip( { qrCode, tip }) {
   return (
@@ -28,6 +30,17 @@ export default function FooterWrapper(props) {
   const {
     siteConfig: { customFields: { icons, copyRight }, themeConfig: { footer: { links, logo } }, },
   } = useDocusaurusContext();
+  // 增加埋点
+  const history = useHistory();
+  useEffect(() => {
+    const unlisten = history.listen((location) => {
+      sendPV(location);
+    });
+    sendPV(history.location);
+    return () => {
+      unlisten();
+    };
+  }, []);
 
   return (
     <>
