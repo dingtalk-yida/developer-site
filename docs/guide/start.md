@@ -4,7 +4,7 @@
 
 ![](https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/58f2a1bd-4ca0-4200-8e89-25fe6998f2dc.gif)
 
-通过上面的效果我们可以看到，当用户在输入框中输入姓名并点击生成按钮，程序将自动生成问候语并打印在按钮下方，我们会尽可能详细的讲解每一个步骤，如果用户在这个过程中对于宜搭的产品功能有所疑惑，欢迎移步至 [宜搭使用手册](https://www.yuque.com/yida/support/ytzzua) 进行查看，下面我们就从 0 开始来实现上面的 Demo 效果。
+通过上面的效果我们可以看到，当用户在输入框中输入姓名并点击生成按钮，程序将自动生成问候语并打印在按钮下方，我们会尽可能详细的讲解每一个步骤，如果用户在这个过程中对于宜搭的产品功能有所疑惑，欢迎移步至 [宜搭使用手册](https://docs.aliwork.com/docs/yida_support/ytzzua) 进行查看，下面我们就从 0 开始来实现上面的 Demo 效果。
 
 :::tip
 用户可以通过访问 [Hello 示例](https://www.aliwork.com/o/demo/hello) 查看真实效果，同时用户也可以访问 [自定义组件设计器](https://www.aliwork.com/developer/designer?formUuid=hello-v2) 查看具体实现。
@@ -12,7 +12,7 @@
 
 ### 步骤 1：创建宜搭应用
 
-首先我们需要在宜搭工作台中创建一个应用 (详见 [使用手册](https://www.yuque.com/yida/support/oncnoy))，如果您已有可用的应用则可以跳过本步，如下所示，我们创建一个名为 `demo 示例` 的空白应用：
+首先我们需要在宜搭工作台中创建一个应用 (详见 [使用手册](https://docs.aliwork.com/docs/yida_support/_1/oncnoy))，如果您已有可用的应用则可以跳过本步，如下所示，我们创建一个名为 `demo 示例` 的空白应用：
 
 ![](https://img.alicdn.com/imgextra/i3/O1CN016C26Ri1Nq0Mj6ivdu_!!6000000001620-2-tps-3582-2016.png_.webp)
 

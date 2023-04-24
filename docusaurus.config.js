@@ -6,6 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/okaidia');
 const navbar = require('./config/navbar');
 const footer = require('./config/footer');
 const plugin = require('./config/plugin');
+const customFields = require('./config/customFields');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -100,6 +101,7 @@ const config = {
     ],
     plugin,
   ],
+  customFields,
   deploymentBranch: 'docs',
 };
 

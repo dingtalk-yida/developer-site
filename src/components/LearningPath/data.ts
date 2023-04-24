@@ -24,7 +24,7 @@ export default [
         }, 
         {
           title: '关于钉钉宜搭', 
-          path: 'https://www.yuque.com/yida/support/ytzzua', 
+          path: 'https://docs.aliwork.com/docs/yida_support/ytzzua', 
         }, 
       ], 
     }]
