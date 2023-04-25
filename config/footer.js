@@ -54,6 +54,10 @@ module.exports = {
           to: 'https://www.aliwork.com/o/aliwork_partner',
           label: '生态与伙伴',
         },
+        {
+          to: 'https://www.aliyun.com/product/yida',
+          label: '宜搭阿里云官网',
+        },
       ],
     },
   ],
