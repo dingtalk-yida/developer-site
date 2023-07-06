@@ -9,7 +9,7 @@ module.exports = {
           label: '帮助中心',
         },
         {
-          to: 'https://www.aliwork.com/price.html',
+          to: 'https://www.aliwork.com/pricing',
           label: '版本',
         },
         {
@@ -47,7 +47,7 @@ module.exports = {
           label: '售前咨询',
         },
         {
-          to: 'https://alidocs.dingtalk.com/i/p/Y7kmbokZp3pgGLq2/docs/jkB7yl4ZK3vV6ow79d7DJPMX2O6oxqw0',
+          to: 'https://docs.aliwork.com/docs/yida_support/bp2rhh',
           label: '技术支持',
         },
         {
