@@ -3,12 +3,14 @@ title: 自定义组件
 order: 11
 ---
 
-:::info
-版本范围：付费版本  
-内测阶段:目前已开放[内测申请](https://www.aliwork.com/o/component) ,扫码进入交流群
-<img src ="https://img.alicdn.com/imgextra/i4/O1CN01vm6DKb1eCw3I5gYQ7_!!6000000003836-2-tps-960-1080.png_.webp" width="200" />
 
-使用群体：需要具备一定的开发基础，面向开发者/ISV 服务商/高级业务专家等
+| 能力 | 免费版 | 轻享版 | 专业版 | 专属版 |
+| :------- | :------- | :------- | :------- | :------- |
+| 自定义组件 | 不支持| 不支持 | 不支持 | 支持 |
+
+:::info
+适用群体：需要具备一定的开发基础，面向开发者/ISV服务商/高级业务专家等
+<img src ="https://img.alicdn.com/imgextra/i4/O1CN01vm6DKb1eCw3I5gYQ7_!!6000000003836-2-tps-960-1080.png_.webp" width="200" />
 :::
 
 ## 功能简介
