@@ -18,14 +18,12 @@ order: 4
 
 ### 步骤1：异步加载钉钉JSAPI资源
 由于宜搭页面中不保证 window.dd一定存在，所以保险起见，用户需要在页面的didMount生命周期中手动加载钉钉的JSAPI脚本，如下所示：
-![](https://img.alicdn.com/imgextra/i2/O1CN013fGTh51sdPZRnajVr_!!6000000005789-2-tps-742-367.png_.webp)
+![](https://img.alicdn.com/imgextra/i4/O1CN01fwWmNn287qEn2biWx_!!6000000007886-2-tps-1530-438.png_.webp)
 
 实现代码如下所示：
 ```js
 export function didMount() {
-  const script = document.createElement('script');
-  script.src = 'https://g.alicdn.com/dingding/dingtalk-jsapi/2.10.3/dingtalk.open.js';
-  document.body.appendChild(script);
+  this.utils.loadScript('https://g.alicdn.com/dingding/dingtalk-jsapi/2.10.3/dingtalk.open.js');
 }
 ```
 资源引入完成后，即可通过 window.dd 调用 JSAPI 中的相关功能。
