@@ -66,4 +66,4 @@ console.log(this.state.name);
 在动作面板中，开发者可以通过 JS 编程方式来对全局变量进行读写，如下所示：
 ![](https://img.alicdn.com/imgextra/i3/O1CN01JafCG01qNilM7wQjo_!!6000000005484-2-tps-3582-2018.png_.webp)
 
-是不是看上去和 React 的 API 一模一样？你也可以前往 [事件处理文档](guide/concept/event.md) 查看事件处理相关的使用说明。
+是不是看上去和 React 的 API 一模一样？你也可以前往 [事件处理文档](/docs/guide/concept/event.md) 查看事件处理相关的使用说明。

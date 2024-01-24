@@ -5,19 +5,19 @@ module.exports = {
       title: '快捷入口',
       items: [
         {
-          to: 'https://yuque.com/yida',
+          to: 'https://docs.aliwork.com/',
           label: '帮助中心',
         },
         {
-          to: 'https://www.aliwork.com/price.html',
+          to: 'https://www.aliwork.com/pricing',
           label: '版本',
         },
         {
-          to: 'https://www.yuque.com/yida/topics',
+          to: 'https://developer.aliyun.com/group/yida',
           label: '社区',
         },
         {
-          to: 'https://yida-developer.gitee.io/',
+          to: 'https://developers.aliwork.com/',
           label: '开发者中心',
         },
       ],
@@ -27,14 +27,14 @@ module.exports = {
       items: [
         {
           to: 'https://www.aliwork.com/home',
-          label: '关于钉钉宜搭',
+          label: '关于宜搭',
         },
         {
           to: 'https://www.aliwork.com/o/team',
-          label: '向团队推荐钉钉宜搭',
+          label: '向团队推荐宜搭',
         },
         {
-          to: 'https://www.yuque.com/yida/updates',
+          to: 'https://docs.aliwork.com/docs/yida_updates',
           label: '更新日志',
         },
       ],
@@ -47,11 +47,22 @@ module.exports = {
           label: '售前咨询',
         },
         {
-          to: 'https://www.yuque.com/yida/support/bp2rhh',
+          to: 'https://docs.aliwork.com/docs/yida_support/bp2rhh',
           label: '技术支持',
+        },
+        {
+          to: 'https://www.aliwork.com/o/aliwork_partner',
+          label: '生态与伙伴',
+        },
+        {
+          to: 'https://www.aliyun.com/product/yida',
+          label: '宜搭阿里云官网',
         },
       ],
     },
   ],
-  copyright: `Made with ❤️ by 钉钉宜搭 F2E Team`,
-}
+  logo: {
+    src: 'https://img.alicdn.com/imgextra/i2/O1CN01H3ajqP1bxF9chDQmu_!!6000000003531-55-tps-131-32.svg',
+    href: 'https://www.aliwork.com/',
+  },
+};

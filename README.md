@@ -4,7 +4,7 @@
 
 GitHub Pages: [https://dingtalk-yida.github.io/developer-site/](https://dingtalk-yida.github.io/developer-site/)
 
-国内镜像：[https://yida-developer.alibaba-inc.com/](https://yida-developer.alibaba-inc.com/)
+国内镜像：[https://yida-developer.gitee.io/](https://yida-developer.gitee.io/)
 
 ## 常用命令
 

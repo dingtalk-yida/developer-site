@@ -7,10 +7,6 @@ export default [
       title: '产品简介', 
       children: [
         {
-          title: '钉钉宜搭介绍', 
-          path: 'https://www.yuque.com/yida/support/ytzzua', 
-        }, 
-        {
           title: '开发者中心介绍', 
           path: '/docs/guide/about', 
         }, 
@@ -25,6 +21,10 @@ export default [
         {
           title: '设计器功能介绍', 
           path: '/docs/guide/designer', 
+        }, 
+        {
+          title: '关于钉钉宜搭', 
+          path: 'https://docs.aliwork.com/docs/yida_support/ytzzua', 
         }, 
       ], 
     }]
@@ -57,6 +57,15 @@ export default [
           title: '自定义样式', 
           path: '/docs/guide/concept/style'
         }, {
+          title: '表单校验', 
+          path: '/docs/guide/concept/validation'
+        }, {
+          title: '集成&自动化 - 连接器', 
+          path: '/docs/guide/concept/connector'
+        }, {
+          title: '自定义组件', 
+          path: 'docs/guide/concept/customComponent'
+        }, {
           title: '调试', 
           path: '/docs/guide/concept/debug'
         }]
@@ -64,13 +73,35 @@ export default [
       {
         title: 'API 文档', 
         children: [{
-          title: '前端 API', 
-          path: '/docs/guide/api'
+          title: '概述', 
+          path: '/docs/api/about'
         }, {
-          title: '远程开放 API', 
-          path: '/docs/guide/openAPI'
+          title: '宜搭JS-API', 
+          path: '/docs/api/yidaAPI'
+        }, {
+          title: '跨应用数据源', 
+          path: '/docs/api/openAPI'
+        }, {
+          title: '钉钉JS-API', 
+          path: '/docs/api/dingAPI'
+        }, {
+          title: '服务端开放API', 
+          path: '/docs/api/serverAPI'
         }]
       }, 
+      {
+        title: '示例体验中心',
+        children: [{
+          title: '自定义数据管理页',
+          path: 'https://www.aliwork.com/o/coc?from=developers_index&tplUuid=TPL_QQL3XOV4R4XKHNL5RCU7',
+        },{
+          title: '查看/创建钉钉日程',
+          path: 'https://www.aliwork.com/o/coc?from=developers_index&tplUuid=TPL_WMNNKBR5RLR68EMSI6W2',
+        },{
+          title: '更多',
+          path: 'https://www.aliwork.com/o/coc?from=developers_index_more',
+        }]
+      },
       {
         title: '高阶教程', 
         children: [{
@@ -284,9 +315,13 @@ export default [
       path: '/docs/guide/FAQ/q2', 
       width: '25%', 
     }, {
-      title: '调用钉钉 JS API', 
+      title: '导入HAR包', 
       path: '/docs/guide/FAQ/q3', 
       width: '25%', 
+    }, {
+      title: '打通宜搭数据和三方系统数据',
+      path: '/docs/guide/FAQ/q4',
+      width: '25%'
     }]
   }
 ];

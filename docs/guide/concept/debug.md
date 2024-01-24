@@ -1,6 +1,6 @@
 ---
 title: 调试
-order: 10
+order: 15
 ---
 # 调试
 在自定义页面搭建过程中调试非常重要，宜搭平台在自定义页面搭建过程中提供以下调试方式：
@@ -14,70 +14,41 @@ order: 10
 ![](https://img.alicdn.com/imgextra/i1/O1CN01yyRtgc1FdAKbpk52T_!!6000000000509-2-tps-3582-2012.png_.webp)
 
 
-## 开启 schema 工作台
-在宜搭表单设计器的左下角隐藏着开启 schema 工作台入口的按钮，我们可以在 schema 工作台中通过导入 schema 来快速生成页面；同时也支持用户在工作台内编辑 schema，通过修改 schema 来快速定义表单定义。
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN01hjzzpf299xYxgp7pn_!!6000000008026-2-tps-2824-1544.png_.webp)
+## 在浏览器控制台输入 cmd/ctrl + p，输入 page.js，直接添加断点调试
+![](https://img.alicdn.com/imgextra/i3/O1CN01giXDwN1KgRGdcPB53_!!6000000001193-2-tps-5116-1040.png_.webp)
+
+![](https://img.alicdn.com/imgextra/i1/O1CN013Xe57e1YO1yK1ZSzK_!!6000000003048-2-tps-5112-1044.png_.webp)
+
+## 打开自助调试面板
+开发者也可以在页面的URL中增加一个```__showDevtools```参数，开启调试面板（[自助拼接链接](https://demo.aliwork.com/o/debug_by_self?__showDevtools=true)），例如：[https://www.aliwork.com/bench/feedback?__showDevtools](https://www.aliwork.com/bench/feedback?__showDevtools)。
+
+![](https://img.alicdn.com/imgextra/i4/O1CN01FeqWe01K3VaGYsziL_!!6000000001108-2-tps-1704-876.png_.webp)
+
+通过调试面板，开发者可以进行以下操作：
+* 查看数据源变量；
+* 查看表单数据；
+* 查看错误请求；
+* 上报错误日志；
+
+最关键的是调试面板让移动端调试变得非常方便。
+<img src="https://img.alicdn.com/imgextra/i1/O1CN01AbbW3t1CHEWgEdqz1_!!6000000000055-2-tps-296-640.png_.webp" width="300"/>
+
+## 开启 schema 工作台(schema 导入/导出)
+在宜搭表单设计器的左下角隐藏着开启 schema 工作台入口的按钮，我们可以在 schema 工作台中通过导入 schema 来快速生成页面；同时也支持用户在工作台内编辑 schema，通过修改 schema 来快速定义表单定义。用户可以直接在设计的链接的URL后面拼接```__debug```参数进行开启（[自助拼接链接](https://demo.aliwork.com/o/debug_by_self?__showDevtools=true)），如下所示：
+![](https://img.alicdn.com/imgextra/i2/O1CN01Zo997Z25vM6hrTuvy_!!6000000007588-2-tps-2878-1714.png_.webp)
 
 
-下述内容将为大家介绍开启 schema 工作台入口的方法，只需简单几步即可实现。
-​
-
-
-1. 安装浏览器插件——tampermonkey（油猴）
-
-安装地址：[https://www.tampermonkey.net/](https://www.tampermonkey.net/)
-![image.png](https://img.alicdn.com/imgextra/i3/O1CN01Xos7mS1eUnUeGNHsD_!!6000000003875-2-tps-2824-1548.png._webp)
-
-
-2. 访问插件 - 实用工具 ， 导入<a href="/file/schemaButton.zip" target="_blank">此文件</a>
-```json
-{
-  "created_by": "Tampermonkey", 
-  "version": "1", 
-  "scripts": [{
-    "name": "设计器左下角 Edit", 
-    "options": {
-      "check_for_updates": false, 
-      "comment": null, 
-      "compat_foreach": false, 
-      "compat_metadata": false, 
-      "compat_prototypes": false, 
-      "compat_wrappedjsobject": false, 
-      "compatopts_for_requires": true, 
-      "noframes": null, 
-      "override": {
-        "merge_connects": true, 
-        "merge_excludes": true, 
-        "merge_includes": true, 
-        "merge_matches": true, 
-        "orig_connects": [], 
-        "orig_excludes": [], 
-        "orig_includes": [], 
-        "orig_matches": ["https://* **.aliwork.com/**"], 
-        "orig_noframes": null, 
-        "orig_run_at": "document-idle", 
-        "use_blockers": [], 
-        "use_connects": [], 
-        "use_excludes": [], 
-        "use_includes": [], 
-        "use_matches": []
-      }, 
-      "run_at": null
-    }, 
-    "storage": {
-      "data": {}, 
-      "ts": 1630307670709
-    }, 
-    "enabled": true, 
-    "position": 1, 
-    "uuid": "a931a304-23fd-4042-a52b-e236001f91e0", 
-    "source": "Ly8gPT1Vc2VyU2NyaXB0PT0KLy8gQG5hbWUgICAgICAgICDorr7orqHlmajlt6bkuIvop5IgRWRpdAovLyBAbmFtZXNwYWNlICAgIGh0dHA6Ly90YW1wZXJtb25rZXkubmV0LwovLyBAdmVyc2lvbiAgICAgIDAuMQovLyBAZGVzY3JpcHRpb24gIOiuvuiuoeWZqOW3puS4i+inkiBFZGl0Ci8vIEBhdXRob3IgICAgICAgWW91Ci8vIEBtYXRjaCAgICAgICAgaHR0cHM6Ly8qKiouYWxpd29yay5jb20vKioKLy8gQGdyYW50ICAgICAgICBub25lCi8vID09L1VzZXJTY3JpcHQ9PQoKKGZ1bmN0aW9uKCkgewogICAgJ3VzZSBzdHJpY3QnOwogICAgc2V0VGltZW91dCgoKT0+ewogICAgICAgIGlmIChkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcubGMtbGVmdC1hcmVhLWJvdHRvbSBkaXY6bGFzdC1jaGlsZCcpKSB7CiAgICAgICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5sYy1sZWZ0LWFyZWEtYm90dG9tIGRpdjpsYXN0LWNoaWxkJykuc3R5bGUuZGlzcGxheSA9ICdibG9jaycKICAgICAgICB9CiAgICB9LDIwMDApCn0pKCk7"
-  }]
-}
+## 移动端/端内通过 vConsole 进行调试
+打开需要调试页面的动作面板，在最上方直接输入下面代码。访问进行调试。
+注意调试完成后删除该代码。
+```javascript
+  const vConsole = 'https://g.alicdn.com/code/lib/vConsole/3.11.2/vconsole.min.js';
+  const js = document.createElement('script');
+  js.src = vConsole;
+  document.body.append(js);
+  js.onload = function() {
+    window.vConsole = new window.VConsole();
+  };
 ```
-
-![image.png](https://img.alicdn.com/imgextra/i1/O1CN01UKa3MH23BR8zLZbk7_!!6000000007217-2-tps-5116-1226.png_.webp)
-
-
-3. 安装成功后，重新访问宜搭表单设计器即可。
-
+![](https://img.alicdn.com/imgextra/i2/O1CN013NSTWL1azFO3tZm8u_!!6000000003400-2-tps-1420-866.png)
+![](https://img.alicdn.com/imgextra/i2/O1CN01l807TE1d6h3UsIyRr_!!6000000003687-2-tps-1676-1662.png)

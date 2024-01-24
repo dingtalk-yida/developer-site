@@ -1,9 +1,12 @@
-# 远程 OpenAPI
+---
+title: 跨应用数据源API
+order: 3
+---
 
-宜搭提供远程 API 调用的能力可以通过 HTTP 请求异步接口（详细使用请参考 [远程 API 文档](guide/concept/datasource.md)），于此同时宜搭平台还提供了一些内置的远程 API 用于进行宜搭数据的操作。
+宜搭提供远程 API 调用的能力可以通过 HTTP 请求异步接口（详细使用请参考 [远程 API 文档](/docs/guide/concept/datasource.md)），于此同时宜搭平台还提供了一些内置的远程 API 用于进行宜搭数据的操作。
 
 :::caution
-由于宜搭提供的 Open API 调用需要进行鉴权，因此在免登页面中无法使用远程 Open API。
+由于宜搭提供的 Open API 调用需要进行鉴权，因此在免登页面中无法直接使用远程 Open API，可以自行通过 FaaS 或者自建服务中转调用。
 :::
 
 ## API 调用说明
@@ -13,14 +16,13 @@
 宜搭提供多种应用维度的接口，在应用内可以通过以下方式来调用远程 API（支持跨应用调用），接口返回格式为：
 
 ```bash
-# 通常宜搭域名为：https://www.aliwork.com
 # 应用编码可以通过应用设置=》部署运维页面进行查看
 # 接口路径参考下面的文档，不同 API 提供不同的接口路径
-"${宜搭域名}/dingtalk/web/${应用编码}/${接口路径}"
+"/dingtalk/web/${应用编码}/${接口路径}"
 ```
 
 :::tip
-在自定义页面的数据源配置面板使用宜搭的远程 OpenAPI 可以直接使用相对路径，如下所示：
+在宜搭平台编写的接口请求代码请直接使用相对路径，如下所示，避免因企业二级域名修改导致需要调整代码。
 
 ```bash
 /dingtalk/web/APP_X1X2X3X4/v1/form/searchFormDatas.json
@@ -114,7 +116,7 @@ interface IResponse {
 
 | 参数名     | 描述                | 是否必填 | 示例                                         | 备注 |
 | :--------- | :------------------ | :------- | :------------------------------------------- | :--- |
-| formInstId | 要删除的表单数据 ID | 是       | FINST-NJYJZELVVYZRVGJHR7M6FJW3ESJN1P1TCNPCJ9 |      |
+| formInstId | 要查询的表单数据 ID | 是       | FINST-NJYJZELVVYZRVGJHR7M6FJW3ESJN1P1TCNPCJ9 |      |
 
 - 返回值示例：
 
@@ -521,8 +523,8 @@ interface IResponse {
 
 ### 流程实例更新
 
-- 接口路径： `/v1/process/getOperationRecords.json`
-- 请求类型： `GET`
+- 接口路径： `/v1/process/updateInstance.json`
+- 请求类型： `POST`
 - 参数：
 
 | 参数名             | 描述           | 是否必填 | 示例 | 备注                                                                  |

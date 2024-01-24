@@ -6,12 +6,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/okaidia');
 const navbar = require('./config/navbar');
 const footer = require('./config/footer');
 const plugin = require('./config/plugin');
+const customFields = require('./config/customFields');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '钉钉宜搭·开发者中心',
   tagline: '人人都是低代码应用开发工程师',
-  url: 'https://www.aliwork.com',
+  url: 'https://developers.aliwork.com',
   baseUrl: '/developer-site/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -31,6 +32,8 @@ const config = {
           sidebarPath: require.resolve('./config/sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/dingtalk-yida/developer-site/edit/master/',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         blog: false,
         theme: {
@@ -65,11 +68,30 @@ const config = {
           keywords:
             '宜搭,钉钉宜搭,开发者中心,aPaaS,低代码,可视化搭建,SaaS,可视化搭建,表单,在线表单,流程,流程审批,报表,数据收集,工作协同,流程引擎,数据分析,可视化图表展示小应用,小程序',
         },
+        {
+          property: 'og:type',
+          content: 'website'
+        },
+        {
+          property: 'og:site_name',
+          content: '宜搭'
+        },
+        {
+          property: 'og:title',
+          content: '钉钉宜搭·开发者中心'
+        },
+        {
+          property: 'og:description',
+          content: '让企业自建专属应用更简单，持续创新，一搭就行。'
+        },
+        {
+          property: 'og:image',
+          content: 'https://img.alicdn.com/tfs/TB1Ctzd3VP7gK0jSZFjXXc5aXXa-152-152.png'
+        }
       ],
     }),
   plugins: [
     'plugin-image-zoom',
-    'docusaurus-plugin-hotjar',
     'docusaurus-plugin-sass',
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
@@ -79,6 +101,7 @@ const config = {
     ],
     plugin,
   ],
+  customFields,
   deploymentBranch: 'docs',
 };
 

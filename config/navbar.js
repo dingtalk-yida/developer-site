@@ -6,17 +6,17 @@ module.exports = {
     srcDark: 'https://img.alicdn.com/imgextra/i4/O1CN01Xcsimv1KYeVd2eKND_!!6000000001176-55-tps-298-86.svg'
   },
   items: [
-    // {
-    //   to: '/docs/usage/changeLog',
-    //   position: 'right',
-    //   label: '使用指南',
-    //   activeBasePath: '/docs/usage/'
-    // },
     {
       to: '/docs/guide/about',
       position: 'left',
       label: '开发指南',
       activeBasePath: '/docs/guide/'
+    },
+    {
+      to: '/docs/api/about',
+      position: 'left',
+      label: 'API',
+      activeBasePath: '/docs/api/'
     },
     {
       to: '/docs/tutorial/todoMVC',
@@ -31,10 +31,15 @@ module.exports = {
       activeBasePath: '/docs/components/'
     },
     {
-      to: '/docs/examples/form',
+      to: 'https://www.aliwork.com/o/coc?from=developers_navbar',
       position: 'left',
-      label: '示例',
-      activeBasePath: '/docs/examples/'
+      label: '示例体验中心',
+      activeBasePath: '/'
+    },
+    {
+      to: 'https://developer.aliyun.com/group/yida',
+      position: 'left',
+      label: '社区'
     },
     {
       type: 'search',

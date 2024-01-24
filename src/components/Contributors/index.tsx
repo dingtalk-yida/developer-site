@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Tooltip } from 'antd';
 import Axios from 'axios';
-import 'antd/lib/Tooltip/style/index.css';
+import 'antd/lib/tooltip/style/index.css';
 import './index.scss';
 
 export interface IContributorsProps {
@@ -44,7 +44,7 @@ function Contributors({filePath, showTitle, size}: IContributorsProps) {
     <div className={`contributors ${size || 'medium'}`}>
       {showTitle && <h3>文档贡献者</h3>}
       {(list || []).map((item) => (
-        <Tooltip title={`${item.username}`}>
+        <Tooltip title={`${item.username}`} key={item.username}>
           <a
             className="avatar"
             href={`https://github.com/${item.username}`}

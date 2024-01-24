@@ -104,18 +104,13 @@ export function fetchData() {
 ```
 
 ### this.reloadDataSource()
-重新请求所有自动加载设置为 true 的远程 API，该方法也返回一个 Promise。
+重新请求所有自动加载设置为 true 的远程 API。
 
 示例：
 ```js
 export function reload() {
-  // 重新请求所有初始请求，在请求成功后弹框提醒
-  this.reloadDataSource().then(res => {
-    this.utils.toast({
-      type: 'success', 
-      title: '刷新成功！'
-    })；
-  });
+  // 重新请求所有初始的数据源请求
+  this.reloadDataSource();
 }
 
 ```
@@ -193,6 +188,6 @@ export function onDelete(rowData) {
 ![](https://img.alicdn.com/imgextra/i2/O1CN01D3pi3y23c07BVq93d_!!6000000007275-2-tps-3582-1278.png_.webp)
 
 :::tip
-上面的例子中用到了几个宜搭平台提供的开放接口，用于进行数据的查询及删除操作，更多宜搭开放接口可以查看 [OpenAPI 文档](guide/openAPI.md)。
+上面的例子中用到了几个宜搭平台提供的开放接口，用于进行数据的查询及删除操作，更多宜搭开放接口可以查看 [OpenAPI 文档](/docs/api/openAPI)。
 
 :::

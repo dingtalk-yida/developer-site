@@ -13,21 +13,26 @@ order: 3
 * 通过 onResize 方法实时输出当前页面的宽度；
 * 当页面卸载前取消 document 的 reisze 事件监听；
 
-![](https://img.alicdn.com/imgextra/i1/O1CN0193Qe721caAuWkm9NA_!!6000000003616-2-tps-3582-2018.png_.webp)
+![](https://img.alicdn.com/imgextra/i2/O1CN0158G3zW1pHTvkDXiGU_!!6000000005335-2-tps-745-463.png_.webp)
 
 相关代码如下所示：
 ```js
 export function didMount() {
-  document.addEventListener('resize', this.onResize);
+  console.log(`「页面 JS」：当前页面地址 ${location.href}`);
+
+  window.addEventListener('resize', this.onResize);
 }
 
 export function willUnmount() {
-  document.removeEventListener('resize', this.onResize);
+  window.removeEventListener('resize', this.onResize);
+
 }
 
 export function onResize() {
   const width = document.documentElement.clientWidth;
-  console.log( `current width: ${width}` );
+  console.log(`current width: ${width}`);
 }
-
 ```
+
+## 注意事项
+![](https://img.alicdn.com/imgextra/i1/O1CN01D5xS391hZKHQzw1z2_!!6000000004291-2-tps-932-486.png_.webp)

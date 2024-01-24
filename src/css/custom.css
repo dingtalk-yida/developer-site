@@ -36,6 +36,18 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+html[mode='simple'] #__docusaurus>.navbar {
+  display: none;
+}
+
+html[mode='simple'] .theme-doc-breadcrumbs {
+  display: none;
+}
+
+html[mode='simple'] footer {
+  display: none;
+}
+
 .navbar__logo,
 .navbar__search {
   margin-right: 2rem;
@@ -59,7 +71,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .hero__title{
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   background: -webkit-linear-gradient(315deg,#0089ff 25%,#30e724);
   background-clip: text;
   -webkit-background-clip: text;
@@ -85,4 +97,8 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .markdown img {
   box-shadow: 9px 8px 20px 0px rgb(0 0 0 / 15%);
+}
+
+.homepage-content .contributors {
+  padding: 0 100px;
 }
