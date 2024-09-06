@@ -31,6 +31,13 @@ export function sendPV(location): void {
     if (window.AES.getConfig('page_id')) {
       window.AESPluginPV && window.AESPluginPV.sendLeave();
     }
+    const params = new URLSearchParams(location.search);
+    const query = params.get('search');
+    if (query) {
+      window.AES.setConfig({
+        dim1: query.length,
+      });
+    }
     // 修改PageId并发送PV埋点
     window.AES.setConfig({
       page_id: pageId,
