@@ -200,6 +200,8 @@ interface IResponse {
 
 ### 获取表单定义
 
+> 本接口将于2024年12月1日进行升级，升级后的接口将不再支持普通用户使用，只有管理员才支持调用。
+
 - 接口： `/v1/form/getFormComponentDefinationList.json`
 - 请求类型： `GET`
 - 参数：
