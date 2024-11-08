@@ -115,6 +115,16 @@ function Feedback() {
             宜搭社区
           </a>
           &nbsp; 交流。
+          如需视频学习，欢迎关注&nbsp;
+          <a
+            onClick={() => {
+              sendAESEvent('feedback', 'bilibili');
+              window.open('https://space.bilibili.com/1668554549?spm_id_from=333.1007.0.0');
+            }}
+          >
+             低代码修炼手册
+          </a>
+          &nbsp; 学习。
         </div>
       </div>
     </Affix>
