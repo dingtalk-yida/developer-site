@@ -94,7 +94,7 @@ const config = {
     'plugin-image-zoom',
     'docusaurus-plugin-sass',
     [
-      require.resolve('@ali/yida-docusaurus-search-local'),
+      require.resolve('@easyops-cn/docusaurus-search-local'),
       {
         hashed: true,
         language: ['zh', 'en'],
