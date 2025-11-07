@@ -48,7 +48,7 @@ access_token 相当于是身份凭证。调用接口时，通过 access_token �
 | :------- | :------- | :------- | :------- | :------- |
 | [查询表单实例数据](https://open.dingtalk.com/document/orgapp/api-searchformdatas-v2)  | 支持 | 支持 | 暂不支持 | 宜搭表单数据读权限 | 
 | [保存表单数据](https://open.dingtalk.com/document/orgapp/api-saveformdata-v2) | 支持 | 支持 | 暂不支持 | 宜搭表单数据写权限 | 
-| [更新表单数据](hhttps://open.dingtalk.com/document/orgapp/api-updateformdata-v2) | 支持 | 支持 | 暂不支持 | 宜搭表单数据写权限 | 
+| [更新表单数据](https://open.dingtalk.com/document/orgapp/api-updateformdata-v2) | 支持 | 支持 | 暂不支持 | 宜搭表单数据写权限 | 
 | [查询表单数据](https://open.dingtalk.com/document/orgapp/api-getformdatabyid-v2) | 支持 | 支持 | 暂不支持 | 宜搭表单数据读权限 | 
 | [获取员工组件的值](https://open.dingtalk.com/document/orgapp/gets-the-value-of-the-employee-component) | 支持 | 支持 | 暂不支持 | 宜搭表单数据读权限 | 
 | [获取表单组件定义列表](https://open.dingtalk.com/document/orgapp/get-a-list-of-form-component-definitions) | 支持 | 支持 | 暂不支持 | 宜搭表单数据读权限 | 
