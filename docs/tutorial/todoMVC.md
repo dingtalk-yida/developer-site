@@ -398,7 +398,7 @@ export function getTodoData() {
 
 ### 步骤 2：使用远程 API，实现任务的增删改查
 
-有了存储任务数据的地方，我们就需要在 TodoMVC 中创建异步 API 用户实现任务的增删改查，宜搭设计器提供了远程 API 配置用于请求远程 http 接口（详见 [远程 API 文档](/docs/guide/concept/datasource.md)），同时宜搭也提供了常用的 OpenAPI 接口来实现数据的基本操作（详见 [OpenAPI 文档](/docs/api/openAPI)），我们在搭建页面中创建以下远程 API 配置：
+有了存储任务数据的地方，我们就需要在 TodoMVC 中创建异步 API 用户实现任务的增删改查，宜搭设计器提供了远程 API 配置用于请求远程 http 接口（详见 [远程 API 文档](/docs/guide/concept/dataSource.md)），同时宜搭也提供了常用的 OpenAPI 接口来实现数据的基本操作（详见 [OpenAPI 文档](/docs/api/openAPI)），我们在搭建页面中创建以下远程 API 配置：
 ![](https://img.alicdn.com/imgextra/i2/O1CN01Ak0sVG22zzEpdzInA_!!6000000007192-2-tps-3582-1904.png_.webp)
 
 #### todoList

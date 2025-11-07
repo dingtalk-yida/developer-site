@@ -91,7 +91,7 @@ export function setStateValue() {
 ```
 
 ## 远程数据 API
-宜搭支持配置远程数据源，并提供通过 js 触发远程数据源调用的 API（具体使用参考 [远程 API 文档](/docs/guide/concept/datasource.md)）。
+宜搭支持配置远程数据源，并提供通过 js 触发远程数据源调用的 API（具体使用参考 [远程 API 文档](/docs/guide/concept/dataSource.md)）。
 
 ### this.dataSourceMap.xxx.load()
 手动调用指定的远程 API，xxx 为在数据源面板设置的数据源名称，同时支持传入请求参数，API 调用传入的请求参数将于数据源配置中的请求参数进行 merge 并发送请求，load 方法返回一个 Promise。
