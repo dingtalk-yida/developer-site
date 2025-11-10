@@ -111,7 +111,7 @@ export function fetchData() {
     this.utils.toast({
       type: 'error', 
       title: '请求失败！'
-    })；
+    });
   });
 }
 ```
@@ -127,7 +127,7 @@ export function reload() {
     this.utils.toast({
       type: 'success', 
       title: '刷新成功！'
-    })；
+    });
   });
 }
 
